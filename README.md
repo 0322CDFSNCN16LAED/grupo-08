@@ -30,4 +30,4 @@ Con el desarrollo del e-commerce se apunta a atender la demanda de un público m
 Estamos desarrollando la oferta en un mercado donde es primordial que se generen constantemente nuevos diseños y no sean fácilmente reemplazables ni perdurables en el tiempo como oferta en el mercado. El objetivo es que los productos estén claramente caracterizados por su impronta. De forma adicional, si bien los productos tendrán diseños innovadores, también existe la oportunidad de la personalización a gusto del cliente con el fin  de lograr crear un vínculo más cercano con ellos y generar que “formen” parte del diseño. 
 La posibilidad de la personalización influye positivamente en la idea de que los productos que estamos comercializando emanan calidez y un sentido de cercanía a los sentimientos del comprador. Será sumamente importante que el cliente pueda verse positivamente involucrado en la compra de nuestros productos y que posea una gran experiencia de compra en nuestras tiendas virtuales
 
-●	Una breve descripción de los integrantes del equipo.
+Una breve descripción de los integrantes del equipo.
