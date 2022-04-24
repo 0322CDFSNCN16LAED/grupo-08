@@ -1,6 +1,6 @@
 # grupo-08
 
-Una breve descripción de la oferta de productos y/o servicios ofrecidos por su sitio. También agregar una breve descripción del público al que apunta el sitio.
+2.1) Una breve descripción de la oferta de productos y/o servicios ofrecidos por su sitio. También agregar una breve descripción del público al que apunta el sitio.
 
 El sitio web que se presenta se trata de un sitio multimarca de venta de muebles y artículos de decoración centrado en lo visual, combinando la experiencia del showroom con la venta por catálogo.
 
@@ -30,6 +30,27 @@ Con el desarrollo del e-commerce se apunta a atender la demanda de un público m
 Estamos desarrollando la oferta en un mercado donde es primordial que se generen constantemente nuevos diseños y no sean fácilmente reemplazables ni perdurables en el tiempo como oferta en el mercado. El objetivo es que los productos estén claramente caracterizados por su impronta. De forma adicional, si bien los productos tendrán diseños innovadores, también existe la oportunidad de la personalización a gusto del cliente con el fin  de lograr crear un vínculo más cercano con ellos y generar que “formen” parte del diseño. 
 La posibilidad de la personalización influye positivamente en la idea de que los productos que estamos comercializando emanan calidez y un sentido de cercanía a los sentimientos del comprador. Será sumamente importante que el cliente pueda verse positivamente involucrado en la compra de nuestros productos y que posea una gran experiencia de compra en nuestras tiendas virtuales
 
-Una breve descripción de los integrantes del equipo.
+2.2) Una breve descripción de los integrantes del equipo
 
-![image](https://user-images.githubusercontent.com/102631713/164955805-5d220d61-0893-4b00-8c62-643808d9cc0b.png) Mi nombre es Camila Mendieta, soy Ing Civil. Me gustan las actividades recreativas y al aire libre, tambien pasear y pasar tiempo con mis amigos y familia. Y me gustan con locura los perros 
+https://github.com/Mariana-Candia
+https://github.com/nahuelblanco
+https://github.com/gaspar-costa-calvo
+https://github.com/parnorma
+https://github.com/CAMIMENDIETA
+
+
+3) Buscar inspiración en referentes del mercado
+    - https://www.elcorteingles.es/catalogos-digitales/decora/
+Tiene un catálogo online donde en las fotos de las ambientaciones tiene hipervínculos a cada producto (paginas 10/11 por ejemplo)
+
+    - https://www.modaoperandi.com/
+Nos gusta por su estética y por las notas editoriales que hacen
+
+    - https://www.zarahome.com/us/stories/at-home-with-mimi-thorisson-c1020429841.html
+Nos gusta por su estética y tambien por las editoriales donde incluyen productos a la venta
+
+    - https://www.sherwin-williams.com/visualizer#/active/default
+Esta pinturería tiene un servicio online donde podes subir la foto de un ambiente de tu casa, marcar la pared que queres pintar y elegir un color del catálogo. De este modo, puedes visualizar cómo quedaría tu casa de distintos colores. Nosotros queremos ofrecer un servicio similar
+
+    - https://fontenlastore.com/?utm_source=google&utm_medium=search&utm_campaign=brand&gclid=CjwKCAjwx46TBhBhEiwArA_DjPHAcprd78gbxHZnlukhimQpCeNyYtQIVys2WZ9vp40BCNWyBkDDixoCblcQAvD_BwE
+Corresponde a una reconocida página de muebles de interior, con un diseño realmente interesante. Específicamente para tomar como guía al momento de potencialmente generar una versión “dark mode” de nuestra página.
