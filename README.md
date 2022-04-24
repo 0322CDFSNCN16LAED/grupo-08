@@ -38,7 +38,6 @@ https://github.com/gaspar-costa-calvo
 https://github.com/parnorma
 https://github.com/CAMIMENDIETA
 
-
 3) Buscar inspiración en referentes del mercado
     - https://www.elcorteingles.es/catalogos-digitales/decora/
 Tiene un catálogo online donde en las fotos de las ambientaciones tiene hipervínculos a cada producto (paginas 10/11 por ejemplo)
