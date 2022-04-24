@@ -31,3 +31,5 @@ Estamos desarrollando la oferta en un mercado donde es primordial que se generen
 La posibilidad de la personalización influye positivamente en la idea de que los productos que estamos comercializando emanan calidez y un sentido de cercanía a los sentimientos del comprador. Será sumamente importante que el cliente pueda verse positivamente involucrado en la compra de nuestros productos y que posea una gran experiencia de compra en nuestras tiendas virtuales
 
 Una breve descripción de los integrantes del equipo.
+
+![image](https://user-images.githubusercontent.com/102631713/164955805-5d220d61-0893-4b00-8c62-643808d9cc0b.png)
