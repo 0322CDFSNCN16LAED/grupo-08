@@ -1,6 +1,6 @@
 # grupo-08
 
-●	Una breve descripción de la oferta de productos y/o servicios ofrecidos por su sitio. También agregar una breve descripción del público al que apunta el sitio.
+Una breve descripción de la oferta de productos y/o servicios ofrecidos por su sitio. También agregar una breve descripción del público al que apunta el sitio.
 
 El sitio web que se presenta se trata de un sitio multimarca de venta de muebles y artículos de decoración centrado en lo visual, combinando la experiencia del showroom con la venta por catálogo.
 
