@@ -32,4 +32,4 @@ La posibilidad de la personalización influye positivamente en la idea de que lo
 
 Una breve descripción de los integrantes del equipo.
 
-![image](https://user-images.githubusercontent.com/102631713/164955805-5d220d61-0893-4b00-8c62-643808d9cc0b.png)
+![image](https://user-images.githubusercontent.com/102631713/164955805-5d220d61-0893-4b00-8c62-643808d9cc0b.png) Mi nombre es Camila Mendieta, soy Ing Civil. Me gustan las actividades recreativas y al aire libre, tambien pasear y pasar tiempo con mis amigos y familia. Y me gustan con locura los perros 
