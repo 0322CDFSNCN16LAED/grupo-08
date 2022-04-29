@@ -33,6 +33,8 @@ La posibilidad de la personalización influye positivamente en la idea de que lo
 2.2) Una breve descripción de los integrantes del equipo
 
 https://github.com/Mariana-Candia
+Mi nombre es Mariana, soy Licenciada (y profe) en Ciencia Política de la UBA y estoy dando mis primeros pasos en el mundo de la programación.
+
 https://github.com/nahuelblanco
 https://github.com/gaspar-costa-calvo
 https://github.com/parnorma
