@@ -37,7 +37,9 @@ Mi nombre es Mariana, soy Licenciada (y profe) en Ciencia Política de la UBA y 
 
 https://github.com/nahuelblanco
 https://github.com/gaspar-costa-calvo
-https://github.com/parnorma
+https://github.com/parnorma 
+Mi nombre es Norma, desarrolle hace muchos años y ahora estoy retomando. Trabajo como funcional. Me gusta aprender cosas nuevas, compartir con mi familia y amigos. Soy de Venezuela, migre hace 4 años con mi hija y esposo.
+
 https://github.com/CAMIMENDIETA
 
 3) Buscar inspiración en referentes del mercado
@@ -55,3 +57,6 @@ Esta pinturería tiene un servicio online donde podes subir la foto de un ambien
 
     - https://fontenlastore.com/?utm_source=google&utm_medium=search&utm_campaign=brand&gclid=CjwKCAjwx46TBhBhEiwArA_DjPHAcprd78gbxHZnlukhimQpCeNyYtQIVys2WZ9vp40BCNWyBkDDixoCblcQAvD_BwE
 Corresponde a una reconocida página de muebles de interior, con un diseño realmente interesante. Específicamente para tomar como guía al momento de potencialmente generar una versión “dark mode” de nuestra página.
+
+    - https://www.decohome.com.ar/nuestros-locales/ 
+Nos gusta porque podríamos incluir una sección de nuestros locales e integrarlo con Google Maps, para que los clientes nos puedan ubicar con mayor facilidad.
