@@ -35,8 +35,12 @@ La posibilidad de la personalización influye positivamente en la idea de que lo
 https://github.com/Mariana-Candia
 Mi nombre es Mariana, soy Licenciada (y profe) en Ciencia Política de la UBA y estoy dando mis primeros pasos en el mundo de la programación.
 
-https://github.com/nahuelblanco
+https://github.com/nahuelblanco  
+Descripcion
+
 https://github.com/gaspar-costa-calvo
+Descripción
+
 https://github.com/parnorma 
 Mi nombre es Norma, desarrolle hace muchos años y ahora estoy retomando. Trabajo como funcional. Me gusta aprender cosas nuevas, compartir con mi familia y amigos. Soy de Venezuela, migre hace 4 años con mi hija y esposo.
 
