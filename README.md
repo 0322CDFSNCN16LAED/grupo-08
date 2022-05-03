@@ -45,6 +45,7 @@ https://github.com/parnorma
 Mi nombre es Norma, desarrolle hace muchos años y ahora estoy retomando. Trabajo como funcional. Me gusta aprender cosas nuevas, compartir con mi familia y amigos. Soy de Venezuela, migre hace 4 años con mi hija y esposo.
 
 https://github.com/CAMIMENDIETA
+Mi nombre es Camila Mendieta, soy Ing Civil asi que estoy teniendo este desafio nuevo que es la programacion. Me gusta salir, hacer cosas al aire libre y compartir tiempo con mis amigos y familia.
 
 3) Buscar inspiración en referentes del mercado
     - https://www.elcorteingles.es/catalogos-digitales/decora/
