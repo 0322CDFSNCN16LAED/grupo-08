@@ -36,7 +36,7 @@ https://github.com/Mariana-Candia
 Mi nombre es Mariana, soy Licenciada (y profe) en Ciencia Política de la UBA y estoy dando mis primeros pasos en el mundo de la programación.
 
 https://github.com/nahuelblanco  
-Descripcion
+Mi nombre es Nahuel Blanco, soy licenciado en administración de la UBA y desde que comencé mi carrera profesional me interesó adquirir conocimientos en sistemas. Realicé cursos de data analytics y ahora quiero adquirir conocimientos de programación. Disfruto de estar en familia y con amigos y soy hincha de San Lorenzo.
 
 https://github.com/gaspar-costa-calvo
 Descripción
