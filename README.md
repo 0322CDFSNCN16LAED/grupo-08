@@ -39,7 +39,7 @@ https://github.com/nahuelblanco
 Mi nombre es Nahuel Blanco, soy licenciado en administración de la UBA y desde que comencé mi carrera profesional me interesó adquirir conocimientos en sistemas. Realicé cursos de data analytics y ahora quiero adquirir conocimientos de programación. Disfruto de estar en familia y con amigos y soy hincha de San Lorenzo.
 
 https://github.com/gaspar-costa-calvo
-Descripción
+Mi nombre es Gaspar Costa Calvo, soy estudiante de musica en el conservatorio Juan Jose Hernandez. Tuve un leve contacto con el ambito de la programación en el 2018 y 2019, hice unos cursos introductorios de python y machine learning.  
 
 https://github.com/parnorma 
 Mi nombre es Norma, desarrolle hace muchos años y ahora estoy retomando. Trabajo como funcional. Me gusta aprender cosas nuevas, compartir con mi familia y amigos. Soy de Venezuela, migre hace 4 años con mi hija y esposo.
