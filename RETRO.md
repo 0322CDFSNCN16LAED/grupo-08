@@ -17,3 +17,6 @@ Starfish
 
 5) More Of (Mas de)
     - Documentación, comentarios, avances con respecto a las tareas que se esta desarrollando(USO DE TRELLO).
+
+
+LINK a TRELLO: https://trello.com/b/rPbpjrCI/trabajo-integrador-grupo-8
