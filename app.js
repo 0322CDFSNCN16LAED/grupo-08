@@ -5,7 +5,7 @@ const app = express();
 const PORT = 3005;
 
 app.listen(PORT, () => {
-    console.log("Servidor activo "+PORT);
+    console.log("Servidor activo en puerto "+PORT);
 });
 
 app.use(express.static(path.join(__dirname,"public")));
