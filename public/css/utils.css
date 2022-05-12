@@ -1,0 +1,22 @@
+.m-center {
+    margin: 0 auto;
+}
+.p-5{
+    padding: 1% 0;    
+}
+.text-align-c{
+   text-align: center;
+}
+.font-small{
+    font-size: 10px;
+}
+.font-medium{
+    font-size: 14px;
+}
+.font-large{
+    font-size: 14px;
+}
+.font-xlarge{
+    font-size: 18px;
+}
+

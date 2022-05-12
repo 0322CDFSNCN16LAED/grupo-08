@@ -1,0 +1,76 @@
+body {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 12px;
+}
+.bg-ligth-gray{
+    background-color: #ebebeb;
+}
+.bg-gray{
+    background-color: #b7bdc2;
+}
+.bg-grullo{
+    background-color:#ac918c;
+}
+.bg-white{
+    background-color: white;
+}
+.bg-black{
+    background-color: black;
+}
+.bg-orange{
+    background-color: orange;
+}
+.font-dark-grey{
+    color: #666;
+}
+.font-black{
+    color:black;
+}
+.font-white{
+    color:white;
+}
+.font-yellow{
+    color: #FFCF3C;
+}
+.font-red{
+    color: red;
+}
+
+hr{
+    height: 10px;
+    background-color: #ac918c;
+    border: 0px;
+}
+.header-flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.burger-menu{
+    width: 20%;
+    padding-left: 1%;
+}
+.logo{
+    width: 60%;
+}
+.header-iconos{
+    width: 20%;
+    text-align: right;
+    padding-right: 2%;
+}
+.burger-menu i{ 
+    padding: 3%;
+    border-radius: 5px;
+    color: white;
+    background-color: black;
+}
+.section-categorias{
+    width: 100%;
+}
+#categorias{
+    width: 100%;
+    text-align: center;
+}
+
+
