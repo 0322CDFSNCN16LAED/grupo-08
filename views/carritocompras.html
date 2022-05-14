@@ -14,13 +14,11 @@
     <!-- CSS -->
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/utils.css" />
-
     <link rel="stylesheet" href="/css/theme.css" />
     <!--CSS media queries-->
 </head>
 <body class="bg-ligth-gray">
     <header>
-        <hr>
         <div class="bg-black font-white font-small text-align-c">
             <p class="p-5 ">Pagá en hasta 12 cuotas sin interés 
                 <i class="far fa-credit-card font-yellow"></i>
@@ -46,9 +44,53 @@
         <section class="section-categorias" >
             <select name="" id="categorias">
                 <option value="">Categorías</option>
+                <option value="">Biblioteca</option>
+                <option value="">Racks</option>
+                <option value="">Mesitas de Luz</option>
+                <option value="">Sillones</option>
+                <option value="">Mesas</option>
+                <option value="">Sillas</option>
             </select>
         </section> 
         <section>
+            <h2 class = "pd-5">  Carrito de compras </h2>
+            <div class = "p-lateral-8 flex-box"> 
+                <div >  
+                    <p class ="p-2"> Bibleoteca </p>
+                    <img src="/images/mueble.PNG" alt="Deco Home" class="articulos">
+                </div>
+                <div class = "text-img-carrito">
+                    <div class="p-8">
+                        <label > Estilo </label>
+                        <select name="Estilo">
+                            <option value="Nordico"> Nordico </option>
+                            <option value="Venecia"> Venecia </option>
+                            <option value="Roma"> Roma </option>
+                        </select>
+                    </div>
+                    <div class="p-8" >
+                        <label> Cantidad </label>
+                        <select name="Cantidad">
+                            <option value="1"> 1 </option>
+                            <option value="2"> 2 </option>
+                            <option value="3"> 3 </option>
+                            <option value="4"> 4 </option>
+                            <option value="5"> 5 </option>
+                        </select>
+                    </div>
+                    <div class="p-8">
+                        <h4> Caracteristicas del producto </h4>
+                            <p class = "text-medidas"> Ancho: 1 m </p>
+                            <p class = "text-medidas"> Alto: 2 m </p>
+                            <p class = "text-medidas"> Profundidad: 0.25 m </p>
+                    </div>
+                    <div class="p-8">
+                        <label> Es un regalo </label>
+                        <input  type = "radio">
+                    </div>
+                </div>    
+            </div>
+            <h3 class = "text-align-c p-2"> <i class="fas fa-angle-double-left"></i> Agregar al carrito y seguir comprando </h3>
             <p>Inicio -> Aca va el breadcrumb -> blabla </p>
         </section>
         <section>

@@ -2,7 +2,19 @@
     margin: 0 auto;
 }
 .p-5{
-    padding: 1% 0;    
+    padding: 1% 0;     
+}
+.p-8{
+    padding: 8%;    
+}
+.p-lateral-8{
+    padding: 0 8%
+}
+.pd-5{
+    padding: 5%
+}
+.p-2{
+    padding: 2%;     
 }
 .text-align-c{
    text-align: center;
@@ -27,3 +39,7 @@
 }
 .background-gris{
     background-color: #ac9593}
+
+.flex-box{
+    display: flex;
+}

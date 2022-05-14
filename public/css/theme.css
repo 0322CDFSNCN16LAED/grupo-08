@@ -96,8 +96,6 @@ hr{
     color: #798190;
     border: solid  green 2px;
 }
-
-
 .header-iconos{
     width: 20%;
     text-align: right;
@@ -123,4 +121,19 @@ footer{
     height: 100px;
     display: flex;
     justify-content: space-between;
+}
+
+.articulos{
+    width: 50%;
+    border: 1px solid rgb(0, 0, 0) 
+}
+
+.text-img-carrito{
+    flex-direction: row;
+    font-size: 12px;
+}
+
+.text-medidas{
+    font-size: 10px;
+    text-align: center;
 }
