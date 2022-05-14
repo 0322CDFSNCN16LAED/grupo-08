@@ -1,5 +1,8 @@
+*{
+    box-sizing: border-box;
+}
 body {
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 12px;
 }
 .bg-ligth-gray{
@@ -54,6 +57,47 @@ hr{
 .logo{
     width: 60%;
 }
+.paga-en-ctas{
+    color: #666;
+    background-color: #f3eeed;
+    border-top: solid 4px #d56b27;
+    height: 32px;
+    text-align: center;
+    padding: 5px;
+}
+
+.banner{
+    color: white;
+    background-color: #C44cb4 ;
+    width: 100vw;
+    height: 100px;
+    font-size: 20px;
+    text-align: center;
+    margin: auto;
+}
+.nuevos-ingresos{
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+    color: #798190;
+    border: solid red 2px;
+}
+.ofertas-descuentos{
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+    color: #798190;
+    border: solid blue 2px;
+}
+.mas-notas{
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+    color: #798190;
+    border: solid  green 2px;
+}
+
+
 .header-iconos{
     width: 20%;
     text-align: right;
@@ -62,8 +106,7 @@ hr{
 .burger-menu i{ 
     padding: 3%;
     border-radius: 5px;
-    color: white;
-    background-color: black;
+    color: #6666;
 }
 .section-categorias{
     width: 100%;
@@ -74,4 +117,10 @@ hr{
 }
 .bground-orange{
     background-color: #e9b170;
+}
+footer{
+    background-color: #C0B2A3;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
 }

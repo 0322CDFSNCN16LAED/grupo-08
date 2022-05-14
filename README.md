@@ -32,6 +32,9 @@ La posibilidad de la personalización influye positivamente en la idea de que lo
 
 2.2) Una breve descripción de los integrantes del equipo
 
+Para organizar nuestro trabajo, usamos Trello. Aqui el link a nuestro tablero:
+https://trello.com/b/rPbpjrCI/trabajo-integrador-grupo-8
+
 https://github.com/Mariana-Candia
 Mi nombre es Mariana, soy Licenciada (y profe) en Ciencia Política de la UBA y estoy dando mis primeros pasos en el mundo de la programación.
 
