@@ -18,5 +18,6 @@
   "homepage": "https://github.com/0322CDFSNCN16LAED/grupo-08#readme",
   "dependencies": {
     "express": "^4.18.1"
-  }
+  },
+  "keywords": []
 }

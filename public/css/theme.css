@@ -72,5 +72,6 @@ hr{
     width: 100%;
     text-align: center;
 }
-
-
+.bground-orange{
+    background-color: #e9b170;
+}
