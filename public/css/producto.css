@@ -33,27 +33,56 @@
     padding: 10px;
     display: flex;
     flex-wrap:nowrap;
+    box-shadow: 0px 0px 20px;
 }
 
 .share{
-    text-align: right;
+    text-align: center;
     width: 20%;
     font-size: 200px;
 }
 
+.articulos{
+    display: flex;
+    flex-wrap: wrap;
+    padding:0px;
+    border: none;
+    margin: 10px;
+}
+
 .precio{
-    font-size: 18px;
-    text-align: center;
+    font-size: 20px;
+    text-align: left;
     padding: 2px;
+    color: #C44cb4;
+    font-weight: bold;
 }
 
 .cuotas{
     font-size: 12px;
-    text-align: center;
+    text-align: left;
     font-weight: bold;
     padding: 2px;
+    margin: 5px;
 }
 
 .carrito{
     text-align: center;
+}
+
+.botones{
+    bottom: auto;
+    text-align: center;
+    size: 20px;
+    padding: 10px; 
+}
+
+.adicionales{
+    margin: 4px;
+    padding: 4px;
+}
+
+.highlighted{
+    text-transform: uppercase;
+    font-weight: bold;
 }
