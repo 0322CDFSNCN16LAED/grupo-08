@@ -1,0 +1,59 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+.estante{
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.punto-menu{
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.color-pm{
+    color:#C44cb4;
+}
+
+.producto{
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 10px;
+    display: flex;
+    flex-wrap:nowrap;
+}
+
+.share{
+    text-align: right;
+    width: 20%;
+    font-size: 200px;
+}
+
+.precio{
+    font-size: 18px;
+    text-align: center;
+    padding: 2px;
+}
+
+.cuotas{
+    font-size: 12px;
+    text-align: center;
+    font-weight: bold;
+    padding: 2px;
+}
+
+.carrito{
+    text-align: center;
+}
