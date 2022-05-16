@@ -37,9 +37,50 @@
 .w-50{
     width: 50%;
 }
+
+.w-80 {
+    width: 80%;
+}
+
 .background-gris{
     background-color: #ac9593}
 
 .flex-box{
     display: flex;
+}
+
+.inline-block {
+ display: inline-block;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.no-display {
+    display: none;
+}
+
+.flex-center {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.align-center {
+    align-items: center;
+    text-align: center;
+    align-self: center;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.no-wrap {
+    flex-wrap: nowrap;
 }

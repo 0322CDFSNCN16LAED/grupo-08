@@ -26,3 +26,7 @@ app.get('/carritocompras',(req,res)=>{
 app.get('/producto',(req,res)=>{
     res.sendFile(path.join(__dirname,"views/producto.html"));
 });
+
+app.get('/catalogo',(req,res)=>{
+    res.sendFile(path.join(__dirname,"views/catalogo.html"));
+});
