@@ -119,3 +119,7 @@
 .no-wrap {
   flex-wrap: nowrap;
 }
+
+.self-end {
+  align-self: flex-start;
+}
