@@ -1,97 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Deco Home</title>
     <!-- Fuentes  a usar -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600&family=Open+Sans:wght@300;500;700&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
     <!--ICONOS-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
     <!-- CSS -->
-    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/normalize.css" />
     <link rel="stylesheet" href="/css/utils.css" />
 
     <link rel="stylesheet" href="/css/theme.css" />
+    <link rel="stylesheet" href="/css/register.css" />
     <!--CSS media queries-->
-</head>
-<body class="bg-ligth-gray">
+  </head>
+  <body class="bg-ligth-gray">
     <header>
-        <hr>
-        <div class="bg-black font-white font-small text-align-c">
-            <p class="p-5 ">Pagá en hasta 12 cuotas sin interés 
-                <i class="far fa-credit-card font-yellow"></i>
-                y recibí los productos sin moverte de casa
-                <i class="fas fa-truck font-red"></i>
-            </p>
-        </div> 
-        <section class="bg-white header-flex" >
-            <div class="burger-menu font-xlarge">
-                <i class="fas fa-bars bg-light-blue font-gray" ></i>
-            </div>
-            <h1 class="logo text-align-c">
-                <img src="/images/logo2-2.jpg" alt="Deco Home" width="60%">
-            </h1>
-            <div class="header-iconos">
-                <i class="fas fa-search"></i>
-                <i class="fas fa-heart"></i>
-                <i class="fas fa-shopping-cart"></i>
-            </div>
-        </section>
+      <div class="paga-en-ctas">
+        <p>
+          <i class="far fa-credit-card"></i> Pagá en hasta 12 cuotas sin interés
+          y recibí los productos sin moverte de casa
+        </p>
+      </div>
+      <section class="bg-white header-flex">
+        <div class="burger-menu font-xlarge">
+          <i class="fas fa-bars bg-light-blue font-gray"></i>
+        </div>
+        <h1 class="logo text-align-c">
+          <img src="/images/logo3.png" alt="Deco Home" class="w-50" />
+        </h1>
+        <div class="header-iconos">
+          <i class="fas fa-search w-50"> </i>
+          <p>Iniciar Sesion</p>
+          <i class="fas fa-heart w-50"></i>
+          <i class="fas fa-shopping-cart w-50"></i>
+        </div>
+      </section>
     </header>
     <main>
-        <section class="section-categorias" >
-            <select name="" id="categorias">
-                <option value="">Categorías</option>
-            </select>
-        </section> 
-        <section>
-            <p>Inicio -> Aca va el breadcrumb -> blabla </p>
-        </section>
-        <section class="p-5">
-            <form action="/registerUser" method="post">
-                <p>
-                    <label for="nombre">Nombre</label>
-                    <input type="text" name="nombre" id="nombre" class="w-input-100">
-                </p>
-                <p>
-                    <label for="email">E-mail</label>
-                    <input type="email" name="email" id="email" class="w-input-100">
-                </p>
-                <p>
-                    <label for="tlf">Teléfono</label>
-                    <input type="tel" name="tlf" id="tlf" class="w-input-100">
-                </p>
-                <p>
-                    <label for="pass">Contraseña</label>
-                    <input type="password" name="pass" id="pass" class="w-input-100">
-                </p>
-                <p>
-                    <label for="pass">Repite tu Contraseña</label>
-                    <input type="rpassword" name="rpass" id="rpass" class="w-input-100">
-                </p>
-                <p class="flex-captcha">                   
-                    <input type="checkbox" name="captcha" id="captcha" class="captcha">
-                    <label for="pass" class="norobot">No soy un robot</label>
-                    <img src="/images/captcha.png" alt="" width="20%" class="img-captcha">
-                </p>
-            </form>
+      <section class="section-categorias">
+        <select name="" id="categorias">
+          <option value="">Categorías</option>
+        </select>
+      </section>
+      <section>
+        <p>Inicio -> Aca va el breadcrumb -> blabla</p>
+      </section>
+      <section class="p-5">
+        <form action="/registerUser" method="post">
+          <p>
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" id="nombre" class="w-input-100" />
+          </p>
+          <p>
+            <label for="email">E-mail</label>
+            <input type="email" name="email" id="email" class="w-input-100" />
+          </p>
+          <p>
+            <label for="tlf">Teléfono</label>
+            <input type="tel" name="tlf" id="tlf" class="w-input-100" />
+          </p>
+          <p>
+            <label for="pass">Contraseña</label>
+            <input type="password" name="pass" id="pass" class="w-input-100" />
+          </p>
+          <p>
+            <label for="pass">Repite tu Contraseña</label>
+            <input
+              type="rpassword"
+              name="rpass"
+              id="rpass"
+              class="w-input-100"
+            />
+          </p>
+          <p class="flex-captcha">
+            <input
+              type="checkbox"
+              name="captcha"
+              id="captcha"
+              class="captcha"
+            />
+            <label for="pass" class="norobot">No soy un robot</label>
+            <img
+              src="/images/captcha.png"
+              alt=""
+              width="20%"
+              class="img-captcha"
+            />
+          </p>
+        </form>
 
-            <p>Mensaje de beneficio de registrarse</p>
-            <p> Aca deben ir los inputs</p>
-            <p>Aca va no soy un robot</p>
-            <p>aca boton de crear cuenta</p>
-        </section>
-        <section>
-            <p>Inicia sesion</p>
-            <p>envio a todo el pais</p>
-        </section>
+        <p>Mensaje de beneficio de registrarse</p>
+        <p>Aca deben ir los inputs</p>
+        <p>Aca va no soy un robot</p>
+        <p>aca boton de crear cuenta</p>
+      </section>
+      <section>
+        <p>Inicia sesion</p>
+        <p>envio a todo el pais</p>
+      </section>
     </main>
     <footer>
-        <p>footer del body</p>
+      <p>footer del body</p>
     </footer>
-</body>
+  </body>
 </html>

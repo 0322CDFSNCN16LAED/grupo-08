@@ -1,27 +1,121 @@
+/*************************************************************************************/
+/* TAMAÑOS DE FUENTE                                                                 */
+/*************************************************************************************/
+.font-small {
+  font-size: 10px;
+}
+
+.font-medium {
+  font-size: 14px;
+}
+
+.font-large {
+  font-size: 14px;
+}
+
+.font-xlarge {
+  font-size: 18px;
+}
+/*************************************************************************************/
+/* MARGENES Y RELLENOS                                                               */
+/*************************************************************************************/
 .m-center {
-    margin: 0 auto;
+  margin: 0 auto;
 }
-.text-align-c{
-   text-align: center;
+
+.p-5 {
+  padding: 1% 0;
 }
-.font-small{
-    font-size: 10px;
+
+.p-8 {
+  padding: 8%;
 }
-.font-medium{
-    font-size: 14px;
+
+.p-lateral-8 {
+  padding: 0 8%;
 }
-.font-large{
-    font-size: 14px;
+
+.pd-5 {
+  padding: 5%;
 }
-.font-xlarge{
-    font-size: 18px;
+
+.p-2 {
+  padding: 2%;
 }
-.p-1{
-    padding: 1% 0;    
+
+.p-1 {
+  padding: 1% 0;
 }
-.p-5{
-    padding: 5%;
+
+.p-5 {
+  padding: 5%;
 }
-.w-input-100{
-    width: 100%;
+/*************************************************************************************/
+/* TAMAÑOS                                                                           */
+/*************************************************************************************/
+.w-input-100 {
+  width: 100%;
+}
+
+.w-20 {
+  width: 20%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.w-80 {
+  width: 80%;
+}
+/*********************************************************************************/
+/* ALINEACIONES                                                                  */
+/*********************************************************************************/
+.text-align-c {
+  text-align: center;
+}
+
+.align-center {
+  align-items: center;
+  text-align: center;
+  align-self: center;
+}
+
+/*********************************************************************************/
+/* DISPLAY                                                                       */
+/*********************************************************************************/
+.inline-block {
+  display: inline-block;
+}
+
+.no-display {
+  display: none;
+}
+/*********************************************************************************/
+/* FLEX                                                                          */
+/*********************************************************************************/
+.flex-container {
+  display: flex;
+}
+
+.flex-box {
+  display: flex;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.no-wrap {
+  flex-wrap: nowrap;
 }
