@@ -65,12 +65,28 @@ hr{
     color: white;
     background-color: black;
 }
+/* aca css para registrar usuario*/
 .section-categorias{
     width: 100%;
 }
 #categorias{
     width: 100%;
     text-align: center;
+}
+.flex-captcha{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-top: 5%;
+}
+.captcha{
+    width: 10%;
+}
+.norobot{
+    width: 40%;
+}
+.img-captcha{
+    width: 20%;
 }
 
 

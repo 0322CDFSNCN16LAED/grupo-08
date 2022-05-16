@@ -1,9 +1,6 @@
 .m-center {
     margin: 0 auto;
 }
-.p-5{
-    padding: 1% 0;    
-}
 .text-align-c{
    text-align: center;
 }
@@ -19,4 +16,12 @@
 .font-xlarge{
     font-size: 18px;
 }
-
+.p-1{
+    padding: 1% 0;    
+}
+.p-5{
+    padding: 5%;
+}
+.w-input-100{
+    width: 100%;
+}

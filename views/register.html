@@ -51,7 +51,35 @@
         <section>
             <p>Inicio -> Aca va el breadcrumb -> blabla </p>
         </section>
-        <section>
+        <section class="p-5">
+            <form action="/registerUser" method="post">
+                <p>
+                    <label for="nombre">Nombre</label>
+                    <input type="text" name="nombre" id="nombre" class="w-input-100">
+                </p>
+                <p>
+                    <label for="email">E-mail</label>
+                    <input type="email" name="email" id="email" class="w-input-100">
+                </p>
+                <p>
+                    <label for="tlf">Teléfono</label>
+                    <input type="tel" name="tlf" id="tlf" class="w-input-100">
+                </p>
+                <p>
+                    <label for="pass">Contraseña</label>
+                    <input type="password" name="pass" id="pass" class="w-input-100">
+                </p>
+                <p>
+                    <label for="pass">Repite tu Contraseña</label>
+                    <input type="rpassword" name="rpass" id="rpass" class="w-input-100">
+                </p>
+                <p class="flex-captcha">                   
+                    <input type="checkbox" name="captcha" id="captcha" class="captcha">
+                    <label for="pass" class="norobot">No soy un robot</label>
+                    <img src="/images/captcha.png" alt="" width="20%" class="img-captcha">
+                </p>
+            </form>
+
             <p>Mensaje de beneficio de registrarse</p>
             <p> Aca deben ir los inputs</p>
             <p>Aca va no soy un robot</p>
