@@ -69,9 +69,28 @@ body {
 /***************************************************************************/
 /*                    HEADER                                               */
 /***************************************************************************/
+.header-iconos {
+  width: 20%;
+  text-align: right;
+  padding-right: 2%;
+}
+.burger-menu i {
+  padding: 3%;
+  border-radius: 5px;
+  color: #6666;
+}
 .burger-menu {
   width: 20%;
   padding-left: 1%;
+}
+
+header{
+  position: fixed;
+  top:0;
+  border-bottom: solid 4px #c44cb4;
+}
+main {
+  margin-top: 105px;
 }
 
 .logo {
@@ -99,7 +118,7 @@ body {
 .banner h3 {
   color: white;
   text-align: center;
-  max-width: 70vw;
+  max-width: 90vw;
   font-size: 18px;
   color: #f3eeed;
 }
@@ -108,6 +127,7 @@ main a {
   text-decoration: none;
   color: #798190;
 }
+
 /**************************************************************************************/
 /*                                       HOME                                         */
 /**************************************************************************************/
@@ -147,37 +167,38 @@ main a {
   text-align: center;
   margin: auto;
   color: #798190;
+  position: relative;
 }
 .mas-notas h3 {
   padding: 8px;
   color: #c44cb4;
   font-size: 18px;
   font-weight: 600;
-  text-align: left;
+  text-align: right;
 }
-.mas-notas h2 {
+
+.ultimas-tendencias{
+  position: absolute;
+  top: 50px;
+  left: 10px;
+  z-index: 1;
+  max-width: 70vw;
+  font-size: 22px;
+  text-align: left;
+  color: white;
+}
+/*.mas-notas h2 {
   padding: 3px;
   border: #c0b2a3 solid 2px;
-  color: #c0b2a3;
+  color: red;
   font-size: 20px;
-}
+  border: red solid 2px;
+}*/
 
 img {
   width: 100vw;
 }
-/**************************************************************************/
-/*              HEADER                                                    */
-/**************************************************************************/
-.header-iconos {
-  width: 20%;
-  text-align: right;
-  padding-right: 2%;
-}
-.burger-menu i {
-  padding: 3%;
-  border-radius: 5px;
-  color: #6666;
-}
+
 /**************************************************************************/
 /*              FOOTER                                                    */
 /**************************************************************************/
@@ -185,7 +206,7 @@ footer {
   border-top: #d56b27 4px solid;
   background-color: #c0b2a3;
   color: rgba(0, 0, 0, 0.74);
-  height: 100px;
+  height: 90px;
   display: flex;
   justify-content: space-between;
 }

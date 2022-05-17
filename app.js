@@ -30,3 +30,6 @@ app.get('/producto',(req,res)=>{
 app.get('/catalogo',(req,res)=>{
     res.sendFile(path.join(__dirname,"views/catalogo.html"));
 });
+app.get('/catalogo2',(req,res)=>{
+    res.sendFile(path.join(__dirname,"views/catalogo2.html"));
+});
