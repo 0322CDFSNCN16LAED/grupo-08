@@ -38,6 +38,9 @@ body {
 .background-gris {
   background-color: #ac9593;
 }
+.bg-grey {
+  background: #798190;
+}
 .font-dark-grey {
   color: #666;
 }
@@ -66,6 +69,19 @@ body {
   justify-content: space-evenly;
   align-items: center;
 }
+
+.fx {
+  display: flex;
+}
+
+.fx-wrap {
+  flex-wrap: nowrap;
+}
+
+.fx-justify-center {
+  justify-content: center;
+}
+
 /***************************************************************************/
 /*                    HEADER                                               */
 /***************************************************************************/
@@ -84,9 +100,9 @@ body {
   padding-left: 1%;
 }
 
-header{
+header {
   position: fixed;
-  top:0;
+  top: 0;
   border-bottom: solid 4px #c44cb4;
 }
 main {
@@ -177,7 +193,7 @@ main a {
   text-align: right;
 }
 
-.ultimas-tendencias{
+.ultimas-tendencias {
   position: absolute;
   top: 50px;
   left: 10px;
