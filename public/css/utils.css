@@ -54,7 +54,7 @@
 }
 
 .pd-10 {
-  padding: 0 10%;
+  padding: 0 20%;
 }
 
 .p-2 {
@@ -80,12 +80,21 @@
 .mt-10 {
   margin-top: 150px;
 }
+.pt-1 {
+  padding-top: 1%;
+}
 .pt-5 {
   padding-top: 5%;
 }
 .pl-5 {
   padding-left: 5%;
   padding-right: 5%;
+}
+.pb-5 {
+  padding-bottom: 5%;
+}
+.prl-1 {
+  padding: 0 1%;
 }
 /*************************************************************************************/
 /* TAMAÑOS                                                                           */

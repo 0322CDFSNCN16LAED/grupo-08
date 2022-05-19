@@ -65,7 +65,7 @@ body {
 /***************************************************************************/
 .header-flex {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: space-evenly;
   align-items: center;
 }
@@ -73,13 +73,18 @@ body {
 .fx {
   display: flex;
 }
-
 .fx-wrap {
+  flex-wrap: wrap;
+}
+.fx-nwrap {
   flex-wrap: nowrap;
 }
 
 .fx-justify-center {
   justify-content: center;
+}
+.fx-justify-content-sb {
+  justify-content: space-between;
 }
 
 /***************************************************************************/
@@ -220,12 +225,20 @@ img {
 /**************************************************************************/
 footer {
   border-top: #d56b27 4px solid;
-  background-color: #c0b2a3;
+  background-color: #f3eeed; /*#c0b2a3;*/
   color: rgba(0, 0, 0, 0.74);
-  height: 90px;
+  /* height: 90px;*/
   display: flex;
   justify-content: space-between;
 }
+.li {
+  list-style: none;
+}
+.w-img-mp {
+  width: 64px;
+  height: 64px;
+}
+
 /**************************************************************************/
 /*              CARRITO                                                    */
 /**************************************************************************/
