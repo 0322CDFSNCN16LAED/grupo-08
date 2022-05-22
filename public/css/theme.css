@@ -60,7 +60,7 @@ body {
   color: #c44cb4;
 }
 .font-gris-claro {
-  color: #ac9593
+  color: #ac9593;
 }
 .font-orange {
   color: #e9b170;
@@ -92,6 +92,9 @@ body {
 .fx-justify-content-sb {
   justify-content: space-between;
 }
+.fx-justify-end {
+  justify-content: end;
+}
 
 /***************************************************************************/
 /*                    HEADER                                               */
@@ -117,7 +120,7 @@ header {
   top: 0;
   border-bottom: solid 4px #c44cb4;
 }
-header i{
+header i {
   color: #798190;
 }
 main {
@@ -270,7 +273,7 @@ footer {
 /**************************************************************************/
 /*              BOTONES                                                  */
 /**************************************************************************/
-.boton-costo-envio{
+.boton-costo-envio {
   background-color: #798190;
   font-size: 16px;
   width: 50%;
@@ -280,7 +283,7 @@ footer {
   color: white;
 }
 
-.boton-iniciar-compra{
+.boton-iniciar-compra {
   background-color: #c44cb4;
   font-size: 16px;
   width: 75%;
@@ -288,10 +291,10 @@ footer {
   padding: 10px;
   border: none;
   color: white;
-  border-radius: 5px
+  border-radius: 5px;
 }
 
-.boton-seguir-comprando{
+.boton-seguir-comprando {
   background-color: #6666;
   font-size: 16px;
   width: 50%;
@@ -299,13 +302,13 @@ footer {
   padding: 10px;
   border: none;
   color: white;
-  border-radius: 5px
+  border-radius: 5px;
 }
 
-.barra-cp{
-margin-bottom: 10px;
-padding: 10px;
-font-size: 16px;
-border: none;
-width: 25%;
+.barra-cp {
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  width: 25%;
 }
