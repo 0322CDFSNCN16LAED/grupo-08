@@ -12,7 +12,9 @@
 .font-large {
   font-size: 14px;
 }
-
+.font-xmedium {
+  font-size: 16px;
+}
 .font-xlarge {
   font-size: 18px;
 }
@@ -101,6 +103,9 @@
 }
 .pb-5 {
   padding-bottom: 5%;
+}
+.pb-2 {
+  padding-bottom: 1%;
 }
 .prl-1 {
   padding: 0 1%;

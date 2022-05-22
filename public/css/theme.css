@@ -276,12 +276,19 @@ footer {
 .boton-costo-envio {
   background-color: #798190;
   font-size: 16px;
-  width: 50%;
   margin-bottom: 10px;
-  padding: 16px;
+  padding: 10px;
   border: none;
   color: white;
 }
+
+.barra-cp {
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+}
+
 
 .boton-iniciar-compra {
   background-color: #c44cb4;
@@ -305,10 +312,3 @@ footer {
   border-radius: 5px;
 }
 
-.barra-cp {
-  margin-bottom: 10px;
-  padding: 10px;
-  font-size: 16px;
-  border: none;
-  width: 25%;
-}

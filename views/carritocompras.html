@@ -56,8 +56,11 @@
         <section>
             <h2 class = "pd-5 font-xlarge font-bold">  Carrito de compras </h2>
             <div class = "p-lateral-8 flex-box"> 
-                <div >  
-                    <p class ="p-2 font-medium font-bold"> Bibleoteca </p>
+                <div>
+                    <div class = "flex-box" >  
+                        <p class ="p-2 font-xmedium "> Inicio / </p>
+                        <p class ="p-2 font-xmedium font-bold"> Bibleoteca </p>
+                    </div>
                     <img src="/images/mueble.PNG" alt="Deco Home" class="articulos">
                 </div>
                 <div class = "text-img-carrito">
@@ -93,19 +96,21 @@
             </div>
 
             <p>Ingrese aqui tu codigo postar para calcular costo de envio:</p>
-            <div>
-                <div>
-                    <input type="text" name="codigo-postal" class = "barra-cp">
+            <div class = "flex-box">
+                <div class = "w-50">
+                    <input type="text" name="codigo-postal" class = "barra-cp w-100">
                 </div>
-                <div >
-                    <button type = "submit" class="boton-costo-envio"> Calcular costo de envio </button>
+                <div class = "w-50" >
+                    <button type = "submit" class="boton-costo-envio w-100"> Calcular costo de envio </button>
                 </div>
             </div>
 
-            <div class = "background-gris font-xlarge w-80 text-align-c">
+            <div class = "bg-white font-xlarge w-80 text-align-c ">
                 <p class = "font-black"> Subtotal: $ 15.000</p>
                 <p class = "font-black font-bold"> Total: $ 15.000</p>
-                <button type = "submit" class = "boton-seguir-comprando"> Agregar al carrito y seguir comprando </button>
+                <form action ="/" method="get">
+                    <button type = "submit" class = "boton-seguir-comprando"> Agregar al carrito y seguir comprando </button>
+                </form>
             </div>
             <p>Inicio -> Aca va el breadcrumb -> blabla </p>
 
@@ -133,20 +138,24 @@
         </section>
         <section>
             <p class = "font-medium font-bold font-orange ">Recordá que al iniciar la compra, tendrás un 30%off sobre el total, pagando por transferencia</p>
+            <form action ="/pepito" method="get"></form>
             <div class = "flex-box justify-content">
                 <button type = "submit" class = "boton-iniciar-compra"> INICIAR COMPRA  </button>
             </div>
-            <div class = "text-align-c">
-                <i class="fas fa-truck"></i>
-                <p class = "font-medium"> Envios a todo el pais </p>
+            <div class = "text-align-c pb-5 ">
+                <i class="fas fa-truck font-xlarge pb-2 "></i>
+                <p class = "font-medium font-bold pb-2 "> ENVIOS A TODO EL PAIS </p>
+                <p class = "font-medium pb-2 "> Retira gratis por nuestras sucursales </p>
             </div>
-            <div class = "text-align-c">
-                <i class="fas fa-credit-card"></i>
-                <p class = "font-medium"> Conoce nuestros medios de pagos </p>
+            <div class = "text-align-c pb-5 ">
+                <i class="fas fa-credit-card font-xlarge pb-2 "></i>
+                <p class = "font-medium font-bold pb-2 "> PAGA EN CUOTAS SIN INTERES </p>
+                <p class = "font-medium pb-2 "> Tarjetas de credito o efectivo </p>
             </div>
-            <div class = "text-align-c">
-                <i class="fas fa-lock" > </i>
-                <p class = "font-medium"> Navega con seguridad </p>
+            <div class = "text-align-c pb-5 ">
+                <i class="fas fa-lock font-xlarge pb-2 " > </i>
+                <p class = "font-medium font-bold pb-2 "> SITIO SEGURO </p>
+                <p class = "font-medium pb-2 "> Protegemos tus datos </p>
             </div>
 
         </section>
