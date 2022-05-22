@@ -91,6 +91,11 @@
   margin-left: 3px;
   margin-right: 3px;
 }
+.mtb-10 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
 .pt-1 {
   padding-top: 1%;
 }
