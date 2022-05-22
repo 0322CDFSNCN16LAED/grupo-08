@@ -301,3 +301,11 @@ footer {
   color: white;
   border-radius: 5px
 }
+
+.barra-cp{
+margin-bottom: 10px;
+padding: 10px;
+font-size: 16px;
+border: none;
+width: 25%;
+}
