@@ -19,28 +19,29 @@
 </head>
 <body class="bg-ligth-gray">
     <header>
-        <div class="bg-black font-white font-small text-align-c">
-            <p class="p-5 ">Pagá en hasta 12 cuotas sin interés 
-                <i class="far fa-credit-card font-yellow"></i>
-                y recibí los productos sin moverte de casa
-                <i class="fas fa-truck font-red"></i>
+        <div class="paga-en-ctas">
+            <p><i class="far fa-credit-card"></i> Pagá en hasta 12 cuotas sin interés y recibí
+                 los productos sin moverte de casa
             </p>
         </div> 
         <section class="bg-white header-flex" >
             <div class="burger-menu font-xlarge">
-                <i class="fas fa-bars bg-light-blue font-gray" ></i>
+                <i class="fas fa-bars bg-light-blue font-gray font-size" ></i>
             </div>
             <h1 class="logo text-align-c">
-                <img src="/images/logo2-2.jpg" alt="Deco Home" class="w-20">
+                <a href="/"></a><img src="/images/logo3.png" alt="Deco Home" class = "w-50"></a>
             </h1>
-            <div class="header-iconos">
-                <i class="fas fa-search"></i>
-                <i class="fas fa-heart"></i>
-                <i class="fas fa-shopping-cart"></i>
-            </div>
+            <div class="header-iconos flex-box ">
+                <a href = "#" class = "estilo disp-block"> <i class="fas fa-search font-gris-claro p-lateral-8 font-size m-5"> </i> </a> 
+                <a href = "#" class = "estilo disp-block"> <i class="fas fa-heart  estilo font-gris-claro p-lateral-8 font-size m-5"> </i> </a>
+                <a href = "/login" class = "estilo disp-block"> <i class="fas fa-user font-gris-claro p-lateral-8 font-size m-5 "> </i> </a> 
+                <a href = "/carritocompras" class = "estilo disp-block"> <i class="fas fa-shopping-cart font-gris-claro font-size m-5"></i> </a>
+            </div> 
         </section>
+                
     </header>
     <main>
+        <form action = "/carritocompras" method="get"></form>
         <section class="section-categorias" >
             <select name="" id="categorias">
                 <option value="">Categorías</option>
@@ -53,10 +54,10 @@
             </select>
         </section> 
         <section>
-            <h2 class = "pd-5">  Carrito de compras </h2>
+            <h2 class = "pd-5 font-xlarge font-bold">  Carrito de compras </h2>
             <div class = "p-lateral-8 flex-box"> 
                 <div >  
-                    <p class ="p-2"> Bibleoteca </p>
+                    <p class ="p-2 font-medium font-bold"> Bibleoteca </p>
                     <img src="/images/mueble.PNG" alt="Deco Home" class="articulos">
                 </div>
                 <div class = "text-img-carrito">
@@ -90,19 +91,66 @@
                     </div>
                 </div>    
             </div>
-            <h3 class = "text-align-c p-2"> <i class="fas fa-angle-double-left"></i> Agregar al carrito y seguir comprando </h3>
+
+            <p>Ingrese aqui tu codigo postar para calcular costo de envio:</p>
+            <div>
+                <div>
+                    <input type="text" name="codigo-postal" class = "barra-cp">
+                </div>
+                <div >
+                    <button type = "submit" class="boton-costo-envio"> Calcular costo de envio </button>
+                </div>
+            </div>
+
+            <div class = "background-gris font-xlarge w-80 text-align-c">
+                <p class = "font-black"> Subtotal: $ 15.000</p>
+                <p class = "font-black font-bold"> Total: $ 15.000</p>
+                <button type = "submit" class = "boton-seguir-comprando"> Agregar al carrito y seguir comprando </button>
+            </div>
             <p>Inicio -> Aca va el breadcrumb -> blabla </p>
+
         </section>
         <section>
-            <p>Mensaje de beneficio de registrarse</p>
-            <p> Aca deben ir los inputs</p>
-            <p>Aca va no soy un robot</p>
-            <p>aca boton de crear cuenta</p>
+            <p> Al registrarte obtendras un 15 % de descuento en tu primera compra</p>
+            <div class="flex-captcha">
+                <input
+                  type="checkbox"
+                  name="captcha"
+                  id="captcha"
+                  class="captcha"
+                  placeholder="*********"/>
+                <label for="pass" class="norobot">No soy un robot</label>
+                <img
+                  src="/images/captcha.png"
+                  alt=""
+                  class="img-captcha w-20 "/>
+              </div>
+              <div class="mt-3">
+                <button
+                  type="submit"
+                  class="button w-100 bg-pink font-white font-xlarge font-bold">
+
         </section>
         <section>
-            <p>Inicia sesion</p>
-            <p>envio a todo el pais</p>
+            <p class = "font-medium font-bold font-orange ">Recordá que al iniciar la compra, tendrás un 30%off sobre el total, pagando por transferencia</p>
+            <div class = "flex-box justify-content">
+                <button type = "submit" class = "boton-iniciar-compra"> INICIAR COMPRA  </button>
+            </div>
+            <div class = "text-align-c">
+                <i class="fas fa-truck"></i>
+                <p class = "font-medium"> Envios a todo el pais </p>
+            </div>
+            <div class = "text-align-c">
+                <i class="fas fa-credit-card"></i>
+                <p class = "font-medium"> Conoce nuestros medios de pagos </p>
+            </div>
+            <div class = "text-align-c">
+                <i class="fas fa-lock" > </i>
+                <p class = "font-medium"> Navega con seguridad </p>
+            </div>
+
         </section>
+    </form>
     </main>
     <footer>
         <p>footer del body</p>

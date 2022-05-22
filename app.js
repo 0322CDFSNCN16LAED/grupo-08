@@ -29,7 +29,9 @@ app.get('/producto',(req,res)=>{
 app.get('/producto-lamp',(req,res)=>{
     res.sendFile(path.join(__dirname,"views/producto-lamp.html"));
 });
-
+app.get('/producto-silla',(req,res)=>{
+    res.sendFile(path.join(__dirname,"views/producto-silla.html"));
+});
 app.get('/catalogo',(req,res)=>{
     res.sendFile(path.join(__dirname,"views/catalogo.html"));
 });
