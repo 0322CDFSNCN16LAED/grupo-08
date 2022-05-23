@@ -6,7 +6,9 @@
     display: flex;
     justify-content: space-between;
   }
-  .caca{
-    color: red
+
+  .w-25-desktop {
+    width: 25%;
   }
+
 }
