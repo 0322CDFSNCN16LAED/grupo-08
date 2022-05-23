@@ -18,6 +18,10 @@
 .font-xlarge {
   font-size: 18px;
 }
+
+.font-size-25{
+  font-size: 25px;
+}
 .font-xxlarge {
   font-size: 40px;
 }
@@ -84,8 +88,8 @@
 .mt-3 {
   margin-top: 3%;
 }
-.mt-5 {
-  margin-top: 5%;
+.mtp-10{
+  margin-top: 10 ;
 }
 .mt-10 {
   margin-top: 150px;
@@ -105,6 +109,11 @@
 }
 .m-right-5 {
   margin-right: 5%;
+}
+
+.m-right-left-5 {
+  margin-right: 5%;
+  margin-left: 5%;
 }
 .pt-1 {
   padding-top: 1%;
