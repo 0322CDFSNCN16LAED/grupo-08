@@ -84,9 +84,13 @@
 .mt-3 {
   margin-top: 3%;
 }
+.mt-5 {
+  margin-top: 5%;
+}
 .mt-10 {
   margin-top: 150px;
 }
+
 .m-5 {
   margin-left: 3px;
   margin-right: 3px;
@@ -96,6 +100,12 @@
   margin-bottom: 10px;
 }
 
+.m-left-10 {
+  margin-left: 10%;
+}
+.m-right-5 {
+  margin-right: 5%;
+}
 .pt-1 {
   padding-top: 1%;
 }
@@ -217,6 +227,9 @@
 
 .fx-wrap {
   flex-wrap: wrap;
+}
+.fx-float-right {
+  float: right
 }
 /*********************************************************************************/
 /* ESTILOS DE TEXTOS                                                                 */
