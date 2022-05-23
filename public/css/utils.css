@@ -19,7 +19,7 @@
   font-size: 18px;
 }
 
-.font-size-25{
+.font-size-25 {
   font-size: 25px;
 }
 .font-xxlarge {
@@ -88,8 +88,8 @@
 .mt-3 {
   margin-top: 3%;
 }
-.mtp-10{
-  margin-top: 10 ;
+.mtp-10 {
+  margin-top: 10;
 }
 .mt-10 {
   margin-top: 150px;
@@ -120,6 +120,12 @@
 }
 .pt-5 {
   padding-top: 5%;
+}
+.pt-15 {
+  padding-top: 15%;
+}
+.pb-15 {
+  padding-bottom: 15%;
 }
 .pl-5 {
   padding-left: 5%;
@@ -238,7 +244,7 @@
   flex-wrap: wrap;
 }
 .fx-float-right {
-  float: right
+  float: right;
 }
 /*********************************************************************************/
 /* ESTILOS DE TEXTOS                                                                 */
