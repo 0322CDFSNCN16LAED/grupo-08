@@ -2,4 +2,11 @@
   .mas-productos {
     width: 25%;
   }
+  .footer-desktop{
+    display: flex;
+    justify-content: space-between;
+  }
+  .caca{
+    color: red
+  }
 }

@@ -41,6 +41,9 @@ body {
 .bg-grey {
   background: #798190;
 }
+.bg-dark-grey{
+  background: #666
+}
 .font-dark-grey {
   color: #666;
 }
@@ -241,8 +244,6 @@ footer {
   background-color: #f3eeed; /*#c0b2a3;*/
   color: rgba(0, 0, 0, 0.74);
   /* height: 90px;*/
-  display: flex;
-  justify-content: space-between;
 }
 .li {
   list-style: none;
@@ -312,3 +313,13 @@ footer {
   border-radius: 5px;
 }
 
+.boton-registro{
+  background-color: #6666;
+  font-size: 16px;
+  width: 60%;
+  margin-bottom: 7px;
+  padding: 10px;
+  border: none;
+  color: white;
+  border-radius: 5px;
+}
