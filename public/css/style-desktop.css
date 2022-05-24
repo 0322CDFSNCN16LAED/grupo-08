@@ -10,5 +10,14 @@
   .w-25-desktop {
     width: 25%;
   }
+  .font-m-desktop{
+    font-size: 14px;
+  }
+  .font-xlarge-desktop{
+    font-size: 18px
+  }
+  .font-size-25-desktop{
+    font-size: 25px
+  }
 
 }
