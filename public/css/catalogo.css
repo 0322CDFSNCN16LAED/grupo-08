@@ -7,6 +7,8 @@ main {
 
 .catalogo{
     position:relative;
+    max-width: 360px;
+    margin: auto;
 }
 header{
     z-index: 10;
