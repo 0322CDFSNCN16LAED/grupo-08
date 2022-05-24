@@ -8,6 +8,9 @@ main {
 .catalogo{
     position:relative;
 }
+header{
+    z-index: 10;
+}
 
 .button-estanteria{
     z-index: 1;
