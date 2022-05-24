@@ -2,10 +2,10 @@
 
 /* Document
    ========================================================================== */
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 /**
  * 1. Correct the line height in all browsers.
@@ -41,15 +41,15 @@ main {
  * `article` contexts in Chrome, Firefox, and Safari.
  */
 
- h1,
- h2,
- h3,
- h4,
- h5,
- h6 {
-   font-size: 1em;
- }
- 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 1em;
+}
+
 /* Grouping content
    ========================================================================== */
 
@@ -182,7 +182,8 @@ textarea {
  */
 
 button,
-input { /* 1 */
+input {
+  /* 1 */
   overflow: visible;
 }
 
@@ -192,7 +193,8 @@ input { /* 1 */
  */
 
 button,
-select { /* 1 */
+select {
+  /* 1 */
   text-transform: none;
 }
 

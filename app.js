@@ -26,7 +26,13 @@ app.get('/carritocompras',(req,res)=>{
 app.get('/producto',(req,res)=>{
     res.sendFile(path.join(__dirname,"views/producto.html"));
 });
+app.get('/producto-lamp',(req,res)=>{
+    res.sendFile(path.join(__dirname,"views/producto-lamp.html"));
+});
 
 app.get('/catalogo',(req,res)=>{
     res.sendFile(path.join(__dirname,"views/catalogo.html"));
+});
+app.get('/catalogo2',(req,res)=>{
+    res.sendFile(path.join(__dirname,"views/catalogo2.html"));
 });
