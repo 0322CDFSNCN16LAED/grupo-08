@@ -15,7 +15,10 @@
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/utils.css" />
     <link rel="stylesheet" href="/css/theme.css" />
+
     <!--CSS media queries-->
+    <link rel="stylesheet" href="\css\style-tablet.css" />
+    <link rel="stylesheet" href="\css\style-desktop.css" />
 </head>
 <body class="bg-ligth-gray">
     <header>
@@ -31,7 +34,7 @@
             <h1 class="logo text-align-c">
                 <a href="/"></a><img src="/images/logo3.png" alt="Deco Home" class = "w-50"></a>
             </h1>
-            <div class="header-iconos flex-box ">
+            <div class="header-iconos flex-box fx-justify-end">
                 <a href = "#" class = "estilo disp-block"> <i class="fas fa-search font-gris-claro p-lateral-8 font-size m-5"> </i> </a> 
                 <a href = "#" class = "estilo disp-block"> <i class="fas fa-heart  estilo font-gris-claro p-lateral-8 font-size m-5"> </i> </a>
                 <a href = "/login" class = "estilo disp-block"> <i class="fas fa-user font-gris-claro p-lateral-8 font-size m-5 "> </i> </a> 
@@ -154,15 +157,25 @@
         </section>
     </form>
     </main>
-    <footer class = "text-align-c bg-dark-grey">
+    <footer class = "bg-dark-grey flex-container flex-center fx-wrap">
  
-        <div class="contacto pb-5 font-white">
+        <div class="w-100 p-5 font-white w-50-tablet w-25-desktop">
             <h3 class = "pt-1 font-bold font-large"> ENCONTRANOS FACIL</h3>             
             <p class = "pt-1 font-medium">4897-5587</p>
             <p class = "pt-1 font-medium">consultas.home@decohome.com.ar</p>
         </div>
         
-        <div class="contacto pb-5 font-white">             
+        <div class="w-100 p-5 font-white w-50-tablet w-25-desktop ">
+            <div class="w-50 m-center flex-container flex-center fx-wrap relative">
+                <h3 class = "pt-1 font-bold font-large w-100"> REDES </h3>
+                <i class="fab fa-instagram pt-1 font-medium w-25 w-50-tablet left-1"></i>
+                <i class="fab fa-facebook-f pt-1 font-medium w-25 w-50-tablet" ></i>
+                <i class="fab fa-twitter pt-1 font-medium w-25 w-50-tablet"></i>
+                <i class="fab fa-pinterest-p pt-1 font-medium w-25 w-50-tablet"></i>      
+            </div>       
+        </div>
+        
+        <div class="w-100 p-5 font-white w-50-tablet w-25-desktop">             
             <h3 class = "pt-1 font-bold font-large">INFORMACION</h3>
             <p class = "pt-1 font-medium"> Terminos y condiciones </p>
             <p class = "pt-1 font-medium"> Cambios y condiciones </p>
@@ -170,18 +183,10 @@
             <p class = "pt-1 font-medium"> Contactenos </p>
         </div>
 
-        <div class="redes pb-5 font-white">
-            <h3 class = "pt-1 font-bold font-large"> REDES </h3>
-            <i class="fab fa-instagram pt-1 font-medium"></i>
-            <i class="fab fa-facebook-f pt-1 font-medium" ></i>
-            <i class="fab fa-twitter pt-1 font-medium"></i>
-            <i class="fab fa-pinterest-p pt-1 font-medium"></i>            
-        </div>
-
-        <div class="redes pb-5 font-white">
+        <div class="w-100 p-5 font-white w-50-tablet w-25-desktop">
             <h3 class = "pt-1 font-bold font-large"> DECOHOGAR</h3>
             <p class = "pt-1 font-medium"> Cocina </p>
-            <p class = "pt-1 font-medium"> Living </p>          
+            <p class = "pt-1 font-medium"> Living </p>        
             <p class = "pt-1 font-medium"> Habitacion </p>
             <p class = "pt-1 font-medium"> Decoracion </p>        
         </div>

@@ -1,88 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Deco Home</title>
-        <!-- Fuentes  a usar -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600&family=Open+Sans:wght@300;500;700&family=Roboto&display=swap" rel="stylesheet">
-        
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
-        <!--ICONOS-->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-        <!-- CSS -->
-        <link rel="stylesheet" href="/css/normalize.css">
-        <link rel="stylesheet" href="/css/utils.css" />
-    
-        <link rel="stylesheet" href="/css/theme.css" />
-        <!--CSS media queries-->
-    </head>
-    <body>
-        <header>
-            <div class="paga-en-ctas">
-                <p><i class="far fa-credit-card"></i> Pagá en hasta 12 cuotas sin interés y recibí
-                     los productos sin moverte de casa
-                </p>
-            </div> 
-            <section class="bg-white header-flex" >
-                <div class="burger-menu font-xlarge">
-                    <i class="fas fa-bars bg-light-blue font-gray" ></i>
-                </div>
-                <h1 class="logo text-align-c">
-                    <img src="/images/logo3.png" alt="Deco Home" class = "w-50">
-                </h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deco Home</title>
+    <!-- Fuentes  a usar -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600&family=Open+Sans:wght@300;500;700&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <!--ICONOS-->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/utils.css" />
+
+    <link rel="stylesheet" href="/css/theme.css" />
+    <!--CSS media queries-->
+    <link rel="stylesheet" href="\css\style-tablet.css" />
+    <link rel="stylesheet" href="\css\style-desktop.css" />
+  </head>
+  <body>
+    <header>
+        <div class="paga-en-ctas">
+            <p><i class="far fa-credit-card"></i> Pagá en hasta 12 cuotas sin interés y recibí
+                 los productos sin moverte de casa
+            </p>
+        </div> 
+        <section class="bg-white header-flex" >
+            <div class="burger-menu font-xlarge">
+                <i class="fas fa-bars bg-light-blue font-gray font-size" ></i>
+            </div>
+            <h1 class="logo text-align-c">
+                <a href="/"><img src="/images/logo3.png" alt="Deco Home" class = "w-50"></a>
+            </h1>
+            <div class="header-iconos flex-box fx-justify-end">
+                <a href = "#" class = "estilo disp-block"> <i class="fas fa-search font-gris-claro p-lateral-8 font-size m-5"> </i> </a> 
+                <a href = "#" class = "estilo disp-block"> <i class="fas fa-heart  estilo font-gris-claro p-lateral-8 font-size m-5"> </i> </a>
+                <a href = "/login" class = "estilo disp-block"> <i class="fas fa-user font-gris-claro p-lateral-8 font-size m-5 "> </i> </a> 
+                <a href = "/carritocompras" class = "estilo disp-block"> <i class="fas fa-shopping-cart font-gris-claro font-size m-5"></i> </a>
+            <!--
                 <div class="header-iconos">
-                    <i class="fas fa-search w-50"> </i> <p> Iniciar Sesion</p>
-                    <i class="fas fa-heart w-50"></i>
-                    <i class="fas fa-shopping-cart w-50"></i> </div> 
-            </section>
-                    
-        </header>
-        <main>
-            <div></div>
-            <div class="flex-container flex-column flex-center">
-                <section>
-                    <nav class="no-display"> <!-- ESTO SE DESPLEGA DEL BURGER-MENU, EN DESCKTOP DE MUESTRA EN EL LATERAL DERECHO-->
-                        <ul class="">
-                            <li><a href="#">Living</a></li>
-                            <li><a href="#">Cocina</a></li>
-                            <li><a href="#">Baño</a></li>
-                            <li><a href="#">Exteriores</a></li>
-                            <li><a href="#">Tu cuarto</a></li>                
-                            <li><a href="#">Tu estudio</a></li>
-                        </ul> 
-                    </nav>
-                </section>
-                <section class="fex-row no-wrap">
-                    <article>
-                        <div class="p-8 flex-container flex-center">
-                            <i class="fas fa-angle-left "></i>
-                            <img class="w-80" src="\images\living\sillon-de-tela.jpg" alt="sillon de tela">
-                            <i class="fas fa-share-alt self-start"></i>
-                            <i class="fas fa-angle-right "></i>
-                        </div>
-                    </article>
-                </section>
+                <p> Iniciar Sesion</p>
+                <i class="fas fa-search w-50"> </i>
+                <i class="fas fa-heart w-50"></i>
+                <a href="/carritocompras"> <i class="fas fa-shopping-cart w-50"></i></a> 
             </div>
-        </main>
-        <footer>
-            <div class="contacto">             
-                <h3>Telefono de contacto: 4897-5587</h3>
-                <h3> Consulta a nuestro mail: consultas.home@decohome.com.ar</h3></div>
-            
-            <div class="redes">
-                <h3> Seguinos en redes </h3>
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-facebook-f"></i>
-                <i class="fab fa-twitter"></i>
-                <i class="fab fa-pinterest-p"></i>            
+            --> 
+        </section>
+                
+      </header>
+    <main>
+      <div></div>
+      <div class="flex-container flex-column flex-center">
+        <section>
+          <nav class="no-display">
+            <!-- ESTO SE DESPLEGA DEL BURGER-MENU, EN DESCKTOP DE MUESTRA EN EL LATERAL DERECHO-->
+            <ul class="">
+              <li><a href="#">Living</a></li>
+              <li><a href="#">Cocina</a></li>
+              <li><a href="#">Baño</a></li>
+              <li><a href="#">Exteriores</a></li>
+              <li><a href="#">Tu cuarto</a></li>
+              <li><a href="#">Tu estudio</a></li>
+            </ul>
+          </nav>
+        </section>
+        <section class="fex-row no-wrap">
+          <article>
+            <div class="p-8 flex-container flex-center">
+              <i class="fas fa-angle-left"></i>
+              <img
+                class="w-80"
+                src="\images\living\sillon-de-tela.jpg"
+                alt="sillon de tela"
+              />
+              <i class="fas fa-share-alt self-start"></i>
+              <i class="fas fa-angle-right"></i>
             </div>
-    
-        </footer>
-    </body>
+          </article>
+        </section>
+      </div>
+    </main>
+    <footer class = "bg-dark-grey flex-container flex-center fx-wrap">
+ 
+        <div class="w-100 p-5 font-white w-50-tablet w-25-desktop">
+            <h3 class = "pt-1 font-bold font-large"> ENCONTRANOS FACIL</h3>             
+            <p class = "pt-1 font-medium">4897-5587</p>
+            <p class = "pt-1 font-medium">consultas.home@decohome.com.ar</p>
+        </div>
+        
+        <div class="w-100 p-5 font-white w-50-tablet w-25-desktop ">
+            <div class="w-50 m-center flex-container flex-center fx-wrap relative">
+                <h3 class = "pt-1 font-bold font-large w-100"> REDES </h3>
+                <i class="fab fa-instagram pt-1 font-medium w-25 w-50-tablet left-1"></i>
+                <i class="fab fa-facebook-f pt-1 font-medium w-25 w-50-tablet" ></i>
+                <i class="fab fa-twitter pt-1 font-medium w-25 w-50-tablet"></i>
+                <i class="fab fa-pinterest-p pt-1 font-medium w-25 w-50-tablet"></i>      
+            </div>       
+        </div>
+        
+        <div class="w-100 p-5 font-white w-50-tablet w-25-desktop">             
+            <h3 class = "pt-1 font-bold font-large">INFORMACION</h3>
+            <p class = "pt-1 font-medium"> Terminos y condiciones </p>
+            <p class = "pt-1 font-medium"> Cambios y condiciones </p>
+            <p class = "pt-1 font-medium"> Nuestros locales </p>
+            <p class = "pt-1 font-medium"> Contactenos </p>
+        </div>
+
+        <div class="w-100 p-5 font-white w-50-tablet w-25-desktop">
+            <h3 class = "pt-1 font-bold font-large"> DECOHOGAR</h3>
+            <p class = "pt-1 font-medium"> Cocina </p>
+            <p class = "pt-1 font-medium"> Living </p>        
+            <p class = "pt-1 font-medium"> Habitacion </p>
+            <p class = "pt-1 font-medium"> Decoracion </p>        
+        </div>
+    </footer>
+  </body>
 </html>
