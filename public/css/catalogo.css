@@ -2,11 +2,14 @@
     width: 100%;
 }
 main {
-    margin-top: 105px;
+    margin-top: 89px;
 }
 
 .catalogo{
     position:relative;
+}
+header{
+    z-index: 10;
 }
 
 .button-estanteria{
@@ -15,7 +18,8 @@ main {
     left: 200px;
     top: 80px; 
     font-size: 20px;
-    color: #3c3c3f ;
+    color: #c44cb4 ;
+    border: none;
 }
 
 .button-lamp{
@@ -24,13 +28,27 @@ main {
     left: 120px;
     top: 40px; 
     font-size: 20px;
-    color:#3c3c3f;
-}
-.catalogo-p-1{
-    opacity: 100%;
-    transition: all 1s;
+    color:#c44cb4;
 }
 
-.catalogo-p-1: hover {
-    opacity: 50%;
+.button-tolix{
+    z-index: 1;
+    position: absolute;
+    left: 55px;
+    top: 190px; 
+    font-size: 20px;
+    color:#c44cb4;
 }
+
+
+.barra-catalogo{ 
+  background-color:  #d56b27;
+  color: #f3eeed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px;
+}
+.barra-catalogo h4{
+    margin: 0px 50px;
+}  

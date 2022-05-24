@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deco Home</title>
+    <!-- Fuentes  a usar -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600&family=Open+Sans:wght@300;500;700&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <!--ICONOS-->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/utils.css" />
+
+    <link rel="stylesheet" href="/css/theme.css" />
+    <link rel="stylesheet" href="/css/register.css" />
+    <!--CSS media queries-->
+    <link rel="stylesheet" href="\css\style-tablet.css" />
+    <link rel="stylesheet" href="\css\style-desktop.css" />
+
+  </head>
+  <body class="bg-ligth-gray">
+    <header>
+      <div class="paga-en-ctas">
+          <p><i class="far fa-credit-card"></i> Pagá en hasta 12 cuotas sin interés y recibí
+               los productos sin moverte de casa
+          </p>
+      </div> 
+      <section class="bg-white header-flex" >
+          <div class="burger-menu font-xlarge">
+              <i class="fas fa-bars bg-light-blue font-gray font-size" ></i>
+          </div>
+          <h1 class="logo text-align-c">
+              <a href="/"></a><img src="/images/logo3.png" alt="Deco Home" class = "w-50"></a>
+          </h1>
+          <div class="header-iconos flex-box fx-justify-end">
+              <a href = "#" class = "estilo disp-block"> <i class="fas fa-search font-gris-claro p-lateral-8 font-size m-5"> </i> </a> 
+              <a href = "#" class = "estilo disp-block"> <i class="fas fa-heart  estilo font-gris-claro p-lateral-8 font-size m-5"> </i> </a>
+              <a href = "/login" class = "estilo disp-block"> <i class="fas fa-user font-gris-claro p-lateral-8 font-size m-5 "> </i> </a> 
+              <a href = "/carritocompras" class = "estilo disp-block"> <i class="fas fa-shopping-cart font-gris-claro font-size m-5"></i> </a>
+          <!--
+              <div class="header-iconos">
+              <p> Iniciar Sesion</p>
+              <i class="fas fa-search w-50"> </i>
+              <i class="fas fa-heart w-50"></i>
+              <a href="/carritocompras"> <i class="fas fa-shopping-cart w-50"></i></a> 
+          </div>
+          --> 
+      </section>
+              
+    </header>
+    <main>
+      <!--SECTION breadcrumbs-->
+      <section class="">
+        <h2 class="mt-3">
+          <a href="/catalogo" class="color-pm font-pink">Muebles > </a>
+          <a href="/living" class="color-pm font-pink">Living > </a>
+          <a href="/producto" class="color-pm font-pink">Estante</a>
+        </h2>
+      </section>
+      <!--section para formulario-->
+      <section>
+
+        <section class="pt-5 pl-5">
+            <h2 class = "font-size-25-deskto font-xmedium font-bold"> Dirección de envío </h2>
+            <form action="/" method="get" class="form-field">
+            <div class = "flex-box">  
+                <div class = "mt-5 w-50 m-right-left-5 ">
+                    <label for="nombre" class="input-label">Nombre y apellido</label>
+                    <input
+                    type="text"
+                    name="nombre"
+                    id="nombre"
+
+                    class="form-input input-shadow"/>
+                </div>
+                <div class="mt-5 w-50 m-right-left-5 font-m-desktop">
+                    <label for="email" class="input-label">E-mail</label>
+                    <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    class="form-input input-shadow"/>
+                </div>
+            </div> 
+            <div class = "flex-box">   
+                <div class = "mt-5 w-50 m-right-left-5">
+                    <label for="tlf" class="input-label">Celular</label>
+                    <input
+                    type="tel"
+                    name="tlf"
+                    id="tlf"
+                    class="form-input input-shadow"
+                    />
+                </div>
+                <div class = "mt-5 w-50 m-right-left-5">
+                    <label for="direction" class="input-label">Dirección</label>
+                    <input
+                    type="text"
+                    name="direction"
+                    id="direction"
+                    class="form-input input-shadow"
+                    />
+                </div>
+            </div>
+            <div class = "flex-box"> 
+                <div class="mt-5 w-50 m-right-left-5">
+                        <label class="input-label" > País </label>
+                        <select name="Cantidad" class="form-input input-shadow">
+                            <option value="Argentina"> Argentina </option>
+                            <option value="Brasil"> Brasil </option>
+                            <option value="Uruguay"> Uruguay </option>
+                            <option value="Chile"> Chile </option>
+                            <option value="Paraguay"> Paraguay </option>
+                        </select>
+                </div>
+                <div class="mt-5 w-50 m-right-left-5">
+                    <label for="provincia" class="input-label"> Estado /Provincia</label>
+                    <input
+                    type="text"
+                    name="provincia"
+                    id="provincia"
+                    class="form-input input-shadow"/>
+                </div>
+            </div>
+            <div class = "mtp-10 mt-5">
+            <h2 class = "font-size-25-deskto font-xmedium font-bold" > Métodos de envío</h2>
+            </div>
+            <div class=" mtb-10 font-bold font-m-desktop">
+                <input  type = "radio" name = "envio" >
+                <label> $ 0,00 Envío gratis a Buenos Aires y alrededores </label>
+            </div>
+            <div class="font-bold mtb-10 font-m-desktop">
+                <input  type = "radio" name = "envio" >
+                <label> $ 0,00 Gratis retiro por sucursales </label>
+            </div>
+            <div class="font-bold mtb-10 font-m-desktop">
+                <input  type = "radio" name = "envio" >
+                <label> $ 0,00 Retiro en sucursal OCA </label>
+            </div>
+
+            <div class = "mtp-10 mt-5">
+            <h2 class = "font-size-25-deskto font-xmedium font-bold "> Medios de pago</h2>
+            </div>
+            <div class="mt-5 w-70 m-right-left-5">
+                <label class="input-label font-m-desktop" > Elegir método de pago</label>
+                <select name="Cantidad" class="form-input input-shadow">
+                    <option value="Tarjeta de credito"> Tarjeta de crédito </option>
+                    <option value="Tarjeta de debito"> Tarjeta de débito</option>
+                    <option value="Transferencia"> Transferencia </option>
+                </select>
+            </div>
+            <div class="mt-5 w-70 m-right-left-5">
+                <label class="input-label font-m-desktop" > Cuotas </label>
+                <select name="Cuotas" class="form-input input-shadow">
+                    <option value="1 pago de $ "> 1 pago de $  </option>
+                    <option value="2 pago de $ "> 2 pago de $ </option>
+                    <option value="3 pago de $ "> 3 pago de $  </option>
+                </select>
+            </div>
+            <div class = "mt-5 w-50 m-right-left-5">
+                <label for="tarjeta" class="input-label font-m-desktop">Número de tarjeta</label>
+                <input
+                type="text"
+                name="tarjeta"
+                id="tarjeta"
+                class="form-input input-shadow"/>
+            </div>
+            <div class = "mt-5 w-50 m-right-left-5">
+                <label for="fecha" class="input-label font-m-desktop"> Fecha de vencimiento</label>
+                <input
+                type="text"
+                name="fecha"
+                id="fecha"
+                class="form-input input-shadow"/>   
+            </div>
+            <div class = "mt-5 w-50 m-right-left-5">
+                <label for="name" class="input-label font-m-desktop"> Nombre tal como figura en la tarjeta</label>
+                <input
+                type="name"
+                name="name"
+                id="name"
+                class="form-input input-shadow"/>   
+            </div>
+            <div class = "mt-5 w-50 m-right-left-5">
+                <label for="codigo" class="input-label font-m-desktop"> Código de seguridad</label>
+                <input
+                type="text"
+                name="codigo"
+                id="codigo"
+                class="form-input input-shadow"/>   
+            </div>
+            <div class = "mt-5 w-50 m-right-left-5">
+                <label for="DNI" class="input-label font-m-desktop"> Documento</label>
+                <input
+                type="text"
+                name="DNI"
+                id="DNI"
+                class="form-input input-shadow"/>   
+            </div>
+        </div>
+        </section>
+        <div class="mt-3 text-align-r">
+            <button
+              type="submit"
+              class="button w-30 bg-pink font-white font-xlarge-desktop font-bold input-shadow m-right-5 ">
+              REALIZAR PEDIDO
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!--section ya tenes cuenta-->
+      <section class="pl-5 text-align-c mt-3 fx fx-wrap fx-justify-center">
+        <div>
+          <span class="font-xlarge w-50">¿Ya tenés cuenta?</span>
+        </div>
+        <div>
+          <a href="/login"><h3 class="font-xlarge">Inicia sesión</h3></a>
+        </div>
+      </section>
+
+      <!-- section envios-->
+      <section>
+            <div class = "text-align-c pb-5 mt-5">
+                <i class="fas fa-truck font-xlarge pb-2 "></i>
+                <p class = "font-medium font-bold pb-2 "> ENVIOS A TODO EL PAIS </p>
+                <p class = "font-medium pb-2 "> Retira gratis por nuestras sucursales </p>
+            </div>
+            <div class = "text-align-c pb-5 ">
+                <i class="fas fa-credit-card font-xlarge pb-2 "></i>
+                <p class = "font-medium font-bold pb-2 "> PAGA EN CUOTAS SIN INTERES </p>
+                <p class = "font-medium pb-2 "> Tarjetas de credito o efectivo </p>
+            </div>
+            <div class = "text-align-c pb-5 ">
+                <i class="fas fa-lock font-xlarge pb-2 " > </i>
+                <p class = "font-medium font-bold pb-2 "> SITIO SEGURO </p>
+                <p class = "font-medium pb-2 "> Protegemos tus datos </p>
+            </div>
+        </section>
+    </main>
+    <footer class = "bg-dark-grey flex-container flex-center fx-wrap">
+ 
+        <div class="w-100 p-5 font-white w-50-tablet w-25-desktop">
+            <h3 class = "pt-1 font-bold font-large"> ENCONTRANOS FACIL</h3>             
+            <p class = "pt-1 font-medium">4897-5587</p>
+            <p class = "pt-1 font-medium">consultas.home@decohome.com.ar</p>
+        </div>
+        
+        <div class="w-100 p-5 font-white w-50-tablet w-25-desktop ">
+            <div class="w-50 m-center flex-container flex-center fx-wrap relative">
+                <h3 class = "pt-1 font-bold font-large w-100"> REDES </h3>
+                <i class="fab fa-instagram pt-1 font-medium w-25 w-50-tablet left-1"></i>
+                <i class="fab fa-facebook-f pt-1 font-medium w-25 w-50-tablet" ></i>
+                <i class="fab fa-twitter pt-1 font-medium w-25 w-50-tablet"></i>
+                <i class="fab fa-pinterest-p pt-1 font-medium w-25 w-50-tablet"></i>      
+            </div>       
+        </div>
+        
+        <div class="w-100 p-5 font-white w-50-tablet w-25-desktop">             
+            <h3 class = "pt-1 font-bold font-large">INFORMACION</h3>
+            <p class = "pt-1 font-medium"> Terminos y condiciones </p>
+            <p class = "pt-1 font-medium"> Cambios y condiciones </p>
+            <p class = "pt-1 font-medium"> Nuestros locales </p>
+            <p class = "pt-1 font-medium"> Contactenos </p>
+        </div>
+
+        <div class="w-100 p-5 font-white w-50-tablet w-25-desktop">
+            <h3 class = "pt-1 font-bold font-large"> DECOHOGAR</h3>
+            <p class = "pt-1 font-medium"> Cocina </p>
+            <p class = "pt-1 font-medium"> Living </p>        
+            <p class = "pt-1 font-medium"> Habitacion </p>
+            <p class = "pt-1 font-medium"> Decoracion </p>        
+        </div>
+    </footer>
+</body>
+</html>
+
+ 

@@ -41,6 +41,9 @@ body {
 .bg-grey {
   background: #798190;
 }
+.bg-dark-grey{
+  background: #666
+}
 .font-dark-grey {
   color: #666;
 }
@@ -58,6 +61,12 @@ body {
 }
 .font-pink {
   color: #c44cb4;
+}
+.font-gris-claro {
+  color: #ac9593;
+}
+.font-orange {
+  color: #e9b170;
 }
 
 /***************************************************************************/
@@ -86,14 +95,18 @@ body {
 .fx-justify-content-sb {
   justify-content: space-between;
 }
+.fx-justify-end {
+  justify-content: end;
+}
 
 /***************************************************************************/
 /*                    HEADER                                               */
 /***************************************************************************/
 .header-iconos {
-  width: 20%;
+  width: 35%;
   text-align: right;
   padding-right: 2%;
+  display: flex;
 }
 .burger-menu i {
   padding: 3%;
@@ -110,8 +123,11 @@ header {
   top: 0;
   border-bottom: solid 4px #c44cb4;
 }
+header i {
+  color: #798190;
+}
 main {
-  margin-top: 105px;
+  margin-top: 89px;
 }
 
 .logo {
@@ -228,8 +244,6 @@ footer {
   background-color: #f3eeed; /*#c0b2a3;*/
   color: rgba(0, 0, 0, 0.74);
   /* height: 90px;*/
-  display: flex;
-  justify-content: space-between;
 }
 .li {
   list-style: none;
@@ -243,7 +257,7 @@ footer {
 /*              CARRITO                                                    */
 /**************************************************************************/
 .articulos {
-  width: 50%;
+
   border: 1px solid rgb(0, 0, 0);
 }
 
@@ -255,4 +269,55 @@ footer {
 .text-medidas {
   font-size: 10px;
   text-align: center;
+}
+
+/**************************************************************************/
+/*              BOTONES                                                  */
+/**************************************************************************/
+.boton-costo-envio {
+  background-color: #798190;
+  font-size: 16px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: none;
+  color: white;
+}
+
+.barra-cp {
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+}
+
+
+.boton-iniciar-compra {
+  background-color: #c44cb4;
+  font-size: 16px;
+  width: 75%;
+  margin-bottom: 7px;
+  padding: 10px;
+  border: none;
+  color: white;
+  border-radius: 5px;
+}
+
+.boton-seguir-comprando {
+  background-color: #6666;
+  font-size: 16px;
+  width: 50%;
+  margin-bottom: 7px;
+  padding: 10px;
+  border: none;
+  color: white;
+  border-radius: 5px;
+}
+
+.boton-registro{
+  background-color: #6666;
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+  color: white;
+  border-radius: 5px;
 }

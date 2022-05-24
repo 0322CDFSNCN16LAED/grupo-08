@@ -24,6 +24,10 @@
   border: none;
 }
 
+.input-shadow {
+  box-shadow: 0px 0px 3px #666;
+}
+
 .section-categorias {
   width: 100%;
 }

@@ -15,32 +15,36 @@
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/utils.css" />
     <link rel="stylesheet" href="/css/theme.css" />
+
     <!--CSS media queries-->
+    <link rel="stylesheet" href="\css\style-tablet.css" />
+    <link rel="stylesheet" href="\css\style-desktop.css" />
 </head>
 <body class="bg-ligth-gray">
     <header>
-        <div class="bg-black font-white font-small text-align-c">
-            <p class="p-5 ">Pagá en hasta 12 cuotas sin interés 
-                <i class="far fa-credit-card font-yellow"></i>
-                y recibí los productos sin moverte de casa
-                <i class="fas fa-truck font-red"></i>
+        <div class="paga-en-ctas">
+            <p><i class="far fa-credit-card"></i> Pagá en hasta 12 cuotas sin interés y recibí
+                 los productos sin moverte de casa
             </p>
         </div> 
         <section class="bg-white header-flex" >
             <div class="burger-menu font-xlarge">
-                <i class="fas fa-bars bg-light-blue font-gray" ></i>
+                <i class="fas fa-bars bg-light-blue font-gray font-size" ></i>
             </div>
             <h1 class="logo text-align-c">
-                <img src="/images/logo2-2.jpg" alt="Deco Home" class="w-20">
+                <a href="/"></a><img src="/images/logo3.png" alt="Deco Home" class = "w-50"></a>
             </h1>
-            <div class="header-iconos">
-                <i class="fas fa-search"></i>
-                <i class="fas fa-heart"></i>
-                <i class="fas fa-shopping-cart"></i>
-            </div>
+            <div class="header-iconos flex-box fx-justify-end">
+                <a href = "#" class = "estilo disp-block"> <i class="fas fa-search font-gris-claro p-lateral-8 font-size m-5"> </i> </a> 
+                <a href = "#" class = "estilo disp-block"> <i class="fas fa-heart  estilo font-gris-claro p-lateral-8 font-size m-5"> </i> </a>
+                <a href = "/login" class = "estilo disp-block"> <i class="fas fa-user font-gris-claro p-lateral-8 font-size m-5 "> </i> </a> 
+                <a href = "/carritocompras" class = "estilo disp-block"> <i class="fas fa-shopping-cart font-gris-claro font-size m-5"></i> </a>
+            </div> 
         </section>
+                
     </header>
     <main>
+        <form action = "/carritocompras" method="get"></form>
         <section class="section-categorias" >
             <select name="" id="categorias">
                 <option value="">Categorías</option>
@@ -53,13 +57,17 @@
             </select>
         </section> 
         <section>
-            <h2 class = "pd-5">  Carrito de compras </h2>
+            <h2 class = "pd-5 font-xlarge font-bold">  Carrito de compras </h2>
             <div class = "p-lateral-8 flex-box"> 
-                <div >  
-                    <p class ="p-2"> Bibleoteca </p>
-                    <img src="/images/mueble.PNG" alt="Deco Home" class="articulos">
+                <div>
+                    <div class = "flex-box" >  
+                        <p class ="p-2 font-xmedium "> Inicio/ </p>
+                        <p class ="p-2 font-xmedium"> Living/</p>
+                        <p class ="p-2 font-xmedium font-bold"> Bibleoteca </p>
+                    </div>
+                    <img src="/images/mueble.PNG" alt="Deco Home" class="articulos w-70">
                 </div>
-                <div class = "text-img-carrito">
+                <div class = "text-img-carrito w-30">
                     <div class="p-8">
                         <label > Estilo </label>
                         <select name="Estilo">
@@ -90,22 +98,98 @@
                     </div>
                 </div>    
             </div>
-            <h3 class = "text-align-c p-2"> <i class="fas fa-angle-double-left"></i> Agregar al carrito y seguir comprando </h3>
-            <p>Inicio -> Aca va el breadcrumb -> blabla </p>
+
+            <p class = "font-bold font-xmedium mtb-10">Ingrese aqui tu codigo postar para calcular costo de envio:</p>
+            <div class = "flex-box">
+                <div class = "w-50">
+                    <input type="text" name="codigo-postal" class = "barra-cp w-100">
+                </div>
+                <div class = "w-50" >
+                    <button type = "submit" class="boton-costo-envio w-100"> Calcular costo de envio </button>
+                </div>
+            </div>
+
+            <div class = "bg-white font-xlarge w-80 text-align-c mtb-10  ">
+                <p class = "font-black"> Subtotal: $ 15.000</p>
+                <p class = "font-black font-bold"> Total: $ 15.000</p>
+                <form action ="/" method="get">
+                    <button type = "submit" class = "boton-seguir-comprando"> Agregar al carrito y seguir comprando </button>
+                </form>
+            </div>
         </section>
         <section>
-            <p>Mensaje de beneficio de registrarse</p>
-            <p> Aca deben ir los inputs</p>
-            <p>Aca va no soy un robot</p>
-            <p>aca boton de crear cuenta</p>
+            <div class = "flex-box mtb-10 ">
+                <div class = "w-50">
+                    <p class = "font-large font-bold w-100 m-left-10 "> Al registrarte obtendras un 15 % de descuento en tu primera compra</p>
+                </div>
+                <div class = "w-50 align-center">
+                <form action ="/register" method="get">
+                    <button type = "submit" class = "boton-registro w-70 "> REGISTRARME </button>
+                </div>
+            </div>
+            </form>
         </section>
         <section>
-            <p>Inicia sesion</p>
-            <p>envio a todo el pais</p>
+            <div class = "w-70 flex-box fx-float-right ">
+                <p class = "font-large font-bold mtb-10 text-align-r m-right-5">Recordá que al iniciar la compra, tendrás un 30%off sobre el total, pagando por transferencia</p>
+            </div>
+            <form action ="/pago" method="get">
+                <div class = "text-align-c" >
+                    <button type = "submit" class = "boton-iniciar-compra mtb-10"> INICIAR COMPRA  </button>
+                </div>
+            </form>
+            <div class = "text-align-c pb-5 mt-5">
+                <i class="fas fa-truck font-xlarge pb-2 "></i>
+                <p class = "font-medium font-bold pb-2 "> ENVIOS A TODO EL PAIS </p>
+                <p class = "font-medium pb-2 "> Retira gratis por nuestras sucursales </p>
+            </div>
+            <div class = "text-align-c pb-5 ">
+                <i class="fas fa-credit-card font-xlarge pb-2 "></i>
+                <p class = "font-medium font-bold pb-2 "> PAGA EN CUOTAS SIN INTERES </p>
+                <p class = "font-medium pb-2 "> Tarjetas de credito o efectivo </p>
+            </div>
+            <div class = "text-align-c pb-5 ">
+                <i class="fas fa-lock font-xlarge pb-2 " > </i>
+                <p class = "font-medium font-bold pb-2 "> SITIO SEGURO </p>
+                <p class = "font-medium pb-2 "> Protegemos tus datos </p>
+            </div>
+
         </section>
+    </form>
     </main>
-    <footer>
-        <p>footer del body</p>
+    <footer class = "bg-dark-grey flex-container flex-center fx-wrap">
+ 
+        <div class="w-100 p-5 font-white w-50-tablet w-25-desktop">
+            <h3 class = "pt-1 font-bold font-large"> ENCONTRANOS FACIL</h3>             
+            <p class = "pt-1 font-medium">4897-5587</p>
+            <p class = "pt-1 font-medium">consultas.home@decohome.com.ar</p>
+        </div>
+        
+        <div class="w-100 p-5 font-white w-50-tablet w-25-desktop ">
+            <div class="w-50 m-center flex-container flex-center fx-wrap relative">
+                <h3 class = "pt-1 font-bold font-large w-100"> REDES </h3>
+                <i class="fab fa-instagram pt-1 font-medium w-25 w-50-tablet left-1"></i>
+                <i class="fab fa-facebook-f pt-1 font-medium w-25 w-50-tablet" ></i>
+                <i class="fab fa-twitter pt-1 font-medium w-25 w-50-tablet"></i>
+                <i class="fab fa-pinterest-p pt-1 font-medium w-25 w-50-tablet"></i>      
+            </div>       
+        </div>
+        
+        <div class="w-100 p-5 font-white w-50-tablet w-25-desktop">             
+            <h3 class = "pt-1 font-bold font-large">INFORMACION</h3>
+            <p class = "pt-1 font-medium"> Terminos y condiciones </p>
+            <p class = "pt-1 font-medium"> Cambios y condiciones </p>
+            <p class = "pt-1 font-medium"> Nuestros locales </p>
+            <p class = "pt-1 font-medium"> Contactenos </p>
+        </div>
+
+        <div class="w-100 p-5 font-white w-50-tablet w-25-desktop">
+            <h3 class = "pt-1 font-bold font-large"> DECOHOGAR</h3>
+            <p class = "pt-1 font-medium"> Cocina </p>
+            <p class = "pt-1 font-medium"> Living </p>        
+            <p class = "pt-1 font-medium"> Habitacion </p>
+            <p class = "pt-1 font-medium"> Decoracion </p>        
+        </div>
     </footer>
 </body>
 </html>
