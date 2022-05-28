@@ -2,6 +2,9 @@ const path = require("path");
 const express = require("express");
 const app = express();
 
+const mainRouters = require('./routers/main-routes')
+const mainController = require('./controllers/main-controllers')
+
 const PORT = 3005;
 
 app.listen(PORT, () => {
@@ -9,6 +12,8 @@ app.listen(PORT, () => {
 });
 
 app.use(express.static(path.join(__dirname, "public")));
+
+/* app.use('/,', mainRouters); */ 
 
 app.get("/", (req, res) => {
   //funcion controladora
