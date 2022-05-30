@@ -1,4 +1,4 @@
-/* const path = require('path');
+ const path = require('path');
 
 module.exports  = {
     home: function (req, res) {
@@ -6,15 +6,11 @@ module.exports  = {
     },
 
     carritoCompras: function (req, res) {
-        res.sendFile(path.join(__dirname, "../views/carrito-compras.html"))
+        res.sendFile(path.join(__dirname, "../views/carritocompras.html"))
     },
 
-    catalogo2: function (req, res) {
-        res.sendFile(path.join(__dirname, "../views/catalogo2.html"))
-    },
-
-    footer2: function (req, res) {
-        res.sendFile(path.join(__dirname, "../views/footer2.html"))
+    catalogo: function (req, res) {
+        res.sendFile(path.join(__dirname, "../views/catalogo.html"))
     },
 
     ingresos: function (req, res) {
@@ -52,4 +48,3 @@ module.exports  = {
         res.sendFile(path.join(__dirname, "../views/ultimas-tendencias-livings.html"))
     },
 };
-*/

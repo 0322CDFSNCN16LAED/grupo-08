@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 
 const mainRouters = require('./routers/main-routes')
-const mainController = require('./controllers/main-controllers')
+const mainController = require('./controllers/mainControllers')
 
 const PORT = 3005;
 
@@ -13,8 +13,10 @@ app.listen(PORT, () => {
 
 app.use(express.static(path.join(__dirname, "public")));
 
-/* app.use('/,', mainRouters); */ 
+app.use('/', mainRouters); 
 
+
+/*
 app.get("/", (req, res) => {
   //funcion controladora
   res.sendFile(path.join(__dirname, "views/home.html"));
@@ -50,3 +52,4 @@ app.get("/catalogo2", (req, res) => {
 app.get("/pago", (req, res) => {
   res.sendFile(path.join(__dirname, "views/pago.html"));
 });
+*/
