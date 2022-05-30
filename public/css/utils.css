@@ -238,15 +238,8 @@
 }
 
 .self-end {
-<<<<<<< HEAD
-    align-self: flex-end;
-}
-=======
   align-self: flex-start;
 }
-<<<<<<< HEAD
->>>>>>> 2b56b49b601bfd1360746d3aec7495f1ad2fe4c2
-=======
 
 .justify-content {
   justify-content: center;
@@ -282,4 +275,3 @@
 .right-1 {
   right: 1%;
 }
->>>>>>> c41dd06e41732ee61a6696c77c948f3b968bd7d6

@@ -20,7 +20,7 @@ body {
 .bg-grullo {
   background-color: #ac918c;
 }
-.bg-white {
+.bg-wite {
   background-color: white;
 }
 .bg-black {
@@ -79,6 +79,14 @@ body {
   align-items: center;
 }
 
+ .align-items-c {
+  align-items: center;
+ }
+
+ .space-evenly {
+  justify-content: space-evenly;
+}
+
 .fx {
   display: flex;
 }
@@ -130,9 +138,6 @@ main {
   margin-top: 89px;
 }
 
-.logo {
-  width: 60%;
-}
 
 .paga-en-ctas {
   color: #666;
