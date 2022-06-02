@@ -26,28 +26,10 @@
     <link rel="stylesheet" href="\css\style-desktop.css" />
 </head>
 <body>
-    <header>
-        <div class="paga-en-ctas">
-            <p><i class="far fa-credit-card"></i> Pagá en hasta 12 cuotas sin interés y recibí
-                 los productos sin moverte de casa
-            </p>
-        </div> 
-        <section class="bg-white header-flex" >
-            <div class="burger-menu font-xlarge">
-                <i class="fas fa-bars bg-light-blue font-gray font-size" ></i>
-            </div>
-            <h1 class="logo text-align-c">
-                <a href="/"><img src="/images/logo3.png" alt="Deco Home" class = "w-50"></a>
-            </h1>
-            <div class="header-iconos flex-box fx-justify-end">
-                <a href = "#" class = "estilo disp-block"> <i class="fas fa-search font-gris-claro p-lateral-8 font-size m-5"> </i> </a> 
-                <a href = "#" class = "estilo disp-block"> <i class="fas fa-heart  estilo font-gris-claro p-lateral-8 font-size m-5"> </i> </a>
-                <a href = "/login" class = "estilo disp-block"> <i class="fas fa-user font-gris-claro p-lateral-8 font-size m-5 "> </i> </a> 
-                <a href = "/carritocompras" class = "estilo disp-block"> <i class="fas fa-shopping-cart font-gris-claro font-size m-5"></i> </a>
-      
-        </section>
-                
-    </header>
+    <!--HEADER -->
+    <%- include('../partials/header') %>
+
+    <!--MAIN -->
     <main>
         <div class="banner"> <a href="/catalogo2"> <h3> Mirá nuestro nuevo catálogo: ESPECIAL COCINAS</h3> </div>
        <section>
@@ -98,39 +80,8 @@
         </div>
 
     </main>
-    <footer class = "bg-dark-grey flex-container flex-center fx-wrap">
- 
-        <div class="w-100 p-5 font-white w-50-tablet w-25-desktop">
-            <h3 class = "pt-1 font-bold font-large"> ENCONTRANOS FACIL</h3>             
-            <p class = "pt-1 font-medium">4897-5587</p>
-            <p class = "pt-1 font-medium">consultas.home@decohome.com.ar</p>
-        </div>
-        
-        <div class="w-100 p-5 font-white w-50-tablet w-25-desktop ">
-            <div class="w-50 m-center flex-container flex-center fx-wrap relative">
-                <h3 class = "pt-1 font-bold font-large w-100"> REDES </h3>
-                <i class="fab fa-instagram pt-1 font-medium w-25 w-50-tablet left-1"></i>
-                <i class="fab fa-facebook-f pt-1 font-medium w-25 w-50-tablet" ></i>
-                <i class="fab fa-twitter pt-1 font-medium w-25 w-50-tablet"></i>
-                <i class="fab fa-pinterest-p pt-1 font-medium w-25 w-50-tablet"></i>      
-            </div>       
-        </div>
-        
-        <div class="w-100 p-5 font-white w-50-tablet w-25-desktop">             
-            <h3 class = "pt-1 font-bold font-large">INFORMACION</h3>
-            <p class = "pt-1 font-medium"> Terminos y condiciones </p>
-            <p class = "pt-1 font-medium"> Cambios y condiciones </p>
-            <p class = "pt-1 font-medium"> Nuestros locales </p>
-            <p class = "pt-1 font-medium"> Contactenos </p>
-        </div>
-
-        <div class="w-100 p-5 font-white w-50-tablet w-25-desktop">
-            <h3 class = "pt-1 font-bold font-large"> DECOHOGAR</h3>
-            <p class = "pt-1 font-medium"> Cocina </p>
-            <p class = "pt-1 font-medium"> Living </p>        
-            <p class = "pt-1 font-medium"> Habitacion </p>
-            <p class = "pt-1 font-medium"> Decoracion </p>        
-        </div>
-    </footer>
+    
+     <!--FOOTER -->
+     <%- include('../partials/footer') %>
 </body>
 </html>
