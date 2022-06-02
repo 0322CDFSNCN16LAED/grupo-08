@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 
 const mainRouters = require('./routers/main-routes')
-const mainController = require('./controllers/mainControllers')
+//const mainController = require('./controllers/mainControllers')
 
 const PORT = 3005;
 
@@ -15,6 +15,9 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use('/', mainRouters); 
 
+app.set("view engine", "ejs");
+
+app.use(express.static("public"))
 
 /*
 app.get("/", (req, res) => {
