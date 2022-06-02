@@ -1,4 +1,4 @@
-.catalogo-p-1{
+.imagen-catalogo{
     width: 100%;
 }
 main {
@@ -7,7 +7,6 @@ main {
 
 .catalogo{
     position:relative;
-    max-width: 360px;
     margin: auto;
 }
 header{
@@ -17,8 +16,8 @@ header{
 .button-estanteria{
     z-index: 1;
     position: absolute;
-    left: 200px;
-    top: 80px; 
+ /*  left: 200px;
+  top: 80px; */
     font-size: 20px;
     color: #c44cb4 ;
     border: none;
@@ -27,8 +26,8 @@ header{
 .button-lamp{
     z-index: 1;
     position: absolute;
-    left: 120px;
-    top: 40px; 
+  /*  left: 120px;
+    top: 40px; */
     font-size: 20px;
     color:#c44cb4;
 }
@@ -36,8 +35,8 @@ header{
 .button-tolix{
     z-index: 1;
     position: absolute;
-    left: 55px;
-    top: 190px; 
+   /* left: 55px;
+    top: 190px; */
     font-size: 20px;
     color:#c44cb4;
 }
