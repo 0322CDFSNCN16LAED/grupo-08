@@ -394,3 +394,62 @@ hr {
 .z-index999 {
   z-index: 999;
 }
+
+
+/****************************************************************
+                    CATALOGO 
+******************************************************************/
+
+.imagen-catalogo{
+  width: 100%;
+}
+/*main {
+  margin-top: 89px;
+}*/
+.catalogo{
+  position:relative;
+  margin: auto;
+}
+header{
+  z-index: 10;
+}
+
+.button-estanteria{
+  z-index: 1;
+  position: absolute;
+/*  left: 200px;
+top: 80px; */
+  font-size: 20px;
+  color: #c44cb4 ;
+  border: none;
+}
+
+.button-lamp{
+  z-index: 1;
+  position: absolute;
+/*  left: 120px;
+  top: 40px; */
+  font-size: 20px;
+  color:#c44cb4;
+}
+
+.button-tolix{
+  z-index: 1;
+  position: absolute;
+ /* left: 55px;
+  top: 190px; */
+  font-size: 20px;
+  color:#c44cb4;
+}
+
+.barra-catalogo{ 
+background-color:  #d56b27;
+color: #f3eeed;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 3px;
+}
+.barra-catalogo h4{
+  margin: 0px 50px;
+}  
