@@ -1,7 +1,26 @@
 # grupo-08
+Metodologia Starfish
 
-Starfish
+>> SPRINT #2
+1) COMENZAR A HACER
+-Reuniones semanales de grupo todos los jueves antes de clase, a las 18:30hs 
 
+2) DEJAR DE HACER
+-Faltar a las reuniones
+
+3) MENOS DE 
+- 
+
+4) CONTINUAR HACIENDO
+- Mantener una comunicación fluida
+- Estar al dìa con el proyecto
+
+5) MAS DE:
+- Participar en el Trello: anotandose en las tareas, verificando las tareas de los demás y dejando feedback
+- Hacer màs reuniones grupales.
+
+
+>> SPRINT #1
 1) Start Doing (Comenzar Hacer)
    - Reuniones Semanales para seguimiento de tareas y para comentar bloqueantes.
    - Ser mas proactivo al seleccionar las tareas por desarrollar.
