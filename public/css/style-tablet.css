@@ -1,6 +1,5 @@
-@media (min-width : 576px) {
-    .w-50-tablet {
-        width: 50%;
-    }
-    
+@media (min-width: 376px) {
+  .w-50-tablet {
+    width: 50%;
+  }
 }

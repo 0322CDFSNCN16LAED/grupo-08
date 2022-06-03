@@ -72,7 +72,7 @@ body {
 /***************************************************************************/
 .header-flex {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -82,6 +82,7 @@ body {
 .header-iconos {
   text-align: right;
   display: flex;
+  margin-right: 2%;
 }
 .burger-menu i {
   padding: 3%;
@@ -93,30 +94,28 @@ body {
 }
 
 header {
-  position: fixed;
+  position: sticky;
   top: 0;
   border-bottom: solid 4px #c44cb4;
 }
 header i {
   color: #798190;
 }
-main {
+/*main {
   margin-top: 89px;
-}
+}*/
 
 .paga-en-ctas {
   color: #666;
   background-color: #f3eeed;
   border-top: solid 4px #d56b27;
-  height: 36px;
   text-align: center;
-  padding: 5px;
 }
 
 .banner {
   background-color: #c44cb4;
   width: 100vw;
-  height: 80px;
+  /*height: 80px;*/
   display: flex;
   justify-content: center;
   align-items: center;
@@ -339,9 +338,8 @@ footer {
   padding-top: 5%;
 }
 
-
 hr {
-  height: 10px;
+  /*height: 10px;*/
   background-color: #ac918c;
   border: 0px;
 }
