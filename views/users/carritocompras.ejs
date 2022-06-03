@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="\css\style-tablet.css" />
     <link rel="stylesheet" href="\css\style-desktop.css" />
 </head>
-<body class="bg-ligth-gray">
+<body class="bg-ligth-grey">
     <!--HEADER -->
     <%- include('../partials/header') %>
 
@@ -40,9 +40,9 @@
         </section> 
         <section>
             <h2 class = "pd-5 font-xlarge font-bold">  Carrito de compras </h2>
-            <div class = "p-lateral-8 flex-box"> 
+            <div class = "p-lateral-8 flex-cont"> 
                 <div>
-                    <div class = "flex-box" >  
+                    <div class = "flex-cont" >  
                         <p class ="p-2 font-xmedium "> Inicio/ </p>
                         <p class ="p-2 font-xmedium"> Living/</p>
                         <p class ="p-2 font-xmedium font-bold"> Bibleoteca </p>
@@ -82,7 +82,7 @@
             </div>
 
             <p class = "font-bold font-xmedium mtb-10">Ingrese aqui tu codigo postar para calcular costo de envio:</p>
-            <div class = "flex-box">
+            <div class = "flex-cont">
                 <div class = "w-50">
                     <input type="text" name="codigo-postal" class = "barra-cp w-100">
                 </div>
@@ -100,7 +100,7 @@
             </div>
         </section>
         <section>
-            <div class = "flex-box mtb-10 ">
+            <div class = "flex-cont mtb-10 ">
                 <div class = "w-50">
                     <p class = "font-large font-bold w-100 m-left-10 "> Al registrarte obtendras un 15 % de descuento en tu primera compra</p>
                 </div>
@@ -112,7 +112,7 @@
             </form>
         </section>
         <section>
-            <div class = "w-70 flex-box fx-float-right ">
+            <div class = "w-70 flex-cont fx-float-right ">
                 <p class = "font-large font-bold mtb-10 text-align-r m-right-5">Recordá que al iniciar la compra, tendrás un 30%off sobre el total, pagando por transferencia</p>
             </div>
             <form action ="/pago" method="get">

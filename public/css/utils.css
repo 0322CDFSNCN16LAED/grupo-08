@@ -89,40 +89,31 @@
 /*              PADDINGS                                                             */
 /*************************************************************************************/
 
-.p-5 {
-  padding: 1% 0;
-}
-
-.p-8 {
-  padding: 8%;
-}
-
-.p-lateral-8 {
-  padding: 0 8%;
-}
-
-.pd-10 {
-  padding: 0 20%;
-}
+/********  GENERALES  *********/
 
 .p-2 {
   padding: 2%;
-}
-
-.p-1 {
-  padding: 1% 0;
 }
 
 .p-5 {
   padding: 5%;
 }
 
-.p-3 {
+.p-8 {
+  padding: 8%;
+}
+
+/**********  SIDES  ************/
+.ptb-1 {
   padding: 1% 0;
 }
 
 .pt-1 {
   padding-top: 1%;
+}
+
+.pb-2 {
+  padding-bottom: 1%;
 }
 
 .pt-5 {
@@ -133,25 +124,25 @@
   padding-top: 15%;
 }
 
-.pb-15 {
-  padding-bottom: 15%;
-}
-
-.pl-5 {
-  padding-left: 5%;
-  padding-right: 5%;
-}
-
 .pb-5 {
   padding-bottom: 5%;
 }
 
-.pb-2 {
-  padding-bottom: 1%;
+.pb-15 {
+  padding-bottom: 15%;
 }
 
-.prl-1 {
+.p-lateral-1 {
   padding: 0 1%;
+}
+
+.p-lateral-5 {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.p-lateral-8 {
+  padding: 0 8%;
 }
 
 /*************************************************************************************/
@@ -164,11 +155,9 @@
 .w-20 {
   width: 20%;
 }
-
 .w-25 {
   width: 25%;
 }
-
 .w-30 {
   width: 30%;
 }
@@ -186,6 +175,9 @@
 }
 .w-80 {
   width: 80%;
+}
+.w-90 {
+  width: 90%;
 }
 .w-100 {
   width: 100%;
@@ -225,11 +217,7 @@
 /*********************************************************************************/
 /* FLEX                                                                          */
 /*********************************************************************************/
-.flex-container {
-  display: flex;
-}
-
-.flex-box {
+.flex-cont {
   display: flex;
 }
 
@@ -255,15 +243,36 @@
   align-self: flex-start;
 }
 
-.justify-content {
+.wrap {
+  flex-wrap: wrap;
+}
+
+.fx-float-right {
+  float: right;
+}
+
+.align-items-c {
+  align-items: center;
+}
+
+.space-evenly {
+  justify-content: space-evenly;
+}
+
+.fx-nwrap {
+  flex-wrap: nowrap;
+}
+
+.fx-justify-center {
   justify-content: center;
 }
 
-.fx-wrap {
-  flex-wrap: wrap;
+.space-between {
+  justify-content: space-between;
 }
-.fx-float-right {
-  float: right;
+
+.fx-justify-end {
+  justify-content: end;
 }
 /*********************************************************************************/
 /* ESTILOS DE TEXTOS                                                                 */
