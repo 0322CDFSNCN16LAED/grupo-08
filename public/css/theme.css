@@ -74,8 +74,7 @@ body {
 /***************************************************************************/
 .header-flex {
   display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -111,9 +110,7 @@ body {
 /*                    HEADER                                               */
 /***************************************************************************/
 .header-iconos {
-  width: 35%;
   text-align: right;
-  padding-right: 2%;
   display: flex;
 }
 .burger-menu i {
@@ -122,7 +119,6 @@ body {
   color: #6666;
 }
 .burger-menu {
-  width: 20%;
   padding-left: 1%;
 }
 
