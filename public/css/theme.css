@@ -339,17 +339,6 @@ footer {
   padding-top: 5%;
 }
 
-.captcha {
-  width: 10%;
-}
-
-.norobot {
-  width: 40%;
-}
-
-.img-captcha {
-  width: 20%;
-}
 
 hr {
   height: 10px;
@@ -368,9 +357,9 @@ hr {
 .imagen-catalogo {
   width: 100%;
 }
-/*main {
+main {
   margin-top: 89px;
-}*/
+}
 .catalogo {
   position: relative;
   margin: auto;
