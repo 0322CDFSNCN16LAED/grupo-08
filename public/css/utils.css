@@ -30,24 +30,64 @@
   font-weight: bold;
 }
 
+/*************************************************************************************/
+/*              MARGENES                                                             */
+/*************************************************************************************/
 
-/*************************************************************************************/
-/* MARGENES Y RELLENOS                                                               */
-/*************************************************************************************/
+/********  GENERALES  *********/
 .m-center {
   margin: 0 auto;
+}
+
+.mp-0 {
+  margin: 0px;
+  padding: 0px;
 }
 
 .m-10 {
   margin: 10px;
 }
+
+/********  SIDES  *********/
 .mt-5 {
   margin-top: 5%;
 }
-.mp-0 {
-  margin: 0px;
-  padding: 0px;
+
+.mt-1 {
+  margin-top: 1%;
 }
+.mt-3 {
+  margin-top: 3%;
+}
+.mt-10 {
+  margin-top: 10%;
+}
+
+.mlr-5 {
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.mtb-10 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.m-left-10 {
+  margin-left: 10%;
+}
+.m-right-5 {
+  margin-right: 5%;
+}
+
+.mlr-5 {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+/*************************************************************************************/
+/*              PADDINGS                                                             */
+/*************************************************************************************/
 
 .p-5 {
   padding: 1% 0;
@@ -76,67 +116,44 @@
 .p-5 {
   padding: 5%;
 }
+
 .p-3 {
   padding: 1% 0;
 }
-.mt-1 {
-  margin-top: 1%;
-}
-.mt-3 {
-  margin-top: 3%;
-}
-.mtp-10 {
-  margin-top: 10;
-}
-.mt-10 {
-  margin-top: 150px;
-}
 
-.m-5 {
-  margin-left: 3px;
-  margin-right: 3px;
-}
-.mtb-10 {
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
-
-.m-left-10 {
-  margin-left: 10%;
-}
-.m-right-5 {
-  margin-right: 5%;
-}
-
-.m-right-left-5 {
-  margin-right: 5%;
-  margin-left: 5%;
-}
 .pt-1 {
   padding-top: 1%;
 }
+
 .pt-5 {
   padding-top: 5%;
 }
+
 .pt-15 {
   padding-top: 15%;
 }
+
 .pb-15 {
   padding-bottom: 15%;
 }
+
 .pl-5 {
   padding-left: 5%;
   padding-right: 5%;
 }
+
 .pb-5 {
   padding-bottom: 5%;
 }
+
 .pb-2 {
   padding-bottom: 1%;
 }
+
 .prl-1 {
   padding: 0 1%;
 }
+
 /*************************************************************************************/
 /* TAMAÑOS                                                                           */
 /*************************************************************************************/
