@@ -10,7 +10,7 @@ const productControllers = require('../controllers/productControllers');
 
 router.get("/", mainControllers.home);
 router.get("/catalogo", mainControllers.catalogo);
-router.get("/catalogo", mainControllers.administracionProductos);
+router.get("/administracion-productos", mainControllers.administracionProductos);
 
 router.get("/login", usersControllers.login);
 router.get("/register", usersControllers.register);
