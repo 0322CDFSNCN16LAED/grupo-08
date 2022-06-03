@@ -2,10 +2,10 @@ const path = require("path");
 
 module.exports = {
   home: function (req, res) {
-    res.render("products/home");
+    res.render("home");
   },
   catalogo: function (req, res) {
-    res.render("products/catalogo");
+    res.render("catalogo");
   },
   administracionProductos: function (req, res) {
     res.render("administracion-productos");

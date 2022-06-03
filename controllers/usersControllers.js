@@ -8,7 +8,7 @@ module.exports = {
         res.render("users/register");
     },
     carritoCompras: function (req, res) {
-        res.render("products/carritocompras");  
+        res.render("users/carritocompras");  
     },
     pago: function (req, res) {
         res.render("users/pago");
