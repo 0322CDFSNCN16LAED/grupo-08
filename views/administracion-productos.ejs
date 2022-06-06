@@ -27,49 +27,110 @@
 <body>
     <!--HEADER -->
     <%- include('./partials/header') %>
-
-    <form action="" method="">
+    <h1> CREACIÓN Y EDICIÓN DE PRODUCTOS </h1>
+    <section>
+        <h2>ALTA O MODIFICACION PRODUCTOS</h2>         
+        <form action="/" method="get">
         <div> 
-            <h2>ALTA O MODIFICACION PRODUCTOS             </h2> 
             <label for="alta-modificacion">  
-                <input id="alta-modificacion" type="checkbox" name="alta o modificacion productos" 
-                value="alta" checked>  Cargar producto nuevo </label>
+                <input id="alta-modificacion" type="radio" name="alta o modificacion productos" 
+                value="alta" checked >  Cargar producto nuevo </label>
+
             <label for="alta-modificacion">  
-                <input id="alta-modificacion" type="checkbox" name="alta o modificacion productos" 
-                value="modificacion">  Modificar producto existente </label>
+                <input id="alta-modificacion" type="radio" name="alta o modificacion productos" 
+                value="modificacion" >  Modificar producto existente </label>
         </div>
+    </section>
+    <section>
+        <div> 
+            <h2> PRODUCTO </h2>
+            <label for="nombre-producto"> Nombre Producto:
+                <input id="nombre-producto"  type="text" name="nombre-producto" 
+                placeholder="Cargar Nombre del Producto" >  </label>
+            <label for="id-producto"> Código del Producto: 
+                <input type="number" name="id-producto" placeholder="Cargar id del Producto"> </label>             
+        </div>
+    </section>
+    <section>        
+        <div>  
+            <h2> CLASIFICACIÓN </h2>
 
-ALTA O MODIFICACION
-cargar producto nuevo / modificar producto existente
-
-PRODUCTO
-nombre producto:
-ID Producto:
-
-CATEGORIA
-seleccionar uno / desplegable
-categoria: muebles/ textiles / vajilla / accesorios / iluminación / otros 
-seleccionar vs
-ambiente: cocina, living, dormitorio, infantil, comedor, estudio, baños, exteriores, playroom / otros
-seleccionar vs
-estilo: boho chic / mid century modern / industrial / nordico / minimalista / otros
-
-PRECIO
-precio contado:
-cantidad de cuotas: desplegable    precio cuota:
-ofrece envio gratis: si/no 
-
-IMAGEN
-Cargar imagen:
-
-DESCRIPCION
-Descripcion del producto:
-Medidas:
-Color:
-Detalles:
-InfoExtra:
-
-        </section>
+            <label for="categoria"> <h3>Categoría: </h3>
+            <p> (Seleccionar sólo una categoria) </p> </label>
+                <select name="categoria" id="categoria">
+                    <option value="muebles"> Muebles </option>
+                    <option value="textiles"> Textiles </option>
+                    <option value="vajilla"> Vajilla </option>
+                    <option value="accesorios"> Accesorios </option>
+                    <option value="iluminacion"> Iluminación </option>
+                    <option value="otros"> Otros </option>
+                </select> 
+        </div>
+        <div>              
+            <h3>Ambientes: </h3>
+            <p> (Seleccionar todos los ambientes deseados)</p>
+            <label for="ambiente"> <input type="checkbox" id="ambiente" name="ambientes" value="cocina"> Cocina </label> 
+            <label for="ambiente"> <input type="checkbox" id="ambiente" name="ambientes" value="living"> Living </label> 
+            <label for="ambiente"> <input type="checkbox" id="ambiente" name="ambientes" value="dormitorio"> Dormitorio </label> 
+            <label for="ambiente"> <input type="checkbox" id="ambiente" name="ambientes" value="comedor"> Comedor </label> 
+            <label for="ambiente"> <input type="checkbox" id="ambiente" name="ambientes" value="estudio"> Estudio </label> 
+            <label for="ambiente"> <input type="checkbox" id="ambiente" name="ambientes" value="infantil"> Infantil </label> 
+            <label for="ambiente"> <input type="checkbox" id="ambiente" name="ambientes" value="baño"> Baños </label>
+            <label for="ambiente"> <input type="checkbox" id="ambiente" name="ambientes" value="playroom"> Playroom </label>  
+            <label for="ambiente"> <input type="checkbox" id="ambiente" name="ambientes" value="exteriores"> Exteriores </label> 
+            <label for="ambiente"> <input type="checkbox" id="ambiente" name="ambientes" value="otros"> Otros </label> 
+        </div>        
+        <div>
+            <h3>Estilos: </h3>
+                <p> (Seleccionar todos los estilos necesarios)</p>
+                <label for="estilos"><input type="checkbox" id="estilo" name="estilos" value="industrial"> Industrial </label> 
+                <label for="estilos"><input type="checkbox" id="estilo" name="estilos" value="nordico"> Nórdico </label> 
+                <label for="estilos"><input type="checkbox" id="estilo" name="estilos" value="minimalista"> Minimalista </label> 
+                <label for="estilos"><input type="checkbox" id="estilo" name="estilos" value="mid-century-modern"> Mid Century Modern </label> 
+                <label for="estilos"><input type="checkbox" id="estilo" name="estilos" value="boho-chic"> Boho Chic </label> 
+                <label for="estilos"><input type="checkbox" id="estilo" name="estilos" value="otros"> Otros </label> 
+        </div>
+    </section>
+    <section>
+        <h2> PRECIO </h2>
+        <div>
+            <label for="precio-contado"> <h3> Precio al contado: </h3>
+                <input type="number" id="precio-contado" name="precio-contado" placeholder="$"> </label>
+            <label for="cant-cuotas"> Cantidad de cuotas </label>
+                <select name="cant-cuotas" id="cant-cuotas">
+                    <option value="1"> 1 cuota </option>
+                    <option value="3"> 3 cuotas sin interés </option>
+                    <option value="6"> 6 cuotas sin interés </option>
+                    <option value="12"> 12 cuotas sin interés </option>
+                    <option value="18"> 18 cuotas sin interés </option>
+                </select>
+            
+            <label for="precio-cuota"> <h3> Precio de cada cuota: </h3>
+                <input type="number" id="precio-cuota" name="precio-cuota" placeholder="$"> </label>
+            
+            
+            <label for="envio-gratis"> <h3> Ofrece envío gratis:</h3>
+                <p> SI / NO</p> 
+            <input id="envio-gratis" type="checkbox" name="envio-gratis" >
+            </label>           
+        </div>
+    </section>
+    <section>
+        <h2> IMAGENES PRODUCTO </h2>
+        <h3> Cargar imagenes:</h3>
+        <input id="producto-img-1" name="imagenes-productos" type="file" multiple >
+    </section>
+    <section>
+        <h2> DESCRIPCION PRODUCTO </h2>
+        <label> <h3>Medidas: </h3>
+            <input type="text" name="medidas"></label> 
+        <label> <h3>Color: </h3>
+            <input type="text" name="color"></label> 
+        <label> <h3> Detalles: </h3>
+            <textarea name="detalles"> </textarea>
+        <label> <h3>Información Adicional: </h3>
+            <input type="text" name="InfoExtra"></label> 
+    </section>
     </form>
 
     <!--FOOTER -->
