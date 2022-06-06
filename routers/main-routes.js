@@ -19,9 +19,9 @@ router.get("/pago", usersControllers.pago);
 
 router.get("/producto-lamp", productControllers.productoLamp);
 router.get("/producto-silla", productControllers.productoSilla);
+router.get("/producto-biblioteca", productControllers.productoBiblioteca);
 router.get("/ingresos", productControllers.ingresos);
 router.get("/ofertas", productControllers.ofertas);
-router.get("/producto-biblioteca", productControllers.producto);
 router.get("/ultimas-tendencias-livings", productControllers.tendenciasLivings);
 
 module.exports = router;

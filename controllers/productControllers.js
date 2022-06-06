@@ -7,8 +7,8 @@ module.exports = {
   productoSilla: function (req, res) {
     res.render("products/producto-silla");
   },
-  producto: function (req, res) {
-    res.render("products/producto");
+  productoBiblioteca: function (req, res) {
+    res.render("products/producto-biblioteca");
   },
   ingresos: function (req, res) {
     res.render("products/ingresos");
