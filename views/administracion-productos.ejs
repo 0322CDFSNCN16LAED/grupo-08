@@ -4,40 +4,43 @@
     <!--HEAD -->
     <%- include('./partials/head') %>
 </head>
-<body>
+<body class="bg-ligth-grey">
     <!--HEADER -->
-    <%- include('./partials/header') %>
-    <h1> CREACIÓN Y EDICIÓN DE PRODUCTOS </h1>
-    <section>
-        <h2>ALTA O MODIFICACION PRODUCTOS</h2>         
-        <form action="/" method="get">
-        <div> 
-            <label for="alta-modificacion">  
-                <input id="alta-modificacion" type="radio" name="alta o modificacion productos" 
-                value="alta" checked >  Cargar producto nuevo </label>
+   <!-- <%- include('./partials/header') %> --> 
 
-            <label for="alta-modificacion">  
+
+    <h1 class= "font-size-25-deskto font-xmedium font-bold font-orange text-align-c"> CREACIÓN Y EDICIÓN DE PRODUCTOS </h1>
+    <form action="/" method="get">
+    <section class="container padding">
+        <h2 class= "font-size-25-deskto font-xmedium font-bold">ALTA O MODIFICACION PRODUCTOS</h2>      
+        <div class="form-check "> 
+            <label for="alta-modificacion" class="form-check-label">  
+                <input id="alta-modificacion" type="radio" name="alta o modificacion productos" 
+                value="alta" checked class="form-check-input">  Cargar producto nuevo </label>
+
+            <label for="alta-modificacion" class="form-check-label">  
                 <input id="alta-modificacion" type="radio" name="alta o modificacion productos" 
                 value="modificacion" >  Modificar producto existente </label>
         </div>
     </section>
-    <section>
-        <div> 
-            <h2> PRODUCTO </h2>
-            <label for="nombre-producto"> Nombre Producto:
+
+    <section class="container padding"> 
+        <h2 class= "font-size-25-deskto font-xmedium font-bold"> PRODUCTO </h2>
+        <div class="mb-3 "> 
+            <label for="nombre-producto" class="form-label"> Nombre Producto:
                 <input id="nombre-producto"  type="text" name="nombre-producto" 
-                placeholder="Cargar Nombre del Producto" >  </label>
+                placeholder="Cargar Nombre del Producto" class="form-control">  </label>
             <label for="id-producto"> Código del Producto: 
-                <input type="number" name="id-producto" placeholder="Cargar id del Producto"> </label>             
+                <input type="number" name="id-producto" placeholder="Cargar id del Producto"class="form-control"> </label>             
         </div>
     </section>
-    <section>        
-        <div>  
-            <h2> CLASIFICACIÓN </h2>
 
-            <label for="categoria"> <h3>Categoría: </h3>
+    <section class="container padding">        
+        <h2 class= "font-size-25-deskto font-xmedium font-bold"> CLASIFICACIÓN </h2>
+        <div>
+            <label for="categoria"> <h3  class="font-xlarge">Categoría: </h3>
             <p> (Seleccionar sólo una categoria) </p> </label>
-                <select name="categoria" id="categoria">
+                <select name="categoria" id="categoria" class="form-select">
                     <option value="muebles"> Muebles </option>
                     <option value="textiles"> Textiles </option>
                     <option value="vajilla"> Vajilla </option>
@@ -47,7 +50,7 @@
                 </select> 
         </div>
         <div>              
-            <h3>Ambientes: </h3>
+            <h3 class="font-xlarge">Ambientes: </h3>
             <p> (Seleccionar todos los ambientes deseados)</p>
             <label for="ambiente"> <input type="checkbox" id="ambiente" name="ambientes" value="cocina"> Cocina </label> 
             <label for="ambiente"> <input type="checkbox" id="ambiente" name="ambientes" value="living"> Living </label> 
@@ -61,7 +64,7 @@
             <label for="ambiente"> <input type="checkbox" id="ambiente" name="ambientes" value="otros"> Otros </label> 
         </div>        
         <div>
-            <h3>Estilos: </h3>
+            <h3 class="font-xlarge">Estilos: </h3>
                 <p> (Seleccionar todos los estilos necesarios)</p>
                 <label for="estilos"><input type="checkbox" id="estilo" name="estilos" value="industrial"> Industrial </label> 
                 <label for="estilos"><input type="checkbox" id="estilo" name="estilos" value="nordico"> Nórdico </label> 
@@ -71,46 +74,75 @@
                 <label for="estilos"><input type="checkbox" id="estilo" name="estilos" value="otros"> Otros </label> 
         </div>
     </section>
-    <section>
-        <h2> PRECIO </h2>
-        <div>
-            <label for="precio-contado"> <h3> Precio al contado: </h3>
-                <input type="number" id="precio-contado" name="precio-contado" placeholder="$"> </label>
-            <label for="cant-cuotas"> Cantidad de cuotas </label>
-                <select name="cant-cuotas" id="cant-cuotas">
+
+    <section class="container ">
+        <h2 class= "font-size-25-deskto font-xmedium font-bold"> PRECIO </h2>
+        <div class="padding">
+            <label for="precio-contado"> <h4 class="font-xmedium"> Precio al contado: </h4>
+                <input type="number" id="precio-contado" name="precio-contado" placeholder="$" class="form-input input-shadow"> </label>
+        </div>        
+        <div class="padding"> 
+            <label for="cant-cuotas"> <h4 class="font-xmedium">Cantidad de cuotas </h4>  </label>
+                <select name="cant-cuotas" id="cant-cuotas" class="form-select">
                     <option value="1"> 1 cuota </option>
                     <option value="3"> 3 cuotas sin interés </option>
                     <option value="6"> 6 cuotas sin interés </option>
                     <option value="12"> 12 cuotas sin interés </option>
                     <option value="18"> 18 cuotas sin interés </option>
                 </select>
-            
-            <label for="precio-cuota"> <h3> Precio de cada cuota: </h3>
-                <input type="number" id="precio-cuota" name="precio-cuota" placeholder="$"> </label>
-            
-            
-            <label for="envio-gratis"> <h3> Ofrece envío gratis:</h3>
-                <p> SI / NO</p> 
-            <input id="envio-gratis" type="checkbox" name="envio-gratis" >
-            </label>           
+        </div>
+        
+        <div class="padding">
+            <label for="precio-cuota"> <h4 class="font-xmedium"> Precio de cada cuota: </h4>
+                <input type="number" id="precio-cuota" name="precio-cuota" placeholder="$" class="form-input input-shadow"> </label>            
+        </div>
+
+        <div class="form-check form-switch padding">
+            <label class="form-check-label" for="envio-gratis"><h4 class="font-xmedium"> Ofrece envío gratis:</h4></label>
+            <input class="form-check-input" type="checkbox" role="switch" id="envio-gratis" name="envio-gratis">  
         </div>
     </section>
-    <section>
-        <h2> IMAGENES PRODUCTO </h2>
-        <h3> Cargar imagenes:</h3>
+
+    <section class="container padding ">
+        <h2 class= "font-size-25-deskto font-xmedium font-bold"> IMAGENES PRODUCTO </h2>
+        <h3 class="font-xlarge" > Cargar imagenes:</h4>
         <input id="producto-img-1" name="imagenes-productos" type="file" multiple >
     </section>
-    <section>
-        <h2> DESCRIPCION PRODUCTO </h2>
-        <label> <h3>Medidas: </h3>
-            <input type="text" name="medidas"></label> 
-        <label> <h3>Color: </h3>
-            <input type="text" name="color"></label> 
-        <label> <h3> Detalles: </h3>
-            <textarea name="detalles"> </textarea>
-        <label> <h3>Información Adicional: </h3>
-            <input type="text" name="InfoExtra"></label> 
+
+    <section class="container padding">
+        <h2 class= "font-size-25-deskto font-xmedium font-bold"> DESCRIPCION PRODUCTO </h2>
+        <div> 
+        <label> <h4 class="font-xmedium">Medidas: </h4>
+            <input type="text" name="medidas" class="form-input input-shadow"></label> 
+        <label> <h4 class="font-xmedium">Color: </h4>
+            <input type="text" name="color" class="form-input input-shadow"></label>            
+        </div>
+
+        <div> 
+        <label > <h4  class="font-xmedium"> Detalles: </h4>
+            <textarea name="detalles" class="form-input input-shadow"> </textarea>
+        </div> 
+        <div> 
+        <label> <h4 class="font-xmedium">Información Adicional: </h4>
+            <input type="text" name="InfoExtra" class="form-input input-shadow"></label>             
+        </div>
+
     </section>
+    <section class="container padding">
+    <div class="mt-3">
+    <button type="submit" class="button w-100 bg-pink font-white font-xlarge font-bold input-shadow">
+        CONFIRMAR
+    </button>
+    </div>
+
+    <div class="mt-3">
+    <button type="reset" class="button w-100  bg-dark-grey font-white font-xlarge font-bold input-shadow">
+        CANCELAR
+    </button>    
+    </div>        
+    </section>
+
+
     </form>
 
     <!--FOOTER -->

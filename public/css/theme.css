@@ -64,7 +64,10 @@ body {
   color: #ac9593;
 }
 .font-orange {
-  color: #e9b170;
+  color: #d56b27;
+}
+.padding{
+  padding: 10px;
 }
 
 /***************************************************************************/
@@ -207,7 +210,7 @@ img {
 /**************************************************************************/
 footer {
   border-top: #d56b27 4px solid;
-  background-color: #f3eeed; /*#c0b2a3;*/
+  background-color: #f3eeed; 
   color: rgba(0, 0, 0, 0.74);
   /* height: 90px;*/
 }
