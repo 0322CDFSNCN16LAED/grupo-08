@@ -1,10 +1,7 @@
-/*.imagen-catalogo{
+.imagen-catalogo{
     width: 100%;
 }
-/*main {
-    margin-top: 89px;
-}*/
-/*
+
 .catalogo{
     position:relative;
     margin: auto;
@@ -18,7 +15,7 @@ header{
     position: absolute;
  /*  left: 200px;
   top: 80px; */
-/*    font-size: 20px;
+    font-size: 20px;
     color: #c44cb4 ;
     border: none;
 }
@@ -28,19 +25,18 @@ header{
     position: absolute;
   /*  left: 120px;
     top: 40px; */
- /*   font-size: 20px;
+    font-size: 20px;
     color:#c44cb4;
 }
 
 .button-tolix{
     z-index: 1;
-    position: absolute;*/
+    position: absolute;
    /* left: 55px;
     top: 190px; */
-/*    font-size: 20px;
+    font-size: 20px;
     color:#c44cb4;
 }
-
 
 .barra-catalogo{ 
   background-color:  #d56b27;
@@ -50,7 +46,9 @@ header{
   justify-content: center;
   padding: 3px;
 }
+
 .barra-catalogo h4{
     margin: 0px 50px;
 }  
-*/
+
+
