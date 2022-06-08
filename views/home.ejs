@@ -12,8 +12,31 @@
     <!--MAIN -->
     <main>
         <div class="banner"> <a href="/catalogo"> <h3> Mirá nuestro nuevo catálogo: ESPECIAL COCINAS</h3> </div>
-        <img src = '/images/catalogo/kitchenware-on-the-wall.jpg' alt="Catalogo especial cocinas"> </a>
-       
+            <!--seccion slide del catalogo -->
+            <!--<img src = '/images/catalogo/kitchenware-on-the-wall.jpg' alt="Catalogo especial cocinas"> </a>-->
+            <div id="carouselCatalogo" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img src="/images/catalogo/kitchenware-on-the-wall.jpg" class="d-block w-100" alt="Cocina">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="/images/catalogo/retro-bathroom-authentic-interior-design.jpg" class="d-block w-100" alt="Baño">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="/images/catalogo/AdobeStock_405881284_Preview.jpeg" class="d-block w-100" alt="Cocina">
+                    </div>
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselCatalogo" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselCatalogo" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                  </button>
+                </div>
+            </div>
+         <!--fin slide catalogo-->       
         <div class="ofertas-descuentos">
             <a href="/ofertas"><h3> OFERTAS & DESCUENTOS </h3> <p> SHOP</p></a>
         </div>
