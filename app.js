@@ -2,18 +2,17 @@ const path = require("path");
 const express = require("express");
 const app = express();
 
-const mainRouters = require('./routers/main-routes')
-
-const PORT = 3005;
-
-app.listen(PORT, () => {
-  console.log("Servidor activo en puerto " + PORT);
-});
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "/views"));
 
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use('/', mainRouters); 
+app.use(express.urlencoded({ extended: false }));
 
-app.set("view engine", "ejs");
+const mainRouters = require("./routers/main-router");
+app.use("/", mainRouters);
 
-app.use(express.static("public"))
+const PORT = 3005;
+app.listen(PORT, () => {
+  console.log("Servidor activo en puerto " + PORT);
+});
