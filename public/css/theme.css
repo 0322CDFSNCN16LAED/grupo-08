@@ -66,7 +66,7 @@ body {
 .font-orange {
   color: #d56b27;
 }
-.padding{
+.padding {
   padding: 10px;
 }
 
@@ -210,7 +210,7 @@ img {
 /**************************************************************************/
 footer {
   border-top: #d56b27 4px solid;
-  background-color: #f3eeed; 
+  background-color: #f3eeed;
   color: rgba(0, 0, 0, 0.74);
   /* height: 90px;*/
 }
@@ -346,4 +346,30 @@ hr {
 
 .z-index999 {
   z-index: 999;
+}
+
+/***************************************************************************/
+/*               PARA LA VIEW TODOS LOS PRODUCTOS                          */
+/***************************************************************************/
+.products-wrapper {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.products-title {
+  font-size: 2.4em;
+  font-weight: 400;
+  color: var(--gray);
+}
+
+.product-box {
+  background-color: #ffffff;
+  border-radius: 15px;
+  margin: 20px 0;
+}
+
+.product-box_image {
+  border-bottom: 1px solid var(--light-gray);
+  width: 100%;
+  height: auto;
 }

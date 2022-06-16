@@ -1,8 +1,11 @@
+const db = require("../data/db-products");
 const path = require("path");
+
+const products = db.getAll();
 
 module.exports = {
   index: (req, res) => {
-    res.send("enviar a la vista de todos los productos");
+    res.render("products/products", { productos: products });
   },
   detail: (req, res) => {
     res.send("vista para mostrar el detalle del producto");
@@ -21,23 +24,5 @@ module.exports = {
   },
   destroy: (req, res) => {
     res.send("procesa eliminar product");
-  } /*,
-  productoLamp: function (req, res) {
-    res.render("products/producto-lamp");
   },
-  productoSilla: function (req, res) {
-    res.render("products/producto-silla");
-  },
-  productoBiblioteca: function (req, res) {
-    res.render("products/producto-biblioteca");
-  },
-  ingresos: function (req, res) {
-    res.render("products/ingresos");
-  },
-  ofertas: function (req, res) {
-    res.render("products/ofertas");
-  },
-  tendenciasLivings: function (req, res) {
-    res.render("products/ultimas-tendencias-livings");
-  },*/,
 };

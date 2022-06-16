@@ -1,0 +1,257 @@
+[
+  {
+    "nombre": "Estante nórdico",
+    "id": 1001,
+    "categoria": "Muebles",
+    "ambiente": ["Living", "Cocina", "Estudio", "Playroom"],
+    "estilo": "Nórdico",
+    "precioContado": 20000,
+    "cantidadDeCuotas": 12,
+    "precioCuota": 1666.67,
+    "envioGratis": true,
+    "imagen": "/images/products/mueble.PNG",
+    "alt": "estantería nórdica",
+    "descripcion": "Biblioteca estilo nórdico. Fabricada con ménsulas de roble y estantes de madera laqueada en pintura poliuretánica color blanco matte.",
+    "medidas": "107 cm x 35 cm x 200 cm",
+    "color": "blanco y roble",
+    "detalles": [
+      "Calidad garantizada",
+      " Accesibilidad",
+      "Producto de fácil instalación"
+    ],
+    "infoExtra": []
+  },
+  {
+    "nombre": "Lámpara galponera",
+    "id": 1002,
+    "categoria": "Iluminación",
+    "ambiente": ["Living", "Cocina", "Estudio", "Playroom"],
+    "estilo": "Industrial",
+    "precioContado": 5200,
+    "cantidadDeCuotas": 3,
+    "precioCuota": 1733.33,
+    "envioGratis": true,
+    "imagen": "/images/products/lamp.jpg",
+    "alt": "lampara negra",
+    "descripcion": "El diseño industrial en iluminación está muy de moda. Con nuestra linea de lamparas galponeras podrás iluminar y destacar tanto ambientes de tu hogar como tu comercio.",
+    "medidas": "32cm alto x 30cm + Cable: 120 cm largo",
+    "color": "negro",
+    "detalles": [
+      "Calidad garantizada acero reforzado",
+      "Apilable - Resistencia hasta 130kg",
+      "Viene en variedad de colores"
+    ],
+    "infoExtra": [
+      "Lugares de montaje: Techo",
+      "Materiales: Aluminio",
+      "Alimentación 220V",
+      "Ambientes interior",
+      "Capacidad de focos 1",
+      "Tipos de fuentes de luz LED"
+    ]
+  },
+  {
+    "nombre": "Estante nórdico",
+    "id": 1003,
+    "categoria": "Muebles",
+    "ambiente": ["Living", "Cocina", "Estudio", "Playroom"],
+    "estilo": "Nórdico",
+    "precioContado": 20000,
+    "cantidadDeCuotas": 12,
+    "precioCuota": 1666.67,
+    "envioGratis": true,
+    "imagen": "/images/products/mueble.PNG",
+    "alt": "estantería nórdica",
+    "descripcion": "Biblioteca estilo nórdico. Fabricada con ménsulas de roble y estantes de madera laqueada en pintura poliuretánica color blanco matte.",
+    "medidas": "107 cm x 35 cm x 200 cm",
+    "color": "blanco y roble",
+    "detalles": [
+      "Calidad garantizada",
+      " Accesibilidad",
+      "Producto de fácil instalación"
+    ],
+    "infoExtra": []
+  },
+  {
+    "nombre": "Lámpara galponera",
+    "id": 1004,
+    "categoria": "Iluminación",
+    "ambiente": ["Living", "Cocina", "Estudio", "Playroom"],
+    "estilo": "Industrial",
+    "precioContado": 5200,
+    "cantidadDeCuotas": 3,
+    "precioCuota": 1733.33,
+    "envioGratis": true,
+    "imagen": "/images/products/lamp.jpg",
+    "alt": "lampara negra",
+    "descripcion": "El diseño industrial en iluminación está muy de moda. Con nuestra linea de lamparas galponeras podrás iluminar y destacar tanto ambientes de tu hogar como tu comercio.",
+    "medidas": "32cm alto x 30cm + Cable: 120 cm largo",
+    "color": "negro",
+    "detalles": [
+      "Calidad garantizada acero reforzado",
+      "Apilable - Resistencia hasta 130kg",
+      "Viene en variedad de colores"
+    ],
+    "infoExtra": [
+      "Lugares de montaje: Techo",
+      "Materiales: Aluminio",
+      "Alimentación 220V",
+      "Ambientes interior",
+      "Capacidad de focos 1",
+      "Tipos de fuentes de luz LED"
+    ]
+  },
+  {
+    "nombre": "Estante nórdico",
+    "id": 1005,
+    "categoria": "Muebles",
+    "ambiente": ["Living", "Cocina", "Estudio", "Playroom"],
+    "estilo": "Nórdico",
+    "precioContado": 20000,
+    "cantidadDeCuotas": 12,
+    "precioCuota": 1666.67,
+    "envioGratis": true,
+    "imagen": "/images/products/mueble.PNG",
+    "alt": "estantería nórdica",
+    "descripcion": "Biblioteca estilo nórdico. Fabricada con ménsulas de roble y estantes de madera laqueada en pintura poliuretánica color blanco matte.",
+    "medidas": "107 cm x 35 cm x 200 cm",
+    "color": "blanco y roble",
+    "detalles": [
+      "Calidad garantizada",
+      " Accesibilidad",
+      "Producto de fácil instalación"
+    ],
+    "infoExtra": []
+  },
+  {
+    "nombre": "Lámpara galponera",
+    "id": 1006,
+    "categoria": "Iluminación",
+    "ambiente": ["Living", "Cocina", "Estudio", "Playroom"],
+    "estilo": "Industrial",
+    "precioContado": 5200,
+    "cantidadDeCuotas": 3,
+    "precioCuota": 1733.33,
+    "envioGratis": true,
+    "imagen": "/images/products/lamp.jpg",
+    "alt": "lampara negra",
+    "descripcion": "El diseño industrial en iluminación está muy de moda. Con nuestra linea de lamparas galponeras podrás iluminar y destacar tanto ambientes de tu hogar como tu comercio.",
+    "medidas": "32cm alto x 30cm + Cable: 120 cm largo",
+    "color": "negro",
+    "detalles": [
+      "Calidad garantizada acero reforzado",
+      "Apilable - Resistencia hasta 130kg",
+      "Viene en variedad de colores"
+    ],
+    "infoExtra": [
+      "Lugares de montaje: Techo",
+      "Materiales: Aluminio",
+      "Alimentación 220V",
+      "Ambientes interior",
+      "Capacidad de focos 1",
+      "Tipos de fuentes de luz LED"
+    ]
+  },
+  {
+    "nombre": "Estante nórdico",
+    "id": 1007,
+    "categoria": "Muebles",
+    "ambiente": ["Living", "Cocina", "Estudio", "Playroom"],
+    "estilo": "Nórdico",
+    "precioContado": 20000,
+    "cantidadDeCuotas": 12,
+    "precioCuota": 1666.67,
+    "envioGratis": true,
+    "imagen": "/images/products/mueble.PNG",
+    "alt": "estantería nórdica",
+    "descripcion": "Biblioteca estilo nórdico. Fabricada con ménsulas de roble y estantes de madera laqueada en pintura poliuretánica color blanco matte.",
+    "medidas": "107 cm x 35 cm x 200 cm",
+    "color": "blanco y roble",
+    "detalles": [
+      "Calidad garantizada",
+      " Accesibilidad",
+      "Producto de fácil instalación"
+    ],
+    "infoExtra": []
+  },
+  {
+    "nombre": "Lámpara galponera",
+    "id": 1008,
+    "categoria": "Iluminación",
+    "ambiente": ["Living", "Cocina", "Estudio", "Playroom"],
+    "estilo": "Industrial",
+    "precioContado": 5200,
+    "cantidadDeCuotas": 3,
+    "precioCuota": 1733.33,
+    "envioGratis": true,
+    "imagen": "/images/products/lamp.jpg",
+    "alt": "lampara negra",
+    "descripcion": "El diseño industrial en iluminación está muy de moda. Con nuestra linea de lamparas galponeras podrás iluminar y destacar tanto ambientes de tu hogar como tu comercio.",
+    "medidas": "32cm alto x 30cm + Cable: 120 cm largo",
+    "color": "negro",
+    "detalles": [
+      "Calidad garantizada acero reforzado",
+      "Apilable - Resistencia hasta 130kg",
+      "Viene en variedad de colores"
+    ],
+    "infoExtra": [
+      "Lugares de montaje: Techo",
+      "Materiales: Aluminio",
+      "Alimentación 220V",
+      "Ambientes interior",
+      "Capacidad de focos 1",
+      "Tipos de fuentes de luz LED"
+    ]
+  },
+  {
+    "nombre": "Estante nórdico",
+    "id": 1009,
+    "categoria": "Muebles",
+    "ambiente": ["Living", "Cocina", "Estudio", "Playroom"],
+    "estilo": "Nórdico",
+    "precioContado": 20000,
+    "cantidadDeCuotas": 12,
+    "precioCuota": 1666.67,
+    "envioGratis": true,
+    "imagen": "/images/products/mueble.PNG",
+    "alt": "estantería nórdica",
+    "descripcion": "Biblioteca estilo nórdico. Fabricada con ménsulas de roble y estantes de madera laqueada en pintura poliuretánica color blanco matte.",
+    "medidas": "107 cm x 35 cm x 200 cm",
+    "color": "blanco y roble",
+    "detalles": [
+      "Calidad garantizada",
+      " Accesibilidad",
+      "Producto de fácil instalación"
+    ],
+    "infoExtra": []
+  },
+  {
+    "nombre": "Lámpara galponera",
+    "id": 1010,
+    "categoria": "Iluminación",
+    "ambiente": ["Living", "Cocina", "Estudio", "Playroom"],
+    "estilo": "Industrial",
+    "precioContado": 5200,
+    "cantidadDeCuotas": 3,
+    "precioCuota": 1733.33,
+    "envioGratis": true,
+    "imagen": "/images/products/lamp.jpg",
+    "alt": "lampara negra",
+    "descripcion": "El diseño industrial en iluminación está muy de moda. Con nuestra linea de lamparas galponeras podrás iluminar y destacar tanto ambientes de tu hogar como tu comercio.",
+    "medidas": "32cm alto x 30cm + Cable: 120 cm largo",
+    "color": "negro",
+    "detalles": [
+      "Calidad garantizada acero reforzado",
+      "Apilable - Resistencia hasta 130kg",
+      "Viene en variedad de colores"
+    ],
+    "infoExtra": [
+      "Lugares de montaje: Techo",
+      "Materiales: Aluminio",
+      "Alimentación 220V",
+      "Ambientes interior",
+      "Capacidad de focos 1",
+      "Tipos de fuentes de luz LED"
+    ]
+  }
+]

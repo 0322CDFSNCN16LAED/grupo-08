@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--HEAD -->
+    <%- include('../partials/head', {title: 'Todos los productos'}) %>
+  </head>
+  <body>
+    <!--HEADER -->
+    <%- include('../partials/header') %>
+
+    <!--MAIN -->
+    <main>
+      <!--agregar un input para hacer busquedas por categoria-->
+      <div class="mlr-5 mt-3">
+        <label for="categoriaList" class="form-label"
+          >Categorias de productos</label
+        >
+        <input
+          class="form-control"
+          list="opciones"
+          id="categoriaList"
+          placeholder="Escribe para buscar..."
+        />
+        <datalist id="opciones">
+          <option value="Iluminación"></option>
+          <option value="Muebles"></option>
+          <option value="Minimalista"></option>
+          <option value="Vintage"></option>
+          <option value="Bohemio"></option>
+        </datalist>
+      </div>
+      <!-- se listan todos los productos-->
+      <div class="container products-wrapper overflow-hidden">
+        <!--row para titulo-->
+        <div class="row">
+          <div class="col-12">
+            <h2 class="products-title align-center">Todos los productos</h2>
+          </div>
+          <!--caja para cada producto -->
+          <% productos.forEach(product => {%>
+          <div class="card col-12 col-sm-6 col-lg-3 p-3 product-box">
+            <img src="<%=product.imagen%>" alt="" class="product-box_image" />
+
+            <div class="card-body align-center">
+              <span class="font-medium"><%= product.nombre%></span>
+              <p class=""><%= product.categoria%></p>
+              <p class="">
+                $ <%= new
+                Intl.NumberFormat('de-DE').format(product.precioContado)%>
+              </p>
+              <span class="inline-block">
+                <a
+                  href="/products/edit/<%= product.id %>"
+                  class="btn btn-outline-primary btn-lg"
+                  >Editar</a
+                >
+                <!-- <form
+                  action="/products/<%= product.id %>?_method=delete"
+                  method="POST"
+                  style="display: inline-flex"
+                >
+                  <button type="submit" class="btn btn-danger">Eliminar</button>
+                </form>-->
+              </span>
+            </div>
+          </div>
+          <% }) %>
+        </div>
+        <!-- fin del row -->
+      </div>
+    </main>
+
+    <!--FOOTER -->
+    <%- include('../partials/footer') %>
+  </body>
+</html>
