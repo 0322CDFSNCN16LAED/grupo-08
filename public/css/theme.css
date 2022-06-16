@@ -373,3 +373,13 @@ hr {
   width: 100%;
   height: auto;
 }
+
+.product-btn {
+  color: #c44cb4 !important;
+  border-color: #c44cb4 !important;
+}
+
+.product-btn:hover {
+  background-color: #c44cb4 !important;
+  color: white !important;
+}
