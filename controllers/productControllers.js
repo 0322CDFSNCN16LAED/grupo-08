@@ -22,9 +22,21 @@ module.exports = {
     res.render("products/productos-edit-product", {productoEditar: productEdit})
   },
   update: (req, res) => {
-    res.send("procesa la actualizacion del product");
+    const productEditIndex = db.getAll(req.params.id)
+
+    products.splice(productEditIndex, 1, req.body)
+
+    db.saveAll(products)
+      res.send("vengo a moelstar");
+   // res.redirect("/products");
   },
   destroy: (req, res) => {
-    res.send("procesa eliminar product");
+    const filterProductos = products.filter((producto)=>{
+      return producto.id != req.params.id
+    })
+
+    db.saveAll(filterProductos)
+    
+    res.redirect("/products");
   },
 };

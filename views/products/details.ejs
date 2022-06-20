@@ -29,10 +29,10 @@
         <div class="row">
           <div class="col-12">
             <h2 class="products-title align-center">
-              Estas editando: <i> <%= productoEditar.nombre%> </i>
+              Estas Eliminando: <i> <%= productoEditar.nombre%> </i>
             </h2>
           </div>
-          <form action="/products/edit/<%= productoEditar.id %>?_method=PUT " 
+          <form action="/products/delete<%= producto.id %>?_method=delete " 
                 method="POST"
                 class="form-field">
             <div class="row product-detail">
@@ -161,23 +161,17 @@
                   id="description"></textarea>
                 </div>
                 <div class = "mt-5 w-50 mlr-5 ">
-                    <label for="description" class="form-label"> Detalles extra sobre el producto:</label>
-                      <textarea
-                    value="<%=productoEditar.detalles%>"
+                  <label for="description" class="form-label"> Detalles extra sobre el producto:</label>
+                  <textarea
+                    value="<%=productoEditar.infoExtra%>"
                     class="form-control"
                     name="description"
                     id="description"></textarea>
                 </div>
                 <div>
-                  <form class = "btn-outline-primary"
-                  action="/products"
-                  method="GET"
-                  style="display: inline-flex"
-                  >
-                  <button type="submit" class="btn btn-outline-primary btn-lg product-btn">
-                          Guardar producto
-                  </button>
-                  </form>
+                <button type="reset" class="btn btn-outline-primary btn-lg product-btn">
+                        Eliminar producto
+                </button>
                 </div>
             </div>
           </form>
@@ -190,4 +184,3 @@
     <%- include('../partials/footer') %>
   </body>
 </html>
-
