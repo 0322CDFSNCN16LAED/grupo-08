@@ -1,11 +1,12 @@
-Weekly stand up / 2 de junio
+Weekly stand up / 21 de junio
 
 ● Qué hizo la semana pasada.
-Se realizo la charla semanal de 20 minutos, que la estamos teniendo todos los jueves, donde se ven avances , impedimientos y problemas que se tuvieron en desarrollo del sprint. Y tambien por discord para situaciones mas puntuales. 
-Se fue avanzando sobre bootstrap, las vistas y las rutas. 
+Se realizaron charlas semales de 20 minutos aprox. Donde se fueron viendo las cosas diferentes cosas a mejorar para el sprint 4, y a su vez otras cosas que quedaron pendientes de otros sprints. 
+Algunos integrantes del equipo tuvieron asuntos personales y esto llevo a que se avance poco en la semana sobre el sprint 4. 
+En la reunion semanal, coordinamos las diferentes tareas que le corresponde a cada uno para el sprint 4. 
 
 ● Si se encontró con algún impedimento.
-hubo algunos inconvenientes sobre todo en bootstrap donde  quedaban cosas superpuestas, tambien cuando se edito la parte de las vistas se pusheo sin antes verificar que funcione la pagina entonces despues no corria. Pero todo se fue solucionando hablando por el discord y con ayuda de los profesores 
+Por ahora no, la mayoria trabajo el fin de semana largo sobre el sprint 4. 
 
 ● Qué va a hacer en la semana.
-seguir avanzando con temas que nos fue quedando del sprint 2, acomodar cosas por ejemplo y seguir avanzando con el sprint 3. El sprint 3 lo tenemos bastante encaminado solo falta terminar algunos detalles.
+Tratar de completar todas las tareas asignadas que hay en el trello, tanto las pendientes como las actuales. 
