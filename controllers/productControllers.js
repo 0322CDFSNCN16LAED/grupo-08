@@ -17,7 +17,9 @@ module.exports = {
     res.send("procesa el crear producto");
   },
   edit: (req, res) => {
-    res.send("vista editar product");
+    let id = req.params.id
+    let productEdit = products.find(productos => productos.id == id)
+    res.render("products/productos-edit-product", {productoEditar: productEdit})
   },
   update: (req, res) => {
     res.send("procesa la actualizacion del product");
