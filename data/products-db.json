@@ -61,6 +61,35 @@
         "infoExtra": []
     },
     {
+        "nombre": "Silla Tólix",
+        "id": 1009,
+        "categoria": "Muebles",
+        "ambiente": [
+            "Living",
+            "Cocina",
+            "Comedor",
+            "Estudio",
+            "Playroom",
+            "Infantil"
+        ],
+        "estilo": "Industrial",
+        "precioContado": 12500,
+        "cantidadDeCuotas": 6,
+        "precioCuota": 2083.33,
+        "envioGratis": true,
+        "imagen": "/images/products/tolix-amarilla.jpg",
+        "alt": "Silla Tolix Amarilla",
+        "descripcion": "La Silla Tolix, ya es un clásico centenario. Este clásico del diseño ha sido utilizado en cafeterías y cocinas retro de todo el mundo, pero es combinable con multitud de estilos y tendencias decorativas.   En la década de los 70 se utilizaban a menudo en fábricas, oficinas u hospitales. Hoy se ha impuesto como un diseño de moda ideal para múltiples ambientes.",
+        "medidas": "Medidas: 86cm altura respaldo x 44cm ancho x 45cm profundidad asiento ",
+        "color": "amarillo",
+        "detalles": [
+            "Calidad garantizada acero reforzado",
+            "Apilable - Resistencia hasta 130kg",
+            "Viene en variedad de colores"
+        ],
+        "infoExtra": []
+    },
+    {
         "nombre": "Lámpara galponera",
         "id": 1004,
         "categoria": "Iluminación",
