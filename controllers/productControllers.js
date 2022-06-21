@@ -11,7 +11,7 @@ module.exports = {
     res.send("vista para mostrar el detalle del producto");
   },
   create: (req, res) => {
-    res.send("vista para crear producto");
+    res.send("./views/administracion-productos.ejs");
   },
   store: (req, res) => {
     res.send("procesa el crear producto");
