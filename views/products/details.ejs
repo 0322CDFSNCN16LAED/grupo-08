@@ -10,171 +10,88 @@
 
     <!--MAIN -->
     <main>
-      <!--agregar un input para hacer busquedas por categoria-->
-      <div class="mlr-5 mt-3">
-        <label for="categoriaList" class="form-label"
-        >Categorias de productos</label
-        >
-        <input
-          class="form-control"
-          list="opciones"
-          id="categoriaList"
-          placeholder="Escribe para buscar..."
-        />
-
-      </div>
       <!-- se listan todos los productos-->
       <div class="container products-wrapper overflow-hidden">
         <!--row para titulo-->
         <div class="row">
-          <div class="col-12">
-            <h2 class="products-title align-center">
-              Estas Eliminando: <i> <%= productoEditar.nombre%> </i>
-            </h2>
-          </div>
-          <form action="/products/delete<%= producto.id %>?_method=delete " 
-                method="POST"
-                class="form-field">
-            <div class="row product-detail">
-                <div class = "mt-5 w-50 mlr-5 ">
-                    <label for="nombre" class="form-label">Nombre del producto:</label>
-                    <input
-                        value="<%=productoEditar.nombre%> "
-                        type="text"
-                        id="nombre"
-                        name="nombre"
-                        placeholder="Ej: Mueble nordico"
-                        class="form-control"
-                        />
-                </div>
+          <!--Detalle de producto-->
+          <div class="product-detail">
+            <div class="row">
+              <div class="col-12 col-lg-8">
+                <img
+                  src="<%= producto.imagen%>"
+                  alt=""
+                  class="product-detail-img"
+                />
+              </div>
+              <div class="col-12 col-lg-4">
+                <div class="row">
+                  <div class="col-12 display-6 align-center">
+                    <%= producto.nombre%>
+                  </div>
+                  <div class="col-12 display-6 align-center">
+                    $<%= new
+                    Intl.NumberFormat('de-DE').format(producto.precioContado)%>
+                  </div>
+                  <div class="col-12"><%= producto.descripcion%></div>
+                  <div class="col-12 font-black"><hr class="hr-detail" /></div>
 
-                <div class = "mt-5 w-50 mlr-5 ">
-                  <label for="categoria" class="form-label">Categorias de productos</label>
-                  <input
-                    value="<%=productoEditar.categoria%>"
-                    class="form-control"
-                    list="opciones"
-                    id="categoria"
-                    placeholder="Escribe para buscar..."
-                  />
-                  <datalist id="opciones">
-                    <option value="Iluminación"></option>
-                    <option value="Muebles"></option>
-                    <option value="Minimalista"></option>
-                    <option value="Vintage"></option>
-                    <option value="Bohemio"></option>
-                  </datalist>
+                  <div class="col-4">Categoria</div>
+                  <div class="col-8"><%= producto.categoria%></div>
+                  <div class="col-4">Estilo</div>
+                  <div class="col-8"><%= producto.estilo%></div>
+                  <div class="col-4">Ambientes</div>
+                  <div class="col-8"><%= producto.ambiente.join('/ ')%></div>
+                  <div class="col-4">Medidas</div>
+                  <div class="col-8"><%= producto.medidas%></div>
+
+                  <div class="col-12 font-black"><hr class="hr-detail" /></div>
+                  <div class="col-12">
+                    <% producto.detalles.forEach(det => {%>
+                    <div class="col-12"><li><%=det%></li></div>
+                    <% }) %>
+                  </div>
+                  <div class="col-12 font-black"><hr class="" /></div>
+                  <div class="col-12">
+                    <label for="cantidad">Cantidad</label>
+                    <input
+                      type="number"
+                      min="0"
+                      max="10"
+                      id="cantidad"
+                      name="cantidad"
+                      class="form-control"
+                    />
+                  </div>
+                  <div class="col-12 mt-3">
+                    <button
+                      type="submit"
+                      class="btn btn-outline-primary btn-lg product-btn w-100"
+                    >
+                      AGREGAR AL CARRITO
+                    </button>
+                  </div>
+                  <div class="col-6 mt-3">
+                    <a
+                      href="/products/edit/<%= producto.id %>"
+                      class="action-button edit w-100"
+                      >EDITAR
+                    </a>
+                  </div>
+                  <div class="col-6 mt-3">
+                    <form
+                      action="/products/<%=producto.id%>?_method=DELETE"
+                      method="POST"
+                    >
+                      <button type="submit" class="action-button delete w-100">
+                        ELIMINAR
+                      </button>
+                    </form>
+                  </div>
                 </div>
-                <div class = "mt-5 w-50 mlr-5">
-                  <label for="name" class="form-label">Ambiente:</label>
-                  <input
-                  value="<%=productoEditar.ambiente%>"
-                  class="form-control"
-                  id="ambiente"
-                  placeholder="Escribe para el tipo de ambiente del que trata"
-                />
-                </div>
-                <div class = "mt-5 w-50 mlr-5 ">
-                  <label for="precioContado" class="form-label">Precio al contado:</label>
-                  <input
-                  value="<%=productoEditar.precioContado%>"
-                  class="form-control"
-                  id="precioContado"
-                  placeholder="Precio al contado es de..."
-                />
-                </div>
-                <div class = "mt-5 w-50 mlr-5 ">
-                  <label for="cantidadDeCuotas" class="form-label">Cantidad de cuotas:</label>
-                  <input
-                  value="<%=productoEditar.cantidadDeCuotas%>"
-                  class="form-control"
-                  id="cantidadDeCuotas"
-                  list="opcionescuotas"
-                  placeholder="Escribe para buscar..."
-                />
-                <datalist id="opcionescuotas">
-                  <option value="1"></option>
-                  <option value="3"></option>
-                  <option value="6"></option>
-                  <option value="12"></option>
-                </datalist>
-                </div>
-                <div class = "mt-5 w-50 mlr-5 ">
-                  <label for="precioCuotas" class="form-label">Precio por cada cuotas:</label>
-                  <input
-                  value="<%=productoEditar.precioCuotas%>"
-                  class="form-control"
-                  id="precioCuotas"
-                />
-                </div>
-                <div class = "mt-5 w-50 mlr-5 ">
-                  <label for="envioGratis" class="form-label">Envio gratis:</label>
-                  <input
-                  value="<%=productoEditar.envioGratis%>"
-                  class="form-control"
-                  id="envioGratis"
-                  placeholder="Tipo de envio"
-                />
-                </div>
-                <div class = "mt-5 w-50 mlr-5 ">
-                  <label for="alt" class="form-label">Alternativo:</label>
-                  <input
-                  value="<%=productoEditar.alt%>"
-                  class="form-control"
-                  id="alt"
-                  placeholder=""
-                />
-                </div>
-                <div class = "mt-5 w-50 mlr-5 ">
-                  <label for="categoriaList" class="form-label">Descripcion:</label>
-                  <input
-                  value="<%=productoEditar.descripcion%>"
-                  class="form-control"
-                  id="categoriaList"
-                  placeholder=""
-                />
-                </div>
-                <div class = "mt-5 w-50 mlr-5 ">
-                  <label for="medidas" class="form-label">Medidas:</label>
-                  <input
-                  value="<%=productoEditar.medidas%>"
-                  class="form-control"
-                  id="medidas"
-                  placeholder="Medidas"
-                />
-                </div>
-                <div class = "mt-5 w-50 mlr-5 ">
-                  <label for="color" class="form-label">Color:</label>
-                  <input
-                  value="<%=productoEditar.color%>"
-                  class="form-control"
-                  id="color"
-                  placeholder="Escribe para buscar..."
-                />
-                </div>
-                <div class = "mt-5 w-50 mlr-5 ">
-                  <label for="description" class="form-label">Detalles del producto:</label>
-                    <textarea
-                  value="<%=productoEditar.detalles%>"
-                  class="form-control"
-                  name="description"
-                  id="description"></textarea>
-                </div>
-                <div class = "mt-5 w-50 mlr-5 ">
-                  <label for="description" class="form-label"> Detalles extra sobre el producto:</label>
-                  <textarea
-                    value="<%=productoEditar.infoExtra%>"
-                    class="form-control"
-                    name="description"
-                    id="description"></textarea>
-                </div>
-                <div>
-                <button type="reset" class="btn btn-outline-primary btn-lg product-btn">
-                        Eliminar producto
-                </button>
-                </div>
+              </div>
             </div>
-          </form>
+          </div>
         </div>
         <!-- fin del row -->
       </div>
