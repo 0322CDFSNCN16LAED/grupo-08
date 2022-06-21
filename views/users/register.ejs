@@ -12,13 +12,22 @@
     <main class="pt-5">
       <!--section para formulario-->
       <section class="p-lateral-5">
-        <form action="/" method="get" class="form-field">
+        <form action="/" method="POST" class="form-field">
           <div>
-            <label for="nombre" class="input-label">Nombre y apellido</label>
+            <label for="nombre" class="input-label">Nombre</label>
             <input
               type="text"
               name="nombre"
               id="nombre"
+              class="form-input input-shadow"
+            />
+          </div>
+          <div>
+            <label for="apellido" class="input-label">Apellido</label>
+            <input
+              type="text"
+              name="apellido"
+              id="apellido"
               class="form-input input-shadow"
             />
           </div>
@@ -36,28 +45,38 @@
             <label for="tlf" class="input-label">Teléfono</label>
             <input
               type="tel"
-              name="tlf"
-              id="tlf"
+              name="telefono"
+              id="telefono"
               class="form-input input-shadow"
               placeholder="+54 9 11 74128653"
+            />
+          </div>
+          <div class="mt-5">
+            <label for="direccion" class="input-label">Dirección</label>
+            <input
+              type="text"
+              name="direccion"
+              id="direccion"
+              class="form-input input-shadow"
+              placeholder="Av. Rivadavia 1500, 1ro A. CABA "
             />
           </div>
           <div class="mt-5">
             <label for="pass" class="input-label">Contraseña</label>
             <input
               type="password"
-              name="pass"
-              id="pass"
+              name="password"
+              id="password"
               class="form-input input-shadow"
               placeholder="********"
             />
           </div>
           <div class="mt-5">
-            <label for="pass" class="input-label">Confirma tu contraseña</label>
+            <label for="password" class="input-label">Confirma tu contraseña</label>
             <input
-              type="rpassword"
-              name="rpass"
-              id="rpass"
+              type="password"
+              name="password"
+              id="password"
               class="form-input input-shadow"
               placeholder="********"
             />
