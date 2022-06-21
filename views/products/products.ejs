@@ -39,32 +39,38 @@
           <!--caja para cada producto -->
           <% productos.forEach(product => {%>
           <article class="col-12 col-sm-6 col-lg-3">
-            <div class="card p-3 product-box">
-              <img src="<%=product.imagen%>" alt="" class="product-box_image" />
+            <a href="/products/<%=product.id%>">
+              <div class="card p-3 product-box">
+                <img
+                  src="<%=product.imagen%>"
+                  alt=""
+                  class="product-box_image"
+                />
 
-              <div class="card-body align-center">
-                <p class="display-6"><strong><%= product.nombre%></strong></p>
-                <p class="display-6"><%= product.categoria%></p>
-                <p class="display-6">
-                  $ <%= new
-                  Intl.NumberFormat('de-DE').format(product.precioContado)%>
-                </p>
-                <span class="inline-block">
-                  <a
-                    href="/products/edit/<%= product.id %>"
-                    class="btn btn-outline-primary btn-lg product-btn"
-                    >Editar</a
-                  >
-                  <form class = "btn-outline-primary"
-                    action="/products/delete<%= product.id %>?_method=delete"
-                    method="POST"
-                    style="display: inline-flex"
-                  >
-                    <button type="submit" class="btn btn-danger">Eliminar</button>
-                  </form>
-                </span>
+                <div class="card-body align-center">
+                  <p class="display-6"><strong><%= product.nombre%></strong></p>
+                  <p class="display-6"><%= product.categoria%></p>
+                  <p class="display-6">
+                    $ <%= new
+                    Intl.NumberFormat('de-DE').format(product.precioContado)%>
+                  </p>
+                  <span class="inline-block">
+                    <a
+                      href="/products/"
+                      class="btn btn-outline-primary btn-lg product-btn"
+                      >AGREGAR AL CARRITO</a
+                    >
+                    <!--<form class = "btn-outline-primary"
+                      action="/products/delete<%= product.id %>?_method=delete"
+                      method="POST"
+                      style="display: inline-flex"
+                    >
+                      <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </form>-->
+                  </span>
+                </div>
               </div>
-            </div>
+            </a>
           </article>
           <% }) %>
         </div>

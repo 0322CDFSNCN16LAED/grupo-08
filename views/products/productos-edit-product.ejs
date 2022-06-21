@@ -10,19 +10,6 @@
 
     <!--MAIN -->
     <main>
-      <!--agregar un input para hacer busquedas por categoria-->
-      <div class="mlr-5 mt-3">
-        <label for="categoriaList" class="form-label"
-        >Categorias de productos</label
-        >
-        <input
-          class="form-control"
-          list="opciones"
-          id="categoriaList"
-          placeholder="Escribe para buscar..."
-        />
-
-      </div>
       <!-- se listan todos los productos-->
       <div class="container products-wrapper overflow-hidden">
         <!--row para titulo-->
@@ -32,60 +19,70 @@
               Estas editando: <i> <%= productoEditar.nombre%> </i>
             </h2>
           </div>
-          <form action="/products/edit/<%= productoEditar.id %>?_method=PUT " 
-                method="POST"
-                class="form-field">
+          <form
+            action="/products/edit/<%= productoEditar.id %>?_method=PUT "
+            method="POST"
+            class="form-field"
+          >
             <div class="row product-detail">
-                <div class = "mt-5 w-50 mlr-5 ">
-                    <label for="nombre" class="form-label">Nombre del producto:</label>
-                    <input
-                        value="<%=productoEditar.nombre%> "
-                        type="text"
-                        id="nombre"
-                        name="nombre"
-                        placeholder="Ej: Mueble nordico"
-                        class="form-control"
-                        />
-                </div>
+              <div class="col-12 col-md-6">
+                <label for="nombre" class="form-label"
+                  >Nombre del producto:</label
+                >
+                <input
+                  value="<%=productoEditar.nombre%> "
+                  type="text"
+                  id="nombre"
+                  name="nombre"
+                  placeholder="Ej: Mueble nordico"
+                  class="form-control"
+                />
+              </div>
 
-                <div class = "mt-5 w-50 mlr-5 ">
-                  <label for="categoria" class="form-label">Categorias de productos</label>
-                  <input
-                    value="<%=productoEditar.categoria%>"
-                    class="form-control"
-                    list="opciones"
-                    id="categoria"
-                    placeholder="Escribe para buscar..."
-                  />
-                  <datalist id="opciones">
-                    <option value="Iluminación"></option>
-                    <option value="Muebles"></option>
-                    <option value="Minimalista"></option>
-                    <option value="Vintage"></option>
-                    <option value="Bohemio"></option>
-                  </datalist>
-                </div>
-                <div class = "mt-5 w-50 mlr-5">
-                  <label for="name" class="form-label">Ambiente:</label>
-                  <input
+              <div class="col-12 col-md-6">
+                <label for="categoria" class="form-label"
+                  >Categorias de productos</label
+                >
+                <input
+                  value="<%=productoEditar.categoria%>"
+                  class="form-control"
+                  list="opciones"
+                  id="categoria"
+                  placeholder="Escribe para buscar..."
+                />
+                <datalist id="opciones">
+                  <option value="Iluminación"></option>
+                  <option value="Muebles"></option>
+                  <option value="Minimalista"></option>
+                  <option value="Vintage"></option>
+                  <option value="Bohemio"></option>
+                </datalist>
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="name" class="form-label">Ambiente:</label>
+                <input
                   value="<%=productoEditar.ambiente%>"
                   class="form-control"
                   id="ambiente"
                   placeholder="Escribe para el tipo de ambiente del que trata"
                 />
-                </div>
-                <div class = "mt-5 w-50 mlr-5 ">
-                  <label for="precioContado" class="form-label">Precio al contado:</label>
-                  <input
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="precioContado" class="form-label"
+                  >Precio al contado:</label
+                >
+                <input
                   value="<%=productoEditar.precioContado%>"
                   class="form-control"
                   id="precioContado"
                   placeholder="Precio al contado es de..."
                 />
-                </div>
-                <div class = "mt-5 w-50 mlr-5 ">
-                  <label for="cantidadDeCuotas" class="form-label">Cantidad de cuotas:</label>
-                  <input
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="cantidadDeCuotas" class="form-label"
+                  >Cantidad de cuotas:</label
+                >
+                <input
                   value="<%=productoEditar.cantidadDeCuotas%>"
                   class="form-control"
                   id="cantidadDeCuotas"
@@ -98,87 +95,102 @@
                   <option value="6"></option>
                   <option value="12"></option>
                 </datalist>
-                </div>
-                <div class = "mt-5 w-50 mlr-5 ">
-                  <label for="precioCuotas" class="form-label">Precio por cada cuotas:</label>
-                  <input
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="precioCuotas" class="form-label"
+                  >Precio por cada cuotas:</label
+                >
+                <input
                   value="<%=productoEditar.precioCuotas%>"
                   class="form-control"
                   id="precioCuotas"
                 />
-                </div>
-                <div class = "mt-5 w-50 mlr-5 ">
-                  <label for="envioGratis" class="form-label">Envio gratis:</label>
-                  <input
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="envioGratis" class="form-label"
+                  >Envio gratis:</label
+                >
+                <input
                   value="<%=productoEditar.envioGratis%>"
                   class="form-control"
                   id="envioGratis"
                   placeholder="Tipo de envio"
                 />
-                </div>
-                <div class = "mt-5 w-50 mlr-5 ">
-                  <label for="alt" class="form-label">Alternativo:</label>
-                  <input
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="alt" class="form-label">Alternativo:</label>
+                <input
                   value="<%=productoEditar.alt%>"
                   class="form-control"
                   id="alt"
                   placeholder=""
                 />
-                </div>
-                <div class = "mt-5 w-50 mlr-5 ">
-                  <label for="categoriaList" class="form-label">Descripcion:</label>
-                  <input
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="categoriaList" class="form-label"
+                  >Descripcion:</label
+                >
+                <input
                   value="<%=productoEditar.descripcion%>"
                   class="form-control"
                   id="categoriaList"
                   placeholder=""
                 />
-                </div>
-                <div class = "mt-5 w-50 mlr-5 ">
-                  <label for="medidas" class="form-label">Medidas:</label>
-                  <input
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="medidas" class="form-label">Medidas:</label>
+                <input
                   value="<%=productoEditar.medidas%>"
                   class="form-control"
                   id="medidas"
                   placeholder="Medidas"
                 />
-                </div>
-                <div class = "mt-5 w-50 mlr-5 ">
-                  <label for="color" class="form-label">Color:</label>
-                  <input
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="color" class="form-label">Color:</label>
+                <input
                   value="<%=productoEditar.color%>"
                   class="form-control"
                   id="color"
                   placeholder="Escribe para buscar..."
                 />
-                </div>
-                <div class = "mt-5 w-50 mlr-5 ">
-                  <label for="description" class="form-label">Detalles del producto:</label>
-                    <textarea
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="description" class="form-label"
+                  >Detalles del producto:</label
+                >
+                <textarea
                   value="<%=productoEditar.detalles%>"
                   class="form-control"
                   name="description"
-                  id="description"></textarea>
-                </div>
-                <div class = "mt-5 w-50 mlr-5 ">
-                    <label for="description" class="form-label"> Detalles extra sobre el producto:</label>
-                      <textarea
-                    value="<%=productoEditar.detalles%>"
-                    class="form-control"
-                    name="description"
-                    id="description"></textarea>
-                </div>
-                <div>
-                  <form class = "btn-outline-primary"
+                  id="description"
+                ></textarea>
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="description" class="form-label">
+                  Detalles extra sobre el producto:</label
+                >
+                <textarea
+                  value="<%=productoEditar.detalles%>"
+                  class="form-control"
+                  name="description"
+                  id="description"
+                ></textarea>
+              </div>
+              <div class="align-center mt-3">
+                <form
+                  class="btn-outline-primary"
                   action="/products"
                   method="GET"
-                  style="display: inline-flex"
+                >
+                  <button
+                    type="submit"
+                    class="btn btn-outline-primary btn-lg product-btn"
                   >
-                  <button type="submit" class="btn btn-outline-primary btn-lg product-btn">
-                          Guardar producto
+                    Guardar producto
                   </button>
-                  </form>
-                </div>
+                </form>
+              </div>
             </div>
           </form>
         </div>
@@ -190,4 +202,3 @@
     <%- include('../partials/footer') %>
   </body>
 </html>
-
