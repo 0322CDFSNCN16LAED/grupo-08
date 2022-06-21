@@ -24,4 +24,5 @@ app.listen(PORT, () => {
 // para  mostrar errores cuando la ruta no funcione.
 app.use((req, res, next) => {
   res.status(404).render("not-found");
+  next();
 });
