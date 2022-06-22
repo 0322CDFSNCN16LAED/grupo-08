@@ -19,8 +19,18 @@ module.exports = {
   },
   //accion de procesar el producto. CREAR
   store: function (req, res) {
-    const newProduct = req.body;
-    res.send(newProduct);
+    // armamos el array de ambientes
+    let ambientes = [];
+    if (req.body.cocina != undefined) {
+      ambientes.push(req.body.cocina);
+    }
+    if (req.body.living != undefined) {
+      ambientes.push(req.body.living);
+    }
+    res.send(ambientes);
+    /*if(req.body.cocina == checked){
+      res.send('cocina seleccionada');
+    }*/
     //    if (products.length) {
     //     newProduct.id = products[products.length - 1].id + 1;
     // } else {
