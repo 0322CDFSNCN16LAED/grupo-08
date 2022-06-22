@@ -17,7 +17,7 @@
         <form action="/products" method="post" enctype="multipart/form-data">
           <div class="row product-detail pb-5">
             <!--nombre-->
-            <div class="col-12 col-md-6 mt-3">
+            <div class="col-12 mt-3">
               <label for="nombre" class="form-label">Nombre del producto:</label>
               <input
                 type="text"
@@ -28,7 +28,7 @@
               />
             </div>
             <!--precio-->
-            <div class="col-12 col-md-6 mt-3">
+            <div class="col-4 mt-3">
               <label for="precioContado" class="form-label">Precio:</label>
               <input
                 type="text"
@@ -39,7 +39,7 @@
               />
             </div>
              <!--cuotas-->
-             <div class="col-12 col-md-6 mt-3">
+             <div class="col-4 mt-3">
               <label for="cantidadDeCuotas" class="form-label">Cuotas:</label>
               <select name="cantidadDeCuotas" id="cantidadDeCuotas" class="form-select">
                 <option value=""> Seleccione </option>
@@ -51,7 +51,7 @@
               </select>
             </div>
             <!-- precio cuota-->
-             <div class="col-12 col-md-6 mt-3">
+             <div class="col-4 mt-3">
               <label for="precioCuota" class="form-label">Precio de la cuota:</label>
               <input 
                 type="text"
@@ -60,19 +60,8 @@
                 class="form-control"
                 placeholder=""
               />
-            </div>
-            
-            <!-- color -->
-            <div class="col-12 col-md-6 mt-3">
-              <label for="color" class="form-label">Color:</label>
-              <input 
-                type="text"
-                name="color"
-                id="color"
-                class="form-control"
-                placeholder=""
-              />
-            </div>
+            </div>  
+
             <!--categoria-->
             <div class="col-12 col-md-6 mt-3">
               <label for="price" class="form-label">Categoría:</label>
@@ -125,6 +114,10 @@
                 <input class="form-check-input" type="checkbox" id="exteriores" value="exteriores">
                 <label class="form-check-label" for="exteriores">Exteriores</label>
               </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="otros" value="otros">
+                <label class="form-check-label" for="otros">Otros</label>
+              </div>
           </div>
           <!--estilos-->
           <div class="col-12 col-md-6 mt-3">
@@ -135,6 +128,7 @@
               <option value="minimalista">Minimalista</option>
               <option value="century">Mid Century Modern</option>
               <option value="boho">Boho Chic </option>
+              <option value="otros">Otros </option>
             </select>
           </div>
           <!--descripcion del producto-->
@@ -147,6 +141,11 @@
             <label for="descripcion" class="form-label col-12">Detalles</label>
             <textarea class="form-control" id="descripcion" rows="3"></textarea>            
           </div>
+          <!--Información extra del producto-->
+          <div class="col-12 col-md-6 mt-3">
+            <label for="infoExtra" class="form-label">Información extra del producto</label>
+            <textarea class="form-control" id="infoExtra" rows="3"></textarea>            
+          </div>          
           <!--medidas-->
           <div class="col-12 col-md-6 mt-3">
             <label for="medidas" class="form-label">Medidas:</label>
@@ -158,6 +157,18 @@
               placeholder=""
             />
           </div>
+                      
+            <!-- color -->
+            <div class="col-12 col-md-6 mt-3">
+              <label for="color" class="form-label">Color:</label>
+              <input 
+                type="text"
+                name="color"
+                id="color"
+                class="form-control"
+                placeholder=""
+              />
+            </div>
           <!-- envio gratis -->
           <div class="col-12 col-md-6 mt-3">
             <label for="envioGratis" class="form-label">Envio gratis:</label>
@@ -167,9 +178,20 @@
             </div>
           </div>
           <div class="col-12 mt-3">
+            <!-- Imagen -->
             <label for="formFile" class="form-label">Imagen</label>
             <input class="form-control" type="file" id="formFile">
           </div>
+            <!--Texto alternativo de la imagen-->
+            <div class="col-12 col-md-6 mt-3">
+            <label for="alt" class="form-label">Cargar texto alternativo de la imagen:</label>
+              <input
+              type="text"
+              name="alt"
+              id="alt"
+              class="form-control"
+              />
+            </div>
           <div class="col-12 mt-3 text-align-c">
             <button type="button" class="btn bg-pink btn-lg font-white reg">REGISTRAR</button>
           </div>
