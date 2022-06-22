@@ -6,12 +6,12 @@ const productControllers = require("../controllers/productControllers");
 /* Listado de productos*/
 router.get("/", productControllers.index);
 
-/* Ver detalle de un producto*/
-router.get("/:id", productControllers.detail);
-
 /* Crear un producto*/
 router.get("/create", productControllers.create);
 router.post("/", productControllers.store);
+
+/* Ver detalle de un producto*/
+router.get("/:id", productControllers.detail);
 
 /* Editar un producto*/
 router.get("/edit/:id", productControllers.edit);

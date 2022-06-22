@@ -15,11 +15,11 @@ module.exports = {
   },
   //crear un nuevo producto
   create: (req, res) => {
-    res.send("./views/administracion-productos.ejs");
+    res.render("products/create-producto");
   },
   //accion de procesar el producto. CREAR
   store: (req, res) => {
-    res.send("procesa el crear producto");
+    //res.send("procesa el crear producto");
   },
   // vista para editar detalles de productos
   edit: (req, res) => {

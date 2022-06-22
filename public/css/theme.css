@@ -301,7 +301,7 @@ footer {
 
 .form-input {
   background-color: white;
-  border: none;
+  border: solid 1px var(--gray);
   width: 100%;
   border-radius: 5px;
   padding: 8px;
@@ -416,4 +416,15 @@ hr {
 }
 .action-button.delete {
   background-color: #d56b27;
+}
+
+/********************************************************************/
+/*             PARA VISTA CREACION DE PRODUCT                       */
+/********************************************************************/
+.input-border {
+  border: solid 1px var(--gray) !important;
+}
+.reg:hover {
+  background-color: #c44cb4 !important;
+  color: white !important;
 }
