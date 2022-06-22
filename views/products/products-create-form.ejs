@@ -14,7 +14,7 @@
         </div>
       </div>
       <div class="col-12 mt-3">
-        <form action="/products" method="post" enctype="multipart/form-data">
+        <form action="/products" method="POST" enctype="multipart/form-data">
           <div class="row product-detail pb-5">
             <!--nombre-->
             <div class="col-12 mt-3">
@@ -156,19 +156,18 @@
               class="form-control"
               placeholder=""
             />
+          </div>                      
+          <!-- color -->
+          <div class="col-12 col-md-6 mt-3">
+            <label for="color" class="form-label">Color:</label>
+            <input 
+              type="text"
+              name="color"
+              id="color"
+              class="form-control"
+              placeholder=""
+            />
           </div>
-                      
-            <!-- color -->
-            <div class="col-12 col-md-6 mt-3">
-              <label for="color" class="form-label">Color:</label>
-              <input 
-                type="text"
-                name="color"
-                id="color"
-                class="form-control"
-                placeholder=""
-              />
-            </div>
           <!-- envio gratis -->
           <div class="col-12 col-md-6 mt-3">
             <label for="envioGratis" class="form-label">Envio gratis:</label>
@@ -182,18 +181,20 @@
             <label for="formFile" class="form-label">Imagen</label>
             <input class="form-control" type="file" id="formFile">
           </div>
-            <!--Texto alternativo de la imagen-->
-            <div class="col-12 col-md-6 mt-3">
-            <label for="alt" class="form-label">Cargar texto alternativo de la imagen:</label>
-              <input
-              type="text"
-              name="alt"
-              id="alt"
-              class="form-control"
-              />
-            </div>
+          <!--Texto alternativo de la imagen-->
+          <div class="col-12 col-md-6 mt-3">
+          <label for="alt" class="form-label">Cargar texto alternativo de la imagen:</label>
+            <input
+            type="text"
+            name="alt"
+            id="alt"
+            class="form-control"
+            />
+          </div>
           <div class="col-12 mt-3 text-align-c">
-            <button type="submit" class="btn bg-pink btn-lg font-white reg">REGISTRAR</button>
+            <button type="submit" class="btn bg-pink btn-lg font-white reg">
+              REGISTRAR
+            </button>
           </div>
         </form>
       </div>
