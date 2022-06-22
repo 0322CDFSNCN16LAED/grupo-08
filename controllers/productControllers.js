@@ -15,7 +15,7 @@ module.exports = {
   },
   //crear un nuevo producto
   create: (req, res) => {
-    res.render("products/create-producto");
+    res.render("products/products-create-form");
   },
   //accion de procesar el producto. CREAR
   store: (req, res) => {

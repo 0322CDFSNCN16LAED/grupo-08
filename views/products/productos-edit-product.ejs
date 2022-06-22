@@ -51,11 +51,12 @@
                   placeholder="Escribe para buscar..."
                 />
                 <datalist id="opciones">
-                  <option value="Iluminación"></option>
-                  <option value="Muebles"></option>
-                  <option value="Minimalista"></option>
-                  <option value="Vintage"></option>
-                  <option value="Bohemio"></option>
+                  <option value="muebles">  </option>
+                  <option value="textiles">  </option>
+                  <option value="vajilla">  </option>
+                  <option value="accesorios">  </option>
+                  <option value="iluminacion"> </option>
+                  <option value="otros">  </option>
                 </datalist>
               </div>
               <div class="col-12 col-md-6">
@@ -63,9 +64,42 @@
                 <input
                   value="<%=productoEditar.ambiente%>"
                   class="form-control"
+                  list="opciones"
                   id="ambiente"
                   placeholder="Escribe para el tipo de ambiente del que trata"
                 />
+                <datalist id="opciones">
+                  <option value="cocina">  </option>
+                  <option value="living">  </option>
+                  <option value="dormitorio">  </option>
+                  <option value="comedor">  </option>
+                  <option value="estudio"> </option>
+                  <option value="infantil">  </option>
+                  <option value="baño">  </option>
+                  <option value="playroom">  </option>
+                  <option value="exteriores">  </option>
+                  <option value="otros">  </option>
+                </datalist>
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="estilo" class="form-label"
+                  >Estilo:</label
+                >
+                <input
+                  value="<%=productoEditar.estilo%>"
+                  class="form-control"
+                  list="opciones"
+                  id="estilo"
+                  placeholder="Escribe para buscar..."
+                />
+                <datalist id="opciones">
+                  <option value="industrial">  </option>
+                  <option value="nordico">  </option>
+                  <option value="minimalista">  </option>
+                  <option value="mid-century-modern">  </option>
+                  <option value="boho-chic"> </option>
+                  <option value="otros">  </option>
+                </datalist>
               </div>
               <div class="col-12 col-md-6">
                 <label for="precioContado" class="form-label"
@@ -127,13 +161,13 @@
                 />
               </div>
               <div class="col-12 col-md-6">
-                <label for="categoriaList" class="form-label"
+                <label for="descripcion" class="form-label"
                   >Descripcion:</label
                 >
                 <input
                   value="<%=productoEditar.descripcion%>"
                   class="form-control"
-                  id="categoriaList"
+                  id="descripcion"
                   placeholder=""
                 />
               </div>
@@ -156,25 +190,25 @@
                 />
               </div>
               <div class="col-12 col-md-6">
-                <label for="description" class="form-label"
+                <label for="detalles" class="form-label"
                   >Detalles del producto:</label
                 >
                 <textarea
                   value="<%=productoEditar.detalles%>"
                   class="form-control"
-                  name="description"
-                  id="description"
+                  name="detalles"
+                  id="detalles"
                 ></textarea>
               </div>
               <div class="col-12 col-md-6">
-                <label for="description" class="form-label">
-                  Detalles extra sobre el producto:</label
+                <label for="infoExtra" class="form-label">
+                  Información extra sobre el producto:</label
                 >
                 <textarea
-                  value="<%=productoEditar.detalles%>"
+                  value="<%=productoEditar.infoExtra%>"
                   class="form-control"
-                  name="description"
-                  id="description"
+                  name="infoExtra"
+                  id="infoExtra"
                 ></textarea>
               </div>
               <div class="align-center mt-3">
