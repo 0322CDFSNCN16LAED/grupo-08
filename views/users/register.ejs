@@ -114,6 +114,23 @@
           <a href="/user/login"><h3 class="font-xlarge">Inicia sesión</h3></a>
         </div>
       </section>
+
+      <section>
+        <!--Seccion eliminar usuario // POSTERIORMENTE LA OCULTAREMOS 
+          Y MOSTRAREMOS SEGUN EL USER SEA CLIENTE O ADMINISTRADOR -->
+        <div class="col-6 mt-3">
+          <form
+            action="/users/<%=user.id%>?_method=DELETE"
+            method="POST"
+          >
+            <button type="submit" class="action-button delete w-100">
+              ELIMINAR
+            </button>
+          </form>
+        </div>
+      </section>
+
+
       <!-- section envios-->
       <section class="text-align-c pt-5 pb-5">
         <div class="mt-3"><i class="fas fa-truck font-xxlarge"></i></div>
