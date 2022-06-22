@@ -13,8 +13,8 @@ module.exports = {
   register: function (req, res) {
     
   },
-  index: function(){
-    
+  index: function(req, res){    
+    res.render('users/index', {users: users})    
   },
   detail: function(){
     

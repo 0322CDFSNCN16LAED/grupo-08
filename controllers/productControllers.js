@@ -1,12 +1,11 @@
 const db = require("../data/db-products");
 const path = require("path");
 
-let products = db.getAll();
+const products = db.getAll();
 
 module.exports = {
   // ver todos los productos
   index: (req, res) => {
-    products = db.getAll();
     res.render("products/products", { productos: products });
   },
   //ver el detalle de cada producto
