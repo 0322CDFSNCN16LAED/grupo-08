@@ -19,7 +19,7 @@ module.exports = {
   },
   //accion de procesar el producto. CREAR
   store: (req, res) => {
-    //res.send("procesa el crear producto");
+    res.send(req);
   },
   // vista para editar detalles de productos
   edit: (req, res) => {
