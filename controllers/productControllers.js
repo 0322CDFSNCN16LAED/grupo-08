@@ -18,9 +18,19 @@ module.exports = {
     res.render("products/products-create-form");
   },
   //accion de procesar el producto. CREAR
-  store: (req, res) => {
-    //res.send("procesa el crear producto");
-  },
+  store: function (req, res) {
+    const newProduct = req.body;
+    res.send(newProduct)
+//    if (products.length) {
+ //     newProduct.id = products[products.length - 1].id + 1;
+   // } else {
+//      newProduct.id = 1;
+  //  }
+  //  products.push(newProduct);
+//    db.saveAll(products);
+ //   res.redirect("/products");
+  },  
+  
   // vista para editar detalles de productos
   edit: (req, res) => {
     let id = req.params.id;
