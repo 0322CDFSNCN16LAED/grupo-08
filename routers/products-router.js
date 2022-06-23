@@ -1,5 +1,7 @@
 const express = require("express");
 const router = express.Router();
+const multer  = multer.diskStorage
+destination:(req, res,cb) 
 
 const productControllers = require("../controllers/productControllers");
 
