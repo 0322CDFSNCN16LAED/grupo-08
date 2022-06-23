@@ -190,5 +190,17 @@
             "132345"
         ],
         "id": 21
+    },
+    {
+        "nombre": "Homero",
+        "apellido": "Simpson",
+        "email": "homer@hotmail.com",
+        "telefono": "0303456",
+        "direccion": "Av. Siempre Viva 555",
+        "password": [
+            "123456",
+            "123456"
+        ],
+        "id": 22
     }
 ]
