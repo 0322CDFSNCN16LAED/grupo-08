@@ -1,11 +1,12 @@
 const db = require("../data/db-products");
 const path = require("path");
 
-const products = db.getAll();
+let products = db.getAll();
 
 module.exports = {
   // ver todos los productos
   index: (req, res) => {
+    products = db.getAll();
     res.render("products/products", { productos: products });
   },
   //ver el detalle de cada producto
@@ -65,8 +66,8 @@ module.exports = {
       descripcion: req.body.descripcion,
       medidas: req.body.medidas,
       color: req.body.color,
-      detalles: req.body.detalles,
-      infoExtra: req.body.infoExtra,
+      detalles: req.body.detalles.split(","),
+      infoExtra: req.body.infoExtra.split(","),
     };
     // se genera el id
     if (products.length) {
@@ -95,13 +96,70 @@ module.exports = {
   },
   // accion de actualizar un producto.
   update: (req, res) => {
-    const productEditIndex = db.getAll(req.params.id);
+    const productIndex = products.findIndex((p) => p.id == req.params.id);
+    const product = products[productIndex];
 
-    products.splice(productEditIndex, 1, req.body);
+    let ambientes = [];
+    if (req.body.cocina != undefined) {
+      ambientes.push(req.body.cocina);
+    }
+    if (req.body.living != undefined) {
+      ambientes.push(req.body.living);
+    }
+    if (req.body.dormitorio != undefined) {
+      ambientes.push(req.body.dormitorio);
+    }
+    if (req.body.comedor != undefined) {
+      ambientes.push(req.body.comedor);
+    }
+    if (req.body.estudio != undefined) {
+      ambientes.push(req.body.estudio);
+    }
+    if (req.body.infantil != undefined) {
+      ambientes.push(req.body.infantil);
+    }
+    if (req.body.banios != undefined) {
+      ambientes.push(req.body.banios);
+    }
+    if (req.body.playroom != undefined) {
+      ambientes.push(req.body.playroom);
+    }
+    if (req.body.exteriores != undefined) {
+      ambientes.push(req.body.exteriores);
+    }
+    if (req.body.otros != undefined) {
+      ambientes.push(req.body.otros);
+    }
+    // armo el objeto a modificar
 
+    const editProduct = {
+      nombre: req.body.nombre,
+      categoria: req.body.categoria,
+      ambiente: ambientes,
+      estilo: req.body.estilos,
+      precioContado: req.body.precioContado,
+      cantidadDeCuotas: req.body.cantidadDeCuotas,
+      precioCuota: req.body.precioCuota,
+      envioGratis: !req.body.envioGratis ? false : true,
+      alt: req.body.alt,
+      descripcion: req.body.descripcion,
+      medidas: req.body.medidas,
+      color: req.body.color,
+      detalles: req.body.detalles,
+      infoExtra: req.body.infoExtra,
+      detalles: req.body.detalles.split(","),
+      infoExtra: req.body.infoExtra.split(","),
+      id: product.id,
+    };
+    if (req.file) {
+      editProduct.imagen = "/images/products/" + req.file.filename;
+    } else {
+      editProduct.imagen = product.imagen;
+    }
+
+    products[productIndex] = editProduct;
     db.saveAll(products);
-    res.send("vengo a moelstar");
-    // res.redirect("/products");
+    res.redirect("/products");
   },
   // accion de eliminar un producto
   destroy: (req, res) => {
