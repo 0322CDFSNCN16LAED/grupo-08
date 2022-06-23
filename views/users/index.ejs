@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <!--HEAD -->
+        <%- include('../partials/head') %>
+    </head>
+    <body>
+        <!--HEADER -->
+        <%- include('../partials/header') %>
+        <main>
+            <% users.forEach(user => {%>
+                <article class="container row">
+                    <div class= "col">
+                        Nombre del usuario: <%= user.nombre %> <%= user.apelido %>
+                    </div>
+                    <div class= "col">
+                        Email: <%= user.email %> 
+                    </div>
+                    <div class= "col">
+                        Numero de telefono: <%= user.telefono %> 
+                    </div>
+                    <div class= "col">
+                        Recidencia: <%= user.direccion %> 
+                    </div>
+                </article>
+            <% }); %> 
+        </main>
+
+    </body>
+    <footer>
+        <!--FOOTER -->
+    <%- include('../partials/footer') %>
+    </footer>
+</html>

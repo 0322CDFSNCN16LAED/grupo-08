@@ -15,6 +15,6 @@ router.get("/pago", mainControllers.pago);
 
 /* los routers para gestion de users y products */
 router.use("/products", productsRouter);
-router.use("/user", userRouter);
+router.use("/users", userRouter);
 
 module.exports = router;

@@ -301,7 +301,7 @@ footer {
 
 .form-input {
   background-color: white;
-  border: none;
+  border: solid 1px var(--gray);
   width: 100%;
   border-radius: 5px;
   padding: 8px;
@@ -380,6 +380,51 @@ hr {
 }
 
 .product-btn:hover {
+  background-color: #c44cb4 !important;
+  color: white !important;
+}
+/***************************************************************************/
+/*               PARA LA VIEW DETALLE DE PRODUCTO                          */
+/***************************************************************************/
+
+.product-detail {
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.product-detail-img {
+  width: 70%;
+  display: block;
+  margin: auto;
+}
+.hr-detail {
+  border-top: 2px solid #999;
+}
+.action-button {
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2em;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 30px;
+  margin-top: 15px;
+}
+.action-button.edit {
+  background-color: #ac9593;
+}
+.action-button.delete {
+  background-color: #d56b27;
+}
+
+/********************************************************************/
+/*             PARA VISTA CREACION DE PRODUCT                       */
+/********************************************************************/
+.input-border {
+  border: solid 1px var(--gray) !important;
+}
+.reg:hover {
   background-color: #c44cb4 !important;
   color: white !important;
 }

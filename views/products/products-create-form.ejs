@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--HEAD -->
+    <%- include('../partials/head', {title: 'Crear un producto'}) %>
+  </head>
+  <body class="bg-ligth-grey">
+    <!--HEADER -->
+    <%- include('../partials/header') %>
+    <main class="container products-wrapper">
+      <div class="row text-align-c">
+        <div class="col-12">
+          <h2 class="products-title">Creación de productos</h2>
+        </div>
+      </div>
+      <div class="col-12 mt-3">
+        <form action="/products" method="POST" enctype="multipart/form-data">
+          <div class="row product-detail pb-5">
+            <!--nombre-->
+            <div class="col-12 mt-3">
+              <label for="nombre" class="form-label">Nombre del producto:</label>
+              <input
+                type="text"
+                name="nombre"
+                id="nombre"
+                class="form-control"
+                placeholder=""
+              />
+            </div>
+            <!--precio-->
+            <div class="col-4 mt-3">
+              <label for="precioContado" class="form-label">Precio:</label>
+              <input
+                type="text"
+                name="precioContado"
+                id="precioContado"
+                class="form-control"
+                placeholder=""
+              />
+            </div>
+             <!--cuotas-->
+             <div class="col-4 mt-3">
+              <label for="cantidadDeCuotas" class="form-label">Cuotas:</label>
+              <select name="cantidadDeCuotas" id="cantidadDeCuotas" class="form-select">
+                <option value=""> Seleccione </option>
+                <option value="1"> 1 cuota </option>
+                <option value="3"> 3 cuotas sin interés </option>
+                <option value="6"> 6 cuotas sin interés </option>
+                <option value="12"> 12 cuotas sin interés </option>
+                <option value="18"> 18 cuotas sin interés </option>
+              </select>
+            </div>
+            <!-- precio cuota-->
+             <div class="col-4 mt-3">
+              <label for="precioCuota" class="form-label">Precio de la cuota:</label>
+              <input 
+                type="text"
+                name="precioCuota"
+                id="precioCuota"
+                class="form-control"
+                placeholder=""
+              />
+            </div>  
+
+            <!--categoria-->
+            <div class="col-12 col-md-6 mt-3">
+              <label for="price" class="form-label">Categoría:</label>
+              <select name="categoria" id="categoria" class="form-select">
+                <option value="">Seleccione</option>
+                <option value="muebles">Muebles</option>
+                <option value="textiles">Textiles</option>
+                <option value="vajilla">Vajilla</option>
+                <option value="accesorios">Accesorios</option>
+                <option value="iluminacion">Iluminación</option>
+                <option value="otros">Otros</option>
+              </select>
+            </div>
+            <!--ambientes-->
+            <div class="col-12 col-md-6 mt-3">
+              <label for="price" class="form-label col-12">Ambientes:</label>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="cocina" name="cocina" value="cocina">
+                <label class="form-check-label" for="cocina">Cocina</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="living" name="living" value="living">
+                <label class="form-check-label" for="living">Living</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="dormitorio"  name="dormitorio" value="dormitorio" >
+                <label class="form-check-label" for="dormitorio">Dormitorio</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="comedor" name="comedor"  value="comedor">
+                <label class="form-check-label" for="comedor">Comedor</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="estudio" name="estudio" value="estudio">
+                <label class="form-check-label" for="estudio">Estudio</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="infantil" name="infantil" value="infantil" >
+                <label class="form-check-label" for="infantil">Infantil</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="banios" name="banios" value="banios" >
+                <label class="form-check-label" for="banios">Baños</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="playroom" name="playroom" value="playroom">
+                <label class="form-check-label" for="playroom">Playroom</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="exteriores" name="exteriores" value="exteriores">
+                <label class="form-check-label" for="exteriores">Exteriores</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="otros" name="otros" value="otros">
+                <label class="form-check-label" for="otros">Otros</label>
+              </div>
+          </div>
+          <!--estilos-->
+          <div class="col-12 col-md-6 mt-3">
+            <label for="price" class="form-label col-12">Estilos:</label>
+            <select class="form-select" multiple aria-label="multiple select example" name="estilos">
+              <option value="industrial">Industrial</option>
+              <option value="nordico">Nórdico </option>
+              <option value="minimalista">Minimalista</option>
+              <option value="century">Mid Century Modern</option>
+              <option value="boho">Boho Chic </option>
+              <option value="otros">Otros </option>
+            </select>
+          </div>
+          <!--descripcion del producto-->
+          <div class="col-12 col-md-6 mt-3">
+            <label for="descripcion" class="form-label col-12">Descripción</label>
+            <textarea class="form-control" id="descripcion" rows="3"></textarea>            
+          </div>
+          <!--detalles del producto-->
+          <div class="col-12 col-md-6 mt-3">
+            <label for="descripcion" class="form-label col-12">Detalles</label>
+            <textarea class="form-control" id="descripcion" rows="3"></textarea>            
+          </div>
+          <!--Información extra del producto-->
+          <div class="col-12 col-md-6 mt-3">
+            <label for="infoExtra" class="form-label">Información extra del producto</label>
+            <textarea class="form-control" id="infoExtra" rows="3"></textarea>            
+          </div>          
+          <!--medidas-->
+          <div class="col-12 col-md-6 mt-3">
+            <label for="medidas" class="form-label">Medidas:</label>
+            <input
+              type="text"
+              name="medidas"
+              id="medidas"
+              class="form-control"
+              placeholder=""
+            />
+          </div>                      
+          <!-- color -->
+          <div class="col-12 col-md-6 mt-3">
+            <label for="color" class="form-label">Color:</label>
+            <input 
+              type="text"
+              name="color"
+              id="color"
+              class="form-control"
+              placeholder=""
+            />
+          </div>
+          <!-- envio gratis -->
+          <div class="col-12 col-md-6 mt-3">
+            <label for="envioGratis" class="form-label">Envio gratis:</label>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="envioGratis">
+              
+            </div>
+          </div>
+          <div class="col-12 mt-3">
+            <!-- Imagen -->
+            <label for="formFile" class="form-label">Imagen</label>
+            <input class="form-control" type="file" id="formFile">
+          </div>
+          <!--Texto alternativo de la imagen-->
+          <div class="col-12 col-md-6 mt-3">
+          <label for="alt" class="form-label">Cargar texto alternativo de la imagen:</label>
+            <input
+            type="text"
+            name="alt"
+            id="alt"
+            class="form-control"
+            />
+          </div>
+          <div class="col-12 mt-3 text-align-c">
+            <button type="submit" class="btn bg-pink btn-lg font-white reg">
+              REGISTRAR
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+    <!--FOOTER -->
+    <%- include('../partials/footer') %>
+  </body>
+</html>

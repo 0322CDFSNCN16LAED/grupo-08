@@ -1,19 +1,30 @@
 const express = require("express");
 const router = express.Router();
-const multer  = multer.diskStorage
-destination:(req, res,cb) 
+const multer = require("multer");
+const path = require("path");
 
 const productControllers = require("../controllers/productControllers");
+
+const multerDiskStorage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, path.join(__dirname, "../../public/images/products"));
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + path.extname(file.originalname));
+  },
+});
+
+const uploadFile = multer({ storage: multerDiskStorage });
 
 /* Listado de productos*/
 router.get("/", productControllers.index);
 
-/* Ver detalle de un producto*/
-router.get("/:id", productControllers.detail);
-
 /* Crear un producto*/
 router.get("/create", productControllers.create);
-router.post("/", productControllers.store);
+router.post("/", uploadFile.single("image"), productControllers.store);
+
+/* Ver detalle de un producto*/
+router.get("/:id", productControllers.detail);
 
 /* Editar un producto*/
 router.get("/edit/:id", productControllers.edit);
