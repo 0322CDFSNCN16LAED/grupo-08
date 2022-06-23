@@ -131,7 +131,6 @@ module.exports = {
       ambientes.push(req.body.otros);
     }
     // armo el objeto a modificar
-
     const editProduct = {
       nombre: req.body.nombre,
       categoria: req.body.categoria,
