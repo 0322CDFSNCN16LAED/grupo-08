@@ -34,21 +34,14 @@
         "imagen": "/images/products/lamp.jpg"
     },
     {
-        "nombre": "Estante nórdico",
-        "id": 2,
+        "nombre": "Estante nórdicoooo",
         "categoria": "muebles",
-        "ambiente": [
-            "living",
-            "cocina",
-            "estudio",
-            "playroom"
-        ],
+        "ambiente": [],
         "estilo": "nordico",
-        "precioContado": 20000,
-        "cantidadDeCuotas": 12,
-        "precioCuota": 1666.67,
+        "precioContado": "20000",
+        "cantidadDeCuotas": "12",
+        "precioCuota": "1666.67",
         "envioGratis": true,
-        "imagen": "/images/products/mueble.PNG",
         "alt": "estantería nórdica",
         "descripcion": "Biblioteca estilo nórdico. Fabricada con ménsulas de roble y estantes de madera laqueada en pintura poliuretánica color blanco matte.",
         "medidas": "107 cm x 35 cm x 200 cm",
@@ -58,7 +51,11 @@
             " Accesibilidad",
             "Producto de fácil instalación"
         ],
-        "infoExtra": []
+        "infoExtra": [
+            ""
+        ],
+        "id": 2,
+        "imagen": "/images/products/mueble.PNG"
     },
     {
         "nombre": "Silla Tólix",
@@ -154,6 +151,7 @@
             "extra4"
         ],
         "id": 6,
+<<<<<<< HEAD
         "imagen": "/images/products/1656022942733.jpg"
     },
     {
@@ -174,11 +172,30 @@
         "color": "blanco",
         "detalles": [
             "Conservación del calor y del frío.\r\nCapacidad 1 litro.\r\nMantiene el calor por 12 hs\r\nMantiene el frío por 24 hs"
+=======
+        "imagen": "/images/products/1656013362876.jpg"
+    },
+    {
+        "nombre": "",
+        "categoria": "",
+        "ambiente": [],
+        "precioContado": "",
+        "cantidadDeCuotas": "",
+        "precioCuota": "",
+        "envioGratis": false,
+        "alt": "",
+        "descripcion": "",
+        "medidas": "",
+        "color": "",
+        "detalles": [
+            ""
+>>>>>>> ce9b9bd24d533bf47d4f585ea42a823750329020
         ],
         "infoExtra": [
             ""
         ],
         "id": 7,
+<<<<<<< HEAD
         "imagen": "/images/products/1656020145437.jpg"
     },
     {
@@ -199,11 +216,85 @@
         "color": "Bamboo",
         "detalles": [
             "Material: bamboo ecológico"
+=======
+        "imagen": "/images/products/default-image.png"
+    },
+    {
+        "nombre": "",
+        "categoria": "",
+        "ambiente": [],
+        "precioContado": "",
+        "cantidadDeCuotas": "",
+        "precioCuota": "",
+        "envioGratis": false,
+        "alt": "",
+        "descripcion": "",
+        "medidas": "",
+        "color": "",
+        "detalles": [
+            ""
+>>>>>>> ce9b9bd24d533bf47d4f585ea42a823750329020
         ],
         "infoExtra": [
             ""
         ],
         "id": 8,
+<<<<<<< HEAD
         "imagen": "/images/products/1656022903581.jpg"
+=======
+        "imagen": "/images/products/default-image.png"
+    },
+    {
+        "nombre": "",
+        "categoria": "",
+        "ambiente": [],
+        "precioContado": "",
+        "cantidadDeCuotas": "",
+        "precioCuota": "",
+        "envioGratis": false,
+        "alt": "",
+        "descripcion": "",
+        "medidas": "",
+        "color": "",
+        "detalles": [
+            ""
+        ],
+        "infoExtra": [
+            ""
+        ],
+        "id": 9,
+        "imagen": "/images/products/default-image.png"
+    },
+    {
+        "nombre": "bbbbb",
+        "categoria": "muebles",
+        "ambiente": [
+            "cocina",
+            "living",
+            "dormitorio",
+            "otros"
+        ],
+        "estilo": "nordico",
+        "precioContado": "12121212",
+        "cantidadDeCuotas": "1",
+        "precioCuota": "1111",
+        "envioGratis": true,
+        "alt": "asaSAD",
+        "descripcion": "desde",
+        "medidas": "12x34",
+        "color": "negro",
+        "detalles": [
+            "dede",
+            "nmnm",
+            "mnmnm"
+        ],
+        "infoExtra": [
+            "de",
+            "lok",
+            "lij"
+        ],
+        "id": 11,
+        "imagen": "/images/products/1656026425861.jpg"
+>>>>>>> ce9b9bd24d533bf47d4f585ea42a823750329020
     }
 ]

@@ -10,19 +10,47 @@
         <main>
             <% users.forEach(user => {%>
                 <article class="container row">
-                    <div class= "col">
-                        Nombre del usuario: <%= user.nombre %> <%= user.apelido %>
+                    <div class= "col  border border-danger">
+                        <a 
+                            href="/users/<% user.id %>">
+                            Nombre del usuario: <% user.id %> <%= user.nombre %> <%= user.apellido %>
+                        </a>
                     </div>
-                    <div class= "col">
-                        Email: <%= user.email %> 
+                   
+                    
+                    <div class= "col border border-danger">
+                        <a 
+                            href="/<% user.id %>">
+                            Email: <%= user.email %>
+                        </a> 
                     </div>
-                    <div class= "col">
-                        Numero de telefono: <%= user.telefono %> 
+                    <div class= "col border border-danger">
+                        <a 
+                            href="/<% user.id %>">
+                            Numero de telefono: <%= user.telefono %> 
+                        </a>
                     </div>
-                    <div class= "col">
-                        Recidencia: <%= user.direccion %> 
+                    <div class= "col border border-danger">
+                        <a 
+                            href="/<% user.id %>">
+                            Recidencia: <%= user.direccion %>
+                        </a> 
                     </div>
                 </article>
+
+                <button>
+                    <a href="/edit/<% user.id %>" >
+                    Editar usuario
+                    </a>
+                </button>
+                <form 
+                    action="/delete/<% user.id %>" 
+                    method="POST">
+                    <button type="submit">
+                        Eliminar
+                    </button>
+                </form>
+
             <% }); %> 
         </main>
 

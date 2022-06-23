@@ -1,4 +1,17 @@
-Weekly stand up / 21 de junio
+Weekly stand up / 23 de junio
+
+● Qué hizo la semana pasada: 
+Se realizo la charla semanal de 20 minutos, donde se fueron hablando de las problematicas que tuvimos para terminar de resolver el sprint 4. Pensamos que estabamos mejor pero nos trabamos bastante en algunos puntos. 
+
+● Si se encontró con algún impedimento:
+Si tuvimos bastantes impedimentos nos costo el sprint 4
+
+● Qué va a hacer en la semana:
+En la semana vamos a seguir avanzando con el proyecto integrador seguir mejorando cosas que nos quedaron colgadas de los otros sprints. 
+
+
+
+Weekly stand up / 16 de junio
 
 ● Qué hizo la semana pasada: 
 Se realizaron charlas semales de 20 minutos aprox. Donde se fueron viendo las cosas diferentes cosas a mejorar para el sprint 4, y a su vez otras cosas que quedaron pendientes de otros sprints. 
