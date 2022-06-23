@@ -8,7 +8,22 @@
         <!--HEADER -->
         <%- include('../partials/header') %>
         <main>
-            <%= users.name[1] %> 
+            <% users.forEach(user => {%>
+                <article class="container row">
+                    <div class= "col">
+                        Nombre del usuario: <%= user.nombre %> <%= user.apelido %>
+                    </div>
+                    <div class= "col">
+                        Email: <%= user.email %> 
+                    </div>
+                    <div class= "col">
+                        Numero de telefono: <%= user.telefono %> 
+                    </div>
+                    <div class= "col">
+                        Recidencia: <%= user.direccion %> 
+                    </div>
+                </article>
+            <% }); %> 
         </main>
 
     </body>
