@@ -2,14 +2,14 @@
     {
         "nombre": "Lámpara galponera",
         "id": 1,
-        "categoria": "Iluminación",
+        "categoria": "iluminacion",
         "ambiente": [
-            "Living",
-            "Cocina",
-            "Estudio",
-            "Playroom"
+            "living",
+            "cocina",
+            "estudio",
+            "playroom"
         ],
-        "estilo": "Industrial",
+        "estilo": "industrial",
         "precioContado": 5200,
         "cantidadDeCuotas": 3,
         "precioCuota": 1733.33,
@@ -36,14 +36,14 @@
     {
         "nombre": "Estante nórdico",
         "id": 2,
-        "categoria": "Muebles",
+        "categoria": "muebles",
         "ambiente": [
-            "Living",
-            "Cocina",
-            "Estudio",
-            "Playroom"
+            "living",
+            "cocina",
+            "estudio",
+            "playroom"
         ],
-        "estilo": "Nórdico",
+        "estilo": "nordico",
         "precioContado": 20000,
         "cantidadDeCuotas": 12,
         "precioCuota": 1666.67,
@@ -63,16 +63,16 @@
     {
         "nombre": "Silla Tólix",
         "id": 3,
-        "categoria": "Muebles",
+        "categoria": "muebles",
         "ambiente": [
-            "Living",
-            "Cocina",
-            "Comedor",
-            "Estudio",
-            "Playroom",
-            "Infantil"
+            "living",
+            "cocina",
+            "comedor",
+            "estudio",
+            "playroom",
+            "infantil"
         ],
-        "estilo": "Industrial",
+        "estilo": "industrial",
         "precioContado": 12500,
         "cantidadDeCuotas": 6,
         "precioCuota": 2083.33,
@@ -98,19 +98,32 @@
             "comedor",
             "estudio"
         ],
-        "estilo": "Industrial",
-        "precioContado": "12458754",
-        "cantidadDeCuotas": "1",
-        "precioCuota": "12354",
+        "estilo": "industrial",
+        "precioContado": "121212121111",
+        "cantidadDeCuotas": "12",
+        "precioCuota": "121212",
         "envioGratis": true,
-        "alt": "Lmapara colgante",
-        "medidas": "12x34x3",
+        "alt": "rrrrrrrrrrrr",
+        "descripcion": "ffffffffffffffffffffffff",
+        "medidas": "34x56",
         "color": "black",
+        "detalles": [
+            "Calidad garantizada",
+            "\r\n Accesibilidad",
+            "\r\nProducto de fácil instalación"
+        ],
+        "infoExtra": [
+            "extra1",
+            "extra2",
+            "extra3",
+            "extra4",
+            "extra5"
+        ],
         "id": 4,
         "imagen": "/images/products/1655997862351.jpg"
     },
     {
-        "nombre": "lampara 2",
+        "nombre": "nueva lampara editada",
         "categoria": "iluminacion",
         "ambiente": [
             "cocina",
@@ -118,17 +131,66 @@
             "dormitorio",
             "comedor",
             "estudio",
-            "infantil"
+            "banios",
+            "playroom",
+            "exteriores",
+            "otros"
         ],
-        "estilo": "minimalista",
-        "precioContado": "111111111",
+        "estilo": "industrial",
+        "precioContado": "122222",
+        "cantidadDeCuotas": "3",
+        "precioCuota": "12222",
+        "envioGratis": false,
+        "alt": "texto alternativo de la imagen",
+        "descripcion": "esta es una descripcion cualquiera",
+        "medidas": "23x54",
+        "color": "white",
+        "detalles": [
+            "detalle1",
+            "detalle2",
+            "detalle3",
+            "detalle4"
+        ],
+        "infoExtra": [
+            "extra1",
+            "extra2",
+            "extra3",
+            "extra4"
+        ],
+        "id": 6,
+        "imagen": "/images/products/1656013362876.jpg"
+    },
+    {
+        "nombre": "aaaaa",
+        "categoria": "iluminacion",
+        "ambiente": [
+            "comedor",
+            "estudio"
+        ],
+        "estilo": "nordico",
+        "precioContado": "121212",
         "cantidadDeCuotas": "3",
         "precioCuota": "1234",
         "envioGratis": true,
-        "alt": "texto informatico",
-        "medidas": "23x344",
-        "color": "negro",
-        "id": 5,
-        "imagen": "/images/products/1655998455998.jpg"
+        "alt": "asaasssss",
+        "descripcion": "deeeeeeeeeeeeeeeeeeeee",
+        "medidas": "12x45",
+        "color": "blanco azul",
+        "detalles": [
+            "eeeeeeeeeeeeeeeee",
+            "ffffffffffffffffffffff",
+            "tttttttttttttttt",
+            "hhhhhhhhhhhhhhh"
+        ],
+        "infoExtra": [
+            "dddddddddddd",
+            "bbbbbbbbbbbbbbb",
+            "rrrrrrrrrrrrrrrr",
+            "yyyyyyyyyyyy",
+            "uuuuuuuuuu",
+            "uuuuuuuuuuuuuu"
+        ],
+        "id": 7,
+        "imagen": "/images/products/1656013503420.gif"
     }
 ]
