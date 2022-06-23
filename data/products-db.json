@@ -1,196 +1,132 @@
 [
-    {
-        "nombre": "Lámpara galponera",
-        "id": 1,
-        "categoria": "iluminacion",
-        "ambiente": [
-            "living",
-            "cocina",
-            "estudio",
-            "playroom"
-        ],
-        "estilo": "industrial",
-        "precioContado": 5200,
-        "cantidadDeCuotas": 3,
-        "precioCuota": 1733.33,
-        "envioGratis": true,
-        "imagen": "/images/products/lamp.jpg",
-        "alt": "lampara negra",
-        "descripcion": "El diseño industrial en iluminación está muy de moda. Con nuestra linea de lamparas galponeras podrás iluminar y destacar tanto ambientes de tu hogar como tu comercio.",
-        "medidas": "32cm alto x 30cm + Cable: 120 cm largo",
-        "color": "negro",
-        "detalles": [
-            "Calidad garantizada acero reforzado",
-            "Apilable - Resistencia hasta 130kg",
-            "Viene en variedad de colores"
-        ],
-        "infoExtra": [
-            "Lugares de montaje: Techo",
-            "Materiales: Aluminio",
-            "Alimentación 220V",
-            "Ambientes interior",
-            "Capacidad de focos 1",
-            "Tipos de fuentes de luz LED"
-        ]
-    },
-    {
-        "nombre": "Estante nórdico",
-        "id": 2,
-        "categoria": "muebles",
-        "ambiente": [
-            "living",
-            "cocina",
-            "estudio",
-            "playroom"
-        ],
-        "estilo": "nordico",
-        "precioContado": 20000,
-        "cantidadDeCuotas": 12,
-        "precioCuota": 1666.67,
-        "envioGratis": true,
-        "imagen": "/images/products/mueble.PNG",
-        "alt": "estantería nórdica",
-        "descripcion": "Biblioteca estilo nórdico. Fabricada con ménsulas de roble y estantes de madera laqueada en pintura poliuretánica color blanco matte.",
-        "medidas": "107 cm x 35 cm x 200 cm",
-        "color": "blanco y roble",
-        "detalles": [
-            "Calidad garantizada",
-            " Accesibilidad",
-            "Producto de fácil instalación"
-        ],
-        "infoExtra": []
-    },
-    {
-        "nombre": "Silla Tólix",
-        "id": 3,
-        "categoria": "muebles",
-        "ambiente": [
-            "living",
-            "cocina",
-            "comedor",
-            "estudio",
-            "playroom",
-            "infantil"
-        ],
-        "estilo": "industrial",
-        "precioContado": 12500,
-        "cantidadDeCuotas": 6,
-        "precioCuota": 2083.33,
-        "envioGratis": true,
-        "imagen": "/images/products/tolix-amarilla.jpg",
-        "alt": "Silla Tolix Amarilla",
-        "descripcion": "La Silla Tolix, ya es un clásico centenario. Este clásico del diseño ha sido utilizado en cafeterías y cocinas retro de todo el mundo, pero es combinable con multitud de estilos y tendencias decorativas.   En la década de los 70 se utilizaban a menudo en fábricas, oficinas u hospitales. Hoy se ha impuesto como un diseño de moda ideal para múltiples ambientes.",
-        "medidas": "Medidas: 86cm altura respaldo x 44cm ancho x 45cm profundidad asiento ",
-        "color": "amarillo",
-        "detalles": [
-            "Calidad garantizada acero reforzado",
-            "Apilable - Resistencia hasta 130kg",
-            "Viene en variedad de colores"
-        ],
-        "infoExtra": []
-    },
-    {
-        "nombre": "lampara techo  norma",
-        "categoria": "iluminacion",
-        "ambiente": [
-            "cocina",
-            "living",
-            "comedor",
-            "estudio"
-        ],
-        "estilo": "industrial",
-        "precioContado": "121212121111",
-        "cantidadDeCuotas": "12",
-        "precioCuota": "121212",
-        "envioGratis": true,
-        "alt": "rrrrrrrrrrrr",
-        "descripcion": "ffffffffffffffffffffffff",
-        "medidas": "34x56",
-        "color": "black",
-        "detalles": [
-            "Calidad garantizada",
-            "\r\n Accesibilidad",
-            "\r\nProducto de fácil instalación"
-        ],
-        "infoExtra": [
-            "extra1",
-            "extra2",
-            "extra3",
-            "extra4",
-            "extra5"
-        ],
-        "id": 4,
-        "imagen": "/images/products/1655997862351.jpg"
-    },
-    {
-        "nombre": "nueva lampara editada",
-        "categoria": "iluminacion",
-        "ambiente": [
-            "cocina",
-            "living",
-            "dormitorio",
-            "comedor",
-            "estudio",
-            "banios",
-            "playroom",
-            "exteriores",
-            "otros"
-        ],
-        "estilo": "industrial",
-        "precioContado": "122222",
-        "cantidadDeCuotas": "3",
-        "precioCuota": "12222",
-        "envioGratis": false,
-        "alt": "texto alternativo de la imagen",
-        "descripcion": "esta es una descripcion cualquiera",
-        "medidas": "23x54",
-        "color": "white",
-        "detalles": [
-            "detalle1",
-            "detalle2",
-            "detalle3",
-            "detalle4"
-        ],
-        "infoExtra": [
-            "extra1",
-            "extra2",
-            "extra3",
-            "extra4"
-        ],
-        "id": 6,
-        "imagen": "/images/products/1656013362876.jpg"
-    },
-    {
-        "nombre": "aaaaa",
-        "categoria": "iluminacion",
-        "ambiente": [
-            "comedor",
-            "estudio"
-        ],
-        "estilo": "nordico",
-        "precioContado": "121212",
-        "cantidadDeCuotas": "3",
-        "precioCuota": "1234",
-        "envioGratis": true,
-        "alt": "asaasssss",
-        "descripcion": "deeeeeeeeeeeeeeeeeeeee",
-        "medidas": "12x45",
-        "color": "blanco azul",
-        "detalles": [
-            "eeeeeeeeeeeeeeeee",
-            "ffffffffffffffffffffff",
-            "tttttttttttttttt",
-            "hhhhhhhhhhhhhhh"
-        ],
-        "infoExtra": [
-            "dddddddddddd",
-            "bbbbbbbbbbbbbbb",
-            "rrrrrrrrrrrrrrrr",
-            "yyyyyyyyyyyy",
-            "uuuuuuuuuu",
-            "uuuuuuuuuuuuuu"
-        ],
-        "id": 7,
-        "imagen": "/images/products/1656013992991.jpg"
-    }
+  {
+    "nombre": "Lámpara galponera",
+    "categoria": "iluminacion",
+    "ambiente": ["cocina", "living", "estudio", "playroom"],
+    "estilo": "industrial",
+    "precioContado": "5300",
+    "cantidadDeCuotas": "3",
+    "precioCuota": "1733.33",
+    "envioGratis": true,
+    "alt": "lampara negra",
+    "descripcion": "El diseño industrial en iluminación está muy de moda. Con nuestra linea de lamparas galponeras podrás iluminar y destacar tanto ambientes de tu hogar como tu comercio.",
+    "medidas": "32cm alto x 30cm + Cable: 120 cm largo",
+    "color": "negro",
+    "detalles": [
+      "Calidad garantizada acero reforzado",
+      "Apilable - Resistencia hasta 130kg",
+      "Viene en variedad de colores"
+    ],
+    "infoExtra": [
+      "Lugares de montaje: Techo",
+      "Materiales: Aluminio",
+      "Alimentación 220V",
+      "Ambientes interior",
+      "Capacidad de focos 1",
+      "Tipos de fuentes de luz LED"
+    ],
+    "id": 1,
+    "imagen": "/images/products/lamp.jpg"
+  },
+  {
+    "nombre": "Estante nórdico",
+    "id": 2,
+    "categoria": "muebles",
+    "ambiente": ["living", "cocina", "estudio", "playroom"],
+    "estilo": "nordico",
+    "precioContado": 20000,
+    "cantidadDeCuotas": 12,
+    "precioCuota": 1666.67,
+    "envioGratis": true,
+    "imagen": "/images/products/mueble.PNG",
+    "alt": "estantería nórdica",
+    "descripcion": "Biblioteca estilo nórdico. Fabricada con ménsulas de roble y estantes de madera laqueada en pintura poliuretánica color blanco matte.",
+    "medidas": "107 cm x 35 cm x 200 cm",
+    "color": "blanco y roble",
+    "detalles": [
+      "Calidad garantizada",
+      " Accesibilidad",
+      "Producto de fácil instalación"
+    ],
+    "infoExtra": []
+  },
+  {
+    "nombre": "Silla Tólix",
+    "id": 3,
+    "categoria": "muebles",
+    "ambiente": [
+      "living",
+      "cocina",
+      "comedor",
+      "estudio",
+      "playroom",
+      "infantil"
+    ],
+    "estilo": "industrial",
+    "precioContado": 12500,
+    "cantidadDeCuotas": 6,
+    "precioCuota": 2083.33,
+    "envioGratis": true,
+    "imagen": "/images/products/tolix-amarilla.jpg",
+    "alt": "Silla Tolix Amarilla",
+    "descripcion": "La Silla Tolix, ya es un clásico centenario. Este clásico del diseño ha sido utilizado en cafeterías y cocinas retro de todo el mundo, pero es combinable con multitud de estilos y tendencias decorativas.   En la década de los 70 se utilizaban a menudo en fábricas, oficinas u hospitales. Hoy se ha impuesto como un diseño de moda ideal para múltiples ambientes.",
+    "medidas": "Medidas: 86cm altura respaldo x 44cm ancho x 45cm profundidad asiento ",
+    "color": "amarillo",
+    "detalles": [
+      "Calidad garantizada acero reforzado",
+      "Apilable - Resistencia hasta 130kg",
+      "Viene en variedad de colores"
+    ],
+    "infoExtra": []
+  },
+  {
+    "nombre": "Lampara de techo Norma",
+    "categoria": "iluminacion",
+    "ambiente": ["cocina", "living", "comedor", "estudio"],
+    "estilo": "industrial",
+    "precioContado": "15000",
+    "cantidadDeCuotas": "1",
+    "precioCuota": "15000",
+    "envioGratis": true,
+    "alt": "Lampara de techo negra",
+    "descripcion": "lampara de techo 220v.",
+    "medidas": "34x56",
+    "color": "negro",
+    "detalles": [
+      "Calidad garantizada",
+      "\r\n Accesibilidad",
+      "\r\nProducto de fácil instalación"
+    ],
+    "infoExtra": ["viene con cable de 1 metro "],
+    "id": 4,
+    "imagen": "/images/products/1655997862351.jpg"
+  },
+  {
+    "nombre": "nueva lampara editada",
+    "categoria": "iluminacion",
+    "ambiente": [
+      "cocina",
+      "living",
+      "dormitorio",
+      "comedor",
+      "estudio",
+      "banios",
+      "playroom",
+      "exteriores",
+      "otros"
+    ],
+    "estilo": "industrial",
+    "precioContado": "122222",
+    "cantidadDeCuotas": "3",
+    "precioCuota": "12222",
+    "envioGratis": false,
+    "alt": "texto alternativo de la imagen",
+    "descripcion": "esta es una descripcion cualquiera",
+    "medidas": "23x54",
+    "color": "white",
+    "detalles": ["detalle1", "detalle2", "detalle3", "detalle4"],
+    "infoExtra": ["extra1", "extra2", "extra3", "extra4"],
+    "id": 6,
+    "imagen": "/images/products/1656013362876.jpg"
+  }
 ]
