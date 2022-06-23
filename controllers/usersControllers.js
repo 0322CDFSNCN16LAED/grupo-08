@@ -19,8 +19,8 @@ module.exports = {
   detail: function(){
     
   },
-  edit: function(){
-    
+  edit: function(req, res){
+    res.render('users/edit-user')
   },
   update: function(){
     

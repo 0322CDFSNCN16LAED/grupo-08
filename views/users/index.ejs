@@ -11,37 +11,44 @@
             <% users.forEach(user => {%>
                 <article class="container row">
                     <div class= "col  border border-danger">
-                        Nombre del usuario: <%= user.nombre %> <%= user.apelido %>
+                        <a 
+                            href="/users/<% user.id %>">
+                            Nombre del usuario: <% user.id %> <%= user.nombre %> <%= user.apellido %>
+                        </a>
+                    </div>
+                   
+                    
+                    <div class= "col border border-danger">
+                        <a 
+                            href="/<% user.id %>">
+                            Email: <%= user.email %>
+                        </a> 
                     </div>
                     <div class= "col border border-danger">
-                        Email: <%= user.email %> 
+                        <a 
+                            href="/<% user.id %>">
+                            Numero de telefono: <%= user.telefono %> 
+                        </a>
                     </div>
                     <div class= "col border border-danger">
-                        Numero de telefono: <%= user.telefono %> 
-                    </div>
-                    <div class= "col border border-danger">
-                        Recidencia: <%= user.direccion %> 
+                        <a 
+                            href="/<% user.id %>">
+                            Recidencia: <%= user.direccion %>
+                        </a> 
                     </div>
                 </article>
 
-            <!--
-                   <form
-                    action="/products/edit/%=productoEditar.id%>?_method=PUT"
-                    method="POST"
-                    enctype="multipart/form-data"
-                    class="form-field"
-                    >
-            --> 
-
-                    <button>
-                        <a href="" >
-                        Editar usuario
-                        </a>
-                    </button>
-                <form action="" method="" enctype=""  >
-                <button type="submit">
-                    Eliminar
+                <button>
+                    <a href="/edit/<% user.id %>" >
+                    Editar usuario
+                    </a>
                 </button>
+                <form 
+                    action="/delete/<% user.id %>" 
+                    method="POST">
+                    <button type="submit">
+                        Eliminar
+                    </button>
                 </form>
 
             <% }); %> 
