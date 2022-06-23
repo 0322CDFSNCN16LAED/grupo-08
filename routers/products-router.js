@@ -5,11 +5,13 @@ const path = require("path");
 
 const productControllers = require("../controllers/productControllers");
 
+/*para guardar los archivos y el nombre que quiero que se guarde */
 const multerDiskStorage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, path.join(__dirname, "../../public/images/products"));
   },
   filename: function (req, file, cb) {
+  
     cb(null, Date.now() + path.extname(file.originalname));
   },
 });
@@ -28,7 +30,7 @@ router.get("/:id", productControllers.detail);
 
 /* Editar un producto*/
 router.get("/edit/:id", productControllers.edit);
-router.put("/:id", productControllers.update);
+router.put("/:id", uploadFile.single("group-image"), productControllers.update);
 
 /* Eliminar un producto*/
 router.delete("/:id", productControllers.destroy);

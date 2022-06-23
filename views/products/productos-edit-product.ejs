@@ -22,6 +22,7 @@
           <form
             action="/products/edit/<%=productoEditar.id%>?_method=PUT"
             method="POST"
+            enctype="multipart/form-data"
             class="form-field"
             >
             <div class="row product-detail">
@@ -169,12 +170,23 @@
                 />
               </div>
               <div class="col-12 col-md-6">
+                <label for="group-image" class="form-label">Imagenes del grupo:</label>
+                <input
+                  type="file"
+                  value="<%=productoEditar.imagen%>"
+                  class="form-control"
+                  id="group-image"
+                  placeholder=""
+                />
+              </div>
+              <div class="col-12 col-md-6">
                  <!--descripcion del producto-->
                 <label for="descripcion" class="form-label"
                   >Descripcion:</label
                 >
                 <input
                   value="<%=productoEditar.descripcion%>"
+                  type="text"
                   class="form-control"
                   id="descripcion"
                   placeholder=""
@@ -184,10 +196,11 @@
                 <!--medidas-->
                 <label for="medidas" class="form-label">Medidas:</label>
                 <input
+                  type="text"
                   value="<%=productoEditar.medidas%>"
                   class="form-control"
                   id="medidas"
-                  placeholder="Medidas"
+                  placeholder=""
                 />
               </div>
               <div class="col-12 col-md-6">
@@ -195,9 +208,11 @@
                 <label for="color" class="form-label">Color:</label>
                 <input
                   value="<%=productoEditar.color%>"
+                  type="text"
                   class="form-control"
                   id="color"
-                  placeholder="Escribe para buscar..."
+                  name="color"
+                  placeholder=""
                 />
               </div>
               <div class="col-12 col-md-6">
@@ -207,6 +222,7 @@
                 >
                 <textarea
                   value="<%=productoEditar.detalles%>"
+                  type="text"
                   class="form-control"
                   name="detalles"
                   id="detalles"
@@ -218,6 +234,7 @@
                 >
                 <textarea
                   value="<%=productoEditar.infoExtra%>"
+                  type="text"
                   class="form-control"
                   name="infoExtra"
                   id="infoExtra"

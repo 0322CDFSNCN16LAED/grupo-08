@@ -44,14 +44,18 @@ module.exports = {
   edit: (req, res) => {
     let id = req.params.id;
     let productEdit = products.find((productos) => productos.id == id);
+
+    console.log(req.file)
+       
     res.render("products/productos-edit-product", {
       productoEditar: productEdit,
+    
     });
   },
   // accion de actualizar un producto.
   update: (req, res) => {
     const productEditIndex = db.getAll(req.params.id);
-
+  
     products.splice(productEditIndex, 1, req.body);
 
     db.saveAll(products);
