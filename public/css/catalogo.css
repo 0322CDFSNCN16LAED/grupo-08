@@ -51,4 +51,19 @@ header{
     margin: 0px 50px;
 }  
 
-
+.button-jarra{
+    z-index: 1;
+    position: absolute;
+    left: 66%;
+    top: 62%; 
+    font-size: 20px;
+    color:#c44cb4;
+}
+.button-set-ensaladera{
+    z-index: 1;
+    position: absolute;
+    left: 22%;
+    top: 62%; 
+    font-size: 20px;
+    color:#c44cb4;
+}

@@ -119,7 +119,7 @@
         "imagen": "/images/products/1655997862351.jpg"
     },
     {
-        "nombre": "nueva lampara editada",
+        "nombre": "Alto guiso",
         "categoria": "iluminacion",
         "ambiente": [
             "cocina",
@@ -154,6 +154,56 @@
             "extra4"
         ],
         "id": 6,
-        "imagen": "/images/products/1656013362876.jpg"
+        "imagen": "/images/products/1656022942733.jpg"
+    },
+    {
+        "nombre": "Jarra de porcelana nórdica",
+        "categoria": "vajilla",
+        "ambiente": [
+            "cocina",
+            "comedor"
+        ],
+        "estilo": "nordico",
+        "precioContado": "6500",
+        "cantidadDeCuotas": "3",
+        "precioCuota": "2166.66",
+        "envioGratis": true,
+        "alt": "Jarra de porcelana blanca con manija de  madera ",
+        "descripcion": "Termo de vidrio diseño de doble capa.\r\nManija de madera\r\n",
+        "medidas": "24cm de alto x 13cm de diámetro",
+        "color": "blanco",
+        "detalles": [
+            "Conservación del calor y del frío.\r\nCapacidad 1 litro.\r\nMantiene el calor por 12 hs\r\nMantiene el frío por 24 hs"
+        ],
+        "infoExtra": [
+            ""
+        ],
+        "id": 7,
+        "imagen": "/images/products/1656020145437.jpg"
+    },
+    {
+        "nombre": "Set ensaladera bamboo ",
+        "categoria": "vajilla",
+        "ambiente": [
+            "cocina",
+            "comedor"
+        ],
+        "estilo": "otros",
+        "precioContado": "2750",
+        "cantidadDeCuotas": "1",
+        "precioCuota": "2750",
+        "envioGratis": false,
+        "alt": "Cucharon y tenedor ensaladera",
+        "descripcion": "Set Utensilios Para Ensalada Bamboo 2 Piezas cuchara y pinza",
+        "medidas": "Largo 29cm",
+        "color": "Bamboo",
+        "detalles": [
+            "Material: bamboo ecológico"
+        ],
+        "infoExtra": [
+            ""
+        ],
+        "id": 8,
+        "imagen": "/images/products/1656022903581.jpg"
     }
 ]
