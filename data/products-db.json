@@ -151,28 +151,6 @@
             "extra4"
         ],
         "id": 6,
-<<<<<<< HEAD
-        "imagen": "/images/products/1656022942733.jpg"
-    },
-    {
-        "nombre": "Jarra de porcelana nórdica",
-        "categoria": "vajilla",
-        "ambiente": [
-            "cocina",
-            "comedor"
-        ],
-        "estilo": "nordico",
-        "precioContado": "6500",
-        "cantidadDeCuotas": "3",
-        "precioCuota": "2166.66",
-        "envioGratis": true,
-        "alt": "Jarra de porcelana blanca con manija de  madera ",
-        "descripcion": "Termo de vidrio diseño de doble capa.\r\nManija de madera\r\n",
-        "medidas": "24cm de alto x 13cm de diámetro",
-        "color": "blanco",
-        "detalles": [
-            "Conservación del calor y del frío.\r\nCapacidad 1 litro.\r\nMantiene el calor por 12 hs\r\nMantiene el frío por 24 hs"
-=======
         "imagen": "/images/products/1656013362876.jpg"
     },
     {
@@ -189,7 +167,6 @@
         "color": "",
         "detalles": [
             ""
->>>>>>> ce9b9bd24d533bf47d4f585ea42a823750329020
         ],
         "infoExtra": [
             ""
