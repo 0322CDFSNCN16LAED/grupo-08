@@ -1,20 +1,18 @@
 [
     {
         "nombre": "Lámpara galponera",
-        "id": 1,
         "categoria": "iluminacion",
         "ambiente": [
-            "living",
             "cocina",
+            "living",
             "estudio",
             "playroom"
         ],
         "estilo": "industrial",
-        "precioContado": 5200,
-        "cantidadDeCuotas": 3,
-        "precioCuota": 1733.33,
+        "precioContado": "5300",
+        "cantidadDeCuotas": "3",
+        "precioCuota": "1733.33",
         "envioGratis": true,
-        "imagen": "/images/products/lamp.jpg",
         "alt": "lampara negra",
         "descripcion": "El diseño industrial en iluminación está muy de moda. Con nuestra linea de lamparas galponeras podrás iluminar y destacar tanto ambientes de tu hogar como tu comercio.",
         "medidas": "32cm alto x 30cm + Cable: 120 cm largo",
@@ -31,7 +29,9 @@
             "Ambientes interior",
             "Capacidad de focos 1",
             "Tipos de fuentes de luz LED"
-        ]
+        ],
+        "id": 1,
+        "imagen": "/images/products/lamp.jpg"
     },
     {
         "nombre": "Estante nórdico",
@@ -90,7 +90,7 @@
         "infoExtra": []
     },
     {
-        "nombre": "lampara techo  norma",
+        "nombre": "Lampara de techo Norma",
         "categoria": "iluminacion",
         "ambiente": [
             "cocina",
@@ -99,25 +99,21 @@
             "estudio"
         ],
         "estilo": "industrial",
-        "precioContado": "121212121111",
-        "cantidadDeCuotas": "12",
-        "precioCuota": "121212",
+        "precioContado": "15000",
+        "cantidadDeCuotas": "1",
+        "precioCuota": "15000",
         "envioGratis": true,
-        "alt": "rrrrrrrrrrrr",
-        "descripcion": "ffffffffffffffffffffffff",
+        "alt": "Lampara de techo negra",
+        "descripcion": "lampara de techo 220v.",
         "medidas": "34x56",
-        "color": "black",
+        "color": "negro",
         "detalles": [
             "Calidad garantizada",
             "\r\n Accesibilidad",
             "\r\nProducto de fácil instalación"
         ],
         "infoExtra": [
-            "extra1",
-            "extra2",
-            "extra3",
-            "extra4",
-            "extra5"
+            "viene con cable de 1 metro "
         ],
         "id": 4,
         "imagen": "/images/products/1655997862351.jpg"
@@ -159,38 +155,5 @@
         ],
         "id": 6,
         "imagen": "/images/products/1656013362876.jpg"
-    },
-    {
-        "nombre": "aaaaa",
-        "categoria": "iluminacion",
-        "ambiente": [
-            "comedor",
-            "estudio"
-        ],
-        "estilo": "nordico",
-        "precioContado": "121212",
-        "cantidadDeCuotas": "3",
-        "precioCuota": "1234",
-        "envioGratis": true,
-        "alt": "asaasssss",
-        "descripcion": "deeeeeeeeeeeeeeeeeeeee",
-        "medidas": "12x45",
-        "color": "blanco azul",
-        "detalles": [
-            "eeeeeeeeeeeeeeeee",
-            "ffffffffffffffffffffff",
-            "tttttttttttttttt",
-            "hhhhhhhhhhhhhhh"
-        ],
-        "infoExtra": [
-            "dddddddddddd",
-            "bbbbbbbbbbbbbbb",
-            "rrrrrrrrrrrrrrrr",
-            "yyyyyyyyyyyy",
-            "uuuuuuuuuu",
-            "uuuuuuuuuuuuuu"
-        ],
-        "id": 7,
-        "imagen": "/images/products/1656013503420.gif"
     }
 ]
