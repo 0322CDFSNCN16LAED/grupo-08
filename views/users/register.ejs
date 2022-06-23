@@ -12,7 +12,7 @@
     <main class="pt-5">
       <!--section para formulario-->
       <section class="p-lateral-5">
-        <form action="/register" method="POST" class="form-field">
+        <form action="/users/register" method="POST" class="form-field">
           <div>
             <label for="nombre" class="input-label">Nombre</label>
             <input
@@ -111,25 +111,9 @@
           <span class="font-xlarge w-50">¿Ya tenés cuenta?</span>
         </div>
         <div>
-          <a href="/user/login"><h3 class="font-xlarge">Inicia sesión</h3></a>
+          <a href="/users/login"><h3 class="font-xlarge">Inicia sesión</h3></a>
         </div>
       </section>
-
-      <section>
-        <!--Seccion eliminar usuario // POSTERIORMENTE LA OCULTAREMOS 
-          Y MOSTRAREMOS SEGUN EL USER SEA CLIENTE O ADMINISTRADOR -->
-        <div class="col-6 mt-3">
-          <form
-            action="/users/<%=user.id%>?_method=DELETE"
-            method="POST"
-          >
-            <button type="submit" class="action-button delete w-100">
-              ELIMINAR
-            </button>
-          </form>
-        </div>
-      </section>
-
 
       <!-- section envios-->
       <section class="text-align-c pt-5 pb-5">
