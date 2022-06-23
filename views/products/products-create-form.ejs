@@ -121,8 +121,8 @@
           </div>
           <!--estilos-->
           <div class="col-12 col-md-6 mt-3">
-            <label for="price" class="form-label col-12">Estilos:</label>
-            <select class="form-select" multiple aria-label="multiple select example" name="estilos">
+            <label for="estilos" class="form-label col-12">Estilos:</label>
+            <select class="form-select" multiple aria-label="multiple select example" name="estilos" id="estilos">
               <option value="industrial">Industrial</option>
               <option value="nordico">Nórdico </option>
               <option value="minimalista">Minimalista</option>
@@ -172,14 +172,15 @@
           <div class="col-12 col-md-6 mt-3">
             <label for="envioGratis" class="form-label">Envio gratis:</label>
             <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" id="envioGratis">
+              <input class="form-check-input" type="checkbox" id="envioGratis" name="envioGratis">
               
             </div>
           </div>
+          <!--la imagen del producto-->
           <div class="col-12 mt-3">
             <!-- Imagen -->
             <label for="formFile" class="form-label">Imagen</label>
-            <input class="form-control" type="file" id="formFile">
+            <input class="form-control" type="file" id="image" name="image">
           </div>
           <!--Texto alternativo de la imagen-->
           <div class="col-12 col-md-6 mt-3">

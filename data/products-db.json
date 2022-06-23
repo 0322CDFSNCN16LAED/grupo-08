@@ -90,6 +90,45 @@
         "infoExtra": []
     },
     {
-        "id": 4
+        "nombre": "lampara techo  norma",
+        "categoria": "iluminacion",
+        "ambiente": [
+            "cocina",
+            "living",
+            "comedor",
+            "estudio"
+        ],
+        "estilo": "Industrial",
+        "precioContado": "12458754",
+        "cantidadDeCuotas": "1",
+        "precioCuota": "12354",
+        "envioGratis": true,
+        "alt": "Lmapara colgante",
+        "medidas": "12x34x3",
+        "color": "black",
+        "id": 4,
+        "imagen": "/images/products/1655997862351.jpg"
+    },
+    {
+        "nombre": "lampara 2",
+        "categoria": "iluminacion",
+        "ambiente": [
+            "cocina",
+            "living",
+            "dormitorio",
+            "comedor",
+            "estudio",
+            "infantil"
+        ],
+        "estilo": "minimalista",
+        "precioContado": "111111111",
+        "cantidadDeCuotas": "3",
+        "precioCuota": "1234",
+        "envioGratis": true,
+        "alt": "texto informatico",
+        "medidas": "23x344",
+        "color": "negro",
+        "id": 5,
+        "imagen": "/images/products/1655998455998.jpg"
     }
 ]
