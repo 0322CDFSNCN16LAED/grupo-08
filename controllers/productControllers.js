@@ -21,35 +21,12 @@ module.exports = {
   store: function (req, res) {
     // armamos el array de ambientes
     let ambientes = [];
-    if (req.body.cocina != undefined) {
-      ambientes.push(req.body.cocina);
-    }
-    if (req.body.living != undefined) {
-      ambientes.push(req.body.living);
-    }
-    if (req.body.dormitorio != undefined) {
-      ambientes.push(req.body.dormitorio);
-    }
-    if (req.body.comedor != undefined) {
-      ambientes.push(req.body.comedor);
-    }
-    if (req.body.estudio != undefined) {
-      ambientes.push(req.body.estudio);
-    }
-    if (req.body.infantil != undefined) {
-      ambientes.push(req.body.infantil);
-    }
-    if (req.body.banios != undefined) {
-      ambientes.push(req.body.banios);
-    }
-    if (req.body.playroom != undefined) {
-      ambientes.push(req.body.playroom);
-    }
-    if (req.body.exteriores != undefined) {
-      ambientes.push(req.body.exteriores);
-    }
-    if (req.body.otros != undefined) {
-      ambientes.push(req.body.otros);
+    if (req.body.ambientes) {
+      if (typeof req.body.ambientes == "string") {
+        ambientes.push(req.body.ambientes);
+      } else {
+        ambientes = req.body.ambientes;
+      }
     }
     // armo el objeto a registrar
 
@@ -96,39 +73,17 @@ module.exports = {
   },
   // accion de actualizar un producto.
   update: (req, res) => {
+    products = db.getAll();
     const productIndex = products.findIndex((p) => p.id == req.params.id);
     const product = products[productIndex];
 
     let ambientes = [];
-    if (req.body.cocina != undefined) {
-      ambientes.push(req.body.cocina);
-    }
-    if (req.body.living != undefined) {
-      ambientes.push(req.body.living);
-    }
-    if (req.body.dormitorio != undefined) {
-      ambientes.push(req.body.dormitorio);
-    }
-    if (req.body.comedor != undefined) {
-      ambientes.push(req.body.comedor);
-    }
-    if (req.body.estudio != undefined) {
-      ambientes.push(req.body.estudio);
-    }
-    if (req.body.infantil != undefined) {
-      ambientes.push(req.body.infantil);
-    }
-    if (req.body.banios != undefined) {
-      ambientes.push(req.body.banios);
-    }
-    if (req.body.playroom != undefined) {
-      ambientes.push(req.body.playroom);
-    }
-    if (req.body.exteriores != undefined) {
-      ambientes.push(req.body.exteriores);
-    }
-    if (req.body.otros != undefined) {
-      ambientes.push(req.body.otros);
+    if (req.body.ambientes) {
+      if (typeof req.body.ambientes == "string") {
+        ambientes.push(req.body.ambientes);
+      } else {
+        ambientes = req.body.ambientes;
+      }
     }
     // armo el objeto a modificar
     const editProduct = {
