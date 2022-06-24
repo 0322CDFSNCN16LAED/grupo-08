@@ -11,62 +11,74 @@
     <!--MAIN -->
     <main>
       <!--section para formulario-->
-      <section class="pt-5 p-lateral-5">
-        <form action="/login" method="get" class="form-field">
-          <div class="mt-5">
-            <label for="email" class="input-label">E-mail</label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              class="form-input input-shadow"
-              placeholder="juanperez@mail.com"
-            />
-          </div>
-          <div class="mt-5">
-            <label for="pass" class="input-label">Contraseña</label>
-            <input
-              type="password"
-              name="pass"
-              id="pass"
-              class="form-input input-shadow"
-              placeholder="********"
-            />
-          </div>
-          <div class="mt-5 text-align-c">
-            <input type="checkbox" name="recordar" id="recordar" class="w-10" />
-            <label for="recordar" class="w-40"
-              >Recordar usuario y contraseña</label
-            >
-          </div>
-          <div>
-            <button
-              type="submit"
-              class="button w-100 bg-pink font-white font-xlarge font-bold input-shadow"
-            >
-              INICIA SESION
-            </button>
-          </div>
-          <div class="text-align-c">
-            <span
-              ><a href="/" class="underline">¿Olvidaste tu contraseña?</a></span
-            >
-          </div>
-          <div></div>
-        </form>
-      </section>
-      <!--section ya tenes cuenta-->
       <section
-        class="p-lateral-5 text-align-c mt-5 flex-cont wrap fx-justify-center pb-15"
+        class="container products-wrapper overflow-hidden form-login mt-5"
       >
-        <div>
-          <span class="font-xlarge w-50">¿No tenés cuenta?</span>
-        </div>
-        <div>
-          <a href="/users/register"><h3 class="font-xlarge">Regístrate</h3></a>
+        <form action="/login" method="get" class="form-field mt-3 pb-2">
+          <div class="row">
+            <div class="col-12">
+              <label for="email" class="form-label">E-mail</label>
+            </div>
+            <div class="col-12">
+              <input
+                type="email"
+                name="email"
+                id="email"
+                class="form-control"
+                placeholder="juanperez@mail.com"
+              />
+            </div>
+            <!--cotraseña input-shadow-->
+            <div class="col-12 mt-3">
+              <label for="pass" class="form-label">Contraseña</label>
+              <input
+                type="password"
+                name="pass"
+                id="pass"
+                class="form-control"
+                placeholder="********"
+              />
+            </div>
+            <!--recordar usuario y cotraseña-->
+            <div class="text-align-c col-12 mt-5">
+              <input
+                type="checkbox"
+                name="recordar"
+                id="recordar"
+                class="form-check-input"
+              />
+              <label for="recordar" class="form-label"
+                >Recordar usuario y contraseña</label
+              >
+            </div>
+            <!--boton-->
+            <div class="col-12 align-center">
+              <button type="submit" class="btn bg-pink btn-lg font-white reg">
+                INICIA SESION
+              </button>
+            </div>
+            <!--olvidaste contraseña-->
+            <div class="col-12 text-align-c">
+              <span
+                ><a href="#" class="underline"
+                  >¿Olvidaste tu contraseña?</a
+                ></span
+              >
+            </div>
+          </div>
+        </form>
+        <!--section ya tenes cuenta-->
+        <div class="row mt-3">
+          <div class="col-12 text-align-c">
+            <label for="" class="form-label font-xlarge"
+              >¿No tenés Cuenta?</label
+            >
+            <a href="/users/register" class="font-xlarge font-bold">
+              Registrate</a
+            >
+          </div>
         </div>
       </section>
-      <!-- section envios-->
     </main>
 
     <!--FOOTER -->

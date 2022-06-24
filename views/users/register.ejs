@@ -11,118 +11,105 @@
     <!--MAIN -->
     <main class="pt-5">
       <!--section para formulario-->
-      <section class="p-lateral-5">
+      <section
+        class="container products-wrapper overflow-hidden form-register mt-1"
+      >
         <form action="/users/register" method="POST" class="form-field">
-          <div>
-            <label for="nombre" class="input-label">Nombre</label>
-            <input
-              type="text"
-              name="nombre"
-              id="nombre"
-              class="form-input input-shadow"
-            />
-          </div>
-          <div>
-            <label for="apellido" class="input-label">Apellido</label>
-            <input
-              type="text"
-              name="apellido"
-              id="apellido"
-              class="form-input input-shadow"
-            />
-          </div>
-          <div class="mt-5">
-            <label for="email" class="input-label">E-mail</label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              class="form-input input-shadow"
-              placeholder="juanperez@mail.com"
-            />
-          </div>
-          <div class="mt-5">
-            <label for="tlf" class="input-label">Teléfono</label>
-            <input
-              type="tel"
-              name="telefono"
-              id="telefono"
-              class="form-input input-shadow"
-              placeholder="+54 9 11 74128653"
-            />
-          </div>
-          <div class="mt-5">
-            <label for="direccion" class="input-label">Dirección</label>
-            <input
-              type="text"
-              name="direccion"
-              id="direccion"
-              class="form-input input-shadow"
-              placeholder="Av. Rivadavia 1500, 1ro A. CABA "
-            />
-          </div>
-          <div class="mt-5">
-            <label for="pass" class="input-label">Contraseña</label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              class="form-input input-shadow"
-              placeholder="********"
-            />
-          </div>
-          <div class="mt-5">
-            <label for="password" class="input-label">Confirma tu contraseña</label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              class="form-input input-shadow"
-              placeholder="********"
-            />
-          </div>
-          <div class="flex-captcha">
-            <input
-              type="checkbox"
-              name="captcha"
-              id="captcha"
-              class="w-10"
-              placeholder="*********"
-            />
-            <label for="pass" class="w-40">No soy un robot</label>
-
-            <img src="/images/captcha.png" alt="" width="20%" class="w-20" />
-          </div>
-          <div class="mt-3">
-            <button
-              type="submit"
-              class="button w-100 bg-pink font-white font-xlarge font-bold input-shadow"
-            >
-              CREAR CUENTA
-            </button>
+          <div class="row mt-3">
+            <div class="col-12 col-md-6">
+              <label for="nombre" class="form-label col-12">Nombre</label>
+              <input
+                type="text"
+                name="nombre"
+                id="nombre"
+                class="form-control col-12"
+              />
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="apellido" class="form-label">Apellido</label>
+              <input
+                type="text"
+                name="apellido"
+                id="apellido"
+                class="form-control"
+              />
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="email" class="form-label">E-mail</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                class="form-control"
+                placeholder="juanperez@mail.com"
+              />
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="tlf" class="form-label">Teléfono</label>
+              <input
+                type="tel"
+                name="telefono"
+                id="telefono"
+                class="form-control"
+                placeholder="+54 9 11 74128653"
+              />
+            </div>
+            <div class="col-12">
+              <label for="direccion" class="form-label">Dirección</label>
+              <input
+                type="text"
+                name="direccion"
+                id="direccion"
+                class="form-control"
+                placeholder="Av. Rivadavia 1500, 1ro A. CABA "
+              />
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="pass" class="form-label">Contraseña</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                class="form-control"
+                placeholder="********"
+              />
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="password" class="form-label"
+                >Confirma tu contraseña</label
+              >
+              <input
+                type="password"
+                name="password"
+                id="password"
+                class="form-control"
+                placeholder="********"
+              />
+            </div>          
+            </div>
+            <div class="col-12 mt-3 align-center mt-5">
+              <button type="submit" class="btn bg-pink btn-lg font-white reg">
+                CREAR CUENTA
+              </button>
+            </div>            
           </div>
         </form>
-      </section>
-      <!--section ya tenes cuenta-->
-      <section
-        class="p-lateral-5 text-align-c mt-3 flex-cont wrap fx-justify-center"
-      >
-        <div>
-          <span class="font-xlarge w-50">¿Ya tenés cuenta?</span>
+        <div class="row mt-3">
+          <div class="col-12 text-align-c">
+            <label for="" class="form-label font-xlarge"
+              >Ya tenés cuenta?</label
+            >
+            <a href="/users/login" class="font-xlarge font-bold">
+              Inicia sesión</a
+            >
+          </div>
         </div>
-        <div>
-          <a href="/users/login"><h3 class="font-xlarge">Inicia sesión</h3></a>
-        </div>
-      </section>
-
-      <!-- section envios-->
-      <section class="text-align-c pt-5 pb-5">
-        <div class="mt-3"><i class="fas fa-truck font-xxlarge"></i></div>
-        <div class="mt-3"><h2>¡ENVIAMOS A TODO EL PAIS!</h2></div>
-        <div class="mt-1 font-small">
-          <h3>Por Correo Argentino, OCA o transporte de tu preferencia</h3>
-        </div>
-      </section>
+        <!-- section envios-->
+        <div class="col-12 text-align-c mt-5"> <i class="fas fa-truck font-xxlarge"></i></div>
+        <div class="col-12 text-align-c"> ¡ENVIAMOS A TODO EL PAIS!</div>
+        <div class="col-12 text-align-c pb-2"> <h3>Por Correo Argentino, OCA o transporte de tu preferencia</h3></div>
+        
+      </section>      
     </main>
 
     <!--FOOTER -->

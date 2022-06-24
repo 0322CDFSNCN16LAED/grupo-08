@@ -332,10 +332,7 @@ footer {
 }
 
 .flex-captcha {
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  padding-top: 5%;
+  width: 10%;
 }
 
 hr {
@@ -427,4 +424,19 @@ hr {
 .reg:hover {
   background-color: #c44cb4 !important;
   color: white !important;
+}
+/********************************************************************/
+/*             PARA USERS                                           */
+/********************************************************************/
+.form-login {
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 50%;
+}
+.form-register {
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 80%;
 }

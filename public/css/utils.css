@@ -199,6 +199,12 @@
 .text-align-c {
   text-align: center;
 }
+.text-align-l {
+  text-align: left;
+}
+.text-align-r {
+  text-align: right;
+}
 .text-align-r {
   text-align: right;
 }
@@ -295,7 +301,7 @@
   text-decoration: none;
 }
 .underline {
-  text-decoration: underline;
+  text-decoration: underline !important;
 }
 a {
   text-decoration: none !important;
