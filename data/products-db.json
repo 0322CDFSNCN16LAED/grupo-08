@@ -116,45 +116,6 @@
         "imagen": "/images/products/1655997862351.jpg"
     },
     {
-        "nombre": "Alto guiso",
-        "categoria": "iluminacion",
-        "ambiente": [
-            "cocina",
-            "living",
-            "dormitorio",
-            "comedor",
-            "estudio",
-            "banios",
-            "playroom",
-            "exteriores",
-            "otros"
-        ],
-        "estilo": "industrial",
-        "precioContado": "122222",
-        "cantidadDeCuotas": "3",
-        "precioCuota": "12222",
-        "envioGratis": false,
-        "alt": "texto alternativo de la imagen",
-        "descripcion": "esta es una descripcion cualquiera",
-        "medidas": "23x54",
-        "color": "white",
-        "detalles": [
-            "detalle1",
-            "detalle2",
-            "detalle3",
-            "detalle4"
-        ],
-        "infoExtra": [
-            "extra1",
-            "extra2",
-            "extra3",
-            "extra4"
-        ],
-        "id": 6,
-<<<<<<< HEAD
-        "imagen": "/images/products/1656022942733.jpg"
-    },
-    {
         "nombre": "Jarra de porcelana nórdica",
         "categoria": "vajilla",
         "ambiente": [
@@ -172,30 +133,11 @@
         "color": "blanco",
         "detalles": [
             "Conservación del calor y del frío.\r\nCapacidad 1 litro.\r\nMantiene el calor por 12 hs\r\nMantiene el frío por 24 hs"
-=======
-        "imagen": "/images/products/1656013362876.jpg"
-    },
-    {
-        "nombre": "",
-        "categoria": "",
-        "ambiente": [],
-        "precioContado": "",
-        "cantidadDeCuotas": "",
-        "precioCuota": "",
-        "envioGratis": false,
-        "alt": "",
-        "descripcion": "",
-        "medidas": "",
-        "color": "",
-        "detalles": [
-            ""
->>>>>>> ce9b9bd24d533bf47d4f585ea42a823750329020
         ],
         "infoExtra": [
             ""
         ],
         "id": 7,
-<<<<<<< HEAD
         "imagen": "/images/products/1656020145437.jpg"
     },
     {
@@ -216,85 +158,11 @@
         "color": "Bamboo",
         "detalles": [
             "Material: bamboo ecológico"
-=======
-        "imagen": "/images/products/default-image.png"
-    },
-    {
-        "nombre": "",
-        "categoria": "",
-        "ambiente": [],
-        "precioContado": "",
-        "cantidadDeCuotas": "",
-        "precioCuota": "",
-        "envioGratis": false,
-        "alt": "",
-        "descripcion": "",
-        "medidas": "",
-        "color": "",
-        "detalles": [
-            ""
->>>>>>> ce9b9bd24d533bf47d4f585ea42a823750329020
         ],
         "infoExtra": [
             ""
         ],
         "id": 8,
-<<<<<<< HEAD
         "imagen": "/images/products/1656022903581.jpg"
-=======
-        "imagen": "/images/products/default-image.png"
-    },
-    {
-        "nombre": "",
-        "categoria": "",
-        "ambiente": [],
-        "precioContado": "",
-        "cantidadDeCuotas": "",
-        "precioCuota": "",
-        "envioGratis": false,
-        "alt": "",
-        "descripcion": "",
-        "medidas": "",
-        "color": "",
-        "detalles": [
-            ""
-        ],
-        "infoExtra": [
-            ""
-        ],
-        "id": 9,
-        "imagen": "/images/products/default-image.png"
-    },
-    {
-        "nombre": "bbbbb",
-        "categoria": "muebles",
-        "ambiente": [
-            "cocina",
-            "living",
-            "dormitorio",
-            "otros"
-        ],
-        "estilo": "nordico",
-        "precioContado": "12121212",
-        "cantidadDeCuotas": "1",
-        "precioCuota": "1111",
-        "envioGratis": true,
-        "alt": "asaSAD",
-        "descripcion": "desde",
-        "medidas": "12x34",
-        "color": "negro",
-        "detalles": [
-            "dede",
-            "nmnm",
-            "mnmnm"
-        ],
-        "infoExtra": [
-            "de",
-            "lok",
-            "lij"
-        ],
-        "id": 11,
-        "imagen": "/images/products/1656026425861.jpg"
->>>>>>> ce9b9bd24d533bf47d4f585ea42a823750329020
     }
 ]
