@@ -1,187 +1,142 @@
 [
-    {
-        "nombre": "Lámpara galponera",
-        "categoria": "iluminacion",
-        "ambiente": [
-            "cocina",
-            "living",
-            "estudio",
-            "playroom"
-        ],
-        "estilo": "industrial",
-        "precioContado": "5300",
-        "cantidadDeCuotas": "3",
-        "precioCuota": "1733.33",
-        "envioGratis": true,
-        "alt": "lampara negra",
-        "descripcion": "El diseño industrial en iluminación está muy de moda. Con nuestra linea de lamparas galponeras podrás iluminar y destacar tanto ambientes de tu hogar como tu comercio.",
-        "medidas": "32cm alto x 30cm + Cable: 120 cm largo",
-        "color": "negro",
-        "detalles": [
-            "Calidad garantizada acero reforzado",
-            "Apilable - Resistencia hasta 130kg",
-            "Viene en variedad de colores"
-        ],
-        "infoExtra": [
-            "Lugares de montaje: Techo",
-            "Materiales: Aluminio",
-            "Alimentación 220V",
-            "Ambientes interior",
-            "Capacidad de focos 1",
-            "Tipos de fuentes de luz LED"
-        ],
-        "id": 1,
-        "imagen": "/images/products/lamp.jpg"
-    },
-    {
-        "nombre": "Estante nórdicoooo",
-        "categoria": "muebles",
-        "ambiente": [],
-        "estilo": "nordico",
-        "precioContado": "20000",
-        "cantidadDeCuotas": "12",
-        "precioCuota": "1666.67",
-        "envioGratis": true,
-        "alt": "estantería nórdica",
-        "descripcion": "Biblioteca estilo nórdico. Fabricada con ménsulas de roble y estantes de madera laqueada en pintura poliuretánica color blanco matte.",
-        "medidas": "107 cm x 35 cm x 200 cm",
-        "color": "blanco y roble",
-        "detalles": [
-            "Calidad garantizada",
-            " Accesibilidad",
-            "Producto de fácil instalación"
-        ],
-        "infoExtra": [
-            ""
-        ],
-        "id": 2,
-        "imagen": "/images/products/mueble.PNG"
-    },
-    {
-        "nombre": "Silla Tólix",
-        "id": 3,
-        "categoria": "muebles",
-        "ambiente": [
-            "living",
-            "cocina",
-            "comedor",
-            "estudio",
-            "playroom",
-            "infantil"
-        ],
-        "estilo": "industrial",
-        "precioContado": 12500,
-        "cantidadDeCuotas": 6,
-        "precioCuota": 2083.33,
-        "envioGratis": true,
-        "imagen": "/images/products/tolix-amarilla.jpg",
-        "alt": "Silla Tolix Amarilla",
-        "descripcion": "La Silla Tolix, ya es un clásico centenario. Este clásico del diseño ha sido utilizado en cafeterías y cocinas retro de todo el mundo, pero es combinable con multitud de estilos y tendencias decorativas.   En la década de los 70 se utilizaban a menudo en fábricas, oficinas u hospitales. Hoy se ha impuesto como un diseño de moda ideal para múltiples ambientes.",
-        "medidas": "Medidas: 86cm altura respaldo x 44cm ancho x 45cm profundidad asiento ",
-        "color": "amarillo",
-        "detalles": [
-            "Calidad garantizada acero reforzado",
-            "Apilable - Resistencia hasta 130kg",
-            "Viene en variedad de colores"
-        ],
-        "infoExtra": []
-    },
-    {
-        "nombre": "Lampara de techo Norma",
-        "categoria": "iluminacion",
-        "ambiente": [
-            "cocina",
-            "living",
-            "comedor",
-            "estudio"
-        ],
-        "estilo": "industrial",
-        "precioContado": "15000",
-        "cantidadDeCuotas": "1",
-        "precioCuota": "15000",
-        "envioGratis": true,
-        "alt": "Lampara de techo negra",
-        "descripcion": "lampara de techo 220v.",
-        "medidas": "34x56",
-        "color": "negro",
-        "detalles": [
-            "Calidad garantizada",
-            "\r\n Accesibilidad",
-            "\r\nProducto de fácil instalación"
-        ],
-        "infoExtra": [
-            "viene con cable de 1 metro "
-        ],
-        "id": 4,
-        "imagen": "/images/products/1655997862351.jpg"
-    },
-    {
-        "nombre": "Alto guiso",
-        "categoria": "iluminacion",
-        "ambiente": [
-            "cocina",
-            "living",
-            "dormitorio",
-            "comedor",
-            "estudio",
-            "banios",
-            "playroom",
-            "exteriores",
-            "otros"
-        ],
-        "estilo": "industrial",
-        "precioContado": "122222",
-        "cantidadDeCuotas": "3",
-        "precioCuota": "12222",
-        "envioGratis": false,
-        "alt": "texto alternativo de la imagen",
-        "descripcion": "esta es una descripcion cualquiera",
-        "medidas": "23x54",
-        "color": "white",
-        "detalles": [
-            "detalle1",
-            "detalle2",
-            "detalle3",
-            "detalle4"
-        ],
-        "infoExtra": [
-            "extra1",
-            "extra2",
-            "extra3",
-            "extra4"
-        ],
-        "id": 6,
-        "imagen": "/images/products/1656013362876.jpg"
-    },
-    {
-        "nombre": "bbbbb",
-        "categoria": "muebles",
-        "ambiente": [
-            "cocina",
-            "living",
-            "dormitorio",
-            "otros"
-        ],
-        "estilo": "nordico",
-        "precioContado": "12121212",
-        "cantidadDeCuotas": "1",
-        "precioCuota": "1111",
-        "envioGratis": true,
-        "alt": "asaSAD",
-        "descripcion": "desde",
-        "medidas": "12x34",
-        "color": "negro",
-        "detalles": [
-            "dede",
-            "nmnm",
-            "mnmnm"
-        ],
-        "infoExtra": [
-            "de",
-            "lok",
-            "lij"
-        ],
-        "id": 11,
-        "imagen": "/images/products/1656026425861.jpg"
-    }
+  {
+    "nombre": "Lámpara galponera",
+    "categoria": "iluminacion",
+    "ambiente": ["cocina", "living", "estudio", "playroom"],
+    "estilo": "industrial",
+    "precioContado": "5300",
+    "cantidadDeCuotas": "3",
+    "precioCuota": "1733.33",
+    "envioGratis": true,
+    "alt": "lampara negra",
+    "descripcion": "El diseño industrial en iluminación está muy de moda. Con nuestra linea de lamparas galponeras podrás iluminar y destacar tanto ambientes de tu hogar como tu comercio.",
+    "medidas": "32cm alto x 30cm + Cable: 120 cm largo",
+    "color": "negro",
+    "detalles": [
+      "Calidad garantizada acero reforzado",
+      "Apilable - Resistencia hasta 130kg",
+      "Viene en variedad de colores"
+    ],
+    "infoExtra": [
+      "Lugares de montaje: Techo",
+      "Materiales: Aluminio",
+      "Alimentación 220V",
+      "Ambientes interior",
+      "Capacidad de focos 1",
+      "Tipos de fuentes de luz LED"
+    ],
+    "id": 1,
+    "imagen": "/images/products/lamp.jpg"
+  },
+  {
+    "nombre": "Estante nórdicoooo",
+    "categoria": "muebles",
+    "ambiente": [],
+    "estilo": "nordico",
+    "precioContado": "20000",
+    "cantidadDeCuotas": "12",
+    "precioCuota": "1666.67",
+    "envioGratis": true,
+    "alt": "estantería nórdica",
+    "descripcion": "Biblioteca estilo nórdico. Fabricada con ménsulas de roble y estantes de madera laqueada en pintura poliuretánica color blanco matte.",
+    "medidas": "107 cm x 35 cm x 200 cm",
+    "color": "blanco y roble",
+    "detalles": [
+      "Calidad garantizada",
+      " Accesibilidad",
+      "Producto de fácil instalación"
+    ],
+    "infoExtra": [""],
+    "id": 2,
+    "imagen": "/images/products/mueble.PNG"
+  },
+  {
+    "nombre": "Silla Tólix",
+    "id": 3,
+    "categoria": "muebles",
+    "ambiente": [
+      "living",
+      "cocina",
+      "comedor",
+      "estudio",
+      "playroom",
+      "infantil"
+    ],
+    "estilo": "industrial",
+    "precioContado": 12500,
+    "cantidadDeCuotas": 6,
+    "precioCuota": 2083.33,
+    "envioGratis": true,
+    "imagen": "/images/products/tolix-amarilla.jpg",
+    "alt": "Silla Tolix Amarilla",
+    "descripcion": "La Silla Tolix, ya es un clásico centenario. Este clásico del diseño ha sido utilizado en cafeterías y cocinas retro de todo el mundo, pero es combinable con multitud de estilos y tendencias decorativas.   En la década de los 70 se utilizaban a menudo en fábricas, oficinas u hospitales. Hoy se ha impuesto como un diseño de moda ideal para múltiples ambientes.",
+    "medidas": "Medidas: 86cm altura respaldo x 44cm ancho x 45cm profundidad asiento ",
+    "color": "amarillo",
+    "detalles": [
+      "Calidad garantizada acero reforzado",
+      "Apilable - Resistencia hasta 130kg",
+      "Viene en variedad de colores"
+    ],
+    "infoExtra": []
+  },
+  {
+    "nombre": "Lampara de techo Norma",
+    "categoria": "iluminacion",
+    "ambiente": ["cocina", "living", "comedor", "estudio"],
+    "estilo": "industrial",
+    "precioContado": "15000",
+    "cantidadDeCuotas": "1",
+    "precioCuota": "15000",
+    "envioGratis": true,
+    "alt": "Lampara de techo negra",
+    "descripcion": "lampara de techo 220v.",
+    "medidas": "34x56",
+    "color": "negro",
+    "detalles": [
+      "Calidad garantizada",
+      "\r\n Accesibilidad",
+      "\r\nProducto de fácil instalación"
+    ],
+    "infoExtra": ["viene con cable de 1 metro "],
+    "id": 4,
+    "imagen": "/images/products/1655997862351.jpg"
+  },
+  {
+    "nombre": "Jarra de porcelana nórdica",
+    "categoria": "vajilla",
+    "ambiente": ["cocina", "comedor"],
+    "estilo": "nordico",
+    "precioContado": "6500",
+    "cantidadDeCuotas": "3",
+    "precioCuota": "2166.66",
+    "envioGratis": true,
+    "alt": "Jarra de porcelana blanca con manija de  madera ",
+    "descripcion": "Termo de vidrio diseño de doble capa.\r\nManija de madera\r\n",
+    "medidas": "24cm de alto x 13cm de diámetro",
+    "color": "blanco",
+    "detalles": [
+      "Conservación del calor y del frío.\r\nCapacidad 1 litro.\r\nMantiene el calor por 12 hs\r\nMantiene el frío por 24 hs"
+    ],
+    "infoExtra": [""],
+    "id": 7,
+    "imagen": "/images/products/1656020145437.jpg"
+  },
+  {
+    "nombre": "Set ensaladera bamboo ",
+    "categoria": "vajilla",
+    "ambiente": ["cocina", "comedor"],
+    "estilo": "otros",
+    "precioContado": "2750",
+    "cantidadDeCuotas": "1",
+    "precioCuota": "2750",
+    "envioGratis": false,
+    "alt": "Cucharon y tenedor ensaladera",
+    "descripcion": "Set Utensilios Para Ensalada Bamboo 2 Piezas cuchara y pinza",
+    "medidas": "Largo 29cm",
+    "color": "Bamboo",
+    "detalles": ["Material: bamboo ecológico"],
+    "infoExtra": [""],
+    "id": 8,
+    "imagen": "/images/products/1656022903581.jpg"
+  }
 ]
