@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+    crossorigin="anonymous"/>
+  </head>
+<body>
 <header>
   <div class="paga-en-ctas">
     <p class="m-center mt-1">
@@ -6,28 +16,49 @@
     </p>
   </div>
   <section class="bg-white header-flex">
-    <div class="burger-menu font-xlarge">
-      <i class="fas fa-bars bg-light-blue font-gray"></i>
-    </div>
-    <h1 class="text-align-c w-40">
-      <a href="/"
-        ><img src="/images/logo2.PNG" alt="Deco Home" class="w-60"
-      /></a>
-    </h1>
-    <div class="header-iconos">
-      <a href="#" class="decoration-none disp-block">
-        <i class="fas fa-search font-gris-claro font-xmedium"> </i>
-      </a>
-      <a href="#" class="decoration-none disp-block">
-        <i class="fas fa-heart decoration-none font-gris-claro font-xmedium">
-        </i>
-      </a>
-      <a href="/users/login" class="decoration-none disp-block">
-        <i class="fas fa-user font-gris-claro font-xmedium"> </i>
-      </a>
-      <a href="/carritocompras" class="decoration-none disp-block">
-        <i class="fas fa-shopping-cart font-gris-claro font-xmedium"></i>
-      </a>
+
+    <div class="container-fluid">
+      <!--row para titulo-->
+      <div class="row">
+        <div class="col-4">
+          <div class="burger-menu font-xlarge">
+            <i class="fas fa-bars bg-light-blue font-gray"></i>
+          </div>
+           <!--Imagen de logo-->
+          <div class="col-4">
+          <h1 class="text-align-c w-40">
+            <a href="/">
+              <img src="/images/logo2.PNG" alt="Deco Home" class="w-60"/>
+            </a>
+          </h1>
+          </div>
+          <!--Iconos-->
+          <div class="col-4">
+          <div class="header-iconos">
+            <a href="#" class="decoration-none disp-block">
+              <i class="fas fa-search font-gris-claro font-xmedium"> </i>
+            </a>
+            <a href="#" class="decoration-none disp-block">
+              <i class="fas fa-heart decoration-none font-gris-claro font-xmedium">
+              </i>
+            </a>
+            <a href="/users/login" class="decoration-none disp-block">
+              <i class="fas fa-user font-gris-claro font-xmedium"> </i>
+            </a>
+            <a href="/carritocompras" class="decoration-none disp-block">
+              <i class="fas fa-shopping-cart font-gris-claro font-xmedium"></i>
+            </a>
+          </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </header>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+  crossorigin="anonymous">
+</script>
+</body>
+</html>
