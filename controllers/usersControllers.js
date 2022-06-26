@@ -3,6 +3,8 @@ const fs = require("fs");
 const db = require("../data/db-users");
 const users = db.getAll();
 const user = db.getOne();
+const bcrypt = require('bcryptjs');
+
 module.exports = {
   login: function (req, res) {
     res.render("users/login");
