@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <!--    HEAD    -->
+    <head>
+        <%- include('../partials/head') %>
+    </head>
+    <body>
+
+        <!--    HEADER  -->
+        <%- include('../partials/header') %>
+        
+        <main>
+            <p>
+                 <%= user.nombre%> <%= user.apellido %>.  
+            </p>
+            <p>
+                <%= user.email %> 
+            </p>
+            <p>
+                <%= user.direccion %> 
+            </p>
+            <p>
+                <%= user.telefono%> 
+            </p>
+
+            <form action="" method="get">
+                <button 
+                    type="button" 
+                    class="btn btn-secondary">
+                    <a href="/users/edit/<%= user.id %>">
+                    Editar
+                </button>
+                <button 
+                    type="button" 
+                    class="btn btn-secondary">
+                    <a href="###">
+                    Eliminar
+                </button>
+                
+            </form>
+        </main>
+
+    </body>
+    <footer>
+        <%- include('../partials/footer') %> 
+    </footer>
+</html>

@@ -23,15 +23,19 @@ module.exports = {
 
     res.redirect("/");
   },
+
+  //vista de todos los usuarios.
   index: function(req, res){    
-    res.send('sdfsdf')
-    //res.render('users/index', {users: users})    
+    res.render('users/index', {users: users})    
   },
+
+  //ver datalle de cada usuario.
   detail: function(req, res){
-    const  userId = req.params;
+    res.render('../views/users/user-detail', { user: db.getOne(req.params.id) });    
   },
-  edit: function(req, res){                                          
-    res.render('users/edit-user')
+  edit: function(req, res){                   
+    const userToEdit =  db.getOne(req.params.id);        
+    res.render('users/edit-user', { userToEdit: userToEdit });
   },
   update: function(){
     

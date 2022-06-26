@@ -12,7 +12,6 @@ router.get("/register", usersControllers.showRegister);
 /*Guardar usuario nuevo */
 router.post("/register", usersControllers.register);
 
-
 /* Detalle de un usuario */
 router.get("/:id", usersControllers.detail);
 
