@@ -2,7 +2,7 @@ const path = require("path");
 const fs = require("fs");
 const db = require("../data/db-users");
 const users = db.getAll();
-
+const user = db.getOne();
 module.exports = {
   login: function (req, res) {
     res.render("users/login");
@@ -24,12 +24,13 @@ module.exports = {
     res.redirect("/");
   },
   index: function(req, res){    
-    res.render('users/index', {users: users})    
+    res.send('sdfsdf')
+    //res.render('users/index', {users: users})    
   },
-  detail: function(){
-    
+  detail: function(req, res){
+    const  userId = req.params;
   },
-  edit: function(req, res){
+  edit: function(req, res){                                          
     res.render('users/edit-user')
   },
   update: function(){

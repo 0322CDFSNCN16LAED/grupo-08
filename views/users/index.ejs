@@ -9,42 +9,43 @@
         <%- include('../partials/header') %>
         <main>
             <% users.forEach(user => {%>
-                <article class="container row">
-                    <div class= "col  border border-danger">
+                <article class="container row m-5">
+                    <div class= "col  border border-danger m-1">
                         <a 
-                            href="/users/<% user.id %>">
-                            Nombre del usuario: <% user.id %> <%= user.nombre %> <%= user.apellido %>
+                            href="/users/<%=user.id %>">
+                            Nombre del usuario: <%= user.id %> <%= user.nombre %> <%= user.apellido %>
+                            
                         </a>
                     </div>
                    
                     
-                    <div class= "col border border-danger">
+                    <div class= "col border border-danger mt-1">
                         <a 
-                            href="/<% user.id %>">
+                            href="/users/<%= user.id %>">
                             Email: <%= user.email %>
                         </a> 
                     </div>
-                    <div class= "col border border-danger">
+                    <div class= "col border border-danger m-1">
                         <a 
-                            href="/<% user.id %>">
+                            href="/users/<%= user.id %>">
                             Numero de telefono: <%= user.telefono %> 
                         </a>
                     </div>
-                    <div class= "col border border-danger">
+                    <div class= "col border border-danger m-1">
                         <a 
-                            href="/<% user.id %>">
+                            href="/users/<%= user.id %>">
                             Recidencia: <%= user.direccion %>
                         </a> 
                     </div>
                 </article>
 
                 <button>
-                    <a href="/edit/<% user.id %>" >
+                    <a href="/users/edit/<%= user.id %>" >
                     Editar usuario
                     </a>
                 </button>
                 <form 
-                    action="/delete/<% user.id %>" 
+                    action="/users/delete/<%= user.id %>" 
                     method="POST">
                     <button type="submit">
                         Eliminar
