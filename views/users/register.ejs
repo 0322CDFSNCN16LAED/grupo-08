@@ -22,8 +22,13 @@
                 type="text"
                 name="nombre"
                 id="nombre"
-                class="form-control col-12"
+                class="form-control col-12 <%= locals.errors && errors.nombre ? 'is-invalid' : null %> "
               />
+              <% if (locals.errors && errors.nombre) { %>
+                <div class="text-danger">
+                  <%= errors.nombre.msg %>
+                </div>
+                <% } %> 
             </div>
             <div class="col-12 col-md-6">
               <label for="apellido" class="form-label">Apellido</label>
@@ -31,8 +36,13 @@
                 type="text"
                 name="apellido"
                 id="apellido"
-                class="form-control"
+                class="form-control <%= locals.errors && errors.apellido ? 'is-invalid' : null %>"
               />
+              <% if (locals.errors && errors.apellido) { %>
+                <div class="text-danger">
+                  <%= errors.apellido.msg %>
+                </div>
+                <% } %> 
             </div>
             <div class="col-12 col-md-6">
               <label for="email" class="form-label">E-mail</label>
@@ -40,9 +50,14 @@
                 type="email"
                 name="email"
                 id="email"
-                class="form-control"
+                class="form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>"
                 placeholder="juanperez@mail.com"
               />
+              <% if (locals.errors && errors.email) { %>
+                <div class="text-danger">
+                  <%= errors.email.msg %>
+                </div>
+                <% } %> 
             </div>
             <div class="col-12 col-md-6">
               <label for="tlf" class="form-label">Teléfono</label>
@@ -50,9 +65,14 @@
                 type="tel"
                 name="telefono"
                 id="telefono"
-                class="form-control"
+                class="form-control <%= locals.errors && errors.telefono ? 'is-invalid' : null %>"
                 placeholder="+54 9 11 74128653"
               />
+              <% if (locals.errors && errors.telefono) { %>
+                <div class="text-danger">
+                  <%= errors.telefono.msg %>
+                </div>
+                <% } %> 
             </div>
             <div class="col-12">
               <label for="direccion" class="form-label">Dirección</label>
@@ -60,9 +80,14 @@
                 type="text"
                 name="direccion"
                 id="direccion"
-                class="form-control"
+                class="form-control <%= locals.errors && errors.direccion ? 'is-invalid' : null %>"
                 placeholder="Av. Rivadavia 1500, 1ro A. CABA "
               />
+              <% if (locals.errors && errors.direccion) { %>
+                <div class="text-danger">
+                  <%= errors.direccion.msg %>
+                </div>
+                <% } %> 
             </div>
             <div class="col-12 col-md-6">
               <label for="pass" class="form-label">Contraseña</label>

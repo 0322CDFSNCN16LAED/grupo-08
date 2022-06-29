@@ -2,9 +2,12 @@ const express = require("express");
 const router = express.Router();
 const path = require('path');
 
-/*GUARDADO DE ARCHIVOS QUE VENGAN POR EL FORMULARIO DE REGISTER */
 /*Requerimos Multer para que el register acepte imagenes de perfil */
 const multer =require('multer');
+
+const basicRegisterValidations = require('../validation/userValidations');
+
+
 /*Definimos un storage para las imagenes de perfil */
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -17,6 +20,9 @@ const storage = multer.diskStorage({
 })
 const uploadFile = multer({storage});
 
+
+
+
 const usersControllers = require("../controllers/usersControllers"); 
 
 /*RUTAS */
@@ -28,7 +34,7 @@ router.get("/login", usersControllers.login);
 /*Mostrar formulario de registro de usuarios */
 router.get("/register", usersControllers.showRegister);
 /*Guardar usuario nuevo */
-router.post("/register", uploadFile.single('profile'), usersControllers.register);
+router.post("/register", uploadFile.single('profile'), basicRegisterValidations, usersControllers.register);
 
 /* Detalle de un usuario */
 router.get("/:id", usersControllers.detail);

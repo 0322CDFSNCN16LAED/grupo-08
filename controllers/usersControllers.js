@@ -1,8 +1,9 @@
-const path = require("path");
-const fs = require("fs");
+const path = require("path"); // Es necesario este require??
+const fs = require("fs"); // Es necesario este require??
 const db = require("../data/db-users");
 const users = db.getAll();
 const user = db.getOne();
+const {validationResult} = require('express-validator')
 const bcrypt = require('bcryptjs');
 
 
@@ -14,6 +15,16 @@ module.exports = {
     res.render('users/register')
   },
   register: function (req, res) {
+    // traigo los errores de validacion al controlador
+    const validationErrors = validationResult(req);
+    // los mando a la vista register.ejs
+    if(!validationErrors.isEmpty()) { // si hay errores
+      res.render ('users/register', {  // volvemos a la vista de registro 
+        errors : validationErrors.mapped(), //mandando a dicha vista los errores mapeados
+        oldData:req.body, // y los datos viejos que pasaron a validacion
+      })
+    } else { // si no hay errores se guarda el usuario nuevo
+
     const newUser = req.body;
     if (users.length) {
         newUser.id = users[users.length - 1].id + 1;
@@ -25,10 +36,8 @@ module.exports = {
     // falta guardar ese dato en la base de datos json
 
     users.push(newUser);
-
     db.saveAll(users);
-
-    res.redirect("/");
+    res.redirect("/");}
   },
 
   //vista de todos los usuarios.
