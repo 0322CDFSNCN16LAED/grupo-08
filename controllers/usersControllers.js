@@ -5,6 +5,7 @@ const users = db.getAll();
 const user = db.getOne();
 const bcrypt = require('bcryptjs');
 
+
 module.exports = {
   login: function (req, res) {
     res.render("users/login");
@@ -19,6 +20,10 @@ module.exports = {
     } else {
         newUser.id = 1;
     }
+    // FALTA GUARDAR EL ARCHIVO DE IMAGEN EN EL JSON. 
+    //la imagen llega por el formulario via POST, se guarda en la carpeta public/images/usersProfiles
+    // falta guardar ese dato en la base de datos json
+
     users.push(newUser);
 
     db.saveAll(users);
