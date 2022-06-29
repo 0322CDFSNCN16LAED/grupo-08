@@ -16,73 +16,98 @@
       >
         <form action="/users/register" method="POST" enctype="multipart/form-data" class="form-field">
           <div class="row mt-3">
+            <!--input de nombre-->
             <div class="col-12 col-md-6">
               <label for="nombre" class="form-label col-12">Nombre</label>
+              <!--en class si hay errores, se habilita la clase is-invalid de bootstrap-->
+              <!--en value si no hay errores, guarda el dato-->
               <input
                 type="text"
                 name="nombre"
-                id="nombre"
+                id="nombre" 
                 class="form-control col-12 <%= locals.errors && errors.nombre ? 'is-invalid' : null %> "
+                value="<%= locals.oldData ? oldData.nombre : null %>"
               />
+              <!--si hay errores en la validacion, da el mensaje de error-->
               <% if (locals.errors && errors.nombre) { %>
                 <div class="text-danger">
                   <%= errors.nombre.msg %>
                 </div>
                 <% } %> 
             </div>
+            <!--input de apellido-->            
             <div class="col-12 col-md-6">
               <label for="apellido" class="form-label">Apellido</label>
+              <!--en class si hay errores, se habilita la clase is-invalid de bootstrap-->
+              <!--en value si no hay errores, guarda el dato-->           
               <input
                 type="text"
                 name="apellido"
                 id="apellido"
                 class="form-control <%= locals.errors && errors.apellido ? 'is-invalid' : null %>"
+                value="<%= locals.oldData ? oldData.apellido : null %>"
               />
+              <!--si hay errores en la validacion, da el mensaje de error-->
               <% if (locals.errors && errors.apellido) { %>
                 <div class="text-danger">
                   <%= errors.apellido.msg %>
                 </div>
                 <% } %> 
             </div>
+            <!--input de mail-->                    
             <div class="col-12 col-md-6">
               <label for="email" class="form-label">E-mail</label>
+              <!--en class si hay errores, se habilita la clase is-invalid de bootstrap-->
+              <!--en value si no hay errores, guarda el dato-->            
               <input
                 type="email"
                 name="email"
                 id="email"
                 class="form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>"
                 placeholder="juanperez@mail.com"
+                value="<%= locals.oldData ? oldData.email : null %>"
               />
+              <!--si hay errores en la validacion, da el mensaje de error-->
               <% if (locals.errors && errors.email) { %>
                 <div class="text-danger">
                   <%= errors.email.msg %>
                 </div>
                 <% } %> 
             </div>
+            <!--input de telefono-->            
             <div class="col-12 col-md-6">
               <label for="tlf" class="form-label">Teléfono</label>
+              <!--en class si hay errores, se habilita la clase is-invalid de bootstrap-->
+              <!--en value si no hay errores, guarda el dato-->
               <input
                 type="tel"
                 name="telefono"
                 id="telefono"
                 class="form-control <%= locals.errors && errors.telefono ? 'is-invalid' : null %>"
                 placeholder="+54 9 11 74128653"
+                value="<%= locals.oldData ? oldData.telefono : null %>"
               />
+              <!--si hay errores en la validacion, da el mensaje de error-->
               <% if (locals.errors && errors.telefono) { %>
                 <div class="text-danger">
                   <%= errors.telefono.msg %>
                 </div>
                 <% } %> 
             </div>
+            <!--input de dirección-->                        
             <div class="col-12">
               <label for="direccion" class="form-label">Dirección</label>
+              <!--en class si hay errores, se habilita la clase is-invalid de bootstrap-->
+              <!--en value si no hay errores, guarda el dato-->
               <input
                 type="text"
                 name="direccion"
                 id="direccion"
                 class="form-control <%= locals.errors && errors.direccion ? 'is-invalid' : null %>"
                 placeholder="Av. Rivadavia 1500, 1ro A. CABA "
+                value="<%= locals.oldData ? oldData.direccion : null %>"
               />
+              <!--si hay errores en la validacion, da el mensaje de error-->
               <% if (locals.errors && errors.direccion) { %>
                 <div class="text-danger">
                   <%= errors.direccion.msg %>
