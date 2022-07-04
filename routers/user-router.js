@@ -1,50 +1,55 @@
 const express = require("express");
 const router = express.Router();
-const path = require('path');
+const path = require("path");
 
 /*Requerimos Multer para que el register acepte imagenes de perfil */
-const multer =require('multer');
+const multer = require("multer");
 
-const basicRegisterValidations = require('../validation/userValidations');
-
+const basicRegisterValidations = require("../validation/userValidations");
+const loginValidations = require("../validation/loginValidation");
 
 /*Definimos un storage para las imagenes de perfil */
 const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, './public/images/usersProfiles');
-    },
-    filename: (req, file, cb) => {
-        let profileImgName = `${Date.now()}_img${path.extname(file.originalname)}`;
-        cb(null, profileImgName);
-    }
-})
-const uploadFile = multer({storage});
+  destination: (req, file, cb) => {
+    cb(null, "./public/images/usersProfiles");
+  },
+  filename: (req, file, cb) => {
+    let profileImgName = `${Date.now()}_img${path.extname(file.originalname)}`;
+    cb(null, profileImgName);
+  },
+});
+const uploadFile = multer({ storage });
 
-
-
-
-const usersControllers = require("../controllers/usersControllers"); 
+const usersControllers = require("../controllers/usersControllers");
 
 /*RUTAS */
 /*Listado de todos los usuarios */
 router.get("/", usersControllers.index);
+
 /*Login*/
 router.get("/login", usersControllers.login);
- 
+/* loguearse*/
+router.post("/", loginValidations, usersControllers.processLogin);
+
 /*Mostrar formulario de registro de usuarios */
 router.get("/register", usersControllers.showRegister);
 /*Guardar usuario nuevo */
-router.post("/register", uploadFile.single('profile'), basicRegisterValidations, usersControllers.register);
+router.post(
+  "/register",
+  uploadFile.single("profile"),
+  basicRegisterValidations,
+  usersControllers.register
+);
 
 /* Detalle de un usuario */
 router.get("/:id", usersControllers.detail);
 
 /* Formulario de edicion de usuario */
-router.get('/edit/:id', usersControllers.edit);
+router.get("/edit/:id", usersControllers.edit);
 /* Guardar edición de usuario */
-router.put('/:id', usersControllers.update);
+router.put("/:id", usersControllers.update);
 
 /* Borrar usuario */
-router.delete ('/:id', usersControllers.delete);
+router.delete("/:id", usersControllers.delete);
 
 module.exports = router;
