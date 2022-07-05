@@ -1,12 +1,15 @@
 const express = require("express");
 const router = express.Router();
 const path = require("path");
-
-/*Requerimos Multer para que el register acepte imagenes de perfil */
 const multer = require("multer");
 
+/*Requerimos Multer para que el register acepte imagenes de perfil */
+// Middlewares
 const basicRegisterValidations = require("../validation/userValidations");
 const loginValidations = require("../validation/loginValidation");
+const guestMiddleware = require("../middlewares/guestMiddleware");
+const authMiddleware = require("../middlewares/authMiddleware");
+const validUserMiddleware = require("../middlewares/validUserMiddleware");
 
 /*Definimos un storage para las imagenes de perfil */
 const storage = multer.diskStorage({
@@ -24,15 +27,15 @@ const usersControllers = require("../controllers/usersControllers");
 
 /*RUTAS */
 /*Listado de todos los usuarios */
-router.get("/", usersControllers.index);
+router.get("/", authMiddleware, usersControllers.index);
 
-/*Login*/
-router.get("/login", usersControllers.login);
-/* loguearse*/
+/*Formulario de Login*/
+router.get("/login", guestMiddleware, usersControllers.login);
+/* procesa loguin*/
 router.post("/", loginValidations, usersControllers.processLogin);
 
-/*Mostrar formulario de registro de usuarios */
-router.get("/register", usersControllers.showRegister);
+/*Formulario de registro */
+router.get("/register", guestMiddleware, usersControllers.showRegister);
 /*Guardar usuario nuevo */
 router.post(
   "/register",
@@ -41,11 +44,21 @@ router.post(
   usersControllers.register
 );
 
-/* Detalle de un usuario */
-router.get("/:id", usersControllers.detail);
+/* Formulario detalle de un usuario */
+router.get(
+  "/:id",
+  authMiddleware,
+  validUserMiddleware,
+  usersControllers.detail
+);
 
 /* Formulario de edicion de usuario */
-router.get("/edit/:id", usersControllers.edit);
+router.get(
+  "/edit/:id",
+  authMiddleware,
+  validUserMiddleware,
+  usersControllers.edit
+);
 /* Guardar edición de usuario */
 router.put("/:id", usersControllers.update);
 
