@@ -10,18 +10,22 @@
         <%- include('../partials/header') %>
         
         <main>
-            <p>
-                 <%= user.nombre%> <%= user.apellido %>.  
-            </p>
-            <p>
-                <%= user.email %> 
-            </p>
-            <p>
-                <%= user.direccion %> 
-            </p>
-            <p>
-                <%= user.telefono%> 
-            </p>
+            <div class="card" style="width: 18rem;"> 
+                <div class="card-body">
+                    <h5 class="card-title"> <%= user.nombre%> <%= user.apellido %></h5>
+                    <p class="card-text">
+                        <%= user.email %> 
+                    </p>
+                    <p>
+                        <%= user.direccion %>
+                    </p>
+                    <p>
+                        <%= user.telefono%>
+                    </p>
+                    <img src="/images/usersProfiles/<%=locals.user.profile%>" class="card-img-top">
+                </div>
+            </div>
+            
 
             <form action="" method="get">
                 <button 

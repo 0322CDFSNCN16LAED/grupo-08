@@ -31,7 +31,7 @@ router.get("/", authMiddleware, usersControllers.index);
 
 /*Formulario de Login*/
 router.get("/login", guestMiddleware, usersControllers.login);
-/* procesa loguin*/
+/* procesa login*/
 router.post("/", loginValidations, usersControllers.processLogin);
 
 /*Formulario de registro */

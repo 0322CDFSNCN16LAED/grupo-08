@@ -248,5 +248,15 @@
         "direccion": "av rivadavia",
         "password": "$2a$10$J0yNmdjC1iNP4WlY.WGyd.OWJu3.bvZLhzeExwuYcFA6PmuflQlGC",
         "id": 25
+    },
+    {
+        "nombre": "Cosme",
+        "apellido": "Fulanito",
+        "email": "cfulanito@gmail.com",
+        "telefono": "1561234444",
+        "direccion": "Av Siempre VIva 5555",
+        "password": "$2a$10$Twlj6kNRhEvfvm9gyHEjQ.pqPCcwKU7yQx/BvlQQtlcGjhAfHOqeS",
+        "profile": "1657052651261_img.jpg",
+        "id": 26
     }
 ]

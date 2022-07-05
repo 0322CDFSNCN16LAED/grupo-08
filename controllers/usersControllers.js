@@ -1,31 +1,36 @@
 const path = require("path"); // Es necesario este require??
 const fs = require("fs"); // Es necesario este require??
-const bcryptjs = require("bcryptjs");
-const db = require("../data/db-users");
+const bcryptjs = require("bcryptjs"); //Requerimos el encriptador
+const db = require("../data/db-users"); //Requerimos la DB de usuarios
 
 const { validationResult } = require("express-validator");
 
 module.exports = {
-  login: function (req, res) {
+  login: function (req, res) { // Metodo que muestra el formulario de Login x GET
     res.render("users/login");
   },
-  processLogin: function (req, res) {
-    const resultValidation = validationResult(req);
+  processLogin: function (req, res) { // Metodo que procesa el Login x POST
+    const resultValidation = validationResult(req);  //guarda los errores de validacion
 
-    if (!resultValidation.isEmpty()) {
-      return res.render("users/login", {
-        errors: resultValidation.mapped(),
-        oldData: req.body,
+    if (!resultValidation.isEmpty()) { // si hay errores
+      return res.render("users/login", {  // se renderiza el login con los errores mappeados y
+        errors: resultValidation.mapped(), //los datos que si pasaron la validacion
+        oldData: req.body, 
       });
     }
-    let userToLogin = db.getByField("email", req.body.email);
-    if (userToLogin) {
-      if (bcryptjs.compareSync(req.body.password, userToLogin.password)) {
-        delete userToLogin.password; //por seguridad borramos
-        req.session.userLogged = userToLogin;
-        return res.redirect("/users/" + userToLogin.id);
+    let userToLogin = db.getByField("email", req.body.email);  // busco al usuario por su mail en la DB
+    if (userToLogin) {                                          //si existe 
+      if (bcryptjs.compareSync(req.body.password, userToLogin.password)) { //comparo la contraseña
+        delete userToLogin.password; //por seguridad la borramos
+        req.session.userLogged = userToLogin; // creamos la variable en session con el usuario loggeado
+
+        // si el usuario tildó ser recordado:
+        if(req.body.recordar){
+          res.cookie('userEmail', req.body.email, {maxAge:(1000*60)*60})
+          }
+        return res.redirect("/users/" + userToLogin.id); //¿va esta parte + userToLogin.id?
       }
-      return res.render("users/login", {
+      return res.render("users/login", { // Si la password no coincide
         errors: {
           email: {
             msg: "Las credenciales son incorrectas",
@@ -33,7 +38,7 @@ module.exports = {
         },
       });
     }
-    return res.render("users/login", {
+    return res.render("users/login", { // si el mail no esta en la DB
       errors: {
         email: {
           msg: "El usuario no se encuentra registrado",
@@ -41,48 +46,48 @@ module.exports = {
       },
     });
   },
-  showRegister: function (req, res) {
-    console.log("en register" + req.session.userLogged);
+  showRegister: function (req, res) { //Metodo que muestra el formulario de Registro de usuarios (GET)
+    console.log("en register" + req.session.userLogged); //¿¿Tiene que ir el user logged?
     res.render("users/register");
   },
-  register: function (req, res) {
-    const validationErrors = validationResult(req);
-    // los mando a la vista register.ejs
-    if (!validationErrors.isEmpty()) {
-      res.render("users/register", {
-        errors: validationErrors.mapped(),
-        oldData: req.body,
+  register: function (req, res) { // Metodo que procesar el Registro de usuario nuevo (POST)
+    const validationErrors = validationResult(req); // guardo los errores de validacion
+      if (!validationErrors.isEmpty()) { // SI HAY ERRORES, renderizo el formulario
+      res.render("users/register", { 
+        errors: validationErrors.mapped(),  // con los errores mappeados y 
+        oldData: req.body,                  // los datos que sí pasaron la validacion
       });
-    } else {
-      // busca el usuario por email, si existe
+    } else {                            // SI NO HAY ERRORES de validacion 
+      // busca el usuario por email, si existe 
       let userInDB = db.getByField("email", req.body.email);
 
-      if (userInDB) {
-        res.render("users/register", {
+      if (userInDB) {                      // SI YA HAY UN USUARIO CON ESE MAIL EN LA DB
+        res.render("users/register", {     // renderizamos el formulario 
           errors: {
             email: {
-              msg: "Este email ya se encuentra registrado",
+              msg: "Este email ya se encuentra registrado", // con este msj de error
             },
           },
-          oldData: req.body,
+          oldData: req.body,                // y los datos que sì pasaron la validacion
         });
-      } else {
-        let users = db.getAll();
-        const newUser = {
+      } else {                 // SI NO HAY USUARIO CON ESE MAIL EN LA DB - LO GUARDO
+        let users = db.getAll();   //traigo todos los usuarios
+        const newUser = {         // guardamos un nuevo usuario con los datos del req
           nombre: req.body.nombre,
           apellido: req.body.apellido,
           email: req.body.email,
           telefono: req.body.telefono,
           direccion: req.body.direccion,
-          password: bcryptjs.hashSync(req.body.password, 10),
+          password: bcryptjs.hashSync(req.body.password, 10), // encriptamos la password
+          profile: req.file.filename
         };
-        if (users.length) {
+        if (users.length) { // hacemos un nuevo nro de id de usuaro
           newUser.id = users[users.length - 1].id + 1;
         } else {
           newUser.id = 1;
         }
-        users.push(newUser);
-        db.saveAll(users);
+        users.push(newUser); //pusheamos en el array el nuevo usuario
+        db.saveAll(users); // metodo guardar que sobreescribe la db
         res.redirect("/users");
       }
     }
