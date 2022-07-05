@@ -1,62 +1,109 @@
 const path = require("path"); // Es necesario este require??
 const fs = require("fs"); // Es necesario este require??
+const bcryptjs = require("bcryptjs");
 const db = require("../data/db-users");
-const users = db.getAll();
-const user = db.getOne();
-const {validationResult} = require('express-validator')
-const bcrypt = require('bcryptjs');
 
+const { validationResult } = require("express-validator");
 
 module.exports = {
   login: function (req, res) {
     res.render("users/login");
   },
-  showRegister: function(req, res){
-    res.render('users/register')
+  processLogin: function (req, res) {
+    const resultValidation = validationResult(req);
+
+    if (!resultValidation.isEmpty()) {
+      return res.render("users/login", {
+        errors: resultValidation.mapped(),
+        oldData: req.body,
+      });
+    }
+    let userToLogin = db.getByField("email", req.body.email);
+    if (userToLogin) {
+      if (bcryptjs.compareSync(req.body.password, userToLogin.password)) {
+        delete userToLogin.password; //por seguridad borramos
+        req.session.userLogged = userToLogin;
+        return res.redirect("/users/" + userToLogin.id);
+      }
+      return res.render("users/login", {
+        errors: {
+          email: {
+            msg: "Las credenciales son incorrectas",
+          },
+        },
+      });
+    }
+    return res.render("users/login", {
+      errors: {
+        email: {
+          msg: "El usuario no se encuentra registrado",
+        },
+      },
+    });
+  },
+  showRegister: function (req, res) {
+    console.log("en register" + req.session.userLogged);
+    res.render("users/register");
   },
   register: function (req, res) {
-    // traigo los errores de validacion al controlador
     const validationErrors = validationResult(req);
     // los mando a la vista register.ejs
-    if(!validationErrors.isEmpty()) { // si hay errores
-      res.render ('users/register', {  // volvemos a la vista de registro 
-        errors : validationErrors.mapped(), //mandando a dicha vista los errores mapeados
-        oldData:req.body, // y los datos viejos que pasaron a validacion
-      })
-    } else { // si no hay errores se guarda el usuario nuevo
-
-    const newUser = req.body;
-    if (users.length) {
-        newUser.id = users[users.length - 1].id + 1;
+    if (!validationErrors.isEmpty()) {
+      res.render("users/register", {
+        errors: validationErrors.mapped(),
+        oldData: req.body,
+      });
     } else {
-        newUser.id = 1;
+      // busca el usuario por email, si existe
+      let userInDB = db.getByField("email", req.body.email);
+
+      if (userInDB) {
+        res.render("users/register", {
+          errors: {
+            email: {
+              msg: "Este email ya se encuentra registrado",
+            },
+          },
+          oldData: req.body,
+        });
+      } else {
+        let users = db.getAll();
+        const newUser = {
+          nombre: req.body.nombre,
+          apellido: req.body.apellido,
+          email: req.body.email,
+          telefono: req.body.telefono,
+          direccion: req.body.direccion,
+          password: bcryptjs.hashSync(req.body.password, 10),
+        };
+        if (users.length) {
+          newUser.id = users[users.length - 1].id + 1;
+        } else {
+          newUser.id = 1;
+        }
+        users.push(newUser);
+        db.saveAll(users);
+        res.redirect("/users");
+      }
     }
-    // FALTA GUARDAR EL ARCHIVO DE IMAGEN EN EL JSON. 
-    //la imagen llega por el formulario via POST, se guarda en la carpeta public/images/usersProfiles
-    // falta guardar ese dato en la base de datos json
-
-    users.push(newUser);
-    db.saveAll(users);
-    res.redirect("/");}
   },
-
   //vista de todos los usuarios.
-  index: function(req, res){    
-    res.render('users/index', {users: users})    
+  index: function (req, res) {
+    //console.log(req.session);
+    let users = db.getAll();
+    res.render("users/index", { users: users });
   },
-
   //ver datalle de cada usuario.
-  detail: function(req, res){
-    res.render('../views/users/user-detail', { user: db.getOne(req.params.id) });    
+  detail: function (req, res) {
+    //console.log("en detail " + req.session);
+    res.render("../views/users/user-detail", {
+      user: db.getOne(req.params.id),
+    });
   },
-  edit: function(req, res){                   
-    const userToEdit =  db.getOne(req.params.id);        
-    res.render('users/edit-user', { userToEdit: userToEdit });
+  edit: function (req, res) {
+    const userToEdit = db.getOne(req.params.id);
+    res.render("users/edit-user", { userToEdit: userToEdit });
   },
-  update: function(){
-    
-  },
-  delete: function(){
-    
-  },
+  update: function () {},
+  delete: function () {},
 };
