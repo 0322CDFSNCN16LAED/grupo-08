@@ -33,6 +33,8 @@ router.get("/", authMiddleware, usersControllers.index);
 router.get("/login", guestMiddleware, usersControllers.login);
 /* procesa login*/
 router.post("/", loginValidations, usersControllers.processLogin);
+/*Logout */
+router.get('/logout', usersControllers.logout);
 
 /*Formulario de registro */
 router.get("/register", guestMiddleware, usersControllers.showRegister);

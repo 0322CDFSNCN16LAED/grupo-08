@@ -10,14 +10,14 @@ module.exports = {
     res.render("users/login");
   },
   processLogin: function (req, res) { // Metodo que procesa el Login x POST
-    const resultValidation = validationResult(req);  //guarda los errores de validacion
+    const resultValidation = validationResult(req); 
 
-    if (!resultValidation.isEmpty()) { // SI HAY ERRORES DE VALIDACION
-      return res.render("users/login", {  // se renderiza el login 
-        errors: resultValidation.mapped(), // con los errores mappeados y
-        oldData: req.body,                //los datos que si pasaron la validacion
+    if (!resultValidation.isEmpty()) { 
+      return res.render("users/login", {   
+        errors: resultValidation.mapped(), 
+        oldData: req.body,
       });
-    }                         // SI NO HAY ERRORES DE VALIDACION CONTINUO
+    }
     let userToLogin = db.getByField("email", req.body.email);  // busco al usuario por su mail en la DB
     if (userToLogin) {                                          //si existe 
       if (bcryptjs.compareSync(req.body.password, userToLogin.password)) { //comparo la contraseña
@@ -28,7 +28,7 @@ module.exports = {
         if(req.body.recordar){
           res.cookie('userEmail', req.body.email, {maxAge:(1000*60)*1})
           }
-        return res.redirect("/users/" + userToLogin.id); //¿va esta parte + userToLogin.id?
+        return res.redirect("/users/" + userToLogin.id); //¿va en esta parte + userToLogin.id?
       }
       return res.render("users/login", { // Si la password no coincide
         errors: {
@@ -46,6 +46,12 @@ module.exports = {
       },
     });
   },
+  logout: function(req, res){
+    res.clearCookie('userEmail');
+    req.session.destroy();
+    return res.redirect('/');
+  },
+
   showRegister: function (req, res) { //Metodo que muestra el formulario de Registro de usuarios (GET)
     console.log("en register" + req.session.userLogged); //¿¿Tiene que ir el user logged?
     res.render("users/register");
