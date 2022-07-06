@@ -17,7 +17,14 @@
             <form action="/users/edit/<% userToEdit.id %>?_method=PUT"
             method="POST" class="form-field" >
               <div class="row mt-3">
-                <div class="col-12 col-md-6">
+                <div class="col-2">
+                 <img name='profile'
+                 id="profile"
+                 class="img-thumbnail" 
+                 src="/images/usersProfiles/<%=locals.userToEdit.profile%>"> 
+                </div>
+                
+                <div class="col-4">
                   <label for="nombre" class="form-label col-12">Nombre</label>
                   <input
                     value='<%= userToEdit.nombre %> '
@@ -27,7 +34,7 @@
                     class="form-control col-12"
                   />
                 </div>
-                <div class="col-12 col-md-6">
+                <div class="col-4">
                   <label for="apellido" class="form-label">Apellido</label>
                   <input
                     value="<%= userToEdit.apellido %> "
@@ -37,7 +44,7 @@
                     class="form-control"
                   />
                 </div>
-                <div class="col-12 col-md-6">
+                <div class="col-6">
                   <label for="email" class="form-label">E-mail</label>
                   <input
                     value="<%= userToEdit.email %> "

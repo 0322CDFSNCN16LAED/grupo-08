@@ -12,12 +12,12 @@ module.exports = {
   processLogin: function (req, res) { // Metodo que procesa el Login x POST
     const resultValidation = validationResult(req);  //guarda los errores de validacion
 
-    if (!resultValidation.isEmpty()) { // si hay errores
-      return res.render("users/login", {  // se renderiza el login con los errores mappeados y
-        errors: resultValidation.mapped(), //los datos que si pasaron la validacion
-        oldData: req.body, 
+    if (!resultValidation.isEmpty()) { // SI HAY ERRORES DE VALIDACION
+      return res.render("users/login", {  // se renderiza el login 
+        errors: resultValidation.mapped(), // con los errores mappeados y
+        oldData: req.body,                //los datos que si pasaron la validacion
       });
-    }
+    }                         // SI NO HAY ERRORES DE VALIDACION CONTINUO
     let userToLogin = db.getByField("email", req.body.email);  // busco al usuario por su mail en la DB
     if (userToLogin) {                                          //si existe 
       if (bcryptjs.compareSync(req.body.password, userToLogin.password)) { //comparo la contraseña
@@ -26,7 +26,7 @@ module.exports = {
 
         // si el usuario tildó ser recordado:
         if(req.body.recordar){
-          res.cookie('userEmail', req.body.email, {maxAge:(1000*60)*60})
+          res.cookie('userEmail', req.body.email, {maxAge:(1000*60)*1})
           }
         return res.redirect("/users/" + userToLogin.id); //¿va esta parte + userToLogin.id?
       }
