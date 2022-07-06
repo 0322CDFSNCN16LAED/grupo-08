@@ -3,7 +3,6 @@ const router = express.Router();
 const path = require("path");
 const multer = require("multer");
 
-/*Requerimos Multer para que el register acepte imagenes de perfil */
 // Middlewares
 const basicRegisterValidations = require("../validation/userValidations");
 const loginValidations = require("../validation/loginValidation");
@@ -34,7 +33,7 @@ router.get("/login", guestMiddleware, usersControllers.login);
 /* procesa login*/
 router.post("/", loginValidations, usersControllers.processLogin);
 /*Logout */
-router.get('/logout', usersControllers.logout);
+router.get("/logout", usersControllers.logout);
 
 /*Formulario de registro */
 router.get("/register", guestMiddleware, usersControllers.showRegister);
