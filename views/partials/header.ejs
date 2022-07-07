@@ -15,19 +15,27 @@
       /></a>
     </h1>
     <div class="header-iconos">
-      <a href="#" class="decoration-none disp-block">
+      <a href="#" class="decoration-none">
         <i class="fas fa-search font-gris-claro font-xmedium"> </i>
       </a>
-      <a href="#" class="decoration-none disp-block">
+      <a href="#" class="decoration-none">
         <i class="fas fa-heart decoration-none font-gris-claro font-xmedium">
         </i>
       </a>
-      <a href="/users/login" class="decoration-none disp-block">
+      <a href="/users/login" class="decoration-none">
         <i class="fas fa-user font-gris-claro font-xmedium"> </i>
       </a>
-      <a href="/carritocompras" class="decoration-none disp-block">
+      <a href="/carritocompras" class="decoration-none">
         <i class="fas fa-shopping-cart font-gris-claro font-xmedium"></i>
       </a>
+      <% if(locals.isLogged) {%>
+      <a href="/users/logout" class="decoration-none mlr-5" alt="Cerrar Sesión">
+        <i
+          class="fas fa-sign-out-alt font-gris-claro font-xmedium"
+          alt="Cerrar Sesión"
+        ></i>
+      </a>
+      <% } %>
     </div>
   </section>
 </header>

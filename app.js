@@ -1,10 +1,9 @@
 const path = require("path");
 const express = require("express");
 const methodOverride = require("method-override"); // Permite usar metodos HTTP PUT & DELETE
-const multer = require("multer"); // ¿ES NECESARIO ACA MULTER? YO LO BORRARIA- MARIANA
-const session = require("express-session"); 
-const cookies = require('cookie-parser');
-const mainRouters = require("./routers/main-router"); // Importa el Main Router
+const session = require("express-session");
+const cookies = require("cookie-parser");
+const mainRouters = require("./routers/main-router");
 const userLoggedMiddleware = require("./middlewares/userLoggedMiddleware");
 
 const app = express();
@@ -12,7 +11,8 @@ const app = express();
 app.set("view engine", "ejs"); // Motor de plantillas EJS
 app.set("views", path.join(__dirname, "/views"));
 
-app.use( // configuramos session a nivel aplicacion
+app.use(
+  // configuramos session a nivel aplicacion
   session({
     secret: "ABHYTGSTIIIHJmngstrahsoriruhfgIJUGASGATjhgasaaj",
     resave: false,
@@ -21,7 +21,8 @@ app.use( // configuramos session a nivel aplicacion
 );
 
 app.use(cookies());
-//app.use(userLoggedMiddleware); // MW a nivel aplicacion con los datos del usuario que pidio ser recordado
+
+app.use(userLoggedMiddleware); // MW a nivel aplicacion con los datos del usuario que pidio ser recordado
 
 app.use(express.static(path.join(__dirname, "public"))); // Hace estatica carpeta public
 

@@ -27,10 +27,11 @@ module.exports = {
         //comparo la contraseña
         delete userToLogin.password; //por seguridad la borramos
         req.session.userLogged = userToLogin; // creamos la variable en session con el usuario loggeado
-
+        console.log("usuario logueado" + req.session.userLogged);
         // si el usuario tildó ser recordado:
         if (req.body.recordar) {
-          res.cookie("userEmail", req.body.email, { maxAge: 1000 * 60 * 1 });
+          console.log("esta entrando en req.body.recordar");
+          res.cookie("userEmail", req.body.email, { maxAge: 1000 * 60 }); //dura 1 minuto
         }
         return res.redirect("/users/" + userToLogin.id); //¿va en esta parte + userToLogin.id?
       }
@@ -119,6 +120,8 @@ module.exports = {
   },
   //ver datalle de cada usuario.
   detail: function (req, res) {
+    //return res.send("estando en detalle " + req.cookies.userEmail);
+    console.log("detalle" + req.cookies.userEmail);
     res.render("../views/users/user-detail", {
       user: db.getOne(req.params.id),
     });

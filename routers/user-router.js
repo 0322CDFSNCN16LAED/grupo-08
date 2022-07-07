@@ -8,6 +8,7 @@ const basicRegisterValidations = require("../validation/userValidations");
 const loginValidations = require("../validation/loginValidation");
 const guestMiddleware = require("../middlewares/guestMiddleware");
 const authMiddleware = require("../middlewares/authMiddleware");
+// se usa para saber si el usuario se logueo
 const validUserMiddleware = require("../middlewares/validUserMiddleware");
 
 /*Definimos un storage para las imagenes de perfil */
