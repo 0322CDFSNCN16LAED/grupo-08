@@ -10,38 +10,53 @@
         <%- include('../partials/header') %>
         
         <main>
+            <div class="col-12">
+                <h2 class="products-title align-center">
+                  Perfil del usuario: <i> <%=user.nombre%> </i>
+                </h2>
+              </div>
             <div class="card" style="width: 18rem;"> 
                 <div class="card-body">
-                    <h5 class="card-title"> <%= user.nombre%> <%= user.apellido %></h5>
+                    <h5 class="card-title"> 
+                        Usuario: <%= user.nombre%> <%= user.apellido %></h5>
                     <p class="card-text">
-                        <%= user.email %> 
+                       Mail: <%= user.email %> 
                     </p>
                     <p>
-                        <%= user.direccion %>
+                       Domicilio: <%= user.direccion %>
                     </p>
                     <p>
-                        <%= user.telefono%>
+                      Telefono: <%= user.telefono%>
                     </p>
                     <img src="/images/usersProfiles/<%=locals.user.profile%>" class="card-img-top">
                 </div>
             </div>
             
+            <div class="col-6 mt-3">
 
-            <form action="" method="get">
                 <button 
                     type="button" 
-                    class="btn btn-secondary">
+                    class="action-button edit w-50">
                     <a href="/users/edit/<%= user.id %>">
                     Editar
+                    </a>
                 </button>
-                <button 
-                    type="button" 
-                    class="btn btn-secondary">
-                    <a href="###">
-                    Eliminar
-                </button>
+            </div>
+                <div class="col-6 mt-3">
+                    <form
+                      action="/users/<%=user.id%>?_method=DELETE"
+                      method="POST"
+                    >
+
+                    <button 
+                        type="submit" 
+                        class="action-button delete w-50">
+                        Eliminar
+                    </button>
+                    </form>
+                </div>
                 
-            </form>
+
         </main>
 
     </body>

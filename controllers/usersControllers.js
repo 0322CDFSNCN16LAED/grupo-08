@@ -5,6 +5,8 @@ const db = require("../data/db-users"); //Requerimos la DB de usuarios
 
 const { validationResult } = require("express-validator");
 
+let users = db.getAll();
+
 module.exports = {
   login: function (req, res) {
     // Metodo que muestra el formulario de Login x GET
@@ -64,6 +66,7 @@ module.exports = {
     res.render("users/register");
   },
   register: function (req, res) {
+    
     // Metodo que procesar el Registro de usuario nuevo (POST)
     const validationErrors = validationResult(req); // guardo los errores de validacion
     if (!validationErrors.isEmpty()) {
@@ -131,5 +134,14 @@ module.exports = {
     res.render("users/edit-user", { userToEdit: userToEdit });
   },
   update: function () {},
-  delete: function () {},
+  delete: function (req, res) {
+
+    const filterUsers = users.filter ((usuario) =>{
+      return usuario.id != req.params.id
+
+    })
+ 
+    db.saveAll(filterUsers)
+    res.redirect("/users")
+  },
 };
