@@ -271,5 +271,15 @@
         "password": "$2a$10$UOpDvtfVkNT4vtb52/RlJOMEsIHz1q8CKDgL2mRI5BWfvCCveLm0W",
         "profile": "1657130182523_img.gif",
         "id": 27
+    },
+    {
+        "nombre": "sssssss",
+        "apellido": "Gonzalez",
+        "email": "aaaa@gmaiii.com",
+        "telefono": "54911258741256",
+        "direccion": "Av rivadavia 222222",
+        "password": "$2a$10$n5eXXIuWz3mz8gZ9ikmUCOZwMYgCUh.s7Y3oyKLCv5EjsWQxeETJi",
+        "profile": "1657488069866_img.gif",
+        "id": 28
     }
 ]

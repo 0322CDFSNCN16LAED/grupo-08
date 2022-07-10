@@ -99,7 +99,7 @@ module.exports = {
           telefono: req.body.telefono,
           direccion: req.body.direccion,
           password: bcryptjs.hashSync(req.body.password, 10), // encriptamos la password
-          profile: req.file.filename,
+          profile: req.file.filename ? req.file.filename : defaultImage.jpg,
         };
         if (users.length) {
           // hacemos un nuevo nro de id de usuaro
