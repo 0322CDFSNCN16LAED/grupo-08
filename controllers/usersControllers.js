@@ -5,7 +5,7 @@ const db = require("../data/db-users"); //Requerimos la DB de usuarios
 
 const { validationResult } = require("express-validator");
 
-let users = db.getAll();
+
 
 module.exports = {
   login: function (req, res) {
@@ -133,9 +133,35 @@ module.exports = {
     const userToEdit = db.getOne(req.params.id);
     res.render("users/edit-user", { userToEdit: userToEdit });
   },
-  update: function () {},
+  //actualiza los usuarios 
+ update: function (req, res) { 
+    let users = db.getAll();
+    const usersIndex = users.findIndex((usuario) => usuario.id == req.params.id);
+    const user = users[usersIndex];
+
+   // armo el objeto a modificar
+        const editUser= {
+          nombre: req.body.nombre,
+          apellido: req.body.apellido,
+          email: req.body.email,
+          telefono: req.body.telefono,
+          direccion: req.body.direccion,
+          password: req.body.password,
+          //id: user.id
+        };
+      /*  if (req.file) {
+          editUser.imagen = "/images/usersProfiles/" + req.file.filename;
+        } else {
+          editUser.imagen = user.imagen;
+        } */
+    
+        users[usersIndex] = editUser;
+        db.saveAll(users);
+        res.redirect("/users");
+      },
   delete: function (req, res) {
 
+    let users = db.getAll();// sirve para que agarre los elementos del usuario para depsues se pueda actualizar los usuarios eliminados
     const filterUsers = users.filter ((usuario) =>{
       return usuario.id != req.params.id
 
