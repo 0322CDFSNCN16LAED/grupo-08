@@ -53,8 +53,26 @@ module.exports = {
     const userToEdit =  db.getOne(req.params.id);        
     res.render('users/edit-user', { userToEdit: userToEdit });
   },
-  update: function(){
+  update: (req, res) => {
+    const userIndex = users.findIndex((u) => u.id == req.params.id);
+
+    const user = users[userIndex];
     
+      user.nombre = req.body.nombre;
+      user.apellido = req.body.apellido;
+      user.email = req.body.email;
+      user.telefono = req.body.telefono;
+      user.password = req.body.password;
+      user.direccion = req.body.direccion;
+    
+    if (req.file) {
+      edicion.profile = "/images/usersProfiles/" + req.file.filename;
+    } else {
+      edicion.profile = usuarioViejo.profile;
+    };
+
+
+      res.redirect("users/index")
   },
   delete: function(){
     
