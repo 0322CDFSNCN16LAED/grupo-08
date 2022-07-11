@@ -1,50 +1,70 @@
 const express = require("express");
 const router = express.Router();
-const path = require('path');
+const path = require("path");
+const multer = require("multer");
 
-/*Requerimos Multer para que el register acepte imagenes de perfil */
-const multer =require('multer');
-
-const basicRegisterValidations = require('../validation/userValidations');
-
+// Middlewares
+const basicRegisterValidations = require("../validation/userValidations");
+const loginValidations = require("../validation/loginValidation");
+const guestMiddleware = require("../middlewares/guestMiddleware");
+const authMiddleware = require("../middlewares/authMiddleware");
+// se usa para saber si el usuario se logueo
+const validUserMiddleware = require("../middlewares/validUserMiddleware");
 
 /*Definimos un storage para las imagenes de perfil */
 const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, './public/images/usersProfiles');
-    },
-    filename: (req, file, cb) => {
-        let profileImgName = `${Date.now()}_img${path.extname(file.originalname)}`;
-        cb(null, profileImgName);
-    }
-})
-const uploadFile = multer({storage});
+  destination: (req, file, cb) => {
+    cb(null, "./public/images/usersProfiles");
+  },
+  filename: (req, file, cb) => {
+    let profileImgName = `${Date.now()}_img${path.extname(file.originalname)}`;
+    cb(null, profileImgName);
+  },
+});
+const uploadFile = multer({ storage });
 
-
-
-
-const usersControllers = require("../controllers/usersControllers"); 
+const usersControllers = require("../controllers/usersControllers");
 
 /*RUTAS */
 /*Listado de todos los usuarios */
-router.get("/", usersControllers.index);
-/*Login*/
-router.get("/login", usersControllers.login);
- 
-/*Mostrar formulario de registro de usuarios */
-router.get("/register", usersControllers.showRegister);
-/*Guardar usuario nuevo */
-router.post("/register", uploadFile.single('profile'), basicRegisterValidations, usersControllers.register);
+router.get("/", authMiddleware, usersControllers.index);
 
-/* Detalle de un usuario */
-router.get("/:id", usersControllers.detail);
+/*Formulario de Login*/
+router.get("/login", guestMiddleware, usersControllers.login);
+/* procesa login*/
+router.post("/", loginValidations, usersControllers.processLogin);
+/*Logout */
+router.get("/logout", usersControllers.logout);
+
+/*Formulario de registro */
+router.get("/register", guestMiddleware, usersControllers.showRegister);
+/*Guardar usuario nuevo */
+router.post(
+  "/register",
+  uploadFile.single("profile"),
+  basicRegisterValidations,
+  usersControllers.register
+);
+
+/* Formulario detalle de un usuario */
+router.get(
+  "/:id",
+  authMiddleware,
+  validUserMiddleware,
+  usersControllers.detail
+);
 
 /* Formulario de edicion de usuario */
-router.get('/edit/:id', usersControllers.edit);
+router.get(
+  "/edit/:id",
+  authMiddleware,
+  validUserMiddleware,
+  usersControllers.edit
+);
 /* Guardar edición de usuario */
-router.put('/:id', usersControllers.update);
+router.put("/:id", usersControllers.update);
 
 /* Borrar usuario */
-router.delete ('/:id', usersControllers.delete);
+router.delete("/:id", usersControllers.delete);
 
 module.exports = router;

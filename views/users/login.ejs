@@ -14,7 +14,7 @@
       <section
         class="container products-wrapper overflow-hidden form-login mt-5"
       >
-        <form action="/login" method="get" class="form-field mt-3 pb-2">
+        <form action="/users/" method="post" class="form-field mt-3 pb-2">
           <div class="row">
             <div class="col-12">
               <label for="email" class="form-label">E-mail</label>
@@ -24,20 +24,29 @@
                 type="email"
                 name="email"
                 id="email"
-                class="form-control"
+                class="form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>"
                 placeholder="juanperez@mail.com"
+                value="<%= locals.oldData ? oldData.email : null %>"
               />
+              <!--si hay errores en la validacion, da el mensaje de error-->
+              <% if (locals.errors && errors.email) { %>
+              <div class="text-danger"><%= errors.email.msg %></div>
+              <% } %>
             </div>
-            <!--cotraseña input-shadow-->
+
+            <!--cotraseña -->
             <div class="col-12 mt-3">
               <label for="pass" class="form-label">Contraseña</label>
               <input
                 type="password"
-                name="pass"
-                id="pass"
-                class="form-control"
-                placeholder="********"
+                name="password"
+                id="password"
+                class="form-control <%= locals.errors && errors.password ? 'is-invalid' : null %>"
               />
+              <!--si hay errores en la validacion, da el mensaje de error-->
+              <% if (locals.errors && errors.password) { %>
+              <div class="text-danger"><%= errors.password.msg %></div>
+              <% } %>
             </div>
             <!--recordar usuario y cotraseña-->
             <div class="text-align-c col-12 mt-5">
@@ -51,19 +60,17 @@
                 >Recordar usuario y contraseña</label
               >
             </div>
-            <!--boton-->
+
             <div class="col-12 align-center">
               <button type="submit" class="btn bg-pink btn-lg font-white reg">
                 INICIA SESION
               </button>
             </div>
-            <!--olvidaste contraseña-->
+
             <div class="col-12 text-align-c">
-              <span
-                ><a href="#" class="underline"
-                  >¿Olvidaste tu contraseña?</a
-                ></span
-              >
+              <span>
+                <a href="#" class="underline">¿Olvidaste tu contraseña? </a>
+              </span>
             </div>
           </div>
         </form>
