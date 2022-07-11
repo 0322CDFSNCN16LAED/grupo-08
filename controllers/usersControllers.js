@@ -126,11 +126,31 @@ module.exports = {
       user: db.getOne(req.params.id),
     });
   },
-  edit: function(req, res){                   
+  edit: function(req, res){    
+    // Muestra formulario de edicion de usuario               
     const userToEdit =  db.getOne(req.params.id);        
     res.render('users/edit-user', { userToEdit: userToEdit });
   },
   update: (req, res) => {
+    res.send("pagina en rehabilitacion")
+  }
+/*  update: (req, res) => {
+    // Metodo para actualizar info del usuario
+    const validationErrors = validationResult(req) // guardo los errores de validacion
+    if (!validationErrors.isEmpty()) {
+      //Si hay errores los renderizo en el form
+      res.render("users/edit", {
+        errors: validationErrors.mapped(),
+        oldData: req.body,
+      });
+    } else {
+
+    }
+
+    
+    
+    
+    
     const userIndex = users.findIndex((u) => u.id == req.params.id);
 
     const user = users[userIndex];
@@ -152,5 +172,5 @@ module.exports = {
       res.redirect("users/index")
   },
   delete: function(){
-  }
+  } */
 };

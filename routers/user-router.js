@@ -62,9 +62,9 @@ router.get(
   usersControllers.edit
 );
 /* Guardar edición de usuario */
-router.put("/:id", usersControllers.update);
+// router.put("/:id", usersControllers.update);
 
 /* Borrar usuario */
-router.delete("/:id", usersControllers.delete);
+// router.delete("/:id", usersControllers.delete);
 
 module.exports = router;
