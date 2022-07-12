@@ -126,10 +126,51 @@ module.exports = {
       user: db.getOne(req.params.id),
     });
   },
-  edit: function (req, res) {
-    const userToEdit = db.getOne(req.params.id);
-    res.render("users/edit-user", { userToEdit: userToEdit });
+  edit: function(req, res){    
+    // Muestra formulario de edicion de usuario               
+    const userToEdit =  db.getOne(req.params.id);        
+    res.render('users/edit-user', { userToEdit: userToEdit });
   },
-  update: function () {},
-  delete: function () {},
+  update: (req, res) => {
+    res.send("pagina en rehabilitacion")
+  }
+/*  update: (req, res) => {
+    // Metodo para actualizar info del usuario
+    const validationErrors = validationResult(req) // guardo los errores de validacion
+    if (!validationErrors.isEmpty()) {
+      //Si hay errores los renderizo en el form
+      res.render("users/edit", {
+        errors: validationErrors.mapped(),
+        oldData: req.body,
+      });
+    } else {
+
+    }
+
+    
+    
+    
+    
+    const userIndex = users.findIndex((u) => u.id == req.params.id);
+
+    const user = users[userIndex];
+    
+      user.nombre = req.body.nombre;
+      user.apellido = req.body.apellido;
+      user.email = req.body.email;
+      user.telefono = req.body.telefono;
+      user.password = req.body.password;
+      user.direccion = req.body.direccion;
+    
+    if (req.file) {
+      edicion.profile = "/images/usersProfiles/" + req.file.filename;
+    } else {
+      edicion.profile = usuarioViejo.profile;
+    };
+
+
+      res.redirect("users/index")
+  },
+  delete: function(){
+  } */
 };
