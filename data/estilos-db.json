@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "nombre": "Industrial"
+  },
+  {
+    "id": 2,
+    "nombre": "Nórdico"
+  },
+  {
+    "id": 3,
+    "nombre": "Mid Century Modern"
+  },
+  {
+    "id": 4,
+    "nombre": "Boho Chic"
+  },
+  {
+    "id": 5,
+    "nombre": "Otros"
+  }
+]

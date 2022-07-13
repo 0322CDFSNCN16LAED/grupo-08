@@ -1,5 +1,8 @@
 const db = require("../data/db-products");
-const path = require("path");
+const dbcuotas = require("../data/db-cuotas");
+const dbcategoriaProducts = require("../data/db-categoria-product");
+const dbestilos = require("../data/db-estilos");
+const dbambientes = require("../data/db-ambientes");
 
 let products = db.getAll();
 
@@ -15,7 +18,17 @@ module.exports = {
   },
   //crear un nuevo producto
   create: (req, res) => {
-    res.render("products/products-create-form");
+    const cuotas = dbcuotas.getAll();
+    const categorias = dbcategoriaProducts.getAll();
+    const estilos = dbestilos.getAll();
+    const ambientes = dbambientes.getAll();
+
+    res.render("products/products-create-form", {
+      cuotas,
+      categorias,
+      estilos,
+      ambientes,
+    });
   },
   //accion de procesar el producto. CREAR
   store: function (req, res) {
@@ -38,7 +51,7 @@ module.exports = {
       precioContado: req.body.precioContado,
       cantidadDeCuotas: req.body.cantidadDeCuotas,
       precioCuota: req.body.precioCuota,
-      envioGratis: !req.body.envioGratis ? false : true,
+      envioGratis: req.body.envioGratis ? true : false,
       alt: req.body.alt,
       descripcion: req.body.descripcion,
       medidas: req.body.medidas,
