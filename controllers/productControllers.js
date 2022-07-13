@@ -4,6 +4,11 @@ const dbcategoriaProducts = require("../data/db-categoria-product");
 const dbestilos = require("../data/db-estilos");
 const dbambientes = require("../data/db-ambientes");
 
+const cuotas = dbcuotas.getAll();
+const categorias = dbcategoriaProducts.getAll();
+const estilos = dbestilos.getAll();
+const ambientes = dbambientes.getAll();
+
 let products = db.getAll();
 
 module.exports = {
@@ -18,11 +23,6 @@ module.exports = {
   },
   //crear un nuevo producto
   create: (req, res) => {
-    const cuotas = dbcuotas.getAll();
-    const categorias = dbcategoriaProducts.getAll();
-    const estilos = dbestilos.getAll();
-    const ambientes = dbambientes.getAll();
-
     res.render("products/products-create-form", {
       cuotas,
       categorias,
@@ -79,9 +79,12 @@ module.exports = {
   edit: (req, res) => {
     let id = req.params.id;
     let productEdit = products.find((productos) => productos.id == id);
-
     res.render("products/productos-edit-product", {
       productoEditar: productEdit,
+      cuotas,
+      categorias,
+      estilos,
+      ambientes,
     });
   },
   // accion de actualizar un producto.

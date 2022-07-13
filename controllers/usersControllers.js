@@ -1,5 +1,3 @@
-const path = require("path"); // Es necesario este require??
-const fs = require("fs"); // Es necesario este require??
 const bcryptjs = require("bcryptjs"); //Requerimos el encriptador
 const db = require("../data/db-users"); //Requerimos la DB de usuarios
 
