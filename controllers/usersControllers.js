@@ -140,7 +140,7 @@ module.exports = {
     const user = users[usersIndex];
 
    // armo el objeto a modificar
-        const editUser= {
+        const editUser = {
           nombre: req.body.nombre,
           apellido: req.body.apellido,
           email: req.body.email,
