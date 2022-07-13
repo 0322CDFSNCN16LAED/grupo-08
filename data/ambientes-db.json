@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "nombre": "Cocina"
+  },
+  {
+    "id": 2,
+    "nombre": "Living"
+  },
+  {
+    "id": 3,
+    "nombre": "Dormitorio"
+  },
+  {
+    "id": 4,
+    "nombre": "Comedor"
+  },
+  {
+    "id": 5,
+    "nombre": "Estudio"
+  },
+  {
+    "id": 6,
+    "nombre": "Infantil"
+  },
+  {
+    "id": 7,
+    "nombre": "Baños"
+  },
+  {
+    "id": 8,
+    "nombre": "Playroom"
+  },
+  {
+    "id": 9,
+    "nombre": "Exteriores"
+  },
+  {
+    "id": 10,
+    "nombre": "Otros"
+  }
+]

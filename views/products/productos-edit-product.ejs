@@ -55,15 +55,14 @@
               <!--cuotas-->
               <div class="col-4 mt-3">
                 <label for="cantidadDeCuotas" class="form-label col-12"
-                  >Cantidad de cuotas:</label
+                  >Cantidad de cuotas: </label
                 >
                 <select name="cantidadDeCuotas" id="cantidadDeCuotas" class="form-select">
-                  <option value=""> Seleccione </option>
-                  <option value="1" <% if(productoEditar.cantidadDeCuotas=="1"){%> selected <%}%>> 1 cuota </option>
-                  <option value="3" <% if(productoEditar.cantidadDeCuotas=="3"){%> selected <%}%>> 3 cuotas sin interés </option>
-                  <option value="6" <% if(productoEditar.cantidadDeCuotas=="6"){%> selected <%}%>> 6 cuotas sin interés </option>
-                  <option value="12" <% if(productoEditar.cantidadDeCuotas=="12"){%> selected <%}%>> 12 cuotas sin interés </option>
-                  <option value="18" <% if(productoEditar.cantidadDeCuotas=="18"){%> selected <%}%>> 18 cuotas sin interés </option>
+                  <option value=""> Seleccione</option>                  
+                  <% cuotas.forEach(cuota => {%>
+                  <option value="<%=cuota.id%>" <% if(cuota.id==productoEditar.cantidadDeCuotas){%> selected <% } %> ><%=cuota.nombre%> </option>
+                  <% })%>
+                  
                 </select>
               </div>
               <!-- precio cuota-->
@@ -83,61 +82,24 @@
               <div class="col-12 col-md-6 mt-3">
 
                 <label for="categoria" class="form-label"
-                  >Categorias de productos</label
+                  >Categorias de productos </label
                 >                
                 <select name="categoria" id="categoria" class="form-select">
                   <option value="">Seleccione</option>
-                  <option value="muebles" <% if(productoEditar.categoria=="muebles"){%> selected <%}%>>Muebles</option>
-                  <option value="textiles" <% if(productoEditar.categoria=="textiles"){%> selected <%}%>>Textiles</option>
-                  <option value="vajilla" <% if(productoEditar.categoria=="vajilla"){%> selected <%}%>>Vajilla</option>
-                  <option value="accesorios" <% if(productoEditar.categoria=="accesorios"){%> selected <%}%>>Accesorios</option>
-                  <option value="iluminacion" <% if(productoEditar.categoria=="iluminacion"){%> selected <%}%>>Iluminación</option>
-                  <option value="otros" <% if(productoEditar.categoria=="otros"){%> selected <%}%>>Otros</option>
+                  <% categorias.forEach(categoria => {%>
+                    <option value="<%=categoria.id%>" <% if(categoria.id == productoEditar.categoria){%> selected <% } %> ><%=categoria.nombre%></option>
+                  <% })%>
                 </select>
               </div>
               <!--ambientes-->
               <div class="col-12 col-md-6 mt-3">
-                <label for="name" class="form-label col-12">Ambientes:</label>               
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="cocina" name="cocina" value="cocina" <% if(productoEditar.ambiente.find(ele => ele=="cocina")){%> checked<%} %>>
-                  <label class="form-check-label" for="cocina">Cocina</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="living" name="living" value="living" <% if(productoEditar.ambiente.find(ele => ele=="living")){%> checked<%} %>>
-                  <label class="form-check-label" for="living">Living</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="dormitorio"  name="dormitorio" value="dormitorio" <% if(productoEditar.ambiente.find(ele => ele=="dormitorio")){%> checked<%} %>>
-                  <label class="form-check-label" for="dormitorio">Dormitorio</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="comedor" name="comedor"  value="comedor" <% if(productoEditar.ambiente.find(ele => ele=="comedor")){%> checked<%} %>>
-                  <label class="form-check-label" for="comedor">Comedor</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="estudio" name="estudio" value="estudio" <% if(productoEditar.ambiente.find(ele => ele=="estudio")){%> checked<%} %>>
-                  <label class="form-check-label" for="estudio">Estudio</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="infantil" name="infantil" value="infantil" <% if(productoEditar.ambiente.find(ele => ele=="infantil")){%> checked<%} %>>
-                  <label class="form-check-label" for="infantil">Infantil</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="banios" name="banios" value="banios" <% if(productoEditar.ambiente.find(ele => ele=="banios")){%> checked<%} %>>
-                  <label class="form-check-label" for="banios">Baños</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="playroom" name="playroom" value="playroom" <% if(productoEditar.ambiente.find(ele => ele=="playroom")){%> checked<%} %>>
-                  <label class="form-check-label" for="playroom">Playroom</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="exteriores" name="exteriores" value="exteriores" <% if(productoEditar.ambiente.find(ele => ele=="exteriores")){%> checked<%} %>>
-                  <label class="form-check-label" for="exteriores">Exteriores</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="otros" name="otros" value="otros" <% if(productoEditar.ambiente.find(ele => ele=="otros")){%> checked<%} %>>
-                  <label class="form-check-label" for="otros">Otros</label>
-                </div>               
+                <label for="name" class="form-label col-12">Ambientes:</label> 
+                <% ambientes.forEach(ambiente => {%>              
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="<%=ambiente.id%>" name="ambientes" value="<%=ambiente.id%>" <% if(productoEditar.ambiente.find(ele => ele==ambiente.id)){%> checked<%} %>>
+                    <label class="form-check-label" for="<%=ambiente.id%>"><%=ambiente.nombre%></label>
+                  </div>
+                <% })%>                   
 
               </div>
                 <!--estilos-->
@@ -147,12 +109,9 @@
                   >Estilos:</label
                 >
                 <select class="form-select" multiple aria-label="multiple select example" name="estilos" id="estilos">
-                  <option value="industrial" <%if(productoEditar.estilo=="industrial"){%> selected<%} %>>Industrial</option>
-                  <option value="nordico" <%if(productoEditar.estilo=="nordico"){%> selected<%} %>>Nórdico </option>
-                  <option value="minimalista" <%if(productoEditar.estilo=="minimalista"){%> selected<%} %>>Minimalista</option>
-                  <option value="century" <%if(productoEditar.estilo=="century"){%> selected<%} %>>Mid Century Modern</option>
-                  <option value="boho" <%if(productoEditar.estilo=="boho"){%> selected<%} %> >Boho Chic </option>
-                  <option value="otros" <%if(productoEditar.estilo=="otros"){%> selected<%} %>>Otros </option>
+                  <% estilos.forEach(estilo => {%>
+                    <option value="<%=estilo.id%>" <%if(productoEditar.estilo==estilo.id){%> selected<%} %>><%=estilo.nombre%></option>
+                  <% })%> 
                 </select>                
               </div>
               <!--descripcion del producto-->
@@ -172,7 +131,7 @@
               <div class="col-12 col-md-6 mt-3">
                 <!--detalles del producto-->
                 <label for="detalles" class="form-label"
-                  >Detalles del producto:</label
+                  >Detalles:<span class="font-red"> (Indicar los detalles separados por comas)</span></label
                 >                
                 <textarea
                   type="text"
@@ -184,7 +143,7 @@
               <!--Información extra del producto-->
               <div class="col-12 col-md-6 mt-3">
                 <label for="infoExtra" class="form-label">
-                  Información extra sobre el producto:</label
+                  Información extra del producto:<span class="font-red"> (Indicar la información extra separados por comas)</span></label
                 >
                 <textarea                  
                   type="text"

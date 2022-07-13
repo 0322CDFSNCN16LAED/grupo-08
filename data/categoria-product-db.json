@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "nombre": "Muebles"
+  },
+  {
+    "id": 2,
+    "nombre": "Textiles"
+  },
+  {
+    "id": 3,
+    "nombre": "Vajílla"
+  },
+  {
+    "id": 4,
+    "nombre": "Accesorios"
+  },
+  {
+    "id": 5,
+    "nombre": "Iluminación"
+  },
+  {
+    "id": 6,
+    "nombre": "Otros"
+  }
+]
