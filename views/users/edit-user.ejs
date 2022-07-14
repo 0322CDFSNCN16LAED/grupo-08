@@ -20,7 +20,7 @@
                 Estas editando: <i> <%=userToEdit.nombre%> </i>
               </h2>
             </div>
-            <form action="/users/edit/<% userToEdit.id %>?_method=PUT"
+            <form action="/users/<%= userToEdit.id %>?_method=PUT"
                   method="POST" 
                   class="form-field" >
               <div class="row mt-3">
