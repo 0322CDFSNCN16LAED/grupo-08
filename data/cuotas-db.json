@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "nombre": "1 cuota "
+  },
+  {
+    "id": 2,
+    "nombre": "3 cuotas sin interés"
+  },
+  {
+    "id": 3,
+    "nombre": "6 cuotas sin interés"
+  },
+  {
+    "id": 4,
+    "nombre": "12 cuotas sin interés"
+  },
+  {
+    "id": 5,
+    "nombre": "18 cuotas sin interés"
+  }
+]

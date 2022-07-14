@@ -6,9 +6,13 @@ const multer = require("multer");
 // Middlewares
 const basicRegisterValidations = require("../validation/userValidations");
 const loginValidations = require("../validation/loginValidation");
+// si esta logueado lo envia a la vista de su detalle
 const guestMiddleware = require("../middlewares/guestMiddleware");
+
+// si no esta logueado lo envia a loguearse
 const authMiddleware = require("../middlewares/authMiddleware");
-// se usa para saber si el usuario se logueo
+
+// para verificar si un usuario existe en la base, si no existe lo envia a not-found
 const validUserMiddleware = require("../middlewares/validUserMiddleware");
 
 /*Definimos un storage para las imagenes de perfil */
@@ -62,9 +66,9 @@ router.get(
   usersControllers.edit
 );
 /* Guardar edición de usuario */
-router.put("/:id", usersControllers.update);
+// router.put("/:id", usersControllers.update);
 
 /* Borrar usuario */
-router.delete("/:id", usersControllers.delete);
+// router.delete("/:id", usersControllers.delete);
 
 module.exports = router;

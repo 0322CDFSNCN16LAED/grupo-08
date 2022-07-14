@@ -1,5 +1,3 @@
-const path = require("path"); // Es necesario este require??
-const fs = require("fs"); // Es necesario este require??
 const bcryptjs = require("bcryptjs"); //Requerimos el encriptador
 const db = require("../data/db-users"); //Requerimos la DB de usuarios
 
@@ -29,10 +27,8 @@ module.exports = {
         //comparo la contraseña
         delete userToLogin.password; //por seguridad la borramos
         req.session.userLogged = userToLogin; // creamos la variable en session con el usuario loggeado
-        console.log("usuario logueado" + req.session.userLogged);
         // si el usuario tildó ser recordado:
         if (req.body.recordar) {
-          console.log("esta entrando en req.body.recordar");
           res.cookie("userEmail", req.body.email, { maxAge: 1000 * 60 }); //dura 1 minuto
         }
         return res.redirect("/users/" + userToLogin.id); //¿va en esta parte + userToLogin.id?
@@ -102,7 +98,7 @@ module.exports = {
           telefono: req.body.telefono,
           direccion: req.body.direccion,
           password: bcryptjs.hashSync(req.body.password, 10), // encriptamos la password
-          profile: req.file.filename,
+          profile: req.file.filename ? req.file.filename : defaultImage.jpg,
         };
         if (users.length) {
           // hacemos un nuevo nro de id de usuaro
@@ -123,13 +119,12 @@ module.exports = {
   },
   //ver datalle de cada usuario.
   detail: function (req, res) {
-    //return res.send("estando en detalle " + req.cookies.userEmail);
-    console.log("detalle" + req.cookies.userEmail);
     res.render("../views/users/user-detail", {
       user: db.getOne(req.params.id),
     });
   },
   edit: function (req, res) {
+    // Muestra formulario de edicion de usuario
     const userToEdit = db.getOne(req.params.id);
     res.render("users/edit-user", { userToEdit: userToEdit });
   },
@@ -169,5 +164,5 @@ module.exports = {
  
     db.saveAll(filterUsers)
     res.redirect("/users")
-  },
+  }, 
 };
