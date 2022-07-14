@@ -3,6 +3,8 @@ const db = require("../data/db-users"); //Requerimos la DB de usuarios
 
 const { validationResult } = require("express-validator");
 
+
+
 module.exports = {
   login: function (req, res) {
     // Metodo que muestra el formulario de Login x GET
@@ -60,6 +62,7 @@ module.exports = {
     res.render("users/register");
   },
   register: function (req, res) {
+    
     // Metodo que procesar el Registro de usuario nuevo (POST)
     const validationErrors = validationResult(req); // guardo los errores de validacion
     if (!validationErrors.isEmpty()) {
@@ -125,46 +128,41 @@ module.exports = {
     const userToEdit = db.getOne(req.params.id);
     res.render("users/edit-user", { userToEdit: userToEdit });
   },
-  update: (req, res) => {
-    res.send("pagina en rehabilitacion");
-  },
-  /*  update: (req, res) => {
-    // Metodo para actualizar info del usuario
-    const validationErrors = validationResult(req) // guardo los errores de validacion
-    if (!validationErrors.isEmpty()) {
-      //Si hay errores los renderizo en el form
-      res.render("users/edit", {
-        errors: validationErrors.mapped(),
-        oldData: req.body,
-      });
-    } else {
+  //actualiza los usuarios 
+ update: function (req, res) { 
+    let users = db.getAll();
+    const usersIndex = users.findIndex((usuario) => usuario.id == req.params.id);
+    const user = users[usersIndex];
 
-    }
+   // armo el objeto a modificar
+        const editUser = {
+          nombre: req.body.nombre,
+          apellido: req.body.apellido,
+          email: req.body.email,
+          telefono: req.body.telefono,
+          direccion: req.body.direccion,
+          password: req.body.password,
+          //id: user.id
+        };
+      /*  if (req.file) {
+          editUser.imagen = "/images/usersProfiles/" + req.file.filename;
+        } else {
+          editUser.imagen = user.imagen;
+        } */
+    
+        users[usersIndex] = editUser;
+        db.saveAll(users);
+        res.redirect("/users");
+      },
+  delete: function (req, res) {
 
-    
-    
-    
-    
-    const userIndex = users.findIndex((u) => u.id == req.params.id);
+    let users = db.getAll();// sirve para que agarre los elementos del usuario para depsues se pueda actualizar los usuarios eliminados
+    const filterUsers = users.filter ((usuario) =>{
+      return usuario.id != req.params.id
 
-    const user = users[userIndex];
-    
-      user.nombre = req.body.nombre;
-      user.apellido = req.body.apellido;
-      user.email = req.body.email;
-      user.telefono = req.body.telefono;
-      user.password = req.body.password;
-      user.direccion = req.body.direccion;
-    
-    if (req.file) {
-      edicion.profile = "/images/usersProfiles/" + req.file.filename;
-    } else {
-      edicion.profile = usuarioViejo.profile;
-    };
-
-
-      res.redirect("users/index")
-  },
-  delete: function(){
-  } */
+    })
+ 
+    db.saveAll(filterUsers)
+    res.redirect("/users")
+  }, 
 };

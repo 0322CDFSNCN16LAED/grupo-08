@@ -273,6 +273,34 @@
         "id": 27
     },
     {
+        "nombre": "vv",
+        "apellido": "jjjjj",
+        "email": "a@ws.com",
+        "telefono": "9999",
+        "direccion": "av.peña",
+        "password": "$2a$10$nDKOCK4id9Ra76qGyaaLoefbBlUMsrNsrpHGkiyk4bfEIDaGXNYUu",
+        "profile": "1657399579666_img.png",
+        "id": 29
+    },
+    {
+        "nombre": "xxx",
+        "apellido": "cccc",
+        "email": "jaun@hotmail.com.car",
+        "telefono": "66677",
+        "direccion": "perrt",
+        "password": "$2a$10$5bFdCz6klyAx9VqFS.RRpengEBGFjkTkmjcaOvWY9jNn8MxSt1Odu",
+        "id": 30
+    },
+    {
+        "nombre": "caca",
+        "apellido": "pipi",
+        "email": "jua@desco.com.ar",
+        "telefono": "9494",
+        "direccion": "vbgb",
+        "password": "$2a$10$DVq461WADbDItMuOD3YWH.jn5Ye0EjMZjPCHF11BhGooqqkRM17a2",
+        "profile": "1657423189758_img.jpeg",
+        "id": 31
+},
         "nombre": "sssssss",
         "apellido": "Gonzalez",
         "email": "aaaa@gmaiii.com",
