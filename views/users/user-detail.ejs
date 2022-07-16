@@ -5,60 +5,65 @@
         <%- include('../partials/head') %>
     </head>
     <body>
-
         <!--    HEADER  -->
         <%- include('../partials/header') %>
-        
         <main>
             <div class="col-12">
                 <h2 class="products-title align-center">
                   Perfil del usuario: <i> <%=user.nombre%> </i>
                 </h2>
-              </div>
-            <div class="card" style="width: 18rem;"> 
-                <div class="card-body">
-                    <h5 class="card-title"> 
-                        Usuario: <%= user.nombre%> <%= user.apellido %></h5>
-                    <p class="card-text">
-                       Mail: <%= user.email %> 
-                    </p>
-                    <p>
-                       Domicilio: <%= user.direccion %>
-                    </p>
-                    <p>
-                      Telefono: <%= user.telefono%>
-                    </p>
-                    <img src="/images/usersProfiles/<%=locals.user.profile%>" class="card-img-top">
-                </div>
             </div>
+            <div class="mlr-20" >
+                <div class="card sin-borde" style="width: 18rem;"> 
+                    <div class="card-body">
+                            <h5 class="card-title font-xlarge font-bold"> 
+                                Usuario: <%= user.nombre%> <%= user.apellido %></h5>
+                            <p class="card-text font-xlarge ">
+                            Mail: <%= user.email %> 
+                            </p>
+                            <p class="card-text font-xlarge "> 
+                            Domicilio: <%= user.direccion %>
+                            </p>
+                            <p class="card-text font-xlarge">
+                            Telefono: <%= user.telefono%>
+                            </p>
+                            <img src="/images/usersProfiles/<%=locals.user.profile%>" class="card-img-top">
+                    </div>
             
-            <div class="col-6 mt-3">
-
-                <button 
-                    type="button" 
-                    class="action-button edit w-50">
-                    <a href="/users/edit/<%= user.id %>">
-                    Editar
-                    </a>
-                </button>
-            </div>
-                <div class="col-6 mt-3">
-                    <form
-                      action="/users/<%=user.id%>?_method=DELETE"
-                      method="POST"
-                    >
-
-                    <button 
-                        type="submit" 
-                        class="action-button delete w-50">
-                        Eliminar
-                    </button>
-                    </form>
+                    <div class="row">
+                        <div class="col-12 mt-3">
+                            <button
+                              type="submit"
+                              class="btn btn-outline-primary btn-lg product-btn w-100">
+                              <a href="/users/">
+                                VOLVER ATRAS
+                                </a>
+                             
+                            </button>
+                          </div>
+                        <div class="col-6 mt-3 flex-center pb-5 ">
+                                <button 
+                                    type="button" 
+                                    class="action-button edit w-100 mt-0">
+                                    <a href="/users/edit/<%= user.id %>">
+                                    EDITAR
+                                    </a>
+                                </button>
+                        </div>
+                        <div class="col-6 mt-3 flex-center pb-5">
+                            <form
+                                action="/users/<%=user.id%>?_method=DELETE"
+                                method="POST">
+                                <button 
+                                        type="submit" 
+                                        class="action-button delete w-100 mt-0">
+                                        ELIMINAR
+                                </button>
+                            </form>
+                        </div>
                 </div>
-                
-
+            </div>
         </main>
-
     </body>
     <footer>
         <%- include('../partials/footer') %> 
