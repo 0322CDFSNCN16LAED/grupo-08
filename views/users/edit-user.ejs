@@ -1,141 +1,152 @@
 <!DOCTYPE html>
-<html lang = "en">
-    <head>
-        <!--HEAD -->
-        <%- include('../partials/head') %>
-    </head>
-    <body class="bg-ligth-grey">
-        <!--HEADER -->
-        <%- include('../partials/header') %>
-    
-        <!--MAIN -->
-        <main class="pt-5">
-          <!--section para formulario-->
-          <section
-            class="container products-wrapper overflow-hidden form-register mt-1"
-          >
-          <div class="row">
-            <div class="col-12">
-              <h2 class="products-title align-center">
-                Estas editando: <i> <%=userToEdit.nombre%> </i>
-              </h2>
-            </div>
-            <form action="/users/<%= userToEdit.id %>?_method=PUT"
-                  method="POST" 
-                  class="form-field" >
-              <div class="row mt-3">
-                <div class="col-2">
-                 <img name='profile'
-                 id="profile"
-                 class="img-thumbnail" 
-                 src="/images/usersProfiles/<%=locals.userToEdit.profile%>"> 
-                </div>
-                
-                <div class="col-4">
-                  <label for="nombre" class="form-label col-12">Nombre</label>
-                  <input
-                    value='<%= userToEdit.nombre %> '
-                    type="text"
-                    name="nombre"
-                    id="nombre"
-                    class="form-control col-12"
-                  />
-                </div>
-                <div class="col-4">
-                  <label for="apellido" class="form-label">Apellido</label>
-                  <input
-                    value="<%= userToEdit.apellido %> "
-                    type="text"
-                    name="apellido"
-                    id="apellido"
-                    class="form-control"
-                  />
-                </div>
-                <div class="col-6">
-                  <label for="email" class="form-label">E-mail</label>
-                  <input
-                    value="<%= userToEdit.email %> "
-                    type="email"
-                    name="email"
-                    id="email"
-                    class="form-control"
-                    placeholder="juanperez@mail.com"
-                  />
-                </div>
-                <div class="col-12 col-md-6">
-                  <label for="tlf" class="form-label">Teléfono</label>
-                  <input
-                    value="<%= userToEdit.telefono %> "
-                    type="tel"
-                    name="telefono"
-                    id="telefono"
-                    class="form-control"
-                    placeholder="+54 9 11 74128653"
-                  />
-                </div>
-                <div class="col-12">
-                  <label for="direccion" class="form-label">Dirección</label>
-                  <input
-                    value="<%= userToEdit.direccion %> "
-                    type="text"
-                    name="direccion"
-                    id="direccion"
-                    class="form-control"
-                    placeholder="Av. Rivadavia 1500, 1ro A. CABA "
-                  />
-                </div>
-                <div class="col-12 col-md-6">
-                  <label for="pass" class="form-label">Contraseña</label>
-                  <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    class="form-control"
-                    placeholder="********"
-                  />
-                </div>
-                <div class="col-12 col-md-6">
-                  <label for="password" class="form-label"
-                    >Confirma tu contraseña</label
-                  >
-                  <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    class="form-control"
-                    placeholder="********"
-                  />
-        
+<html lang="en">
+  <head>
+    <!--HEAD -->
+    <%- include('../partials/head') %>
+  </head>
+  <body class="bg-ligth-grey">
+    <!--HEADER -->
+    <%- include('../partials/header') %>
 
-                </div>
-                <div class="col-12 col-md-6">
-                  <label for="profile" class="form-label">Cargar imagen de perfil</label>
-                  <input class="form-control" type="file" id="profile" name="profile">
-                </div>         
-                <div class="col-12 mt-3 align-center mt-5">
-          
-                  <button type="submit" class="btn bg-grey btn-lg font-white ">
-                    Cancelar
-                  </button>
-
-                  <button type="submit" class="btn bg-pink btn-lg font-white ">
-                    Guardar cambios
-                  </button>
-                </div>            
-              </div>
-            </form>
+    <!--MAIN -->
+    <main class="pt-5">
+      <!--section para formulario-->
+      <section
+        class="container products-wrapper overflow-hidden form-register mt-1"
+      >
+        <div class="row">
+          <div class="col-12">
+            <h2 class="products-title align-center">
+              Estas editando: <i> <%=userToEdit.nombre%> </i>
+            </h2>
           </div>
-            <!-- section envios-->
-            <div class="col-12 text-align-c mt-5"> <i class="fas fa-truck font-xxlarge"></i></div>
-            <div class="col-12 text-align-c"> ¡ENVIAMOS A TODO EL PAIS!</div>
-            <div class="col-12 text-align-c pb-2"> <h3>Por Correo Argentino, OCA o transporte de tu preferencia</h3></div>
-            
-          </section>      
-        </main>
-    
-      </body>
-    <footer>
-        <!--FOOTER -->
+          <form
+            action="/users/<%= userToEdit.id %>?_method=PUT"
+            method="POST"
+            class="form-field"
+            enctype="multipart/form-data"
+          >
+            <div class="row mt-3">
+              <div class="col-2">
+                <img
+                  name="profile"
+                  id="profile"
+                  class="img-thumbnail"
+                  src="/images/usersProfiles/<%=locals.userToEdit.profile%>"
+                />
+              </div>
+
+              <div class="col-4">
+                <label for="nombre" class="form-label col-12">Nombre</label>
+                <input
+                  value="<%= userToEdit.nombre %> "
+                  type="text"
+                  name="nombre"
+                  id="nombre"
+                  class="form-control col-12"
+                />
+              </div>
+              <div class="col-4">
+                <label for="apellido" class="form-label">Apellido</label>
+                <input
+                  value="<%= userToEdit.apellido %> "
+                  type="text"
+                  name="apellido"
+                  id="apellido"
+                  class="form-control"
+                />
+              </div>
+              <div class="col-6">
+                <label for="email" class="form-label">E-mail</label>
+                <input
+                  value="<%= userToEdit.email %> "
+                  type="email"
+                  name="email"
+                  id="email"
+                  class="form-control"
+                  placeholder="juanperez@mail.com"
+                />
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="tlf" class="form-label">Teléfono</label>
+                <input
+                  value="<%= userToEdit.telefono %> "
+                  type="tel"
+                  name="telefono"
+                  id="telefono"
+                  class="form-control"
+                  placeholder="+54 9 11 74128653"
+                />
+              </div>
+              <div class="col-12">
+                <label for="direccion" class="form-label">Dirección</label>
+                <input
+                  value="<%= userToEdit.direccion %> "
+                  type="text"
+                  name="direccion"
+                  id="direccion"
+                  class="form-control"
+                  placeholder="Av. Rivadavia 1500, 1ro A. CABA "
+                />
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="pass" class="form-label">Contraseña</label>
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  class="form-control"
+                  placeholder="********"
+                />
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="password" class="form-label"
+                  >Confirma tu contraseña</label
+                >
+                <input
+                  type="password"
+                  name="rpassword"
+                  id="rpassword"
+                  class="form-control"
+                  placeholder="********"
+                />
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="profile" class="form-label"
+                  >Cargar imagen de perfil</label
+                >
+                <input
+                  class="form-control"
+                  type="file"
+                  id="profile"
+                  name="profile"
+                />
+              </div>
+              <div class="col-12 mt-3 align-center mt-5">
+                <button type="submit" class="btn bg-grey btn-lg font-white">
+                  Cancelar
+                </button>
+
+                <button type="submit" class="btn bg-pink btn-lg font-white">
+                  Guardar cambios
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- section envios-->
+        <div class="col-12 text-align-c mt-5">
+          <i class="fas fa-truck font-xxlarge"></i>
+        </div>
+        <div class="col-12 text-align-c">¡ENVIAMOS A TODO EL PAIS!</div>
+        <div class="col-12 text-align-c pb-2">
+          <h3>Por Correo Argentino, OCA o transporte de tu preferencia</h3>
+        </div>
+      </section>
+    </main>
+  </body>
+  <footer>
+    <!--FOOTER -->
     <%- include('../partials/footer') %>
-    </footer>
+  </footer>
 </html>

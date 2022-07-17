@@ -120,9 +120,15 @@
                 type="password"
                 name="password"
                 id="password"
-                class="form-control"
+                class="form-control <%= locals.errors && errors.direccion ? 'is-invalid' : null %>"
                 placeholder="********"
               />
+              <!--si hay errores en la validacion, da el mensaje de error-->
+              <% if (locals.errors && errors.direccion) { %>
+                <div class="text-danger">
+                  <%= errors.password.msg %>
+                </div>
+                <% } %> 
             </div>
             <div class="col-12 col-md-6">
               <label for="password" class="form-label"
@@ -132,9 +138,15 @@
                 type="password"
                 name="rpassword"
                 id="rpassword"
-                class="form-control"
+                class="form-control <%= locals.errors && errors.direccion ? 'is-invalid' : null %>"
                 placeholder="********"
               />
+              <!--si hay errores en la validacion, da el mensaje de error-->
+              <% if (locals.errors && errors.direccion) { %>
+                <div class="text-danger">
+                  <%= errors.rpassword.msg %>
+                </div>
+                <% } %> 
             </div>
             <!-- envio de imagen de perfil / PROFILE--> 
             <div class="col-12 col-md-6">

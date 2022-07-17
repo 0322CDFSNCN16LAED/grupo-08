@@ -3,8 +3,6 @@ const db = require("../data/db-users"); //Requerimos la DB de usuarios
 
 const { validationResult } = require("express-validator");
 
-
-
 module.exports = {
   login: function (req, res) {
     // Metodo que muestra el formulario de Login x GET
@@ -62,7 +60,6 @@ module.exports = {
     res.render("users/register");
   },
   register: function (req, res) {
-    
     // Metodo que procesar el Registro de usuario nuevo (POST)
     const validationErrors = validationResult(req); // guardo los errores de validacion
     if (!validationErrors.isEmpty()) {
@@ -98,8 +95,9 @@ module.exports = {
           telefono: req.body.telefono,
           direccion: req.body.direccion,
           password: bcryptjs.hashSync(req.body.password, 10), // encriptamos la password
-          profile: req.file.filename ? req.file.filename : defaultImage.jpg,
+          profile: req.file ? req.file.filename : "defaultImage.jpg",
         };
+
         if (users.length) {
           // hacemos un nuevo nro de id de usuaro
           newUser.id = users[users.length - 1].id + 1;
@@ -128,41 +126,38 @@ module.exports = {
     const userToEdit = db.getOne(req.params.id);
     res.render("users/edit-user", { userToEdit: userToEdit });
   },
-  //actualiza los usuarios 
- update: function (req, res) { 
+  //actualiza los usuarios
+  update: function (req, res) {
     let users = db.getAll();
-    const usersIndex = users.findIndex((usuario) => usuario.id == req.params.id);
+    const usersIndex = users.findIndex(
+      (usuario) => usuario.id == req.params.id
+    );
     const user = users[usersIndex];
+    // armo el objeto a modificar
+    const editUser = {
+      id: user.id,
+      nombre: req.body.nombre,
+      apellido: req.body.apellido,
+      email: req.body.email,
+      telefono: req.body.telefono,
+      direccion: req.body.direccion,
+      password: req.body.password
+        ? bcryptjs.hashSync(req.body.password, 10)
+        : user.password,
+      profile: req.file ? req.file.filename : user.profile,
+    };
 
-   // armo el objeto a modificar
-        const editUser = {
-          nombre: req.body.nombre,
-          apellido: req.body.apellido,
-          email: req.body.email,
-          telefono: req.body.telefono,
-          direccion: req.body.direccion,
-          password: req.body.password,
-          //id: user.id
-        };
-      /*  if (req.file) {
-          editUser.imagen = "/images/usersProfiles/" + req.file.filename;
-        } else {
-          editUser.imagen = user.imagen;
-        } */
-    
-        users[usersIndex] = editUser;
-        db.saveAll(users);
-        res.redirect("/users");
-      },
+    users[usersIndex] = editUser;
+    db.saveAll(users);
+    res.redirect("/users");
+  },
   delete: function (req, res) {
+    let users = db.getAll(); // sirve para que agarre los elementos del usuario para depsues se pueda actualizar los usuarios eliminados
+    const filterUsers = users.filter((usuario) => {
+      return usuario.id != req.params.id;
+    });
 
-    let users = db.getAll();// sirve para que agarre los elementos del usuario para depsues se pueda actualizar los usuarios eliminados
-    const filterUsers = users.filter ((usuario) =>{
-      return usuario.id != req.params.id
-
-    })
- 
-    db.saveAll(filterUsers)
-    res.redirect("/users")
-  }, 
+    db.saveAll(filterUsers);
+    res.redirect("/users");
+  },
 };
