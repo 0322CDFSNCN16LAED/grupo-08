@@ -440,3 +440,6 @@ hr {
   overflow: hidden;
   max-width: 80%;
 }
+.detail-user {
+  margin: auto;
+}
