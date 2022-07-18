@@ -14,7 +14,7 @@
                 </h2>
             </div>
             <div class="card text-center w-80 detail-user mt-3">
-                <div class="card-header">
+                <div class="card-header bg-wite">
                   <ul class="nav nav-tabs card-header-tabs">
                     <li class="nav-item">
                       <a class="nav-link active" href="#">Datos</a>
@@ -31,85 +31,53 @@
                   </ul>
                 </div>
                 <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                  <h5 class="card-title font-xlarge font-bold"> 
+                    Usuario: <%= user.nombre%> <%= user.apellido %> </h5>
+                    <div class="flex-cont">
+                        <div class = "w-25">
+                            <img src="/images/usersProfiles/<%=locals.user.profile%>" class="card-img-top w-100">
+                        </div>
+                        <div class = "w-100 p-2 ">
+                            <p class="font-xlarge text-align-l">
+                                Mail: <%= user.email %> 
+                            </p>
+                            <p class="font-xlarge text-align-l"> 
+                                Domicilio: <%= user.direccion %>
+                            </p>
+                            <p class="font-xlarge text-align-l">
+                                Telefono: <%= user.telefono%>
+                            </p>
+                        </div>
+                    </div>
                 </div>
               </div>
-
-
-
-
-            
-            <div class="row">
-                <div class="col-8">
-                    <div class="row">
-                        <div class="col-4">Usuario</div>
-                        <div class="col-8"><%= user.nombre%> <%= user.apellido %></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-4">Mail</div>
-                        <div class="col-8"><%=user.email%></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-4">Domicilio</div>
-                        <div class="col-8"><%=user.direccion%></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-4">Teléfono</div>
-                        <div class="col-8"><%=user.telefono%></div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <img src="/images/usersProfiles/<%=user.profile%>" class="">
-                </div>
-            </div>
-
-            <div class="mlr-20" >
-                <div class="card sin-borde" style="width: 18rem;"> 
-                    <div class="card-body">
-                            <h5 class="card-title font-xlarge font-bold"> 
-                                Usuario: </h5>
-                            <p class="card-text font-xlarge ">
-                            Mail: <%= user.email %> 
-                            </p>
-                            <p class="card-text font-xlarge "> 
-                            Domicilio: <%= user.direccion %>
-                            </p>
-                            <p class="card-text font-xlarge">
-                            Telefono: <%= user.telefono%>
-                            </p>
-                            <img src="/images/usersProfiles/<%=locals.user.profile%>" class="card-img-top">
-                    </div>
-            
-                    <div class="row">
+              <div class="row">
                         
-                        <div class="col-6 mt-3 flex-center pb-5 ">
-                                <button 
-                                    type="button" 
-                                    class="action-button edit w-100 mt-0">
-                                    <a href="/users/edit/<%= user.id %>">
-                                    EDITAR
-                                    </a>
-                                </button>
-                        </div>
-                        <div class="col-6 mt-3 flex-center pb-5">
-                            <form
-                                action="/users/<%=user.id%>?_method=DELETE"
-                                method="POST">
-                                <button 
-                                        type="submit" 
-                                        class="action-button delete w-100 mt-0">
-                                        ELIMINAR
-                                </button>
-                            </form>
-                        </div>
-                    </div>                    
-            </div>
+                <div class="col-6 mt-3 flex-center pb-2">
+                        <button 
+                            type="button" 
+                            class="action-button edit w-80 mt-0 bg-gris">
+                            <a href="/users/edit/<%= user.id %>" class="font-white">
+                            EDITAR
+                            </a>
+                        </button>
+                </div>
+                <div class="col-6 mt-3 flex-center pb-2">
+                    <form
+                        action="/users/<%=user.id%>?_method=DELETE"
+                        method="POST">
+                        <button 
+                                type="submit" 
+                                class="action-button delete w-80 mt-0 bg-orange2">
+                                ELIMINAR
+                        </button>
+                    </form>
+                </div>
+            </div>                                            
             <div class="row">
-                <div class="col-12 font-xxlarge text-align-r" >
+                <div class="col-12 font-50px text-align-r p-lateral-5 " >
                     <a href="/users/" class="decoration-none">
-                        <i class="fas fa-arrow-circle-left font-gris-claro"></i>
+                        <i class="fas fa-arrow-circle-left font-pink"></i>
                     </a>
                 </div>
             </div>

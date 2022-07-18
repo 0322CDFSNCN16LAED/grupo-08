@@ -260,33 +260,23 @@
         "id": 26
     },
     {
-        "nombre": "Francisco",
-        "apellido": "JJJJJJJJ",
+        "id": 27,
+        "nombre": "Francisco ",
+        "apellido": "JJJJJJJJ ",
         "email": "franciscoj@gmail.com",
-        "telefono": "54874584479",
-        "direccion": "Av Corrientes",
+        "telefono": "54874584479 ",
+        "direccion": "Av Corrientes ",
         "password": "$2a$10$UOpDvtfVkNT4vtb52/RlJOMEsIHz1q8CKDgL2mRI5BWfvCCveLm0W",
-        "profile": "1657130182523_img.gif",
-        "id": 27
+        "profile": "1657130182523_img.gif"
     },
     {
-        "nombre": "sssssss",
-        "apellido": "Gonzalez",
-        "email": "aaaa@gmaiii.com",
-        "telefono": "54911258741256",
-        "direccion": "Av rivadavia 222222",
-        "password": "$2a$10$n5eXXIuWz3mz8gZ9ikmUCOZwMYgCUh.s7Y3oyKLCv5EjsWQxeETJi",
-        "profile": "1657488069866_img.gif",
+        "nombre": "INTENTO",
+        "apellido": "INTENTO",
+        "email": "INTENTO@GMAIL.COM",
+        "telefono": "654",
+        "direccion": "AS",
+        "password": "$2a$10$4eVEq/lz4tMtX2aXFUZX3.05p5V55EZ3De9NOS0vbbvWjx74Bv.mu",
+        "profile": "1658116397616_img.png",
         "id": 28
-    },
-    {
-        "id": 30,
-        "nombre": "jose prueba  ",
-        "apellido": "jose   ",
-        "email": "jose@gmail.com",
-        "telefono": "8789787   ",
-        "direccion": "av jose   ",
-        "password": "$2a$10$IDI04V3F0DoPcqosVeIyYOh65SxqyhnwCF34OQquQ2vBfadHaTfhm",
-        "profile": "1658016311695_img.gif"
     }
 ]

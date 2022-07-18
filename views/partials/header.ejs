@@ -14,27 +14,46 @@
         ><img src="/images/logo2.PNG" alt="Deco Home" class="w-60"
       /></a>
     </h1>
+
     <div class="header-iconos">
       <a href="#" class="decoration-none">
         <i class="fas fa-search font-gris-claro font-xmedium"> </i>
       </a>
-      <a href="#" class="decoration-none">
+      <a href="#" class="decoration-none ">
+        <div class="flex-cont mlr-5">
         <i class="fas fa-heart decoration-none font-gris-claro font-xmedium">
         </i>
+        </div>
       </a>
-      <a href="/users/login" class="decoration-none">
-        <i class="fas fa-user font-gris-claro font-xmedium"> </i>
-      </a>
+
       <a href="/carritocompras" class="decoration-none">
-        <i class="fas fa-shopping-cart font-gris-claro font-xmedium"></i>
+          <div class="flex-cont mlr-5">
+          <i class="fas fa-shopping-cart font-gris-claro font-xmedium"></i>
+        </div>
       </a>
+
+
       <% if(locals.isLogged) {%>
-   
-      <a href="/users/logout" class="decoration-none mlr-5" alt="Cerrar Sesión">
+      <a href="/users/" class="decoration-none">
+        <div class="flex-cont mlr-5">
+          <i class="fas fa-user font-gris-claro font-xmedium"></i>
+ 
+        </div>
+      </a>
+      <%} else {%>      
+        <a href="/users/login" class="decoration-none">
+        <div class="flex-cont mlr-5">
+          <i class="fas fa-user font-gris-claro font-xmedium"></i>
+        </div>
+      </a>
+      <% } %>
+
+      <% if(locals.isLogged) {%>
+       <a href="/users/logout" class="decoration-none mlr-5" alt="Cerrar Sesión">
         <i
           class="fas fa-sign-out-alt font-gris-claro font-xmedium"
-          alt="Cerrar Sesión"
-        ></i>
+          alt="Cerrar Sesión">
+        </i>
       </a>
       <% } %>
     </div>
