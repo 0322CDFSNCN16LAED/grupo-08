@@ -9,7 +9,20 @@
 header{
     z-index: 10;
 }
+.barra-catalogo{ 
+    background-color:  #d56b27;
+    color: #f3eeed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px;
+  }
+  
+  .barra-catalogo h4{
+      margin: 0px 50px;
+  }  
 
+/*PRODUCTOS PAGINA 1*/
 .button-estanteria{
     z-index: 1;
     position: absolute;
@@ -38,19 +51,6 @@ header{
     color:#c44cb4;
 }
 
-.barra-catalogo{ 
-  background-color:  #d56b27;
-  color: #f3eeed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 3px;
-}
-
-.barra-catalogo h4{
-    margin: 0px 50px;
-}  
-
 .button-jarra{
     z-index: 1;
     position: absolute;
@@ -64,6 +64,34 @@ header{
     position: absolute;
     left: 22%;
     top: 62%; 
+    font-size: 20px;
+    color:#c44cb4;
+}
+
+/*PRODUCTOS PAGINA 2*/
+.button-carpet{
+    z-index: 1;
+    position: absolute;
+    left: 35%;
+    top: 85%; 
+    font-size: 20px;
+    color:#c44cb4;
+}
+.button-plates{
+    z-index: 1;
+    position: absolute;
+    right: 22%;
+    top: 45%; 
+    font-size: 20px;
+    color:#c44cb4;
+}
+
+/*PRODUCTOS PAGINA 3*/
+.button-plant{
+    z-index: 1;
+    position: absolute;
+    left: 42%;
+    top: 40%; 
     font-size: 20px;
     color:#c44cb4;
 }
