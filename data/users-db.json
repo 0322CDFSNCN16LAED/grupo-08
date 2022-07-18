@@ -261,11 +261,11 @@
     },
     {
         "id": 27,
-        "nombre": "Francisco ",
-        "apellido": "JJJJJJJJ ",
+        "nombre": "Francisco  ",
+        "apellido": "JJJJJJJJ  ",
         "email": "franciscoj@gmail.com",
-        "telefono": "54874584479 ",
-        "direccion": "Av Corrientes ",
+        "telefono": "54874584479  ",
+        "direccion": "Av Corrientes  ",
         "password": "$2a$10$UOpDvtfVkNT4vtb52/RlJOMEsIHz1q8CKDgL2mRI5BWfvCCveLm0W",
         "profile": "1657130182523_img.gif"
     },
