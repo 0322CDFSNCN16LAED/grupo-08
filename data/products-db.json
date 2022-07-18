@@ -34,17 +34,17 @@
         "imagen": "/images/products/lamp.jpg"
     },
     {
-        "nombre": "Estante nórdicoooo",
-        "categoria": 1,
+        "nombre": "Estante nórdico",
+        "categoria": "1",
         "ambiente": [
-            1,
-            4,
-            8,
-            9
+            "1",
+            "4",
+            "8",
+            "9"
         ],
-        "estilo": 5,
+        "estilo": "5",
         "precioContado": "20000",
-        "cantidadDeCuotas": 4,
+        "cantidadDeCuotas": "4",
         "precioCuota": "1666.67",
         "envioGratis": true,
         "alt": "estantería nórdica",
@@ -90,17 +90,17 @@
         "infoExtra": []
     },
     {
-        "nombre": "Lampara de techo Norma",
-        "categoria": 4,
+        "nombre": "Lampara Minimal Black",
+        "categoria": "4",
         "ambiente": [
-            3,
-            4,
-            5,
-            6
+            "3",
+            "4",
+            "5",
+            "6"
         ],
-        "estilo": 1,
+        "estilo": "1",
         "precioContado": "15000",
-        "cantidadDeCuotas": 1,
+        "cantidadDeCuotas": "1",
         "precioCuota": "15000",
         "envioGratis": true,
         "alt": "Lampara de techo negra",
