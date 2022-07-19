@@ -1,16 +1,16 @@
 [
     {
         "nombre": "Lámpara galponera",
-        "categoria": 2,
+        "categoria": "1",
         "ambiente": [
-            2,
-            1,
-            4,
-            8
+            "1",
+            "2",
+            "4",
+            "8"
         ],
-        "estilo": 1,
+        "estilo": "1",
         "precioContado": "5300",
-        "cantidadDeCuotas": 1,
+        "cantidadDeCuotas": "2",
         "precioCuota": "1733.33",
         "envioGratis": true,
         "alt": "lampara negra",
@@ -38,13 +38,14 @@
         "categoria": "1",
         "ambiente": [
             "1",
+            "2",
             "4",
             "8",
             "9"
         ],
-        "estilo": "5",
+        "estilo": "1",
         "precioContado": "20000",
-        "cantidadDeCuotas": "4",
+        "cantidadDeCuotas": "1",
         "precioCuota": "1666.67",
         "envioGratis": true,
         "alt": "estantería nórdica",

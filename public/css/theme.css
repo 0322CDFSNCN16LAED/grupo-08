@@ -443,3 +443,6 @@ hr {
 .detail-user {
   margin: auto;
 }
+.first-upper {
+  text-transform: capitalize;
+}

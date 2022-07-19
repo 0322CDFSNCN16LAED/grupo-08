@@ -19,43 +19,50 @@
       <a href="#" class="decoration-none">
         <i class="fas fa-search font-gris-claro font-xmedium"> </i>
       </a>
-      <a href="#" class="decoration-none ">
+      <a href="#" class="decoration-none">
         <div class="flex-cont mlr-5">
-        <i class="fas fa-heart decoration-none font-gris-claro font-xmedium">
-        </i>
+          <i class="fas fa-heart decoration-none font-gris-claro font-xmedium">
+          </i>
         </div>
       </a>
 
       <a href="/carritocompras" class="decoration-none">
-          <div class="flex-cont mlr-5">
+        <div class="flex-cont mlr-5">
           <i class="fas fa-shopping-cart font-gris-claro font-xmedium"></i>
         </div>
       </a>
 
-
       <% if(locals.isLogged) {%>
-      <a href="/users/" class="decoration-none">
-        <div class="flex-cont mlr-5">
-          <i class="fas fa-user font-gris-claro font-xmedium"></i>
- 
-        </div>
-      </a>
-      <%} else {%>      
-        <a href="/users/login" class="decoration-none">
+      <a href="/users/<%=locals.userLogged.id%>" class="decoration-none">
         <div class="flex-cont mlr-5">
           <i class="fas fa-user font-gris-claro font-xmedium"></i>
         </div>
       </a>
-      <% } %>
-
-      <% if(locals.isLogged) {%>
-       <a href="/users/logout" class="decoration-none mlr-5" alt="Cerrar Sesión">
+      <%} else {%>
+      <a href="/users/login" class="decoration-none">
+        <div class="flex-cont mlr-5">
+          <i class="fas fa-user font-gris-claro font-xmedium"></i>
+        </div>
+      </a>
+      <% } %> <% if(locals.isLogged) {%>
+      <a href="/users/logout" class="decoration-none mlr-5" alt="Cerrar Sesión">
         <i
           class="fas fa-sign-out-alt font-gris-claro font-xmedium"
-          alt="Cerrar Sesión">
+          alt="Cerrar Sesión"
+        >
         </i>
       </a>
       <% } %>
     </div>
   </section>
+  <% if(locals.isLogged) { %>
+  <div class="row text-align-r mr-1 bg-wite">
+    <div class="col-12">
+      Bienvenid@
+      <i class="first-upper font-bold"
+        ><%=locals.userLogged.nombre+' '+locals.userLogged.apellido%></i
+      >
+    </div>
+    <%} %>
+  </div>
 </header>
