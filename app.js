@@ -30,7 +30,6 @@ app.use(express.urlencoded({ extended: false })); //permite capturar informacion
 app.use(express.json()); // permite convertir la info en formato json
 
 app.use(methodOverride("_method")); // Permite usar metodos HTTP PUT & DELETE
-
 app.use("/", mainRouters);
 
 const PORT = 3005;

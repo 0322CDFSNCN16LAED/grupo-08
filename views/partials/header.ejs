@@ -5,45 +5,79 @@
       recibí los productos sin moverte de casa
     </p>
   </div>
-  <section class="bg-white header-flex">
-    <div class="burger-menu font-xlarge">
-      <i class="fas fa-bars bg-light-blue font-gray"></i>
-    </div>
+
+ <section class="bg-white header-flex">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+            <li class="nav-item dropdown">
+              <a  
+                  href="#" 
+                  id="navbarDropdown" 
+                  role="button" 
+                  data-bs-toggle="dropdown" 
+                  aria-expanded="false">
+                <div class="burger-menu font-size-25">
+                  <i class="fas fa-bars bg-light-blue font-gray"></i>
+                </div>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item pt-3 pb-3 font-bold" href="/">Menú</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item pt-3" href="/products">Últimas tendencias</a></li>
+                <li><a class="dropdown-item pt-3" href="products">Sale</a></li>
+                <li><a class="dropdown-item pt-3" href="/catalogo">Catalogo completo</a></li>
+
+              </ul>
+            </li>
+        </div>
+      </div>
+    </nav>
     <h1 class="text-align-c w-40">
       <a href="/"
         ><img src="/images/logo2.PNG" alt="Deco Home" class="w-60"
       /></a>
     </h1>
 
-    <div class="header-iconos">
-      <a href="#" class="decoration-none">
-        <i class="fas fa-search font-gris-claro font-xmedium"> </i>
-      </a>
+
+        <form class="d-flex height-40" 
+              role="search">
+          <input class="form-control me-1" 
+                  type="search" 
+                  placeholder="Search" 
+                  aria-label="Search">
+          <button 
+                  class="btn btn-lg font-white " 
+                  type="submit">    
+            <div class="header-iconos">
+            <a href="#" class="decoration-none flex-cont fx-justify-center">
+              <i class="fas fa-search font-gris-claro font-xlarge p-lateral-5"> </i>
+            </a>
+          </button>
+        </form>
+
+     <div class="header-iconos ">
       <a href="#" class="decoration-none ">
         <div class="flex-cont mlr-5">
-        <i class="fas fa-heart decoration-none font-gris-claro font-xmedium">
-        </i>
+          <i class="fas fa-heart decoration-none font-gris-claro font-xlarge"></i>
         </div>
       </a>
-
       <a href="/carritocompras" class="decoration-none">
           <div class="flex-cont mlr-5">
-          <i class="fas fa-shopping-cart font-gris-claro font-xmedium"></i>
-        </div>
+            <i class="fas fa-shopping-cart font-gris-claro font-xlarge"></i>
+          </div>
       </a>
 
-
-      <% if(locals.isLogged) {%>
+      <% if(locals.userLogged) {%>
       <a href="/users/" class="decoration-none">
         <div class="flex-cont mlr-5">
-          <i class="fas fa-user font-gris-claro font-xmedium"></i>
- 
-        </div>
+          <i class="fas fa-user font-gris-claro font-xlarge"></i>
+          
+         </div>
       </a>
       <%} else {%>      
         <a href="/users/login" class="decoration-none">
         <div class="flex-cont mlr-5">
-          <i class="fas fa-user font-gris-claro font-xmedium"></i>
+          <i class="fas fa-user font-gris-claro font-xlarge"></i>
         </div>
       </a>
       <% } %>
@@ -51,7 +85,7 @@
       <% if(locals.isLogged) {%>
        <a href="/users/logout" class="decoration-none mlr-5" alt="Cerrar Sesión">
         <i
-          class="fas fa-sign-out-alt font-gris-claro font-xmedium"
+          class="fas fa-sign-out-alt font-gris-claro font-xlarge"
           alt="Cerrar Sesión">
         </i>
       </a>
