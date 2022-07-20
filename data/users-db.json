@@ -231,13 +231,13 @@
     },
     {
         "id": 24,
-        "nombre": "aaaa norma",
-        "apellido": "norma ",
+        "nombre": "norma  ",
+        "apellido": "parada",
         "email": "aaa@gmaiii.com",
-        "telefono": "+545658945 ",
-        "direccion": "Av rivadavia ",
-        "password": "$2a$10$J0yNmdjC1iNP4WlY.WGyd.OWJu3.bvZLhzeExwuYcFA6PmuflQlGC",
-        "profile": "defaultImage.jpg"
+        "telefono": "+545658945   ",
+        "direccion": "Alvear 1605",
+        "password": "$2a$10$fZXLahUfbQ7gWMeVo6/TH.tNDi2qZb/X.FcndKjNahPp3N.yGglR6",
+        "profile": "1658274431922_img.gif"
     },
     {
         "id": 25,

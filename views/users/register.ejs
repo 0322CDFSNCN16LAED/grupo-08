@@ -124,7 +124,7 @@
                 placeholder="********"
               />
               <!--si hay errores en la validacion, da el mensaje de error-->
-              <% if (locals.errors && errors.direccion) { %>
+              <% if (locals.errors && errors.password) { %>
                 <div class="text-danger">
                   <%= errors.password.msg %>
                 </div>
@@ -138,11 +138,11 @@
                 type="password"
                 name="rpassword"
                 id="rpassword"
-                class="form-control <%= locals.errors && errors.direccion ? 'is-invalid' : null %>"
+                class="form-control <%= locals.errors && errors.rpassword ? 'is-invalid' : null %>"
                 placeholder="********"
               />
               <!--si hay errores en la validacion, da el mensaje de error-->
-              <% if (locals.errors && errors.direccion) { %>
+              <% if (locals.errors && errors.rpassword) { %>
                 <div class="text-danger">
                   <%= errors.rpassword.msg %>
                 </div>
