@@ -1,3 +1,38 @@
+Weekly stand up / 14 de julio
+
+● Qué hizo la semana pasada: 
+Se realizo la charla semanal de 20 minutos, donde se hablo de las diferentes tareas que faltan para completar el sprint
+
+● Si se encontró con algún impedimento:
+Se tuvieron bastantes desafios que se puedieron ir resolviendo consultandonos entre nosotros y algunas dudas a los profesores. Se pudo avanzar bastante sobre el sprint como asi tambien sobre entregas anteriores.    
+
+● Qué va a hacer en la semana:
+En la semana se van a ir mejorando algunas cosas que nos quedaron de los sprints anteriores como tambien seguir avanzando con el nuevo. 
+
+Weekly stand up / 07 de julio
+
+● Qué hizo la semana pasada: 
+Se realizo la charla semanal de 20 minutos, y se emepzamos a comentar los avances que se fueron teniendo sobre el sprint como tambien las dudas en algunas cosas que nos fueron trabarando. 
+
+● Si se encontró con algún impedimento:
+Si tuvimos bastantes impedimentos que fueron resueltos entre nosotros. 
+
+● Qué va a hacer en la semana:
+En la semana vamos a seguir avanzando con el proyecto integrador y en el caso de terminar poder seguir sobre los anteriores. 
+
+
+Weekly stand up / 30 de junio
+
+● Qué hizo la semana pasada: 
+Se realizo la charla semanal de 20 minutos, donde se hablo de como seguir avanzando con el nuevo sprint y ademas hablamos un poco del sprint que acababamos de entregar. Uno de integrantes pregunto como se hacia para asignarse tareas en el trello y ademas otro propuso hacer videos llamadas para realizar todos el sprint en paralelo e ir haciendonose consultas. 
+
+● Si se encontró con algún impedimento:
+No, recien entregamos el sprint. 
+
+● Qué va a hacer en la semana:
+En la semana vamos a seguir avanzando con el proyecto integrador y cuando terminemos con los objetivos del sprint seguir mejorando cosas que nos quedaron colgadas de las otras entregas. 
+
+
 Weekly stand up / 23 de junio
 
 ● Qué hizo la semana pasada: 
