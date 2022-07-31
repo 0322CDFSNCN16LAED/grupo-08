@@ -34,5 +34,8 @@
     "sequelize": "^6.21.3",
     "sequelize-cli": "^6.4.1"
   },
-  "keywords": []
+  "keywords": [],
+  "devDependencies": {
+    "@faker-js/faker": "^7.3.0"
+  }
 }

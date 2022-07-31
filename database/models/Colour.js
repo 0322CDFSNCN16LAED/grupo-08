@@ -1,15 +1,15 @@
 const sequelize = require("sequelize")
 
-module.exports = function (sequelize, dataTypes){
+module.exports = function (sequelize, DataTypes){
     let alias = 'Colour'
     let cols = {
         id: {
-            type: dataTypes.UUID,
+            type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
             primaryKey: true,
         },
         name: {
-            type: dataTypes.STRING,
+            type: DataTypes.STRING,
         }
     }
     let config = {

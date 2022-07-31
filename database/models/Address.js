@@ -1,27 +1,32 @@
 const sequelize = require("sequelize")
 
-module.exports = function (sequelize, dataTypes){
+module.exports = function (sequelize, DataTypes){
     let alias = 'Address'
     let cols = {
         id: {
-            type: dataTypes.UUID,
+            allowNull: false,
+            type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
             primaryKey: true,
         },
         address: {
-            type: dataTypes.STRING,
+            allowNull: false,
+            type: DataTypes.STRING,
         },
         city: {
-            type: dataTypes.STRING,
+            allowNull: false,
+            type: DataTypes.STRING,
         },
         state: {
-            type: dataTypes.STRING,
+            allowNull: false,
+            type: DataTypes.STRING,
         },
         country: {
-            type: dataTypes.STRING,
+            type: DataTypes.STRING,
         },
         zipcode: {
-            type: dataTypes.INTEGER,
+            allowNull: false,
+            type: DataTypes.INTEGER,
         }
 
     }
