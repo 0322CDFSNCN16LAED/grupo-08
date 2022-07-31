@@ -13,7 +13,9 @@ const basicRegisterValidations = [
     .notEmpty()
     .withMessage("Debe ingresar un teléfono de contacto"),
   body("direccion").notEmpty().withMessage("Debe ingresar una dirección"),
-  body("password").notEmpty().withMessage("Debe ingresar una contraseña"),
+  body("password")
+    .notEmpty().withMessage("Debe ingresar una contraseña")
+    .isAlphanumeric().withMessage("Debe ingresar una contraseña alfanumérica"),
   body("rpassword")
     .notEmpty()
     .withMessage("Debe volver a ingresar la contraseña"),
