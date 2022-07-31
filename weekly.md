@@ -1,3 +1,17 @@
+Weekly stand up / 28 de julio
+
+● Qué hizo la semana pasada: 
+Se realizo la charla semanal de 20 minutos, donde se hablo de las diferentes tareas que faltan para seguir avanzando con el sprint, donde se propone    - verificar los modelos,
+- cuando se vaya avanzando con las vistas, rutas, controllers  ir cambiando las cosas que quedan en castellano al ingles de forma tal de unificar el archivo
+observacion sobre el diagrama
+
+● Si se encontró con algún impedimento:
+Se tuvieron bastantes desafios que se puedieron ir resolviendo consultandonos entre nosotros y algunas dudas a los profesores. Se pudo avanzar bastante sobre el sprint como asi tambien sobre entregas anteriores.    
+
+● Qué va a hacer en la semana:
+En la semana se van a ir mejorando algunas cosas que nos quedaron de los sprints anteriores como tambien seguir avanzando con el nuevo. 
+
+
 Weekly stand up / 14 de julio
 
 ● Qué hizo la semana pasada: 

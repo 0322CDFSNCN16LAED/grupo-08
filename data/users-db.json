@@ -278,5 +278,35 @@
         "password": "$2a$10$4eVEq/lz4tMtX2aXFUZX3.05p5V55EZ3De9NOS0vbbvWjx74Bv.mu",
         "profile": "1658116397616_img.png",
         "id": 28
+    },
+    {
+        "nombre": "Juan",
+        "apellido": "Gomez",
+        "email": "juangomez@dh.com",
+        "telefono": "1158585858",
+        "direccion": "Av. Casa 123",
+        "password": "$2a$10$1HSEKFULGkU8CudltdsE8uSEeF2.Ze9ibZy.DmJ29ik0b7TiQ.7KO",
+        "profile": "defaultImage.jpg",
+        "id": 29
+    },
+    {
+        "nombre": "Alfredo",
+        "apellido": "Gomez",
+        "email": "agomez@dh.com",
+        "telefono": "1155669988",
+        "direccion": "casa",
+        "password": "$2a$10$aTMfdcbKXD6jljoG3WbEv.qLdTMSH6RtugbhuqTUi0RSEGL4RipSm",
+        "profile": "defaultImage.jpg",
+        "id": 30
+    },
+    {
+        "nombre": "Adrian",
+        "apellido": "Bolaños",
+        "email": "abolanos@dh.com",
+        "telefono": "1147586936",
+        "direccion": "Av. Malaver 2125",
+        "password": "$2a$10$iP87soHhAb/hhhM2zZ65pOgjBKI/0Soj8F8JgWOUpLZus7a88TBjC",
+        "profile": "defaultImage.jpg",
+        "id": 31
     }
 ]

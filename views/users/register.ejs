@@ -120,7 +120,7 @@
                 type="password"
                 name="password"
                 id="password"
-                class="form-control <%= locals.errors && errors.direccion ? 'is-invalid' : null %>"
+                class="form-control <%= locals.errors && errors.password ? 'is-invalid' : null %> <%= locals.errors && errors.password ? 'help is-danger' : null %>"
                 placeholder="********"
               />
               <!--si hay errores en la validacion, da el mensaje de error-->
