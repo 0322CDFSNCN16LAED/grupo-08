@@ -4,17 +4,21 @@ module.exports = function (sequelize, DataTypes){
     let alias = 'User'
     let cols = {
         id: {
+            allowNull: false,
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
             primaryKey: true,
         },
         name: {
+            allowNull: false,
             type: DataTypes.STRING
         },
         lastName: {
+            allowNull: false,
             type: DataTypes.STRING
         },
         email: {
+            unique: true,
             type: DataTypes.STRING
         },
         phoneNumber: {
