@@ -4,14 +4,17 @@ module.exports = function (sequelize, DataTypes){
     let alias = 'Order'
     let cols = {
         id: {
+            allowNull: false,
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
             primaryKey: true,
         },
         orderDate:{
+            allowNull: false,
             type: DataTypes.DATE,
         },
         orderTotal: {
+            allowNull: false,
             type: DataTypes.DECIMAL
         }
     }
