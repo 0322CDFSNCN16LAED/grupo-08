@@ -1,18 +1,18 @@
 const sequelize = require("sequelize")
 
-module.exports = function (sequelize, dataTypes){
+module.exports = function (sequelize, DataTypes){
     let alias = 'Order'
     let cols = {
         id: {
-            type: dataTypes.UUID,
+            type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
             primaryKey: true,
         },
         orderDate:{
-            type: dataTypes.DATE,
+            type: DataTypes.DATE,
         },
         orderTotal: {
-            type: dataTypes.DECIMAL
+            type: DataTypes.DECIMAL
         }
     }
     let config = {

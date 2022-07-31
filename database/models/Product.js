@@ -1,37 +1,37 @@
 const sequelize = require("sequelize")
 const Colour = require("./Colour")
 
-module.exports = function (sequelize, dataTypes){
+module.exports = function (sequelize, DataTypes){
     let alias = 'Product'
     let cols = {
         id: {
-            type: dataTypes.UUID,
+            type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
             primaryKey: true,
         },
         name: {
-            type: dataTypes.STRING
+            type: DataTypes.STRING
         },
         price: {
-            type: dataTypes.DECIMAL
+            type: DataTypes.DECIMAL
         },
         freeDelivery: {
-            type: dataTypes.INTERGER
+            type: DataTypes.INTERGER
         },
         description: {
-            type: dataTypes.STRING
+            type: DataTypes.STRING
         },
         measurements: {
-            type: dataTypes.STRING
+            type: DataTypes.STRING
         },
         details: {
-            type: dataTypes.STRING
+            type: DataTypes.STRING
         },
         extraInfo: {
-            type: dataTypes.STRING
+            type: DataTypes.STRING
         },
         picture: {
-            type: dataTypes.STRING
+            type: DataTypes.STRING
         }
     }
     let config = {
