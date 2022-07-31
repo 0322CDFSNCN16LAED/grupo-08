@@ -13,13 +13,13 @@ module.exports = function (sequelize, DataTypes){
             type: DataTypes.STRING
         },
         price: {
-            type: DataTypes.DECIMAL
+            type: DataTypes.DECIMAL(25,2)
         },
         freeDelivery: {
             type: DataTypes.INTERGER
         },
         description: {
-            type: DataTypes.STRING
+            type: DataTypes.TEXT
         },
         measurements: {
             type: DataTypes.STRING
