@@ -1,27 +1,27 @@
 const sequelize = require("sequelize")
 
-module.exports = function (sequelize, dataTypes){
+module.exports = function (sequelize, DataTypes){
     let alias = 'User'
     let cols = {
         id: {
-            type: dataTypes.UUID,
+            type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
             primaryKey: true,
         },
         name: {
-            type: dataTypes.STRING
+            type: DataTypes.STRING
         },
         lastName: {
-            type: dataTypes.STRING
+            type: DataTypes.STRING
         },
         email: {
-            type: dataTypes.STRING
+            type: DataTypes.STRING
         },
         phoneNumber: {
-            type: dataTypes.INTEGER
+            type: DataTypes.INTEGER
         },
         profilePic: {
-            type: dataTypes.STRING
+            type: DataTypes.STRING
         },
     }
     let config = {
