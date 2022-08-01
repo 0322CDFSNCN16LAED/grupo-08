@@ -12,7 +12,7 @@ module.exports = {
           .map(() => {
               return {
                 id: uuid(),
-                name: faker.company.name()
+                name: faker.address.cityName(),
   }
 })
 )},
