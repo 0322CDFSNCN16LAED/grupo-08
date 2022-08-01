@@ -16,7 +16,7 @@ module.exports = function (sequelize, DataTypes){
             type: DataTypes.DECIMAL(25,2)
         },
         freeDelivery: {
-            type: DataTypes.INTERGER
+            type: DataTypes.INTEGER
         },
         description: {
             type: DataTypes.TEXT
