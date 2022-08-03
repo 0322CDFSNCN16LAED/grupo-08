@@ -3,6 +3,7 @@ const { v4 } = require("uuid");
 const uuid = v4;
 const { faker } = require("@faker-js/faker");
 
+
 module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.bulkInsert(
@@ -14,7 +15,7 @@ module.exports = {
               id: uuid(),
               name: faker.commerce.productName(),
               price: faker.commerce.price(),
-              freeDelivery: "NO SE COMO PONERLOOOO",
+              freeDelivery: faker.datatype.boolean(),
               description: faker.commerce.productDescription(),
               measurements: faker.commerce.productDescription(),
               details:faker.commerce.productMaterial(),
