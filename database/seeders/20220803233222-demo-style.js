@@ -4,30 +4,28 @@ const uuid = v4;
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.bulkInsert('Categories', [{
+    await queryInterface.bulkInsert('Styles', [{
       id: uuid(),
-      name: 'Muebles'
+      name: 'Industrial'
      },{
       id: uuid(),
-      name: 'Textiles'
-    },{
+      name: 'Nórdico'
+     },{
       id: uuid(),
-      name: 'Vajilla'
-    },{
+      name: 'Mid Century Modern'
+     },{
       id: uuid(),
-      name: 'Accesorios'
-    },{
-      id: uuid(),
-      name: 'Iluminación'
-    },{
+      name: 'Boho Chic'
+     },{
       id: uuid(),
       name: 'Otros'
-    },], {});
+     },
+
+    ], {});
     
   },
 
   async down (queryInterface, Sequelize) {
-     await queryInterface.bulkDelete('Categories', null, {});
-    
+    await queryInterface.bulkDelete('Styles', null, {});
   }
 };
