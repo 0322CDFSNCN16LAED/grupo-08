@@ -18,7 +18,7 @@ module.exports = function (sequelize, DataTypes) {
 
   // asignamos en nombre de la tabla en la DB
   let config = {
-    tableName: "UserRols",
+    tableName: "UserRoles",
     timestamps: false,
   };
 
