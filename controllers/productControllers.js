@@ -4,12 +4,19 @@ const dbcategoriaProducts = require("../data/db-categoria-product");
 const dbestilos = require("../data/db-estilos");
 const dbambientes = require("../data/db-ambientes");
 
-const cuotas = dbcuotas.getAll();
+let cuotas = dbcuotas.getAll();
 const categorias = dbcategoriaProducts.getAll();
 const estilos = dbestilos.getAll();
 const ambientes = dbambientes.getAll();
 
 let products = db.getAll();
+/* cambiando a la DB */
+const { Installment } = require("../database/models");
+const { Category } = require("../database/models");
+const { Room } = require("../database/models");
+const { Style } = require("../database/models");
+const { Colour } = require("../database/models");
+const { Brand } = require("../database/models");
 
 module.exports = {
   // ver todos los productos
@@ -22,12 +29,25 @@ module.exports = {
     res.render("products/details", { producto: db.getOne(req.params.id) });
   },
   //crear un nuevo producto
-  create: (req, res) => {
+  create: async (req, res) => {
+    //try {
+    let vInstallments = await Installment.findAll();
+    let vCategorys = await Category.findAll();
+    let vRooms = await Room.findAll();
+    let vStyles = await Style.findAll();
+    let vColours = await Colour.findAll();
+    let vBrands = await Brand.findAll();
+    //} catch (error) {
+    //  console.error("aca el error ---> " + error);
+    // }
+
     res.render("products/products-create-form", {
-      cuotas,
-      categorias,
-      estilos,
-      ambientes,
+      vInstallments,
+      vCategorys,
+      vStyles,
+      vRooms,
+      vColours,
+      vBrands,
     });
   },
   //accion de procesar el producto. CREAR

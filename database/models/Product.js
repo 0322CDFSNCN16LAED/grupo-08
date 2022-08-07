@@ -73,8 +73,8 @@ module.exports = function (sequelize, DataTypes) {
       foreignKey: "categoryId",
       timestamps: false,
     });
-    Product.belongsTo(models.Color, {
-      as: "Color", // el alias de la tabla
+    Product.belongsTo(models.Colour, {
+      as: "Colour", // el alias de la tabla
       foreignKey: "colorId",
       timestamps: false,
     });
