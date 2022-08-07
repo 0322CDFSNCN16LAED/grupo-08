@@ -308,5 +308,15 @@
         "password": "$2a$10$iP87soHhAb/hhhM2zZ65pOgjBKI/0Soj8F8JgWOUpLZus7a88TBjC",
         "profile": "defaultImage.jpg",
         "id": 31
+    },
+    {
+        "nombre": "xx",
+        "apellido": "xx",
+        "email": "xx@gmail.com",
+        "telefono": "654",
+        "direccion": "xx",
+        "password": "$2a$10$J4CE/IM3YzrLOg7ez3.ZTO/57sCFfBFZXEiTTHeBrc4A8kQMbxIni",
+        "profile": "defaultImage.jpg",
+        "id": 32
     }
 ]
