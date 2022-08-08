@@ -38,7 +38,7 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.UUID,
       allowNull: false,
     },
-    colorId: {
+    colourId: {
       type: DataTypes.UUID,
       allowNull: false,
     },
@@ -75,7 +75,7 @@ module.exports = function (sequelize, DataTypes) {
     });
     Product.belongsTo(models.Colour, {
       as: "Colour", // el alias de la tabla
-      foreignKey: "colorId",
+      foreignKey: "colourId",
       timestamps: false,
     });
     Product.belongsTo(models.Brand, {
