@@ -17,6 +17,7 @@ const { Room } = require("../database/models");
 const { Style } = require("../database/models");
 const { Colour } = require("../database/models");
 const { Brand } = require("../database/models");
+const { Product } = require("../database/models");
 
 module.exports = {
   // ver todos los productos
@@ -51,21 +52,34 @@ module.exports = {
     });
   },
   //accion de procesar el producto. CREAR
-  store: function (req, res) {
-    // armamos el array de ambientes
-    let ambientes = [];
-    if (req.body.ambientes) {
-      if (typeof req.body.ambientes == "string") {
-        ambientes.push(req.body.ambientes);
-      } else {
-        ambientes = req.body.ambientes;
-      }
-    }
-    // armo el objeto a registrar
+  store: async function (req, res) {
+    console.log("la imageeeennn -> " + req.file);
 
+    let respuesta = await Product.create({
+      ...req.body,
+      freeDelivery: req.body.freeDelivery ? true : false,
+      picture: req.file
+        ? "/images/products/" + req.file.picture
+        : "/images/products/default-image.png",
+    });
+
+    console.log(respuesta);
+    /*
     const newProduct = {
-      nombre: req.body.nombre,
-      categoria: req.body.categoria,
+      id:"asa",
+      name: req.body.name,
+      description:req.body.,
+      price:req.body.,
+      measurements:req.body.,
+      freeDelivery:"",
+      details:req.body.,
+      extraInfo:req.body.,
+      categoryId: req.body.,
+      colorId:req.body.,
+      brandId:req.body.,
+      installmentId:req.body.,
+      styleId:req.body.,
+
       ambiente: ambientes,
       estilo: req.body.estilos,
       precioContado: req.body.precioContado,
@@ -93,7 +107,7 @@ module.exports = {
     }
     products.push(newProduct);
     db.saveAll(products);
-    res.redirect("/products");
+    res.redirect("/products");*/
   },
   // vista para editar detalles de productos
   edit: (req, res) => {
@@ -161,5 +175,4 @@ module.exports = {
 
     res.redirect("/products");
   },
-  
 };
