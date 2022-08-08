@@ -61,7 +61,7 @@ module.exports = {
   showRegister: function (req, res) {
     res.render("users/register");
   },
-  register: function (req, res) {
+  register: async function (req, res) {
     // Metodo que procesar el Registro de usuario nuevo (POST)
     const validationErrors = validationResult(req); // guardo los errores de validacion
     if (!validationErrors.isEmpty()) {
@@ -88,22 +88,24 @@ module.exports = {
         });
       } else {
         // SI NO HAY USUARIO CON ESE MAIL EN LA DB - LO GUARDO
-
-        let users = db.getAll(); //traigo todos los usuarios
-        const newUser = {
-          // guardamos un nuevo usuario con los datos del req
-          name: req.body.name,
-          lastName: req.body.lastName,
-          email: req.body.email,
-          phoneNumber: req.body.phoneNumber,
+        let newAddress = await db.address.create ({
           address: req.body.address,
           city: req.body.city,
           state: req.body.state,
           country: req.body.country,
           zipCode: req.body.zipCode,
-          password: bcryptjs.hashSync(req.body.password, 10), // encriptamos la password
-          profile: req.file ? req.file.filename : "defaultImage.jpg",
-        };
+        })
+        
+        db.user.create({
+            name: req.body.name,
+            lastName: req.body.lastName,
+            email: req.body.email,
+            phoneNumber: req.body.phoneNumber,
+            //addressId: new.address.id,
+            password: bcryptjs.hashSync(req.body.password, 10), 
+            profilePic:req.file ? req.file.filename : "defaultImage.jpg",
+      })
+
 
         if (users.length) {
           // hacemos un nuevo nro de id de usuaro

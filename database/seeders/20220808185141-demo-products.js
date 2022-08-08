@@ -19,11 +19,11 @@ module.exports = {
             details: faker.commerce.productMaterial(),
             extraInfo: faker.commerce.productDescription(),
             picture: "/images/products/lamp.jpg",
-            categoryId: "4ba517d8-b915-4cbb-8b5f-c12dcd1fcd24",
-            colorId: "2180b0ec-f2f3-4ce9-8646-1c0733d039e2",
-            brandId: "52dd3d21-969e-4304-9b97-1c361718744d",
-            installmentId: "8a987f9e-7125-4db9-807b-a846154d9e4f",
-            styleId: "9313c3bf-02a2-4381-b6d4-586f0ef279e8",
+            categoryId: "25532145-efa2-40b1-b4d3-fef9fab664ef",
+            colorId: "6ee962cf-c039-4acd-9023-4f7705b734b6",
+            brandId: "7d26b51e-6c54-4a5a-8e42-7da50a493aab",
+            installmentId: "4f8abd28-ae88-4a9a-be87-7776c9abd87f",
+            styleId: "e289c033-4bdb-4117-a23e-94aa4d77d6e9",
           };
         })
     );
