@@ -1,39 +1,39 @@
-'use strict';
+"use strict";
 const { DataTypes } = require("sequelize");
 
 module.exports = {
-  async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('Address', { 
+  async up(queryInterface, Sequelize) {
+    await queryInterface.createTable("Address", {
       id: {
-        allowNull: false,
         type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
+        allowNull: false,
+        defaultValue: DataTypes.UUIDV4,
       },
       address: {
-        allowNull: false,
         type: DataTypes.STRING,
+        allowNull: false,
       },
       city: {
-        allowNull: false,
         type: DataTypes.STRING,
+        allowNull: false,
       },
       state: {
-        allowNull: false,
         type: DataTypes.STRING,
+        allowNull: false,
       },
       country: {
         type: DataTypes.STRING,
+        allowNull: false,
       },
       zipcode: {
-        allowNull: false,
         type: DataTypes.INTEGER,
-      }
-    });        
+        allowNull: false,
+      },
+    });
   },
 
-  async down (queryInterface, Sequelize) {
-    await queryInterface.dropTable('Address');
-    
-  }
+  async down(queryInterface, Sequelize) {
+    await queryInterface.dropTable("Address");
+  },
 };

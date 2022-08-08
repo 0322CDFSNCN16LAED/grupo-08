@@ -1,40 +1,57 @@
-'use strict';
 const { DataTypes } = require("sequelize");
 
 module.exports = {
-  async up (queryInterface, Sequelize) {
-    await queryInterface.createTable(
-      'Users',
-      { id: {
-          allowNull: false,
-          type: DataTypes.UUID,
-          defaultValue: DataTypes.UUIDV4,
-          primaryKey: true
+  async up(queryInterface, Sequelize) {
+    await queryInterface.createTable("Users", {
+      id: {
+        type: DataTypes.UUID,
+        primaryKey: true,
+        allowNull: false,
+        defaultValue: DataTypes.UUIDV4,
+      },
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      lastname: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+      },
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      phoneNumber: {
+        type: DataTypes.INTEGER,
+      },
+      profilePic: {
+        type: DataTypes.STRING,
+      },
+      userRoleId: {
+        type: DataTypes.UUID,
+        allowNull: false,
+        references: {
+          model: "UserRoles",
+          key: "id",
         },
-        name: {
-          allowNull: false,
-          type: DataTypes.STRING
+      },
+      addressId: {
+        type: DataTypes.UUID,
+        allowNull: false,
+        references: {
+          model: "Address",
+          key: "id",
         },
-        lastName: {
-            allowNull: false,
-            type: DataTypes.STRING
-        },
-        email: {
-            unique: true,
-            type: DataTypes.STRING
-        },
-        phoneNumber: {
-          type: DataTypes.INTEGER
-        },
-        profilePic: {
-          type: DataTypes.STRING
-        },
-       });
-     
+      },
+    });
   },
 
-  async down (queryInterface, Sequelize) {
-    await queryInterface.dropTable('Users');
-    
-  }
+  async down(queryInterface, Sequelize) {
+    await queryInterface.dropTable("Users");
+  },
 };
