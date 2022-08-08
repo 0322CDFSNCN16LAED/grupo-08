@@ -53,9 +53,9 @@ module.exports = {
   },
   //accion de procesar el producto. CREAR
   store: async function (req, res) {
-    console.log("la imageeeennn -> " + req.file);
+    console.log("la imageeeennn -> " + req.file.picture);
 
-    let respuesta = await Product.create({
+    /*let respuesta = await Product.create({
       ...req.body,
       freeDelivery: req.body.freeDelivery ? true : false,
       picture: req.file
@@ -63,7 +63,7 @@ module.exports = {
         : "/images/products/default-image.png",
     });
 
-    console.log(respuesta);
+    console.log(respuesta);*/
     /*
     const newProduct = {
       id:"asa",

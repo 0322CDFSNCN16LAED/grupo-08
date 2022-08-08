@@ -33,7 +33,7 @@ module.exports = function (sequelize, DataTypes) {
 
   // asignamos en nombre de la tabla en la DB
   let config = {
-    tableName: "Addresses",
+    tableName: "Address",
     timestamps: false,
   };
 
@@ -52,4 +52,3 @@ module.exports = function (sequelize, DataTypes) {
 
   return Address;
 };
-
