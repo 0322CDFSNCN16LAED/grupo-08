@@ -3,6 +3,7 @@ const router = express.Router();
 const path = require("path");
 const multer = require("multer");
 
+
 // Middlewares
 const basicRegisterValidations = require("../validation/userValidations");
 const loginValidations = require("../validation/loginValidation");
@@ -40,8 +41,11 @@ router.post("/", loginValidations, usersControllers.processLogin);
 /*Logout */
 router.get("/logout", usersControllers.logout);
 
-/*Formulario de registro */
+
+/*CRUD USERS */
+/* CREATE - Formulario de registro */
 router.get("/register", guestMiddleware, usersControllers.showRegister);
+
 /*Guardar usuario nuevo */
 router.post(
   "/register",
@@ -50,7 +54,7 @@ router.post(
   usersControllers.register
 );
 
-/* Formulario detalle de un usuario */
+/* READ - Formulario detalle de un usuario*/
 router.get(
   "/:id",
   authMiddleware,
@@ -58,7 +62,7 @@ router.get(
   usersControllers.detail
 );
 
-/* Formulario de edicion de usuario */
+/* UPDATE - Formulario de edicion de usuario */
 router.get(
   "/edit/:id",
   authMiddleware,
@@ -68,7 +72,7 @@ router.get(
 /* Guardar edición de usuario */
 router.put("/:id", uploadFile.single("profile"), usersControllers.update);
 
-/* Borrar usuario */
+/* DELETE - Borrar usuario */
 router.delete("/:id", usersControllers.delete);
 
 module.exports = router;

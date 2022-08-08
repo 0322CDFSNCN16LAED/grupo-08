@@ -17,7 +17,7 @@
         <div class="row">
           <div class="col-12">
             <h2 class="products-title align-center">
-              Estas editando: <i> <%=userToEdit.nombre%> </i>
+              Estas editando: <i> <%=userToEdit.name%> </i>
             </h2>
           </div>
           <form
@@ -32,27 +32,27 @@
                   name="profile"
                   id="profile"
                   class="img-thumbnail"
-                  src="/images/usersProfiles/<%=locals.userToEdit.profile%>"
+                  src="/images/usersProfiles/<%=locals.userToEdit.profilePic%>"
                 />
               </div>
 
               <div class="col-4">
-                <label for="nombre" class="form-label col-12">Nombre</label>
+                <label for="name" class="form-label col-12">Nombre</label>
                 <input
-                  value="<%= userToEdit.nombre %> "
+                  value="<%= userToEdit.name %> "
                   type="text"
-                  name="nombre"
-                  id="nombre"
+                  name="name"
+                  id="name"
                   class="form-control col-12"
                 />
               </div>
               <div class="col-4">
-                <label for="apellido" class="form-label">Apellido</label>
+                <label for="lastName" class="form-label">Apellido</label>
                 <input
-                  value="<%= userToEdit.apellido %> "
+                  value="<%= userToEdit.lastName %> "
                   type="text"
-                  name="apellido"
-                  id="apellido"
+                  name="lastName"
+                  id="lastName"
                   class="form-control"
                 />
               </div>
@@ -70,23 +70,67 @@
               <div class="col-12 col-md-6">
                 <label for="tlf" class="form-label">Teléfono</label>
                 <input
-                  value="<%= userToEdit.telefono %> "
+                  value="<%= userToEdit.phoneNumber %> "
                   type="tel"
-                  name="telefono"
-                  id="telefono"
+                  name="phoneNumber"
+                  id="phoneNumber"
                   class="form-control"
                   placeholder="+54 9 11 74128653"
                 />
               </div>
               <div class="col-12">
-                <label for="direccion" class="form-label">Dirección</label>
+                <label for="address" class="form-label">Dirección</label>
                 <input
-                  value="<%= userToEdit.direccion %> "
+                  value="<%= userToEdit.address %> "
                   type="text"
-                  name="direccion"
-                  id="direccion"
+                  name="address"
+                  id="address"
                   class="form-control"
-                  placeholder="Av. Rivadavia 1500, 1ro A. CABA "
+                  placeholder="Calle, altura (piso y departamento)"
+                />
+              </div>
+              <div class="col-12">
+                <label for="city" class="form-label">Ciudad / Localidad</label>
+                <input
+                  value="<%= userToEdit.city %> "
+                  type="text"
+                  name="city"
+                  id="city"
+                  class="form-control"
+                  placeholder="Ciudad / Localidad"
+                />
+              </div>
+              <div class="col-12">
+                <label for="state" class="form-label">Provincia</label>
+                <input
+                  value="<%= userToEdit.state %> "
+                  type="text"
+                  name="state"
+                  id="state"
+                  class="form-control"
+                  placeholder="Provincia"
+                />
+              </div>
+              <div class="col-12">
+                <label for="country" class="form-label">País</label>
+                <input
+                  value="<%= userToEdit.country %> "
+                  type="text"
+                  name="country"
+                  id="country"
+                  class="form-control"
+                  placeholder="País"
+                />
+              </div>
+              <div class="col-12">
+                <label for="zipCode" class="form-label">Código Postal</label>
+                <input
+                  value="<%= userToEdit.zipCode %> "
+                  type="text"
+                  name="zipCode"
+                  id="zipCode"
+                  class="form-control"
+                  placeholder="Código Postal"
                 />
               </div>
               <div class="col-12 col-md-6">
@@ -118,8 +162,8 @@
                 <input
                   class="form-control"
                   type="file"
-                  id="profile"
-                  name="profile"
+                  id="profilePic"
+                  name="profilePic"
                 />
               </div>
               <div class="col-12 mt-3 align-center mt-5">
