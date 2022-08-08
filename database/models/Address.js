@@ -24,9 +24,8 @@ module.exports = function (sequelize, DataTypes) {
     },
     country: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
-    zipcode: {
+    zipCode: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
@@ -34,7 +33,7 @@ module.exports = function (sequelize, DataTypes) {
 
   // asignamos en nombre de la tabla en la DB
   let config = {
-    tableName: "Adreesses",
+    tableName: "Addresses",
     timestamps: false,
   };
 
@@ -46,7 +45,7 @@ module.exports = function (sequelize, DataTypes) {
   Address.associate = function (models) {
     Address.belongsTo(models.User, {
       as: "Users", // el alias de la tabla
-      foreignKey: "usserId",
+      foreignKey: "userId",
       timestamps: false,
     });
   };

@@ -1,6 +1,6 @@
 const bcryptjs = require("bcryptjs"); //Requerimos el encriptador
-const db = require("../data/db-users")
-//const db = require("../database/models/User"); //Requerimos la DB de usuarios
+//const db = require("../data/db-users")
+const db = require("../database/models"); //Requerimos la DB de usuarios
 
 const { validationResult } = require("express-validator");
 
