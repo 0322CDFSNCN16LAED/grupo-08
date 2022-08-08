@@ -1,47 +1,56 @@
-const sequelize = require("sequelize")
+const sequelize = require("sequelize");
 
-module.exports = function (sequelize, DataTypes){
-    let alias = 'Address'
-    let cols = {
-        id: {
-            allowNull: false,
-            type: DataTypes.UUID,
-            defaultValue: DataTypes.UUIDV4,
-            primaryKey: true,
-        },
-        address: {
-            allowNull: false,
-            type: DataTypes.STRING,
-        },
-        city: {
-            allowNull: false,
-            type: DataTypes.STRING,
-        },
-        state: {
-            allowNull: false,
-            type: DataTypes.STRING,
-        },
-        country: {
-            type: DataTypes.STRING,
-        },
-        zipcode: {
-            allowNull: false,
-            type: DataTypes.INTEGER,
-        }
+module.exports = function (sequelize, DataTypes) {
+  let alias = "Address";
+  // configuramos las columnas
+  let cols = {
+    id: {
+      type: DataTypes.UUID,
+      primaryKey: true,
+      allowNull: false,
+      defaultValue: DataTypes.UUIDV4,
+    },
+    address: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    city: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    state: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    country: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    zipcode: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+  };
 
-    }
-    let config = {
-        tableName: 'Addresses',
-        timestamps: false
-    }
-    const Address = sequelize.define(alias, cols, config)
+  // asignamos en nombre de la tabla en la DB
+  let config = {
+    tableName: "Adreesses",
+    timestamps: false,
+  };
 
-    Address.associate = function (models){
-        Address.belongsTo(models.User), {
-            as: 'Users',
-            foreignKey: 'userId',
-            timestamps: false
-        }
-    }
-    return Address
-}
+  // definimos la constante modelo.
+  const Address = sequelize.define(alias, cols, config);
+
+  // creamos la relacion con la tabla
+
+  Address.associate = function (models) {
+    Address.belongsTo(models.User, {
+      as: "Users", // el alias de la tabla
+      foreignKey: "usserId",
+      timestamps: false,
+    });
+  };
+
+  return Address;
+};
+

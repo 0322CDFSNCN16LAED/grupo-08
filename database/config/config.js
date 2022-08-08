@@ -2,7 +2,7 @@ module.exports = {
   "development": {
     "username": "root",
     "password": "HomeDeco2022",
-    "database": "database_development",
+    "database": "decohome",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
@@ -21,3 +21,4 @@ module.exports = {
     "dialect": "mysql"
   }
 }
+

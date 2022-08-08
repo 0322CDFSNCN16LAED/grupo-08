@@ -1,7 +1,7 @@
 const sequelize = require("sequelize");
 
 module.exports = function (sequelize, DataTypes) {
-  let alias = "Room";
+  let alias = "UserRol";
   // configuramos las columnas
   let cols = {
     id: {
@@ -18,24 +18,22 @@ module.exports = function (sequelize, DataTypes) {
 
   // asignamos en nombre de la tabla en la DB
   let config = {
-    tableName: "Rooms",
+    tableName: "UserRoles",
     timestamps: false,
   };
 
   // definimos la constante modelo.
-  const Room = sequelize.define(alias, cols, config);
+  const UserRol = sequelize.define(alias, cols, config);
 
   // creamos la relacion con la tabla
 
-  Room.associate = function (models) {
-    Room.belongsToMany(models.Product, {
-      as: "Products", // el alias de la tabla
-      through: "RoomsProducts", // tabla que rompe la relacion
-      foreignKey: "roomId", // ojo aca verlo
-      otherKey: "productId", // la otra clave foranea
+  UserRol.associate = function (models) {
+    UserRol.hasMany(models.User, {
+      as: "Users", // el alias de la tabla
+      foreignKey: "userRolId", // ojo aca verlo
       timestamps: false,
     });
   };
 
-  return Room;
+  return UserRol;
 };

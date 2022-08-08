@@ -1,56 +1,79 @@
-const sequelize = require("sequelize")
+const sequelize = require("sequelize");
 
-module.exports = function (sequelize, DataTypes){
-    let alias = 'User'
-    let cols = {
-        id: {
-            allowNull: false,
-            type: DataTypes.UUID,
-            defaultValue: DataTypes.UUIDV4,
-            primaryKey: true,
-        },
-        name: {
-            allowNull: false,
-            type: DataTypes.STRING
-        },
-        lastName: {
-            allowNull: false,
-            type: DataTypes.STRING
-        },
-        email: {
-            unique: true,
-            type: DataTypes.STRING
-        },
-        phoneNumber: {
-            type: DataTypes.INTEGER
-        },
-        profilePic: {
-            type: DataTypes.STRING
-        },
-    }
-    let config = {
-        tableName: 'Users',
-        timestamps: false
-    }
-    const User = sequelize.define(alias, cols, config)
+module.exports = function (sequelize, DataTypes) {
+  let alias = "User";
+  // configuramos las columnas
+  let cols = {
+    id: {
+      type: DataTypes.UUID,
+      primaryKey: true,
+      allowNull: false,
+      defaultValue: DataTypes.UUIDV4,
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    lastname: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    phoneNumber: {
+      type: DataTypes.INTEGER,
+    },
+    profilePic: {
+      type: DataTypes.STRING,
+    },
+    userRoleId: {
+      type: DataTypes.UUID,
+      allowNull: false,
+      default: "d3c54232-8d0b-44de-ba8d-fe28cd2ad46f",
+    },
+    addressId: {
+      type: DataTypes.UUID,
+      allowNull: false,
+    },
+  };
 
-    
-    User.associate = function (models){
-        User.belongsTo(models.Style), {
-            as: 'userRole',
-            foreignKey: 'userRoleId',
-            timestamps: false
-        },
-        User.belongsTo(models.Address), {
-            as: 'address',
-            foreignKey: 'addressId',
-            timestamps: false
-        },
-        User.hasMany(models.Order),{
-            as: 'Orders',
-            foreignKey: 'userId',
-            timestamps: false
-        }
-    }
-    return User
-}
+  // asignamos en nombre de la tabla en la DB
+  let config = {
+    tableName: "Users",
+    timestamps: false,
+  };
+
+  // definimos la constante modelo.
+  const User = sequelize.define(alias, cols, config);
+
+  // creamos la relacion con la tabla
+
+  User.associate = function (models) {
+    // relacion con userRol
+    User.belongsTo(models.UserRol, {
+      as: "userRole",
+      foreignKey: "userRoleId",
+      timestamps: false,
+    }),
+      //relacion con address
+      User.belongsTo(models.Address, {
+        as: "adress",
+        foreignKey: "addressId",
+        timestamps: false,
+      }),
+      // relacion con order
+      User.hasMany(models.Order, {
+        as: "Orders", // el alias de la tabla
+        foreignKey: "userId", // ojo aca verlo
+        timestamps: false,
+      });
+  };
+
+  return User;
+};

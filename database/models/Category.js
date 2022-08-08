@@ -1,30 +1,39 @@
-const sequelize = require("sequelize")
+const sequelize = require("sequelize");
 
-module.exports = function (sequelize, DataTypes){
-    let alias = 'Category'
-    
-    let cols = {
-        id: {
-            type: DataTypes.UUID,
-            defaultValue: DataTypes.UUIDV4,
-            primaryKey: true,
-        },
-        name: {
-            type: DataTypes.STRING,
-        }
-    }
-    let config = {
-        tableName: 'Categories',
-        timestamps: false
-    }
-    const Category = sequelize.define(alias, cols, config)
+module.exports = function (sequelize, DataTypes) {
+  let alias = "Category";
+  // configuramos las columnas
+  let cols = {
+    id: {
+      type: DataTypes.UUID,
+      primaryKey: true,
+      allowNull: false,
+      defaultValue: DataTypes.UUIDV4,
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+  };
 
-    Category.associate = function (models){
-        Category.hasMany(models.Product), {
-            as: 'Products',
-            foreignKey: 'productId',
-            timestamps: false
-        }
-    }
-    return Category
-}
+  // asignamos en nombre de la tabla en la DB
+  let config = {
+    tableName: "Categories",
+    timestamps: false,
+  };
+
+  // definimos la constante modelo.
+  const Category = sequelize.define(alias, cols, config);
+
+  // creamos la relacion con la tabla
+
+  Category.associate = function (models) {
+    Category.hasMany(models.Product, {
+      as: "Products", // el alias de la tabla
+      foreignKey: "categoryId", // ojo aca verlo
+      timestamps: false,
+    });
+  };
+
+  return Category;
+};
