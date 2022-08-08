@@ -1,4 +1,3 @@
-"use strict";
 const { DataTypes } = require("sequelize");
 
 module.exports = {
@@ -6,11 +5,13 @@ module.exports = {
     await queryInterface.createTable("UserRoles", {
       id: {
         type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
+        allowNull: false,
+        defaultValue: DataTypes.UUIDV4,
       },
       name: {
         type: DataTypes.STRING,
+        allowNull: false,
       },
     });
   },
