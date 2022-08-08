@@ -1,5 +1,6 @@
 const bcryptjs = require("bcryptjs"); //Requerimos el encriptador
-const db = require("../data/db-users"); //Requerimos la DB de usuarios
+const db = require("../data/db-users")
+//const db = require("../database/models/User"); //Requerimos la DB de usuarios
 
 const { validationResult } = require("express-validator");
 
@@ -55,8 +56,9 @@ module.exports = {
     return res.redirect("/");
   },
 
-  showRegister: function (req, res) {
+  //CRUD DE USUARIOS
     //Metodo que muestra el formulario de Registro de usuarios (GET)
+  showRegister: function (req, res) {
     res.render("users/register");
   },
   register: function (req, res) {
@@ -86,14 +88,19 @@ module.exports = {
         });
       } else {
         // SI NO HAY USUARIO CON ESE MAIL EN LA DB - LO GUARDO
+
         let users = db.getAll(); //traigo todos los usuarios
         const newUser = {
           // guardamos un nuevo usuario con los datos del req
-          nombre: req.body.nombre,
-          apellido: req.body.apellido,
+          name: req.body.name,
+          lastName: req.body.lastName,
           email: req.body.email,
-          telefono: req.body.telefono,
-          direccion: req.body.direccion,
+          phoneNumber: req.body.phoneNumber,
+          address: req.body.address,
+          city: req.body.city,
+          state: req.body.state,
+          country: req.body.country,
+          zipCode: req.body.zipCode,
           password: bcryptjs.hashSync(req.body.password, 10), // encriptamos la password
           profile: req.file ? req.file.filename : "defaultImage.jpg",
         };
@@ -110,6 +117,7 @@ module.exports = {
       }
     }
   },
+
   //vista de todos los usuarios.
   index: function (req, res) {
     let users = db.getAll();
@@ -136,15 +144,19 @@ module.exports = {
     // armo el objeto a modificar
     const editUser = {
       id: user.id,
-      nombre: req.body.nombre,
-      apellido: req.body.apellido,
+      name: req.body.name,
+      lastName: req.body.lastName,
       email: req.body.email,
-      telefono: req.body.telefono,
-      direccion: req.body.direccion,
+      phoneNumber: req.body.phoneNumber,
+      address: req.body.address,
+      city: req.body.city,
+      state: req.body.state,
+      country: req.body.country,
+      zipCode: req.body.zipCode,
       password: req.body.password
         ? bcryptjs.hashSync(req.body.password, 10)
         : user.password,
-      profile: req.file ? req.file.filename : user.profile,
+      profilePic: req.file ? req.file.filename : user.profilePic,
     };
 
     users[usersIndex] = editUser;
