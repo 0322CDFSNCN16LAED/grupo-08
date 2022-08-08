@@ -35,6 +35,7 @@ module.exports = function (sequelize, DataTypes) {
     userRoleId: {
       type: DataTypes.UUID,
       allowNull: false,
+      default: "d3c54232-8d0b-44de-ba8d-fe28cd2ad46f",
     },
     addressId: {
       type: DataTypes.UUID,
