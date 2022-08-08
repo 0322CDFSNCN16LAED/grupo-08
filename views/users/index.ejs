@@ -28,16 +28,20 @@
             <tr class="text-align-c">
               <th scope="row" class="col-2">
                 <a href="/users/<%=user.id %>"
-                  ><%=user.nombre +' '+user.apellido%></a
+                  ><%=user.name +' '+user.lastName%></a
                 >
               </th>
               <td class="col-3"><%=user.email%></td>
-              <td class="col-2"><%=user.telefono%></td>
-              <td class="col-3"><%=user.direccion%></td>
+              <td class="col-2"><%=user.phoneNumber%></td>
+              <td class="col-3"><%=user.address%></td>
+              <td class="col-3"><%=user.city%></td>
+              <td class="col-3"><%=user.state%></td>
+              <td class="col-3"><%=user.country%></td>
+              <td class="col-3"><%=user.zipCode%></td>
               <td class="col-2">
                 <a href="/users/<%=user.id %>">
                   <img
-                    src="/images/usersProfiles/<%=user.profile%>"
+                    src="/images/usersProfiles/<%=user.profilePic%>"
                     class="card-img-top w-20"
                 /></a>
                 <!--<i class="fas fa-user-edit font-gris-claro font-xmedium"></i>
