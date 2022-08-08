@@ -19,7 +19,7 @@ module.exports = {
             details: faker.commerce.productMaterial(),
             extraInfo: faker.commerce.productDescription(),
             picture: "/images/products/lamp.jpg",
-            categoryId: "4ba517d8-b915-4cbb-8b5f-c12dcd1fcd24",
+            categoryId: "4349e76e-60c0-4fd1-86a2-723358137549",
             colorId: "2180b0ec-f2f3-4ce9-8646-1c0733d039e2",
             brandId: "52dd3d21-969e-4304-9b97-1c361718744d",
             installmentId: "8a987f9e-7125-4db9-807b-a846154d9e4f",

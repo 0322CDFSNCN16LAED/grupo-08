@@ -16,7 +16,7 @@ module.exports = {
           password: await bcrypt.hash("123456", 12),
           phoneNumber: 123456789,
           profilePic: "/images/usersProfiles/defaultImage.jpg",
-          userRoleId: "1ae647fc-39bc-4137-bba8-1f3afbd3c2ec",
+          userRoleId: "d04695fd-4cff-4090-a9f3-adaad68191f3",
           addressId: "1e5cface-a6dd-4875-bb27-b1b5ed247b97",
         },
         {
@@ -27,7 +27,7 @@ module.exports = {
           password: await bcrypt.hash("123456", 12),
           phoneNumber: 123456789,
           profilePic: "/images/usersProfiles/defaultImage.jpg",
-          userRoleId: "1ae647fc-39bc-4137-bba8-1f3afbd3c2ec",
+          userRoleId: "d04695fd-4cff-4090-a9f3-adaad68191f3",
           addressId: "1e5cface-a6dd-4875-bb27-b1b5ed247b97",
         },
         {
@@ -38,7 +38,7 @@ module.exports = {
           password: await bcrypt.hash("123456", 12),
           phoneNumber: 123456789,
           profilePic: "/images/usersProfiles/defaultImage.jpg",
-          userRoleId: "1ae647fc-39bc-4137-bba8-1f3afbd3c2ec",
+          userRoleId: "d04695fd-4cff-4090-a9f3-adaad68191f3",
           addressId: "1e5cface-a6dd-4875-bb27-b1b5ed247b97",
         },
         {
@@ -49,7 +49,7 @@ module.exports = {
           password: await bcrypt.hash("123456", 12),
           phoneNumber: 123456789,
           profilePic: "/images/usersProfiles/defaultImage.jpg",
-          userRoleId: "1ae647fc-39bc-4137-bba8-1f3afbd3c2ec",
+          userRoleId: "d04695fd-4cff-4090-a9f3-adaad68191f3",
           addressId: "1e5cface-a6dd-4875-bb27-b1b5ed247b97",
         },
         {
@@ -60,7 +60,7 @@ module.exports = {
           password: await bcrypt.hash("123456", 12),
           phoneNumber: 123456789,
           profilePic: "/images/usersProfiles/defaultImage.jpg",
-          userRoleId: "1ae647fc-39bc-4137-bba8-1f3afbd3c2ec",
+          userRoleId: "d04695fd-4cff-4090-a9f3-adaad68191f3",
           addressId: "1e5cface-a6dd-4875-bb27-b1b5ed247b97",
         },
       ],
