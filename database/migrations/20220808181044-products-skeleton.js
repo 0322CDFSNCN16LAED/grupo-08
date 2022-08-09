@@ -82,7 +82,7 @@ module.exports = {
         allowNull: false,
         defaultValue: DataTypes.UUIDV4,
       },
-      idRoom: {
+      roomId: {
         type: DataTypes.UUID,
         allowNull: false,
         references: {
@@ -90,7 +90,7 @@ module.exports = {
           key: "id",
         },
       },
-      idProduct: {
+      productId: {
         type: DataTypes.UUID,
         allowNull: false,
         references: {

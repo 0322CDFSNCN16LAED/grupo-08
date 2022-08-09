@@ -55,17 +55,16 @@
             <a href="/products/<%=product.id%>">
               <div class="card p-3 product-box">
                 <img
-                  src="<%=product.imagen%>"
+                  src="<%=product.picture%>"
                   alt=""
                   class="product-box_image"
                 />
 
                 <div class="card-body align-center">
-                  <p class="display-6"><strong><%= product.nombre%></strong></p>
-                  <p class="display-6"><%= product.categoria%></p>
+                  <p class="display-6"><strong><%= product.name%></strong></p>
+                  <p class="display-6"><%= product.Category.name%></p>
                   <p class="display-6">
-                    $ <%= new
-                    Intl.NumberFormat('de-DE').format(product.precioContado)%>
+                    $ <%= new Intl.NumberFormat('de-DE').format(product.price)%>
                   </p>
                   <span class="inline-block">
                     <a
@@ -73,13 +72,6 @@
                       class="btn btn-outline-primary btn-lg product-btn"
                       >AGREGAR AL CARRITO</a
                     >
-                    <!--<form class = "btn-outline-primary"
-                      action="/products/delete<%= product.id %>?_method=delete"
-                      method="POST"
-                      style="display: inline-flex"
-                    >
-                      <button type="submit" class="btn btn-danger">Eliminar</button>
-                    </form>-->
                   </span>
                 </div>
               </div>
