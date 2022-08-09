@@ -100,6 +100,7 @@ module.exports = function (sequelize, DataTypes) {
       foreignKey: "productId",
       otherKey: "roomId",
       timestamps: false,
+      onDelete: "cascade",
     });
     Product.belongsToMany(models.Order, {
       as: "Order", // el alias de la tabla
@@ -107,6 +108,7 @@ module.exports = function (sequelize, DataTypes) {
       foreignKey: "productId",
       otherKey: "orderId",
       timestamps: false,
+      onDelete: "cascade",
     });
   };
 

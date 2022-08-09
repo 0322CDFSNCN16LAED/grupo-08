@@ -93,15 +93,23 @@ module.exports = {
     res.redirect("/products");
   },
   // vista para editar detalles de productos
-  edit: (req, res) => {
-    let id = req.params.id;
-    let productEdit = products.find((productos) => productos.id == id);
+  edit: async (req, res) => {
+    const productEdit = Product.findByPk(req.params.id);
+    let vInstallments = await Installment.findAll();
+    let vCategorys = await Category.findAll();
+    let vRooms = await Room.findAll();
+    let vStyles = await Style.findAll();
+    let vColours = await Colour.findAll();
+    let vBrands = await Brand.findAll();
+
     res.render("products/productos-edit-product", {
       productoEditar: productEdit,
-      cuotas,
-      categorias,
-      estilos,
-      ambientes,
+      vInstallments,
+      vCategorys,
+      vRooms,
+      vStyles,
+      vColours,
+      vBrands,
     });
   },
   // accion de actualizar un producto.
@@ -149,13 +157,33 @@ module.exports = {
     res.redirect("/products");
   },
   // accion de eliminar un producto
-  destroy: (req, res) => {
-    const filterProductos = products.filter((producto) => {
-      return producto.id != req.params.id;
-    });
+  destroy: async (req, res) => {
+    const productoId = req.params.id;
+    try {
+      const product = await Product.findByPk(productoId);
+      if (product) {
+        await RoomProduct.destroy({ where: { productId: productoId } });
+        await Product.destroy({ where: { id: productoId } });
+        res.redirect("/products");
+      }
+    } catch (error) {
+      res.send("el errrrrrrrrrrrror " + error);
+    }
 
-    db.saveAll(filterProductos);
+    /*
 
-    res.redirect("/products");
+      
+      console.log("el valor de producr -->" + productId);
+      await Product.destroy({ where: { id: productId }, force: true });
+
+      /*await Product.destroy({
+        where: { id: productId },
+        force: true,
+      });*/
+
+    /*  } catch (error) {
+      console.error(error);
+      res.send(error);
+    }*/
   },
 };

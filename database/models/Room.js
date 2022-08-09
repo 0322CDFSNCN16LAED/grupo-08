@@ -34,6 +34,7 @@ module.exports = function (sequelize, DataTypes) {
       foreignKey: "roomId", // ojo aca verlo
       otherKey: "productId", // la otra clave foranea
       timestamps: false,
+      onDelete: "cascade",
     });
   };
 
