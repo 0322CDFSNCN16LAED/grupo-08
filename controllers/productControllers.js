@@ -23,19 +23,25 @@ const { RoomProduct } = require("../database/models");
 module.exports = {
   // ver todos los productos
   index: async (req, res) => {
-    // try {
-    products = await Product.findAll({
-      include: ["Category"],
-    });
-    //   console.log(products);
-    //  } catch (error) {
-    //   console.error("aca el error ---> " + error);
-    //  }
+    try {
+      products = await Product.findAll({
+        include: ["Category"],
+      });
+    } catch (error) {
+      console.error("Error listar productos ---> " + error);
+    }
     res.render("products/products", { productos: products });
   },
   //ver el detalle de cada producto
-  detail: (req, res) => {
-    res.render("products/details", { producto: db.getOne(req.params.id) });
+  detail: async (req, res) => {
+    try {
+      let producto = await Product.findByPk(req.params.id, {
+        include: ["Category", "Style", "Room"],
+      });
+      res.render("products/details", { producto });
+    } catch (error) {
+      console.error("error en Detalle de producto ---->" + error);
+    }
   },
   //crear un nuevo producto
   create: async (req, res) => {

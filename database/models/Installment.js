@@ -1,7 +1,7 @@
 const sequelize = require("sequelize");
 
 module.exports = function (sequelize, DataTypes) {
-  let alias = "Installments";
+  let alias = "Installment";
   // configuramos las columnas
   let cols = {
     id: {
@@ -30,7 +30,7 @@ module.exports = function (sequelize, DataTypes) {
   Installments.associate = function (models) {
     Installments.hasMany(models.Product, {
       as: "Products", // el alias de la tabla
-      foreignKey: "installmentsId", // ojo aca verlo
+      foreignKey: "installmentId", // ojo aca verlo
       timestamps: false,
     });
   };
