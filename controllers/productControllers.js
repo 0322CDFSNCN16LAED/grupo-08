@@ -45,25 +45,24 @@ module.exports = {
   },
   //crear un nuevo producto
   create: async (req, res) => {
-    //try {
-    let vInstallments = await Installment.findAll();
-    let vCategorys = await Category.findAll();
-    let vRooms = await Room.findAll();
-    let vStyles = await Style.findAll();
-    let vColours = await Colour.findAll();
-    let vBrands = await Brand.findAll();
-    //} catch (error) {
-    //  console.error("aca el error ---> " + error);
-    // }
-
-    res.render("products/products-create-form", {
-      vInstallments,
-      vCategorys,
-      vStyles,
-      vRooms,
-      vColours,
-      vBrands,
-    });
+    try {
+      let vInstallments = await Installment.findAll();
+      let vCategorys = await Category.findAll();
+      let vRooms = await Room.findAll();
+      let vStyles = await Style.findAll();
+      let vColours = await Colour.findAll();
+      let vBrands = await Brand.findAll();
+      res.render("products/products-create-form", {
+        vInstallments,
+        vCategorys,
+        vStyles,
+        vRooms,
+        vColours,
+        vBrands,
+      });
+    } catch (error) {
+      console.error("Error en Create Product---> " + error);
+    }
   },
   //accion de procesar el producto. CREAR
   store: async function (req, res) {
