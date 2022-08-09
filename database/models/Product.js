@@ -13,17 +13,37 @@ module.exports = function (sequelize, DataTypes) {
     name: {
       type: DataTypes.STRING,
     },
-    description: {
-      type: DataTypes.TEXT,
+    categoryId: {
+      type: DataTypes.UUID,
+      allowNull: false,
+    },
+    styleId: {
+      type: DataTypes.UUID,
+      allowNull: false,
     },
     price: {
       type: DataTypes.DECIMAL(25, 2),
     },
-    measurements: {
-      type: DataTypes.STRING,
+    installmentsId: {
+      type: DataTypes.UUID,
+      allowNull: false,
     },
     freeDelivery: {
       type: DataTypes.INTEGER,
+    },
+    brandId: {
+      type: DataTypes.UUID,
+      allowNull: false,
+    },
+    description: {
+      type: DataTypes.TEXT,
+    },
+    measurements: {
+      type: DataTypes.STRING,
+    },
+    colourId: {
+      type: DataTypes.UUID,
+      allowNull: false,
     },
     details: {
       type: DataTypes.STRING,
@@ -33,26 +53,6 @@ module.exports = function (sequelize, DataTypes) {
     },
     picture: {
       type: DataTypes.STRING,
-    },
-    categoryId: {
-      type: DataTypes.UUID,
-      allowNull: false,
-    },
-    colourId: {
-      type: DataTypes.UUID,
-      allowNull: false,
-    },
-    brandId: {
-      type: DataTypes.UUID,
-      allowNull: false,
-    },
-    installmentId: {
-      type: DataTypes.UUID,
-      allowNull: false,
-    },
-    styleId: {
-      type: DataTypes.UUID,
-      allowNull: false,
     },
   };
 
@@ -83,9 +83,9 @@ module.exports = function (sequelize, DataTypes) {
       foreignKey: "brandId",
       timestamps: false,
     });
-    Product.belongsTo(models.Installment, {
-      as: "Installment", // el alias de la tabla
-      foreignKey: "installmentId",
+    Product.belongsTo(models.Installments, {
+      as: "Installments", // el alias de la tabla
+      foreignKey: "installmentsId",
       timestamps: false,
     });
     Product.belongsTo(models.Style, {

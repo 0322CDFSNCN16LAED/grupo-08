@@ -1,6 +1,6 @@
 const bcryptjs = require("bcryptjs"); //Requerimos el encriptador
-const db = require("../data/db-users")
-//const db = require("../database/models/User"); //Requerimos la DB de usuarios
+const db = require("../data/db-users")//DBJSON
+const database = require("../database/models"); //Requerimos la DB de usuarios
 
 const { validationResult } = require("express-validator");
 
@@ -58,10 +58,12 @@ module.exports = {
 
   //CRUD DE USUARIOS
     //Metodo que muestra el formulario de Registro de usuarios (GET)
-  showRegister: function (req, res) {
-    res.render("users/register");
+  showRegister: async function (req, res) {
+    let userRoles = await database.UserRole.findAll();
+        console.log(userRoles)  
+        return res.render("users/register", {userRoles});
   },
-  register: function (req, res) {
+  register: async function (req, res) {
     // Metodo que procesar el Registro de usuario nuevo (POST)
     const validationErrors = validationResult(req); // guardo los errores de validacion
     if (!validationErrors.isEmpty()) {
@@ -88,31 +90,25 @@ module.exports = {
         });
       } else {
         // SI NO HAY USUARIO CON ESE MAIL EN LA DB - LO GUARDO
-
-        let users = db.getAll(); //traigo todos los usuarios
-        const newUser = {
-          // guardamos un nuevo usuario con los datos del req
-          name: req.body.name,
-          lastName: req.body.lastName,
-          email: req.body.email,
-          phoneNumber: req.body.phoneNumber,
+        let newAddress = await database.Address.create ({
           address: req.body.address,
           city: req.body.city,
           state: req.body.state,
           country: req.body.country,
           zipCode: req.body.zipCode,
-          password: bcryptjs.hashSync(req.body.password, 10), // encriptamos la password
-          profile: req.file ? req.file.filename : "defaultImage.jpg",
-        };
+        })
 
-        if (users.length) {
-          // hacemos un nuevo nro de id de usuaro
-          newUser.id = users[users.length - 1].id + 1;
-        } else {
-          newUser.id = 1;
-        }
-        users.push(newUser); //pusheamos en el array el nuevo usuario
-        db.saveAll(users); // metodo guardar que sobreescribe la db
+        database.User.create({
+            name: req.body.name,
+            lastname: req.body.lastname,
+            email: req.body.email,
+            phoneNumber: req.body.phoneNumber,
+            addressId: newAddress.dataValues.id,
+            password: bcryptjs.hashSync(req.body.password, 10), 
+            profilePic:req.file ? req.file.filename : "defaultImage.jpg",
+            userRole: req.body.userRoleId,
+            
+      })
         res.redirect("/users");
       }
     }

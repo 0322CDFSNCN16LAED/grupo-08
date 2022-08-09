@@ -37,7 +37,7 @@ module.exports = function (sequelize, DataTypes) {
   // esta es la relacion con usuarios
   Order.associate = function (models) {
     Order.belongsTo(models.User, {
-      as: "Users", // el alias de la tabla
+      as: "User", // el alias de la tabla
       foreignKey: "userId", // ojo aca verlo
       timestamps: false,
     });

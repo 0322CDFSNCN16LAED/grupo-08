@@ -49,7 +49,7 @@ router.get("/register", guestMiddleware, usersControllers.showRegister);
 /*Guardar usuario nuevo */
 router.post(
   "/register",
-  uploadFile.single("profile"),
+  uploadFile.single("profilePic"),
   basicRegisterValidations,
   usersControllers.register
 );

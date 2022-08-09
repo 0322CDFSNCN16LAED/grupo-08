@@ -24,9 +24,8 @@ module.exports = function (sequelize, DataTypes) {
     },
     country: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
-    zipcode: {
+    zipCode: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
