@@ -18,96 +18,79 @@ const { Style } = require("../database/models");
 const { Colour } = require("../database/models");
 const { Brand } = require("../database/models");
 const { Product } = require("../database/models");
+const { RoomProduct } = require("../database/models");
 
 module.exports = {
   // ver todos los productos
-  index: (req, res) => {
-    products = db.getAll();
+  index: async (req, res) => {
+    try {
+      products = await Product.findAll({
+        include: ["Category"],
+      });
+    } catch (error) {
+      console.error("Error listar productos ---> " + error);
+    }
     res.render("products/products", { productos: products });
   },
   //ver el detalle de cada producto
-  detail: (req, res) => {
-    res.render("products/details", { producto: db.getOne(req.params.id) });
+  detail: async (req, res) => {
+    try {
+      let producto = await Product.findByPk(req.params.id, {
+        include: ["Category", "Style", "Room"],
+      });
+      res.render("products/details", { producto });
+    } catch (error) {
+      console.error("error en Detalle de producto ---->" + error);
+    }
   },
   //crear un nuevo producto
   create: async (req, res) => {
-    //try {
-    let vInstallments = await Installment.findAll();
-    let vCategorys = await Category.findAll();
-    let vRooms = await Room.findAll();
-    let vStyles = await Style.findAll();
-    let vColours = await Colour.findAll();
-    let vBrands = await Brand.findAll();
-    //} catch (error) {
-    //  console.error("aca el error ---> " + error);
-    // }
-
-    res.render("products/products-create-form", {
-      vInstallments,
-      vCategorys,
-      vStyles,
-      vRooms,
-      vColours,
-      vBrands,
-    });
+    try {
+      let vInstallments = await Installment.findAll();
+      let vCategorys = await Category.findAll();
+      let vRooms = await Room.findAll();
+      let vStyles = await Style.findAll();
+      let vColours = await Colour.findAll();
+      let vBrands = await Brand.findAll();
+      res.render("products/products-create-form", {
+        vInstallments,
+        vCategorys,
+        vStyles,
+        vRooms,
+        vColours,
+        vBrands,
+      });
+    } catch (error) {
+      console.error("Error en Create Product---> " + error);
+    }
   },
   //accion de procesar el producto. CREAR
   store: async function (req, res) {
-    console.log("la imageeeennn -> " + req.file.picture);
-
-    /*let respuesta = await Product.create({
+    let resp = await Product.create({
       ...req.body,
+      price: req.body.price.trim().replace(",", "."),
       freeDelivery: req.body.freeDelivery ? true : false,
       picture: req.file
-        ? "/images/products/" + req.file.picture
+        ? "/images/products/" + req.file.filename
         : "/images/products/default-image.png",
     });
-
-    console.log(respuesta);*/
-    /*
-    const newProduct = {
-      id:"asa",
-      name: req.body.name,
-      description:req.body.,
-      price:req.body.,
-      measurements:req.body.,
-      freeDelivery:"",
-      details:req.body.,
-      extraInfo:req.body.,
-      categoryId: req.body.,
-      colorId:req.body.,
-      brandId:req.body.,
-      installmentId:req.body.,
-      styleId:req.body.,
-
-      ambiente: ambientes,
-      estilo: req.body.estilos,
-      precioContado: req.body.precioContado,
-      cantidadDeCuotas: req.body.cantidadDeCuotas,
-      precioCuota: req.body.precioCuota,
-      envioGratis: req.body.envioGratis ? true : false,
-      alt: req.body.alt,
-      descripcion: req.body.descripcion,
-      medidas: req.body.medidas,
-      color: req.body.color,
-      detalles: req.body.detalles.split(","),
-      infoExtra: req.body.infoExtra.split(","),
-    };
-    // se genera el id
-    if (products.length) {
-      newProduct.id = products[products.length - 1].id + 1;
-    } else {
-      newProduct.id = 1;
+    let ambientes = [];
+    if (req.body.rooms) {
+      if (typeof req.body.rooms == "string") {
+        ambientes.push(req.body.rooms);
+      } else {
+        ambientes = req.body.rooms;
+      }
     }
-    // verificamos si existe el archivo
-    if (req.file) {
-      newProduct.imagen = "/images/products/" + req.file.filename;
-    } else {
-      newProduct.imagen = "/images/products/default-image.png";
+    if (ambientes.length > 0) {
+      ambientes.forEach(async (element) => {
+        await RoomProduct.create({
+          roomId: element,
+          productId: resp.dataValues.id,
+        });
+      });
     }
-    products.push(newProduct);
-    db.saveAll(products);
-    res.redirect("/products");*/
+    res.redirect("/products");
   },
   // vista para editar detalles de productos
   edit: (req, res) => {

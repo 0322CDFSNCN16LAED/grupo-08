@@ -24,7 +24,7 @@ module.exports = function (sequelize, DataTypes) {
     price: {
       type: DataTypes.DECIMAL(25, 2),
     },
-    installmentsId: {
+    installmentId: {
       type: DataTypes.UUID,
       allowNull: false,
     },
@@ -69,27 +69,27 @@ module.exports = function (sequelize, DataTypes) {
 
   Product.associate = function (models) {
     Product.belongsTo(models.Category, {
-      as: "Category", // el alias de la tabla
+      as: "Category", // el alias de la relacion
       foreignKey: "categoryId",
       timestamps: false,
     });
     Product.belongsTo(models.Colour, {
-      as: "Colour", // el alias de la tabla
+      as: "Colour", // el alias de la relacion
       foreignKey: "colourId",
       timestamps: false,
     });
     Product.belongsTo(models.Brand, {
-      as: "Brand", // el alias de la tabla
+      as: "Brand", // el alias de la relacion
       foreignKey: "brandId",
       timestamps: false,
     });
-    Product.belongsTo(models.Installments, {
-      as: "Installments", // el alias de la tabla
-      foreignKey: "installmentsId",
+    Product.belongsTo(models.Installment, {
+      as: "Installment", // el alias de la relacion
+      foreignKey: "installmentId",
       timestamps: false,
     });
     Product.belongsTo(models.Style, {
-      as: "Style", // el alias de la tabla
+      as: "Style", // el alias de la relacion
       foreignKey: "styleId",
       timestamps: false,
     });

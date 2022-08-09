@@ -19,39 +19,44 @@
             <div class="row">
               <div class="col-12 col-lg-8">
                 <img
-                  src="<%=producto.imagen%>"
-                  alt="<%=producto.alt%>"
+                  src="<%=producto.picture%>"
+                  alt="<%=producto.name%>"
                   class="product-detail-img"
                 />
               </div>
               <div class="col-12 col-lg-4">
                 <div class="row">
                   <div class="col-12 display-6 align-center">
-                    <%= producto.nombre%>
+                    <%= producto.name%>
                   </div>
                   <div class="col-12 display-6 align-center">
-                    $<%= new
-                    Intl.NumberFormat('de-DE').format(producto.precioContado)%>
+                    $<%= new Intl.NumberFormat('de-DE').format(producto.price)%>
                   </div>
-                  <div class="col-12"><%= producto.descripcion%></div>
+                  <div class="col-12"><%= producto.description%></div>
                   <div class="col-12 font-black"><hr class="hr-detail" /></div>
-
+                  <!--agregarle las viñetas-->
                   <div class="col-4">Categoria</div>
-                  <div class="col-8"><%= producto.categoria%></div>
+                  <div class="col-8"><%= producto.Category.name%></div>
                   <div class="col-4">Estilo</div>
-                  <div class="col-8"><%= producto.estilo%></div>
+                  <div class="col-8"><%= producto.Style.name%></div>
+                  <!--ambientes-->
                   <div class="col-4">Ambientes</div>
-                  <div class="col-8"><%= producto.ambiente.join('/ ')%></div>
-                  <div class="col-4">Medidas</div>
-                  <div class="col-8"><%= producto.medidas%></div>
-
-                  <div class="col-12 font-black"><hr class="hr-detail" /></div>
-                  <div class="col-12">
-                    <% producto.detalles.forEach(det => {%>
-                    <div class="col-12"><li><%=det%></li></div>
+                  <div class="col-8">
+                    <% producto.Room.forEach(room =>{ %>
+                    <span><%=room.name%> </span>
                     <% }) %>
                   </div>
-                  <div class="col-12 font-black"><hr class="" /></div>
+                  <!--medidas-->
+                  <div class="col-4">Medidas</div>
+                  <div class="col-8"><%= producto.measurements%></div>
+                  <!--detalles-->
+                  <div class="col-12 font-black"><hr class="hr-detail" /></div>
+                  <div class="col-4">Caracteristicas</div>
+                  <div class="col-8">
+                    <% producto.details.split(',').forEach(detail =>{ %>
+                    <li><%=detail%></li>
+                    <% }) %>
+                  </div>
                   <div class="col-12">
                     <label for="cantidad">Cantidad</label>
                     <input
