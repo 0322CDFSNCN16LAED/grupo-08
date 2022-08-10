@@ -36,8 +36,9 @@ module.exports = {
   detail: async (req, res) => {
     try {
       let producto = await Product.findByPk(req.params.id, {
-        include: ["Category", "Style", "Room"],
+        include: ["Category", "Style", "Rooms"],
       });
+      //res.send(producto);
       res.render("products/details", { producto });
     } catch (error) {
       console.error("error en Detalle de producto ---->" + error);
@@ -66,51 +67,78 @@ module.exports = {
   },
   //accion de procesar el producto. CREAR
   store: async function (req, res) {
-    let resp = await Product.create({
-      ...req.body,
-      price: req.body.price.trim().replace(",", "."),
-      freeDelivery: req.body.freeDelivery ? true : false,
-      picture: req.file
-        ? "/images/products/" + req.file.filename
-        : "/images/products/default-image.png",
-    });
-    let ambientes = [];
-    if (req.body.rooms) {
-      if (typeof req.body.rooms == "string") {
-        ambientes.push(req.body.rooms);
-      } else {
-        ambientes = req.body.rooms;
-      }
-    }
-    if (ambientes.length > 0) {
-      ambientes.forEach(async (element) => {
-        await RoomProduct.create({
-          roomId: element,
-          productId: resp.dataValues.id,
-        });
+    try {
+      let resp = await Product.create({
+        ...req.body,
+        price: req.body.price.trim().replace(",", "."),
+        freeDelivery: req.body.freeDelivery ? true : false,
+        picture: req.file
+          ? "/images/products/" + req.file.filename
+          : "/images/products/default-image.png",
       });
+      let ambientes = [];
+      if (req.body.rooms) {
+        if (typeof req.body.rooms == "string") {
+          ambientes.push(req.body.rooms);
+        } else {
+          ambientes = req.body.rooms;
+        }
+      }
+      if (ambientes.length > 0) {
+        ambientes.forEach(async (element) => {
+          await RoomProduct.create({
+            roomId: element,
+            productId: resp.dataValues.id,
+          });
+        });
+      }
+      res.redirect("/products");
+    } catch (error) {
+      console.log("error en create " + error);
+      res.send(error);
     }
-    res.redirect("/products");
   },
   // vista para editar detalles de productos
   edit: async (req, res) => {
-    const productEdit = Product.findByPk(req.params.id);
-    let vInstallments = await Installment.findAll();
-    let vCategorys = await Category.findAll();
-    let vRooms = await Room.findAll();
-    let vStyles = await Style.findAll();
-    let vColours = await Colour.findAll();
-    let vBrands = await Brand.findAll();
-
-    res.render("products/productos-edit-product", {
-      productoEditar: productEdit,
+    const productEdit = await Product.findByPk(req.params.id);
+    const vInstallments = await Installment.findAll();
+    const vCategorys = await Category.findAll();
+    const vRooms = await Room.findAll();
+    const vStyles = await Style.findAll();
+    const vColours = await Colour.findAll();
+    const vBrands = await Brand.findAll();
+    console.log(vInstallments);
+    Promise.all([
+      productEdit,
       vInstallments,
       vCategorys,
       vRooms,
       vStyles,
       vColours,
       vBrands,
-    });
+    ])
+      .then(
+        ([
+          productoEdit,
+          allInstallments,
+          allCategorys,
+          allRooms,
+          allStyles,
+          allColours,
+          allBrands,
+        ]) => {
+          res.render("products/productos-edit-product", {
+            productoEditar: productoEdit,
+            vInstallments: allInstallments,
+            vCategorys: allCategorys,
+            vRooms: allRooms,
+            vStyles: allStyles,
+            vColours: allColours,
+            vBrands: allBrands,
+          });
+        }
+      )
+      .catch((error) => res.send(error));
   },
   // accion de actualizar un producto.
   update: (req, res) => {
@@ -162,10 +190,16 @@ module.exports = {
     try {
       const product = await Product.findByPk(productoId);
       if (product) {
+        await product.setRooms([]);
+        //await product.setOrder([]); falta el logico de orders
+        await product.destroy();
+        res.redirect("/products");
+      }
+      /*if (product) {
         await RoomProduct.destroy({ where: { productId: productoId } });
         await Product.destroy({ where: { id: productoId } });
         res.redirect("/products");
-      }
+      }*/
     } catch (error) {
       res.send("el errrrrrrrrrrrror " + error);
     }

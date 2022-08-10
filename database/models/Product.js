@@ -95,7 +95,7 @@ module.exports = function (sequelize, DataTypes) {
     });
     // muchos a muchos
     Product.belongsToMany(models.Room, {
-      as: "Room", // el alias de la tabla
+      as: "Rooms", // el alias de la tabla
       through: "RoomsProducts",
       foreignKey: "productId",
       otherKey: "roomId",
@@ -103,7 +103,7 @@ module.exports = function (sequelize, DataTypes) {
       onDelete: "cascade",
     });
     Product.belongsToMany(models.Order, {
-      as: "Order", // el alias de la tabla
+      as: "Orders", // deberia ser el plural
       through: "OrdersProducts",
       foreignKey: "productId",
       otherKey: "orderId",

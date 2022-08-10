@@ -42,9 +42,10 @@
                   <!--ambientes-->
                   <div class="col-4">Ambientes</div>
                   <div class="col-8">
-                    <% producto.Room.forEach(room =>{ %>
+                    <% if(typeof(producto.Rooms)!=='undefined' &&
+                    producto.Rooms.length>0) { producto.Rooms.forEach(room=>{ %>
                     <span><%=room.name%> </span>
-                    <% }) %>
+                    <% }) } %>
                   </div>
                   <!--medidas-->
                   <div class="col-4">Medidas</div>
