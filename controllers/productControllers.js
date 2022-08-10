@@ -100,14 +100,18 @@ module.exports = {
   },
   // vista para editar detalles de productos
   edit: async (req, res) => {
-    const productEdit = await Product.findByPk(req.params.id);
+    const productEdit = await Product.findByPk(req.params.id, {
+      include: ["Rooms"],
+    });
     const vInstallments = await Installment.findAll();
     const vCategorys = await Category.findAll();
     const vRooms = await Room.findAll();
     const vStyles = await Style.findAll();
     const vColours = await Colour.findAll();
     const vBrands = await Brand.findAll();
-    console.log(vInstallments);
+    console.log("************************************************************");
+    console.log(productEdit.Rooms);
+    //res.send(productEdit.Rooms);
     Promise.all([
       productEdit,
       vInstallments,
