@@ -3,7 +3,7 @@ const { body } = require("express-validator");
 /*VALIDACIONES BASICAS CON EXPRESS VALIDATOR PARA EL REGISTER*/
 const basicRegisterValidations = [
   body("name").notEmpty().withMessage("Debe ingresar un nombre de usuario"),
-  body("lastName")
+  body("lastname")
     .notEmpty()
     .withMessage("Debe ingresar un apellido de usuario"),
   body("email")

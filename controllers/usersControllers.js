@@ -59,18 +59,19 @@ module.exports = {
   //CRUD DE USUARIOS
     //Metodo que muestra el formulario de Registro de usuarios (GET)
   showRegister: async function (req, res) {
-    let userRoles = await database.UserRole.findAll();
-        console.log(userRoles)  
-        return res.render("users/register", {userRoles});
+    let userRoles = await database.UserRole.findAll({raw:true, nest: true});
+      return res.render("users/register", {userRoles});
   },
   register: async function (req, res) {
+    let userRoles = await database.UserRole.findAll({raw:true, nest: true});
     // Metodo que procesar el Registro de usuario nuevo (POST)
     const validationErrors = validationResult(req); // guardo los errores de validacion
     if (!validationErrors.isEmpty()) {
       // SI HAY ERRORES, renderizo el formulario
-      res.render("users/register", {
+      res.render("users/register" , {
         errors: validationErrors.mapped(), // con los errores mappeados y
         oldData: req.body, // los datos que sí pasaron la validacion
+        userRoles
       });
     } else {
       // SI NO HAY ERRORES de validacion
@@ -87,10 +88,12 @@ module.exports = {
             },
           },
           oldData: req.body, // y los datos que sì pasaron la validacion
+          userRoles
         });
       } else {
+        
         // SI NO HAY USUARIO CON ESE MAIL EN LA DB - LO GUARDO
-        let newAddress = await database.Address.create ({
+        let newAddress = await database.Address.create ({//primero guardando su dirección
           address: req.body.address,
           city: req.body.city,
           state: req.body.state,
@@ -98,7 +101,7 @@ module.exports = {
           zipCode: req.body.zipCode,
         })
 
-        database.User.create({
+      database.User.create({ // y luego usando el metodo CREATE de Sequelize
             name: req.body.name,
             lastname: req.body.lastname,
             email: req.body.email,
@@ -106,10 +109,11 @@ module.exports = {
             addressId: newAddress.dataValues.id,
             password: bcryptjs.hashSync(req.body.password, 10), 
             profilePic:req.file ? req.file.filename : "defaultImage.jpg",
-            userRole: req.body.userRoleId,
+            userRoleId: req.body.userRoleId,
             
       })
-        res.redirect("/users");
+        console.log(req.body)
+        res.redirect("/");
       }
     }
   },
@@ -141,7 +145,7 @@ module.exports = {
     const editUser = {
       id: user.id,
       name: req.body.name,
-      lastName: req.body.lastName,
+      lastname: req.body.lastname,
       email: req.body.email,
       phoneNumber: req.body.phoneNumber,
       address: req.body.address,

@@ -70,7 +70,7 @@ router.get(
   usersControllers.edit
 );
 /* Guardar edición de usuario */
-router.put("/:id", uploadFile.single("profile"), usersControllers.update);
+router.put("/:id", uploadFile.single("profilePic"), usersControllers.update);
 
 /* DELETE - Borrar usuario */
 router.delete("/:id", usersControllers.delete);
