@@ -121,21 +121,18 @@ module.exports = {
   },
   //READ - listar todos los usuarios
   index: async function (req, res){
-    try {
-    let userRoles = await database.UserRole.findAll({raw:true, nest: true});//traigo el modelo de userRoles
-    let address = await database.Address.findAll({raw:true, nest: true});
-    let orders = await database.Orders.findAll({raw:true, nest: true});
-    let users = await database.User.findAll({
-      include: ['userRoles', 'address', 'orders']
-    })} catch (error){
-      console.error(error)
-  } res.render("../views/users/user-detail", {users})
-    console.log(users)
+       
+      let address = await database.Address.findAll({raw:true, nest: true});
+      //let orders = await database.Orders.findAll({raw:true, nest: true});
+      let users = await database.User.findAll({include: ["address"]})
+     
+    res.render("users/index", {users, address})
+    console.log(address, orders, users)
   },
    
   
   // detalle de user
-  detail: async function (req, res) {
+ /* detail: async function (req, res) {
     let userRoles = await database.UserRole.findAll({raw:true, nest: true});//traigo el modelo de userRoles
     let address = await database.Address.findAll();
     let orders = await database.Orders.findAll();
@@ -193,7 +190,7 @@ module.exports = {
     res.render("../views/users/user-detail", {
       user: db.getOne(req.params.id),
     });
-  }*/,
+  },*/
   edit: function (req, res) {
     // Muestra formulario de edicion de usuario
     const userToEdit = db.getOne(req.params.id);
