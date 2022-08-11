@@ -16,7 +16,7 @@
         <div class="row">
           <div class="col-12">
             <h2 class="products-title align-center">
-              Estas editando: <i> <%=productoEditar.nombre%> </i>
+              Estas editando: <i> <%=productoEditar.name%> </i>
             </h2>
           </div>
           <form
@@ -32,181 +32,161 @@
                   >Nombre del producto:</label
                 >
                 <input
-                  value="<%=productoEditar.nombre%>"
+                  value="<%=productoEditar.name%>"
                   type="text"
-                  id="nombre"
-                  name="nombre"                  
+                  id="name"
+                  name="name"                  
                   class="form-control"
                 />
               </div>
               <!--precio-->
               <div class="col-4 mt-3">
-                <label for="precioContado" class="form-label"
-                  >Precio al contado:</label
+                <label for="price" class="form-label"
+                  >Precio</label
                 >
                 <input
-                  value="<%=productoEditar.precioContado%>"
+                  value="<%=productoEditar.price%>"
                   class="form-control"
-                  id="precioContado"
-                  name="precioContado"
+                  id="price"
+                  name="price"
                   placeholder="Precio al contado es de..."
                 />
               </div>
               <!--cuotas-->
               <div class="col-4 mt-3">
-                <label for="cantidadDeCuotas" class="form-label col-12"
-                  >Cantidad de cuotas: </label
+                <label for="installmentId" class="form-label col-12"
+                  >Cuotas: </label
                 >
-                <select name="cantidadDeCuotas" id="cantidadDeCuotas" class="form-select">
+                <select name="installmentId" id="installmentId" class="form-select">
                   <option value=""> Seleccione</option>                  
-                  <% cuotas.forEach(cuota => {%>
-                  <option value="<%=cuota.id%>" <% if(cuota.id==productoEditar.cantidadDeCuotas){%> selected <% } %> ><%=cuota.nombre%> </option>
+                  <% vInstallments.forEach(vInstallment => {%>
+                  <option value="<%=vInstallment.id%>" <% if(vInstallment.id==productoEditar.installmentId){%> selected <% } %> ><%=vInstallment.name%> </option>
                   <% })%>
                   
                 </select>
-              </div>
-              <!-- precio cuota-->
+              </div>  
+              <!-- color -->
               <div class="col-4 mt-3">
-
-                <label for="precioCuotas" class="form-label"
-                  >Precio por cada cuotas:</label
-                >
-                <input
-                  value="<%=productoEditar.precioCuota%>"
-                  class="form-control"
-                  id="precioCuota"
-                  name="precioCuota"
-                />
-              </div>
+                <label for="color" class="form-label">Color:</label>
+                <select name="colourId" id="colourId" class="form-select">
+                  <option value=""> Seleccione</option>                  
+                  <% vColours.forEach(vColour => {%>
+                  <option value="<%=vColour.id%>" <% if(vColour.id==productoEditar.colourId){%> selected <% } %> ><%=vColour.name%> </option>
+                  <% })%> 
+                </select>              
+              </div>            
               <!--categoria-->
-              <div class="col-12 col-md-6 mt-3">
-
-                <label for="categoria" class="form-label"
-                  >Categorias de productos </label
-                >                
-                <select name="categoria" id="categoria" class="form-select">
+              <div class="col-4 mt-3">
+                <label for="categoryId" class="form-label">Categoria:</label>                
+                <select name="categoryId" id="categoryId" class="form-select">
                   <option value="">Seleccione</option>
-                  <% categorias.forEach(categoria => {%>
-                    <option value="<%=categoria.id%>" <% if(categoria.id == productoEditar.categoria){%> selected <% } %> ><%=categoria.nombre%></option>
+                  <% vCategorys.forEach(vCategory => {%>
+                    <option value="<%=vCategory.id%>" <% if(vCategory.id == productoEditar.categoryId){%> selected <% } %> ><%=vCategory.name%></option>
+                  <% })%>
+                </select>
+              </div>
+              <!--estilos-->
+              <div class="col-4 mt-3">
+                <label for="styleId" class="form-label">Estilo:</label>                
+                <select name="styleId" id="styleId" class="form-select">
+                  <option value="">Seleccione</option>
+                  <% vStyles.forEach(vStyle => {%>
+                    <option value="<%=vStyle.id%>" <% if(vStyle.id == productoEditar.styleId){%> selected <% } %> ><%=vStyle.name%></option>
+                  <% })%>
+                </select>
+              </div>
+              <!--marcas-->
+              <div class="col-4 mt-3">
+                <label for="brandId" class="form-label">Marca:</label>                
+                <select name="brandId" id="brandId" class="form-select">
+                  <option value="">Seleccione</option>
+                  <% vBrands.forEach(vBrand => {%>
+                    <option value="<%=vBrand.id%>" <% if(vBrand.id == productoEditar.brandId){%> selected <% } %> ><%=vBrand.name%></option>
                   <% })%>
                 </select>
               </div>
               <!--ambientes-->
               <div class="col-12 col-md-6 mt-3">
-                <label for="name" class="form-label col-12">Ambientes:</label> 
-                <% ambientes.forEach(ambiente => {%>              
+                <label for="rooms" class="form-label col-12">Ambientes:</label>             
+                <% vRooms.forEach(room => {%>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="<%=ambiente.id%>" name="ambientes" value="<%=ambiente.id%>" <% if(productoEditar.ambiente.find(ele => ele==ambiente.id)){%> checked<%} %>>
-                    <label class="form-check-label" for="<%=ambiente.id%>"><%=ambiente.nombre%></label>
+                    <input class="form-check-input" type="checkbox" id="<%=room.id%>" name="rooms" value="<%=room.id%>"  
+                    <% if(productoEditar.Rooms.find(ele => ele.id==room.id)){%>checked<%}%>
+                    >
+                    <label class="form-check-label" for="<%=room.id%>"><%=room.name%></label>
                   </div>
-                <% })%>                   
-
-              </div>
-                <!--estilos-->
-              <div class="col-12 col-md-6 mt-3">
-
-                <label for="estilo" class="form-label col-12"
-                  >Estilos:</label
-                >
-                <select class="form-select" multiple aria-label="multiple select example" name="estilos" id="estilos">
-                  <% estilos.forEach(estilo => {%>
-                    <option value="<%=estilo.id%>" <%if(productoEditar.estilo==estilo.id){%> selected<%} %>><%=estilo.nombre%></option>
-                  <% })%> 
-                </select>                
-              </div>
+                  <% })%>             
+              </div> 
+              
               <!--descripcion del producto-->
               <div class="col-12 col-md-6 mt-3">
-                <label for="descripcion" class="form-label"
+                <label for="description" class="form-label"
                   >Descripcion:</label
                 >
                 <input 
-                  value="<%=productoEditar.descripcion%>"
+                  value="<%=productoEditar.description%>"
                   type="text"
                   class="form-control"
-                  id="descripcion"
-                  name="descripcion"
+                  id="description"
+                  name="description"
                   placeholder=""
                 />
               </div>
               <div class="col-12 col-md-6 mt-3">
                 <!--detalles del producto-->
-                <label for="detalles" class="form-label"
+                <label for="details" class="form-label"
                   >Detalles:<span class="font-red"> (Indicar los detalles separados por comas)</span></label
                 >                
                 <textarea
                   type="text"
                   class="form-control"
-                  name="detalles"
-                  id="detalles"
-                ><%=productoEditar.detalles.join(',')%></textarea>
+                  name="details"
+                  id="details"
+                ><%=productoEditar.details%></textarea>
               </div>
               <!--Información extra del producto-->
               <div class="col-12 col-md-6 mt-3">
-                <label for="infoExtra" class="form-label">
+                <label for="extraInfo" class="form-label">
                   Información extra del producto:<span class="font-red"> (Indicar la información extra separados por comas)</span></label>
                 <textarea                  
                   type="text"
                   class="form-control"
-                  name="infoExtra"
-                  id="infoExtra"
-                ><%=productoEditar.infoExtra.join(',')%></textarea>
+                  name="extraInfo"
+                  id="extraInfo"
+                ><%=productoEditar.extraInfo%></textarea>
               </div>
               <!--medidas-->
               <div class="col-12 col-md-6 mt-3">
-                <label for="medidas" class="form-label">Medidas:</label>
+                <label for="measurements" class="form-label">Medidas:</label>
                 <input
                   type="text"
-                  value="<%=productoEditar.medidas%>"
+                  value="<%=productoEditar.measurements%>"
                   class="form-control"
-                  id="medidas"
-                  name="medidas"
+                  id="measurements"
+                  name="measurements"
                   placeholder=""
                 />
               </div>
-              <!-- color -->
-              <div class="col-12 col-md-6 mt-3">
-                <label for="color" class="form-label">Color:</label>
-                <input
-                  value="<%=productoEditar.color%>"
-                  type="text"
-                  class="form-control"
-                  id="color"
-                  name="color"
-                  placeholder=""
-                />
-              </div>
-              <!-- envio gratis -->
-              <div class="col-12 col-md-6">
+               <!-- envio gratis -->
+               <div class="col-12 col-md-6">
 
-                <label for="envioGratis" class="form-label col-12"
+                <label for="freeDelivery" class="form-label col-12"
                   >Envio gratis:</label
                 >
                 <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" id="envioGratis" name="envioGratis" <% if(productoEditar.envioGratis){%> checked<%} %>>
+                  <input class="form-check-input" type="checkbox" id="freeDelivery" name="freeDelivery" <% if(productoEditar.freeDelivery){%> checked<%} %>>
                   
                 </div>
               </div>
-
               <!-- imagen -->
               <div class="col-12 mt-3">
                 <label for="image" class="form-label">Imagen:</label>
                 <input
                   type="file"
                   class="form-control"
-                  id="image"
-                  name="image"
+                  id="picture"
+                  name="picture"
                   placeholder="Subir una nueva imagen"
-                />
-              </div>
-              <!-- Texto alternativo de la imagen -->
-              <div class="col-12 col-md-6 mt-3">
-                <label for="alt" class="form-label">Alternativo:</label>
-                <input
-                  value="<%=productoEditar.alt%>"
-                  class="form-control"
-                  id="alt"
-                  name="alt"
-                  placeholder=""
                 />
               </div>
               <!--Boton SUBMIT -->

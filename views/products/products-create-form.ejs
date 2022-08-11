@@ -18,119 +18,117 @@
           <div class="row product-detail pb-5">
             <!--nombre-->
             <div class="col-12 mt-3">
-              <label for="nombre" class="form-label">Nombre del producto:</label>
+              <label for="name" class="form-label">Nombre del producto:</label>
               <input
                 type="text"
-                name="nombre"
-                id="nombre"
+                name="name"
+                id="name"
                 class="form-control"
                 placeholder=""
               />
             </div>
             <!--precio-->
             <div class="col-4 mt-3">
-              <label for="precioContado" class="form-label">Precio:</label>
+              <label for="price" class="form-label">Precio:</label>
               <input
                 type="text"
-                name="precioContado"
-                id="precioContado"
+                name="price"
+                id="price"
                 class="form-control"
                 placeholder=""
               />
             </div>
              <!--cuotas-->
              <div class="col-4 mt-3">
-              <label for="cantidadDeCuotas" class="form-label">Cuotas:</label>
-              <select name="cantidadDeCuotas" id="cantidadDeCuotas" class="form-select">
+              <label for="installmentId" class="form-label">Cuotas:</label>
+              <select name="installmentId" id="installmentId" class="form-select">
                 <option value=""> Seleccione </option>
-                <% cuotas.forEach(cuota => {%>
-                <option value="<%=cuota.id%>"><%=cuota.nombre%> </option>
+                <% vInstallments.forEach(installment => {%>
+                <option value="<%=installment.id%>"><%=installment.name%> </option>
                 <% })%>
               </select>
             </div>
-            <!-- precio cuota-->
+             <!--color-->
              <div class="col-4 mt-3">
-              <label for="precioCuota" class="form-label">Precio de la cuota:</label>
-              <input 
-                type="text"
-                name="precioCuota"
-                id="precioCuota"
-                class="form-control"
-                placeholder=""
-              />
-            </div>  
-
-            <!--categoria-->
-            <div class="col-12 col-md-6 mt-3">
-              <label for="price" class="form-label">Categoría:</label>
-              <select name="categoria" id="categoria" class="form-select">
-                <option value="">Seleccione</option>
-                <% categorias.forEach(categoria => {%>
-                <option value="<%=categoria.id%>"><%=categoria.nombre%></option>
+              <label for="colorId" class="form-label">Color:</label>
+              <select name="colourId" id="colourId" class="form-select">
+                <option value=""> Seleccione </option>
+                <% vColours.forEach(colour => {%>
+                <option value="<%=colour.id%>"><%=colour.name%> </option>
                 <% })%>
+              </select>
+            </div>
+            <!--categoria-->
+            <div class="col-12 col-md-4 mt-3">
+              <label for="categoryId" class="form-label">Categoría:</label>
+              <select name="categoryId" id="categoryId" class="form-select">
+                <option value="">Seleccione</option>
+                <% vCategorys.forEach(category => {%>
+                <option value="<%=category.id%>"><%=category.name%></option>
+                <% })%>
+              </select>
+            </div>
+            <!--estilos-->
+            <div class="col-12 col-md-4 mt-3">
+              <label for="styleId" class="form-label col-12">Estilo:</label>
+              <select class="form-select" name="styleId" id="styleId">
+                <option value="">Seleccione</option>
+                <% vStyles.forEach(style => {%>
+                  <option value="<%=style.id%>"><%=style.name%></option>
+                <% })%> 
+              </select>
+            </div>
+            <!--marca-->
+            <div class="col-12 col-md-4 mt-3">
+              <label for="brandId" class="form-label col-12">Marca:</label>
+              <select class="form-select" name="brandId" id="brandId">
+                <option value="">Seleccione</option>
+                <% vBrands.forEach(brand => {%>
+                  <option value="<%=brand.id%>"><%=brand.name%></option>
+                <% })%> 
               </select>
             </div>
             <!--ambientes-->
             <div class="col-12 col-md-6 mt-3">
-              <label for="price" class="form-label col-12">Ambientes:</label>             
-              <% ambientes.forEach(ambiente => {%>
+              <label for="rooms" class="form-label col-12">Ambientes:</label>             
+              <% vRooms.forEach(room => {%>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="<%=ambiente.id%>" name="ambientes" value="<%=ambiente.id%>">
-                  <label class="form-check-label" for="<%=ambiente.id%>"><%=ambiente.nombre%></label>
+                  <input class="form-check-input" type="checkbox" id="<%=room.id%>" name="rooms" value="<%=room.id%>">
+                  <label class="form-check-label" for="<%=room.id%>"><%=room.name%></label>
                 </div>
                 <% })%>             
-            </div>
-            <!--estilos-->
-            <div class="col-12 col-md-6 mt-3">
-              <label for="estilos" class="form-label col-12">Estilos:</label>
-              <select class="form-select" multiple aria-label="multiple select example" name="estilos" id="estilos">
-                <% estilos.forEach(estilo => {%>
-                  <option value="<%=estilo.id%>"><%=estilo.nombre%></option>
-                <% })%> 
-              </select>
-            </div>
+            </div>            
             <!--descripcion del producto-->
             <div class="col-12 col-md-6 mt-3">
-              <label for="descripcion" class="form-label col-12">Descripción</label>
-              <textarea class="form-control" id="descripcion" name="descripcion" rows="3"></textarea>            
+              <label for="description" class="form-label col-12">Descripción</label>
+              <textarea class="form-control" id="description" name="description" rows="3"></textarea>            
             </div>
             <!--detalles del producto-->
             <div class="col-12 col-md-6 mt-3">
-              <label for="descripcion" class="form-label col-12">Detalles <span class="font-red"> (Indicar los detalles separados por comas)</span></label>
-              <textarea class="form-control" id="detalles" name="detalles" rows="3"></textarea>            
+              <label for="details" class="form-label col-12">Detalles <span class="font-red"> (Indicar los detalles separados por comas)</span></label>
+              <textarea class="form-control" id="details" name="details" rows="3"></textarea>            
             </div>
             <!--Información extra del producto-->
             <div class="col-12 col-md-6 mt-3">
-              <label for="infoExtra" class="form-label">Información extra del producto<span class="font-red"> (Indicar la información extra separados por comas)</span></label>
-              <textarea class="form-control" id="infoExtra" name="infoExtra" rows="3"></textarea>            
+              <label for="extraInfo" class="form-label">Información extra del producto<span class="font-red"> (Indicar la información extra separados por comas)</span></label>
+              <textarea class="form-control" id="extraInfo" name="extraInfo" rows="3"></textarea>            
             </div>          
             <!--medidas-->
             <div class="col-12 col-md-6 mt-3">
-              <label for="medidas" class="form-label">Medidas:</label>
+              <label for="measurements" class="form-label">Medidas:</label>
               <input
                 type="text"
-                name="medidas"
-                id="medidas"
-                class="form-control"
-                placeholder=""
-              />
-            </div>                      
-            <!-- color -->
-            <div class="col-12 col-md-6 mt-3">
-              <label for="color" class="form-label">Color:</label>
-              <input 
-                type="text"
-                name="color"
-                id="color"
+                name="measurements"
+                id="measurements"
                 class="form-control"
                 placeholder=""
               />
             </div>
             <!-- envio gratis -->
             <div class="col-12 col-md-6 mt-3">
-              <label for="envioGratis" class="form-label">Envio gratis:</label>
+              <label for="freeDelivery" class="form-label">Envio gratis:</label>
               <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" id="envioGratis" name="envioGratis">
+                <input class="form-check-input" type="checkbox" id="freeDelivery" name="freeDelivery">
                 
               </div>
             </div>
@@ -138,18 +136,9 @@
             <div class="col-12 mt-3">
               <!-- Imagen -->
               <label for="formFile" class="form-label">Imagen</label>
-              <input class="form-control" type="file" id="image" name="image">
+              <input class="form-control" type="file" id="picture" name="picture">
             </div>
-            <!--Texto alternativo de la imagen-->
-            <div class="col-12 col-md-6 mt-3">
-            <label for="alt" class="form-label">Cargar texto alternativo de la imagen:</label>
-              <input
-              type="text"
-              name="alt"
-              id="alt"
-              class="form-control"
-              />
-            </div>
+                    
             <div class="col-12 mt-3 text-align-c">
               <button type="submit" class="btn bg-pink btn-lg font-white reg">
                 REGISTRAR

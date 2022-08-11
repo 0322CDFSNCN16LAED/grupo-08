@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const multer = require("multer");
 const path = require("path");
-//let imageName = "default-image.png";
 
 const productControllers = require("../controllers/productControllers");
 
@@ -24,14 +23,14 @@ router.get("/", productControllers.index);
 
 /* Crear un producto*/
 router.get("/create", productControllers.create);
-router.post("/", uploadFile.single("image"), productControllers.store);
+router.post("/", uploadFile.single("picture"), productControllers.store);
 
 /* Ver detalle de un producto*/
 router.get("/:id", productControllers.detail);
 
 /* Editar un producto*/
 router.get("/edit/:id", productControllers.edit);
-router.put("/:id", uploadFile.single("image"), productControllers.update);
+router.put("/:id", uploadFile.single("picture"), productControllers.update);
 
 /* Eliminar un producto*/
 router.delete("/:id", productControllers.destroy);

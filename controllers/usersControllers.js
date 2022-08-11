@@ -1,5 +1,6 @@
 const bcryptjs = require("bcryptjs"); //Requerimos el encriptador
-const db = require("../data/db-users"); //Requerimos la DB de usuarios
+const db = require("../data/db-users")//DBJSON
+const database = require("../database/models"); //Requerimos la DB de usuarios
 
 const { validationResult } = require("express-validator");
 
@@ -55,18 +56,22 @@ module.exports = {
     return res.redirect("/");
   },
 
-  showRegister: function (req, res) {
+  //CRUD DE USUARIOS
     //Metodo que muestra el formulario de Registro de usuarios (GET)
-    res.render("users/register");
+  showRegister: async function (req, res) {
+    let userRoles = await database.UserRole.findAll({raw:true, nest: true});
+      return res.render("users/register", {userRoles});
   },
-  register: function (req, res) {
+  register: async function (req, res) {
+    let userRoles = await database.UserRole.findAll({raw:true, nest: true});
     // Metodo que procesar el Registro de usuario nuevo (POST)
     const validationErrors = validationResult(req); // guardo los errores de validacion
     if (!validationErrors.isEmpty()) {
       // SI HAY ERRORES, renderizo el formulario
-      res.render("users/register", {
+      res.render("users/register" , {
         errors: validationErrors.mapped(), // con los errores mappeados y
         oldData: req.body, // los datos que sí pasaron la validacion
+        userRoles
       });
     } else {
       // SI NO HAY ERRORES de validacion
@@ -83,33 +88,36 @@ module.exports = {
             },
           },
           oldData: req.body, // y los datos que sì pasaron la validacion
+          userRoles
         });
       } else {
+        
         // SI NO HAY USUARIO CON ESE MAIL EN LA DB - LO GUARDO
-        let users = db.getAll(); //traigo todos los usuarios
-        const newUser = {
-          // guardamos un nuevo usuario con los datos del req
-          nombre: req.body.nombre,
-          apellido: req.body.apellido,
-          email: req.body.email,
-          telefono: req.body.telefono,
-          direccion: req.body.direccion,
-          password: bcryptjs.hashSync(req.body.password, 10), // encriptamos la password
-          profile: req.file ? req.file.filename : "defaultImage.jpg",
-        };
+        let newAddress = await database.Address.create ({//primero guardando su dirección
+          address: req.body.address,
+          city: req.body.city,
+          state: req.body.state,
+          country: req.body.country,
+          zipCode: req.body.zipCode,
+        })
 
-        if (users.length) {
-          // hacemos un nuevo nro de id de usuaro
-          newUser.id = users[users.length - 1].id + 1;
-        } else {
-          newUser.id = 1;
-        }
-        users.push(newUser); //pusheamos en el array el nuevo usuario
-        db.saveAll(users); // metodo guardar que sobreescribe la db
-        res.redirect("/users");
+      database.User.create({ // y luego usando el metodo CREATE de Sequelize
+            name: req.body.name,
+            lastname: req.body.lastname,
+            email: req.body.email,
+            phoneNumber: req.body.phoneNumber,
+            addressId: newAddress.dataValues.id,
+            password: bcryptjs.hashSync(req.body.password, 10), 
+            profilePic:req.file ? req.file.filename : "defaultImage.jpg",
+            userRoleId: req.body.userRoleId,
+            
+      })
+        console.log(req.body)
+        res.redirect("/");
       }
     }
   },
+
   //vista de todos los usuarios.
   index: function (req, res) {
     let users = db.getAll();
@@ -136,15 +144,19 @@ module.exports = {
     // armo el objeto a modificar
     const editUser = {
       id: user.id,
-      nombre: req.body.nombre,
-      apellido: req.body.apellido,
+      name: req.body.name,
+      lastname: req.body.lastname,
       email: req.body.email,
-      telefono: req.body.telefono,
-      direccion: req.body.direccion,
+      phoneNumber: req.body.phoneNumber,
+      address: req.body.address,
+      city: req.body.city,
+      state: req.body.state,
+      country: req.body.country,
+      zipCode: req.body.zipCode,
       password: req.body.password
         ? bcryptjs.hashSync(req.body.password, 10)
         : user.password,
-      profile: req.file ? req.file.filename : user.profile,
+      profilePic: req.file ? req.file.filename : user.profilePic,
     };
 
     users[usersIndex] = editUser;

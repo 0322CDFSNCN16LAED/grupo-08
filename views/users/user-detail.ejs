@@ -84,7 +84,7 @@
               <div class="row g-0">
                 <div class="col-md-4 align-center">
                   <img
-                    src="/images/usersProfiles/<%=user.profile%>"
+                    src="/images/usersProfiles/<%=user.profilePic%>"
                     class="img-fluid rounded-start w-80"
                     alt="Imágen de perfil"
                   />
@@ -94,7 +94,7 @@
                     <div class="row">
                       <p class="col-3">Usuario:</p>
                       <p class="col-9 first-upper">
-                        <%= user.nombre%> <%= user.apellido %>
+                        <%= user.name%> <%= user.lastname %>
                       </p>
                     </div>
                     <div class="row">
@@ -103,11 +103,27 @@
                     </div>
                     <div class="row">
                       <p class="col-3">Teléfono</p>
-                      <p class="col-9"><%=user.telefono%>%></p>
+                      <p class="col-9"><%=user.phoneNumber%>%></p>
                     </div>
                     <div class="row">
                       <p class="col-3">Dirección</p>
-                      <p class="col-9"><%= user.direccion %></p>
+                      <p class="col-9"><%= user.address %></p>
+                    </div>
+                    <div class="row">
+                      <p class="col-3">Ciudad</p>
+                      <p class="col-9"><%= user.city %></p>
+                    </div>
+                    <div class="row">
+                      <p class="col-3">Provincia</p>
+                      <p class="col-9"><%= user.state %></p>
+                    </div>
+                    <div class="row">
+                      <p class="col-3">País</p>
+                      <p class="col-9"><%= user.country %></p>
+                    </div>
+                    <div class="row">
+                      <p class="col-3">Código Postal</p>
+                      <p class="col-9"><%= user.zipCode %></p>
                     </div>
                   </div>
                 </div>
