@@ -30,7 +30,7 @@ router.get("/:id", productControllers.detail);
 
 /* Editar un producto*/
 router.get("/edit/:id", productControllers.edit);
-router.put("/:id", uploadFile.single("image"), productControllers.update);
+router.put("/:id", uploadFile.single("picture"), productControllers.update);
 
 /* Eliminar un producto*/
 router.delete("/:id", productControllers.destroy);
