@@ -1,22 +1,13 @@
 const db = require("../database/models");
-const sequelize = db.sequelize;
 const { Op } = require("sequelize");
-
-const { Installment } = require("../database/models");
-const { Category } = require("../database/models");
-const { Room } = require("../database/models");
-const { Style } = require("../database/models");
-const { Colour } = require("../database/models");
-const { Brand } = require("../database/models");
-const { Product } = require("../database/models");
-const { RoomProduct } = require("../database/models");
 
 module.exports = {
   // ver todos los productos
   index: async (req, res) => {
     try {
-      products = await Product.findAll({
+      products = await db.Product.findAll({
         include: ["Category"],
+        order: [["name", "asc"]],
       });
     } catch (error) {
       console.error("Error listar productos ---> " + error);
@@ -26,7 +17,7 @@ module.exports = {
   //ver el detalle de cada producto
   detail: async (req, res) => {
     try {
-      let producto = await Product.findByPk(req.params.id, {
+      let producto = await db.Product.findByPk(req.params.id, {
         include: ["Category", "Style", "Rooms"],
       });
       //res.send(producto);
@@ -38,12 +29,14 @@ module.exports = {
   //crear un nuevo producto
   create: async (req, res) => {
     try {
-      let vInstallments = await Installment.findAll();
-      let vCategorys = await Category.findAll();
-      let vRooms = await Room.findAll();
-      let vStyles = await Style.findAll();
-      let vColours = await Colour.findAll();
-      let vBrands = await Brand.findAll();
+      let vInstallments = await db.Installment.findAll({
+        order: [["name", "asc"]],
+      });
+      let vCategorys = await db.Category.findAll({ order: [["name", "asc"]] });
+      let vRooms = await db.Room.findAll({ order: [["name", "asc"]] });
+      let vStyles = await db.Style.findAll({ order: [["name", "asc"]] });
+      let vColours = await db.Colour.findAll({ order: [["name", "asc"]] });
+      let vBrands = await db.Brand.findAll({ order: [["name", "asc"]] });
       res.render("products/products-create-form", {
         vInstallments,
         vCategorys,
@@ -59,7 +52,7 @@ module.exports = {
   //accion de procesar el producto. CREAR
   store: async function (req, res) {
     try {
-      let resp = await Product.create({
+      let resp = await db.Product.create({
         ...req.body,
         price: req.body.price.trim().replace(",", "."),
         freeDelivery: req.body.freeDelivery ? true : false,
@@ -77,7 +70,7 @@ module.exports = {
       }
       if (ambientes.length > 0) {
         ambientes.forEach(async (element) => {
-          await RoomProduct.create({
+          await db.RoomProduct.create({
             roomId: element,
             productId: resp.dataValues.id,
           });
@@ -91,15 +84,17 @@ module.exports = {
   },
   // vista para editar detalles de productos
   edit: async (req, res) => {
-    const productEdit = await Product.findByPk(req.params.id, {
+    const productEdit = await db.Product.findByPk(req.params.id, {
       include: ["Rooms"],
     });
-    const vInstallments = await Installment.findAll();
-    const vCategorys = await Category.findAll();
-    const vRooms = await Room.findAll();
-    const vStyles = await Style.findAll();
-    const vColours = await Colour.findAll();
-    const vBrands = await Brand.findAll();
+    const vInstallments = await db.Installment.findAll({
+      order: [["name", "asc"]],
+    });
+    const vCategorys = await db.Category.findAll({ order: [["name", "asc"]] });
+    const vRooms = await db.Room.findAll({ order: [["name", "asc"]] });
+    const vStyles = await db.Style.findAll({ order: [["name", "asc"]] });
+    const vColours = await db.Colour.findAll({ order: [["name", "asc"]] });
+    const vBrands = await db.Brand.findAll({ order: [["name", "asc"]] });
     Promise.all([
       productEdit,
       vInstallments,
@@ -135,9 +130,9 @@ module.exports = {
   // accion de actualizar un producto.
   update: async (req, res) => {
     let productId = req.params.id;
-    const oldProduct = Product.findByPk(productId);
+    const oldProduct = db.Product.findByPk(productId);
     try {
-      let resp = await Product.update(
+      let resp = await db.Product.update(
         {
           ...req.body,
           price: req.body.price.trim().replace(",", "."),
@@ -160,11 +155,11 @@ module.exports = {
           }
         }
       }
-      await RoomProduct.destroy({ where: { productId: productId } });
+      await db.RoomProduct.destroy({ where: { productId: productId } });
       //await oldProduct.setRooms([]);
       if (ambientes.length > 0) {
         ambientes.forEach(async (element) => {
-          await RoomProduct.create({
+          await db.RoomProduct.create({
             roomId: element,
             productId: productId,
           });
@@ -179,7 +174,7 @@ module.exports = {
   destroy: async (req, res) => {
     const productoId = req.params.id;
     try {
-      const product = await Product.findByPk(productoId);
+      const product = await db.Product.findByPk(productoId);
       if (product) {
         await product.setRooms([]);
         //await product.setOrder([]); falta el logico de orders
@@ -194,17 +189,17 @@ module.exports = {
   search: async (req, res) => {
     const productSearch = req.query.search.trim();
     try {
-      const productos = await Product.findAll({
+      const productos = await db.Product.findAll({
         include: ["Category"],
         where: {
           name: { [Op.like]: "%" + productSearch + "%" },
         },
-        order: [["id", "ASC"]],
+        order: [["name", "ASC"]],
       });
       if (productos.length > 0) {
         res.render("products/products", { productos });
       } else {
-        const allProducts = await Product.findAll({ include: ["Category"] });
+        const allProducts = await db.Product.findAll({ include: ["Category"] });
         res.render("products/products", { productos: allProducts });
       }
     } catch (error) {
