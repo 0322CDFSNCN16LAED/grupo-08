@@ -23,7 +23,7 @@
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item pt-3 pb-3 font-bold" href="/">Menú</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item pt-3">Categorias </a>
+                <li><a class="dropdown-item pt-3" href="/products/">Categorias </a>
                       <ul>
                         <li class="li"><a class="dropdown-item" href="/products/category/furniture">Muebles</a></li>
                         <li class="li"><a class="dropdown-item" href="/products/category/textiles">Textiles</a></li>
@@ -48,15 +48,13 @@
         ><img src="/images/logo2.PNG" alt="Deco Home" class="w-100 w-60-desktop"
       /></a>
     </h1>
-       <form class="d-flex height-40" 
-              role="search">
+       <form class="d-flex height-40" role="search" action="/products/search">
           <input class="no-display display-block-desktop form-control me-1" 
                   type="search" 
-                  placeholder="Search" 
-                  aria-label="Search">
-          <button 
-                  class="btn btn-lg font-white" 
-                  type="submit">    
+                  placeholder="Buscar productos" 
+                  aria-label="Search"
+                  name="search">
+          <button class="btn btn-lg font-white" type="submit">    
             <div class="header-iconos">
             <a href="#" class="decoration-none flex-cont fx-justify-center">
               <i class="fas fa-search font-gris-claro font-xlarge p-lateral-5"> </i>

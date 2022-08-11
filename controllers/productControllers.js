@@ -1,3 +1,7 @@
+const db = require("../database/models");
+const sequelize = db.sequelize;
+const { Op } = require("sequelize");
+
 const { Installment } = require("../database/models");
 const { Category } = require("../database/models");
 const { Room } = require("../database/models");
@@ -184,6 +188,27 @@ module.exports = {
       }
     } catch (error) {
       res.send("el errrrrrrrrrrrror " + error);
+    }
+  },
+  // buscar un producto
+  search: async (req, res) => {
+    const productSearch = req.query.search.trim();
+    try {
+      const productos = await Product.findAll({
+        include: ["Category"],
+        where: {
+          name: { [Op.like]: "%" + productSearch + "%" },
+        },
+        order: [["id", "ASC"]],
+      });
+      if (productos.length > 0) {
+        res.render("products/products", { productos });
+      } else {
+        const allProducts = await Product.findAll({ include: ["Category"] });
+        res.render("products/products", { productos: allProducts });
+      }
+    } catch (error) {
+      console.error("search error ---> " + error);
     }
   },
 };

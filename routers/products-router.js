@@ -25,6 +25,9 @@ router.get("/", productControllers.index);
 router.get("/create", productControllers.create);
 router.post("/", uploadFile.single("picture"), productControllers.store);
 
+/* Buscar producto */
+router.get("/search", productControllers.search);
+
 /* Ver detalle de un producto*/
 router.get("/:id", productControllers.detail);
 
