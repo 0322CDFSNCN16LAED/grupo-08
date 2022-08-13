@@ -68,7 +68,7 @@ router.post(
   validUserMiddleware,
   usersControllers.detail
 );*/
-//router.get("/:id",  usersControllers.detail);
+router.get("/:id", usersControllers.detail);
 
 
 /* UPDATE - Formulario de edicion de usuario */
@@ -78,14 +78,14 @@ router.post(
   validUserMiddleware,
   usersControllers.edit
 );*/
-router.get(
+/*router.get(
   "/edit/:id",
   usersControllers.edit
 );
 /* Guardar edición de usuario */
-router.put("/:id", uploadFile.single("profilePic"), usersControllers.update);
+//router.put("/:id", uploadFile.single("profilePic"), usersControllers.update);
 
 /* DELETE - Borrar usuario */
-router.delete("/:id", usersControllers.delete);
+//router.delete("/:id", usersControllers.delete);
 
 module.exports = router;

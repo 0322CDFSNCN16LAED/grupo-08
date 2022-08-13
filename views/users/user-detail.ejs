@@ -10,7 +10,7 @@
     <main class="mt-3">
       <div class="col-12">
         <h2 class="products-title align-center">
-          Perfil del usuario: <span class="first-upper"><%=user.nombre%></span>
+          Perfil del usuario: <span class="first-upper"><%=user.name%></span>
         </h2>
       </div>
       <div class="card w-80 detail-user mt-3">
@@ -106,24 +106,8 @@
                       <p class="col-9"><%=user.phoneNumber%>%></p>
                     </div>
                     <div class="row">
-                      <p class="col-3">Dirección</p>
-                      <p class="col-9"><%= user.address %></p>
-                    </div>
-                    <div class="row">
-                      <p class="col-3">Ciudad</p>
-                      <p class="col-9"><%= user.city %></p>
-                    </div>
-                    <div class="row">
-                      <p class="col-3">Provincia</p>
-                      <p class="col-9"><%= user.state %></p>
-                    </div>
-                    <div class="row">
-                      <p class="col-3">País</p>
-                      <p class="col-9"><%= user.country %></p>
-                    </div>
-                    <div class="row">
-                      <p class="col-3">Código Postal</p>
-                      <p class="col-9"><%= user.zipCode %></p>
+                      <p class="col-3">Rol de usuario</p>
+                      <p class="col-9"><%=user.userRole.name%>%></p>
                     </div>
                   </div>
                 </div>

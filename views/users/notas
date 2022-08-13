@@ -1,0 +1,33 @@
+PARTES DE VISTAS QUE TUVE QUE SACAR MOMENTANEAMENTE MIENTRAS CONFIGURO LAS RELACIONES ENTRE TABLAS
+
+users/index.ejs 36/40
+
+<td class="col-3"><%=user.address.address%></td>
+<td class="col-3"><%=user.address.city%></td>
+<td class="col-3"><%=user.address.state%></td>
+<td class="col-3"><%=user.address.country%></td>
+<td class="col-3"><%=user.address.zipCode%></td>
+
+
+users/user-detail.ejs 108/127
+
+<div class="row">
+    <p class="col-3">Dirección</p>
+    <p class="col-9"><%= user.address %></p>
+  </div>
+  <div class="row">
+    <p class="col-3">Ciudad</p>
+    <p class="col-9"><%= user.city %></p>
+  </div>
+  <div class="row">
+    <p class="col-3">Provincia</p>
+    <p class="col-9"><%= user.state %></p>
+  </div>
+  <div class="row">
+    <p class="col-3">País</p>
+    <p class="col-9"><%= user.country %></p>
+  </div>
+  <div class="row">
+    <p class="col-3">Código Postal</p>
+    <p class="col-9"><%= user.zipCode %></p>
+  </div>
