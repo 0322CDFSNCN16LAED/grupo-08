@@ -71,36 +71,37 @@ module.exports = {
 
   // Metodo que procesar el Registro de usuario nuevo (POST)
   register: async function (req, res) {
+    let users = await database.User.findAll();//traigo el modelo de users
     let userRoles = await database.UserRole.findAll();//traigo el modelo de userRoles
-    
     const validationErrors = validationResult(req); // guardo los errores de validacion
-    if (!validationErrors.isEmpty()) {
-      // SI HAY ERRORES, renderizo el formulario
-      res.render("users/register" , {
+    
+    if (!validationErrors.isEmpty()) {// SI HAY ERRORES, 
+            res.render("users/register" , {//renderizo el formulario
         errors: validationErrors.mapped(), // con los errores mappeados y
         oldData: req.body, // los datos que sí pasaron la validacion
+        users,
         userRoles
       });
-    } else {
-      // SI NO HAY ERRORES de validacion
+    } else { // SI NO HAY ERRORES de validacion
       // busca el usuario por email, si existe
-    /*  let userInDB = db.getByField("email", req.body.email);
-
-      if (userInDB) {
-        // SI YA HAY UN USUARIO CON ESE MAIL EN LA DB
-        res.render("users/register", {
-          // renderizamos el formulario
+      let userInDB = await database.User.findOne({
+        where: {
+          email: req.body.email
+        }
+      })
+      if (userInDB) {// SI YA HAY UN USUARIO CON ESE MAIL EN LA DB
+        res.render("users/register", { // renderizamos el formulario
           errors: {
             email: {
               msg: "Este email ya se encuentra registrado", // con este msj de error
             },
           },
           oldData: req.body, // y los datos que sì pasaron la validacion
+          userInDB,
           userRoles
         });
-      } else {
-        */
-        // SI NO HAY USUARIO CON ESE MAIL EN LA DB - LO GUARDO
+      } else {// SI NO HAY USUARIO CON ESE MAIL EN LA DB - LO GUARDO
+
         let newAddress = await database.Address.create ({//primero guardando su dirección
           address: req.body.address,
           city: req.body.city,
@@ -114,7 +115,7 @@ module.exports = {
             lastname: req.body.lastname,
             email: req.body.email,
             phoneNumber: req.body.phoneNumber,
-            addressId: newAddress.dataValues.id,
+            addressId: newAddress.dataValues.id, // guardo el id de la new address creada
             password: bcryptjs.hashSync(req.body.password, 10), 
             profilePic:req.file ? req.file.filename : "defaultImage.jpg",
             userRoleId: req.body.userRoleId,
@@ -123,14 +124,13 @@ module.exports = {
         console.log(req.body)
         res.redirect("/"); //finalmente, redirecciono al home.
       }
-    },
+    }
+  },
   
   //READ - listar todos los usuarios
   index: async function (req, res){
-    //let address = await database.Address.findAll();
-    //let orders = await database.Order.findAll();
     let users = await database.User.findAll({
-      include: ["userRole", 'Orders'],
+      include: ["userRole", 'address'],
     })
     res.render("users/index", {users})
   },   
@@ -138,17 +138,18 @@ module.exports = {
   // detalle de user
   detail: async function (req, res) {
     let user = await database.User.findByPk(req.params.id, {
-      include: ["userRole"],
+      include: ["userRole", "address"],
     })
     res.render("../views/users/user-detail", {user})
-    
   },
 
   // formulario de edicion de un user
   edit: async function (req, res){
-    //let vuserRoles = await database.UserRole.findAll();//traigo el modelo de userRoles
-    let userToEdit = await database.User.findByPk(req.params.id)
-      res.render("users/edit-user", {userToEdit})
+    let address = await database.Address.findAll();//traigo el modelo de address
+    let userToEdit = await database.User.findByPk(req.params.id,  {
+      include: ["userRole", "address"],
+    } )
+      res.render("users/edit-user", {userToEdit, address})
         console.log(userToEdit)
   }
   

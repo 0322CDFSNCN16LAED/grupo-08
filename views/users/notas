@@ -9,6 +9,8 @@ users/index.ejs 36/40
 <td class="col-3"><%=user.address.zipCode%></td>
 
 
+<td class="col-2"><%=user.Orders.orderTotal%></td>
+
 users/user-detail.ejs 108/127
 
 <div class="row">

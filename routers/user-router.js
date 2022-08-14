@@ -32,18 +32,14 @@ const usersControllers = require("../controllers/usersControllers");
 
 /*RUTAS */
 /*Listado de todos los usuarios */
-//router.get("/", authMiddleware, usersControllers.index);
-//quito momentaneamente el middleware mientras hacemos transicion de database
-router.get("/", usersControllers.index);
+router.get("/", authMiddleware, usersControllers.index);
 
 
 /*Formulario de Login*/
-//router.get("/login", guestMiddleware, usersControllers.login);
-router.get("/login", usersControllers.login);
+router.get("/login", guestMiddleware, usersControllers.login);
 
 /* procesa login*/
-//router.post("/", loginValidations, usersControllers.processLogin);
-router.post("/", usersControllers.processLogin);
+router.post("/", loginValidations, usersControllers.processLogin);
 
 /*Logout */
 router.get("/logout", usersControllers.logout);
@@ -62,26 +58,25 @@ router.post(
 );
 
 /* READ - Formulario detalle de un usuario*/
-/*router.get(
+router.get(
   "/:id",
   authMiddleware,
   validUserMiddleware,
   usersControllers.detail
-);*/
-router.get("/:id", usersControllers.detail);
+);
 
 
 /* UPDATE - Formulario de edicion de usuario */
-/*router.get(
+router.get(
   "/edit/:id",
   authMiddleware,
   validUserMiddleware,
   usersControllers.edit
-);*/
-router.get(
+);
+/*router.get(
   "/edit/:id",
   usersControllers.edit
-);
+);*/
 /* Guardar edición de usuario */
 //router.put("/:id", uploadFile.single("profilePic"), usersControllers.update);
 

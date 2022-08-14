@@ -106,6 +106,26 @@
                       <p class="col-9"><%=user.phoneNumber%>%></p>
                     </div>
                     <div class="row">
+                      <p class="col-3">Dirección</p>
+                      <p class="col-9"><%= user.address.address %></p>
+                    </div>
+                    <div class="row">
+                      <p class="col-3">Ciudad</p>
+                      <p class="col-9"><%= user.address.city %></p>
+                    </div>
+                    <div class="row">
+                      <p class="col-3">Provincia</p>
+                      <p class="col-9"><%= user.address.state %></p>
+                    </div>
+                    <div class="row">
+                      <p class="col-3">País</p>
+                      <p class="col-9"><%= user.address.country %></p>
+                    </div>
+                    <div class="row">
+                      <p class="col-3">Código Postal</p>
+                      <p class="col-9"><%= user.address.zipCode %></p>
+                    </div>
+                    <div class="row">
                       <p class="col-3">Rol de usuario</p>
                       <p class="col-9"><%=user.userRole.name%>%></p>
                     </div>

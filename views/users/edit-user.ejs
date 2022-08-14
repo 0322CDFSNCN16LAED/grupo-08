@@ -79,7 +79,61 @@
                 />
               </div>
 
-
+              <div class="col-12">
+                <label for="address" class="form-label">Dirección</label>
+                <input
+                  value="<%= userToEdit.address.address %> "
+                  type="text"
+                  name="address"
+                  id="address"
+                  class="form-control"
+                  placeholder="Calle, altura (piso y departamento)"
+                />
+              </div>
+              <div class="col-12">
+                <label for="city" class="form-label">Ciudad / Localidad</label>
+                <input
+                  value="<%= userToEdit.address.city %> "
+                  type="text"
+                  name="city"
+                  id="city"
+                  class="form-control"
+                  placeholder="Ciudad / Localidad"
+                />
+              </div>
+              <div class="col-12">
+                <label for="state" class="form-label">Provincia</label>
+                <input
+                  value="<%= userToEdit.address.state %> "
+                  type="text"
+                  name="state"
+                  id="state"
+                  class="form-control"
+                  placeholder="Provincia"
+                />
+              </div>
+              <div class="col-12">
+                <label for="country" class="form-label">País</label>
+                <input
+                  value="<%= userToEdit.address.country %> "
+                  type="text"
+                  name="country"
+                  id="country"
+                  class="form-control"
+                  placeholder="País"
+                />
+              </div>
+              <div class="col-12">
+                <label for="zipCode" class="form-label">Código Postal</label>
+                <input
+                  value="<%= userToEdit.address.zipCode %> "
+                  type="text"
+                  name="zipCode"
+                  id="zipCode"
+                  class="form-control"
+                  placeholder="Código Postal"
+                />
+              </div>
               <div class="col-12 col-md-6">
                 <label for="pass" class="form-label">Contraseña</label>
                 <input
