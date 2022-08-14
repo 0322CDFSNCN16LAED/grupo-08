@@ -130,7 +130,7 @@ module.exports = {
     //let address = await database.Address.findAll();
     //let orders = await database.Order.findAll();
     let users = await database.User.findAll({
-      include: ["userRole"],
+      include: ["userRole", 'Orders'],
     })
     res.render("users/index", {users})
   },   
@@ -141,7 +141,15 @@ module.exports = {
       include: ["userRole"],
     })
     res.render("../views/users/user-detail", {user})
-    console.log(user)
+    
+  },
+
+  // formulario de edicion de un user
+  edit: async function (req, res){
+    //let vuserRoles = await database.UserRole.findAll();//traigo el modelo de userRoles
+    let userToEdit = await database.User.findByPk(req.params.id)
+      res.render("users/edit-user", {userToEdit})
+        console.log(userToEdit)
   }
   
 }

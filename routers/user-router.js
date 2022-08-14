@@ -78,7 +78,7 @@ router.get("/:id", usersControllers.detail);
   validUserMiddleware,
   usersControllers.edit
 );*/
-/*router.get(
+router.get(
   "/edit/:id",
   usersControllers.edit
 );
