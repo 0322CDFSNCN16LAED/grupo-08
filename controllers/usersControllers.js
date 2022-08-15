@@ -151,6 +151,25 @@ module.exports = {
     } )
       res.render("users/edit-user", {userToEdit, address})
         console.log(userToEdit)
+  },
+
+  // Borrado de un usuario
+  delete: async function (req, res){
+    let userId = req.params.id;
+
+    try{
+      let userToDelete = await database.User.findByPk(userId);
+      if (userToDelete){
+        await userToDelete.setUserRole([]);
+        await userToDelete.setAddress([]);
+       
+        //await database.User.setOrders([]);
+        await userToDelete.destroy();
+      };
+    }catch(error){
+      console.error(error);
+    }
+    res.redirect("users/index")
   }
   
 }

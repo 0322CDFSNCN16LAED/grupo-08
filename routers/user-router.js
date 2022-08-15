@@ -81,6 +81,6 @@ router.get(
 //router.put("/:id", uploadFile.single("profilePic"), usersControllers.update);
 
 /* DELETE - Borrar usuario */
-//router.delete("/:id", usersControllers.delete);
+router.delete("/:id", usersControllers.delete);
 
 module.exports = router;
