@@ -1,5 +1,5 @@
 const bcryptjs = require("bcryptjs"); //Requerimos el encriptador
-const db = require("../data/db-users")//DBJSON
+const db = require("../data/db-users"); //DBJSON
 const database = require("../database/models"); //Requerimos la DB de usuarios
 
 const { validationResult } = require("express-validator");
@@ -57,64 +57,71 @@ module.exports = {
   },
 
   //CRUD DE USUARIOS
-    //Metodo que muestra el formulario de Registro de usuarios (GET)
+  //Metodo que muestra el formulario de Registro de usuarios (GET)
   showRegister: async function (req, res) {
-    let userRoles = await database.UserRole.findAll({raw:true, nest: true});
-      return res.render("users/register", {userRoles});
+    let userRoles = await database.UserRole.findAll({ raw: true, nest: true });
+    return res.render("users/register", { userRoles });
   },
   register: async function (req, res) {
-    let userRoles = await database.UserRole.findAll({raw:true, nest: true});
-    // Metodo que procesar el Registro de usuario nuevo (POST)
-    const validationErrors = validationResult(req); // guardo los errores de validacion
-    if (!validationErrors.isEmpty()) {
-      // SI HAY ERRORES, renderizo el formulario
-      res.render("users/register" , {
-        errors: validationErrors.mapped(), // con los errores mappeados y
-        oldData: req.body, // los datos que sí pasaron la validacion
-        userRoles
+    try {
+      let userRoles = await database.UserRole.findAll({
+        raw: true,
+        nest: true,
       });
-    } else {
-      // SI NO HAY ERRORES de validacion
-      // busca el usuario por email, si existe
-      let userInDB = db.getByField("email", req.body.email);
-
-      if (userInDB) {
-        // SI YA HAY UN USUARIO CON ESE MAIL EN LA DB
+      // Metodo que procesar el Registro de usuario nuevo (POST)
+      const validationErrors = validationResult(req); // guardo los errores de validacion
+      if (!validationErrors.isEmpty()) {
+        // SI HAY ERRORES, renderizo el formulario
         res.render("users/register", {
-          // renderizamos el formulario
-          errors: {
-            email: {
-              msg: "Este email ya se encuentra registrado", // con este msj de error
-            },
-          },
-          oldData: req.body, // y los datos que sì pasaron la validacion
-          userRoles
+          errors: validationErrors.mapped(), // con los errores mappeados y
+          oldData: req.body, // los datos que sí pasaron la validacion
+          userRoles,
         });
       } else {
-        
-        // SI NO HAY USUARIO CON ESE MAIL EN LA DB - LO GUARDO
-        let newAddress = await database.Address.create ({//primero guardando su dirección
-          address: req.body.address,
-          city: req.body.city,
-          state: req.body.state,
-          country: req.body.country,
-          zipCode: req.body.zipCode,
-        })
+        // SI NO HAY ERRORES de validacion
+        // busca el usuario por email, si existe
+        let userInDB = db.getByField("email", req.body.email);
 
-      database.User.create({ // y luego usando el metodo CREATE de Sequelize
+        if (userInDB) {
+          // SI YA HAY UN USUARIO CON ESE MAIL EN LA DB
+          res.render("users/register", {
+            // renderizamos el formulario
+            errors: {
+              email: {
+                msg: "Este email ya se encuentra registrado", // con este msj de error
+              },
+            },
+            oldData: req.body, // y los datos que sì pasaron la validacion
+            userRoles,
+          });
+        } else {
+          // SI NO HAY USUARIO CON ESE MAIL EN LA DB - LO GUARDO
+          let newAddress = await database.Address.create({
+            //primero guardando su dirección
+            address: req.body.address,
+            city: req.body.city,
+            state: req.body.state,
+            country: req.body.country,
+            zipCode: req.body.zipCode,
+          });
+
+          database.User.create({
+            // y luego usando el metodo CREATE de Sequelize
             name: req.body.name,
             lastname: req.body.lastname,
             email: req.body.email,
             phoneNumber: req.body.phoneNumber,
             addressId: newAddress.dataValues.id,
-            password: bcryptjs.hashSync(req.body.password, 10), 
-            profilePic:req.file ? req.file.filename : "defaultImage.jpg",
+            password: bcryptjs.hashSync(req.body.password, 10),
+            profilePic: req.file ? req.file.filename : "defaultImage.jpg",
             userRoleId: req.body.userRoleId,
-            
-      })
-        console.log(req.body)
-        res.redirect("/");
+          });
+          console.log(req.body);
+          res.redirect("/");
+        }
       }
+    } catch (error) {
+      res.send(error);
     }
   },
 
