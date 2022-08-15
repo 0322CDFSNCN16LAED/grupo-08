@@ -8,6 +8,7 @@ lerna-debug.log*
 
 #config database
 database/config/config.js
+notas
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
