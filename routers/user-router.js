@@ -73,12 +73,9 @@ router.get(
   validUserMiddleware,
   usersControllers.edit
 );
-/*router.get(
-  "/edit/:id",
-  usersControllers.edit
-);*/
+
 /* Guardar edición de usuario */
-//router.put("/:id", uploadFile.single("profilePic"), usersControllers.update);
+router.put("/:id", uploadFile.single("profilePic"), usersControllers.update);
 
 /* DELETE - Borrar usuario */
 router.delete("/:id", usersControllers.delete);

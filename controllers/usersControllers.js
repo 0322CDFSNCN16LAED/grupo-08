@@ -63,7 +63,7 @@ module.exports = {
   },
 
   //CRUD DE USUARIOS
-    //Metodo que muestra el formulario de Registro de usuXarios (GET)
+    //Metodo que muestra el formulario de Registro de usuarios (GET)
   showRegister: async function (req, res) {
     let userRoles = await database.UserRole.findAll();
     return res.render("users/register", {userRoles});
@@ -145,12 +145,26 @@ module.exports = {
 
   // formulario de edicion de un user
   edit: async function (req, res){
-    let address = await database.Address.findAll();//traigo el modelo de address
     let userToEdit = await database.User.findByPk(req.params.id,  {
       include: ["userRole", "address"],
     } )
-      res.render("users/edit-user", {userToEdit, address})
+      res.render("users/edit-user", {userToEdit})
         console.log(userToEdit)
+  },
+
+  //se procesa la edición de un usuario
+  update: async function (req, res) {
+    let address = await database.Address.findAll(); //Traigo las tablas que puedo necesitar
+    let userRoles = await database.UserRole.findAll();
+    
+    let userToEdit = await database.User.findByPk(req.params.id,{ //capturo el registro a modificar
+      include: ["userRole", "address"],
+    })
+
+    try {
+
+    } catch(error) {}
+
   },
 
   // Borrado de un usuario
@@ -160,16 +174,16 @@ module.exports = {
     try{
       let userToDelete = await database.User.findByPk(userId);
       if (userToDelete){
-        await userToDelete.setUserRole([]);
-        await userToDelete.setAddress([]);
-       
+        await userToDelete.setUserRole();
+        await userToDelete.setAddress();
+               
         //await database.User.setOrders([]);
         await userToDelete.destroy();
+        res.redirect("users/index")
       };
     }catch(error){
       console.error(error);
     }
-    res.redirect("users/index")
   }
   
 }
