@@ -12,7 +12,7 @@ module.exports = {
     } catch (error) {
       console.error("Error listar productos ---> " + error);
     }
-    res.render("products", { productos: products });
+    res.render("products/products", { productos: products });
   },
   //ver el detalle de cada producto
   detail: async (req, res) => {
