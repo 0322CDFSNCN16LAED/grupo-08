@@ -34,10 +34,13 @@ const usersControllers = require("../controllers/usersControllers");
 /*Listado de todos los usuarios */
 router.get("/", authMiddleware, usersControllers.index);
 
+
 /*Formulario de Login*/
 router.get("/login", guestMiddleware, usersControllers.login);
+
 /* procesa login*/
 router.post("/", loginValidations, usersControllers.processLogin);
+
 /*Logout */
 router.get("/logout", usersControllers.logout);
 
@@ -62,6 +65,7 @@ router.get(
   usersControllers.detail
 );
 
+
 /* UPDATE - Formulario de edicion de usuario */
 router.get(
   "/edit/:id",
@@ -69,6 +73,7 @@ router.get(
   validUserMiddleware,
   usersControllers.edit
 );
+
 /* Guardar edición de usuario */
 router.put("/:id", uploadFile.single("profilePic"), usersControllers.update);
 
