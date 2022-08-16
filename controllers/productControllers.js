@@ -1,31 +1,13 @@
-const db = require("../data/db-products");
-const dbcuotas = require("../data/db-cuotas");
-const dbcategoriaProducts = require("../data/db-categoria-product");
-const dbestilos = require("../data/db-estilos");
-const dbambientes = require("../data/db-ambientes");
-
-let cuotas = dbcuotas.getAll();
-const categorias = dbcategoriaProducts.getAll();
-const estilos = dbestilos.getAll();
-const ambientes = dbambientes.getAll();
-
-let products = db.getAll();
-/* cambiando a la DB */
-const { Installment } = require("../database/models");
-const { Category } = require("../database/models");
-const { Room } = require("../database/models");
-const { Style } = require("../database/models");
-const { Colour } = require("../database/models");
-const { Brand } = require("../database/models");
-const { Product } = require("../database/models");
-const { RoomProduct } = require("../database/models");
+const db = require("../database/models");
+const { Op } = require("sequelize");
 
 module.exports = {
   // ver todos los productos
   index: async (req, res) => {
     try {
-      products = await Product.findAll({
+      products = await db.Product.findAll({
         include: ["Category"],
+        order: [["name", "asc"]],
       });
     } catch (error) {
       console.error("Error listar productos ---> " + error);
@@ -35,7 +17,7 @@ module.exports = {
   //ver el detalle de cada producto
   detail: async (req, res) => {
     try {
-      let producto = await Product.findByPk(req.params.id, {
+      let producto = await db.Product.findByPk(req.params.id, {
         include: ["Category", "Style", "Rooms"],
       });
       //res.send(producto);
@@ -47,12 +29,14 @@ module.exports = {
   //crear un nuevo producto
   create: async (req, res) => {
     try {
-      let vInstallments = await Installment.findAll();
-      let vCategorys = await Category.findAll();
-      let vRooms = await Room.findAll();
-      let vStyles = await Style.findAll();
-      let vColours = await Colour.findAll();
-      let vBrands = await Brand.findAll();
+      let vInstallments = await db.Installment.findAll({
+        order: [["name", "asc"]],
+      });
+      let vCategorys = await db.Category.findAll({ order: [["name", "asc"]] });
+      let vRooms = await db.Room.findAll({ order: [["name", "asc"]] });
+      let vStyles = await db.Style.findAll({ order: [["name", "asc"]] });
+      let vColours = await db.Colour.findAll({ order: [["name", "asc"]] });
+      let vBrands = await db.Brand.findAll({ order: [["name", "asc"]] });
       res.render("products/products-create-form", {
         vInstallments,
         vCategorys,
@@ -68,7 +52,7 @@ module.exports = {
   //accion de procesar el producto. CREAR
   store: async function (req, res) {
     try {
-      let resp = await Product.create({
+      let resp = await db.Product.create({
         ...req.body,
         price: req.body.price.trim().replace(",", "."),
         freeDelivery: req.body.freeDelivery ? true : false,
@@ -86,7 +70,7 @@ module.exports = {
       }
       if (ambientes.length > 0) {
         ambientes.forEach(async (element) => {
-          await RoomProduct.create({
+          await db.RoomProduct.create({
             roomId: element,
             productId: resp.dataValues.id,
           });
@@ -100,14 +84,17 @@ module.exports = {
   },
   // vista para editar detalles de productos
   edit: async (req, res) => {
-    const productEdit = await Product.findByPk(req.params.id);
-    const vInstallments = await Installment.findAll();
-    const vCategorys = await Category.findAll();
-    const vRooms = await Room.findAll();
-    const vStyles = await Style.findAll();
-    const vColours = await Colour.findAll();
-    const vBrands = await Brand.findAll();
-    console.log(vInstallments);
+    const productEdit = await db.Product.findByPk(req.params.id, {
+      include: ["Rooms"],
+    });
+    const vInstallments = await db.Installment.findAll({
+      order: [["name", "asc"]],
+    });
+    const vCategorys = await db.Category.findAll({ order: [["name", "asc"]] });
+    const vRooms = await db.Room.findAll({ order: [["name", "asc"]] });
+    const vStyles = await db.Style.findAll({ order: [["name", "asc"]] });
+    const vColours = await db.Colour.findAll({ order: [["name", "asc"]] });
+    const vBrands = await db.Brand.findAll({ order: [["name", "asc"]] });
     Promise.all([
       productEdit,
       vInstallments,
@@ -141,83 +128,82 @@ module.exports = {
       .catch((error) => res.send(error));
   },
   // accion de actualizar un producto.
-  update: (req, res) => {
-    products = db.getAll();
-    const productIndex = products.findIndex((p) => p.id == req.params.id);
-    const product = products[productIndex];
-
-    let ambientes = [];
-    if (req.body.ambientes) {
-      if (typeof req.body.ambientes == "string") {
-        ambientes.push(req.body.ambientes);
-      } else {
-        ambientes = req.body.ambientes;
+  update: async (req, res) => {
+    let productId = req.params.id;
+    const oldProduct = db.Product.findByPk(productId);
+    try {
+      let resp = await db.Product.update(
+        {
+          ...req.body,
+          price: req.body.price.trim().replace(",", "."),
+          freeDelivery: req.body.freeDelivery ? true : false,
+          picture: req.file
+            ? "/images/products/" + req.file.filename
+            : oldProduct.picture,
+        },
+        {
+          where: { id: productId },
+        }
+      );
+      let ambientes = [];
+      if (resp) {
+        if (req.body.rooms) {
+          if (typeof req.body.rooms == "string") {
+            ambientes.push(req.body.rooms);
+          } else {
+            ambientes = req.body.rooms;
+          }
+        }
       }
+      await db.RoomProduct.destroy({ where: { productId: productId } });
+      //await oldProduct.setRooms([]);
+      if (ambientes.length > 0) {
+        ambientes.forEach(async (element) => {
+          await db.RoomProduct.create({
+            roomId: element,
+            productId: productId,
+          });
+        });
+      }
+      res.redirect("/products");
+    } catch (error) {
+      res.send(error);
     }
-    // armo el objeto a modificar
-    const editProduct = {
-      nombre: req.body.nombre,
-      categoria: req.body.categoria,
-      ambiente: ambientes,
-      estilo: req.body.estilos,
-      precioContado: req.body.precioContado,
-      cantidadDeCuotas: req.body.cantidadDeCuotas,
-      precioCuota: req.body.precioCuota,
-      envioGratis: !req.body.envioGratis ? false : true,
-      alt: req.body.alt,
-      descripcion: req.body.descripcion,
-      medidas: req.body.medidas,
-      color: req.body.color,
-      detalles: req.body.detalles,
-      infoExtra: req.body.infoExtra,
-      detalles: req.body.detalles.split(","),
-      infoExtra: req.body.infoExtra.split(","),
-      id: product.id,
-    };
-    if (req.file) {
-      editProduct.imagen = "/images/products/" + req.file.filename;
-    } else {
-      editProduct.imagen = product.imagen;
-    }
-
-    products[productIndex] = editProduct;
-    db.saveAll(products);
-    res.redirect("/products");
   },
   // accion de eliminar un producto
   destroy: async (req, res) => {
     const productoId = req.params.id;
     try {
-      const product = await Product.findByPk(productoId);
+      const product = await db.Product.findByPk(productoId);
       if (product) {
         await product.setRooms([]);
         //await product.setOrder([]); falta el logico de orders
         await product.destroy();
         res.redirect("/products");
       }
-      /*if (product) {
-        await RoomProduct.destroy({ where: { productId: productoId } });
-        await Product.destroy({ where: { id: productoId } });
-        res.redirect("/products");
-      }*/
     } catch (error) {
       res.send("el errrrrrrrrrrrror " + error);
     }
-
-    /*
-
-      
-      console.log("el valor de producr -->" + productId);
-      await Product.destroy({ where: { id: productId }, force: true });
-
-      /*await Product.destroy({
-        where: { id: productId },
-        force: true,
-      });*/
-
-    /*  } catch (error) {
-      console.error(error);
-      res.send(error);
-    }*/
+  },
+  // buscar un producto
+  search: async (req, res) => {
+    const productSearch = req.query.search.trim();
+    try {
+      const productos = await db.Product.findAll({
+        include: ["Category"],
+        where: {
+          name: { [Op.like]: "%" + productSearch + "%" },
+        },
+        order: [["name", "ASC"]],
+      });
+      if (productos.length > 0) {
+        res.render("products/products", { productos });
+      } else {
+        const allProducts = await db.Product.findAll({ include: ["Category"] });
+        res.render("products/products", { productos: allProducts });
+      }
+    } catch (error) {
+      console.error("search error ---> " + error);
+    }
   },
 };

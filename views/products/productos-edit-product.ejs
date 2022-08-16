@@ -106,66 +106,75 @@
                 </select>
               </div>
               <!--ambientes-->
-                               
-
+              <div class="col-12 col-md-6 mt-3">
+                <label for="rooms" class="form-label col-12">Ambientes:</label>             
+                <% vRooms.forEach(room => {%>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="<%=room.id%>" name="rooms" value="<%=room.id%>"  
+                    <% if(productoEditar.Rooms.find(ele => ele.id==room.id)){%>checked<%}%>
+                    >
+                    <label class="form-check-label" for="<%=room.id%>"><%=room.name%></label>
+                  </div>
+                  <% })%>             
+              </div> 
               
               <!--descripcion del producto-->
               <div class="col-12 col-md-6 mt-3">
-                <label for="descripcion" class="form-label"
+                <label for="description" class="form-label"
                   >Descripcion:</label
                 >
                 <input 
                   value="<%=productoEditar.description%>"
                   type="text"
                   class="form-control"
-                  id="descripcion"
-                  name="descripcion"
+                  id="description"
+                  name="description"
                   placeholder=""
                 />
               </div>
               <div class="col-12 col-md-6 mt-3">
                 <!--detalles del producto-->
-                <label for="detalles" class="form-label"
+                <label for="details" class="form-label"
                   >Detalles:<span class="font-red"> (Indicar los detalles separados por comas)</span></label
                 >                
                 <textarea
                   type="text"
                   class="form-control"
-                  name="detalles"
-                  id="detalles"
+                  name="details"
+                  id="details"
                 ><%=productoEditar.details%></textarea>
               </div>
               <!--Información extra del producto-->
               <div class="col-12 col-md-6 mt-3">
-                <label for="infoExtra" class="form-label">
+                <label for="extraInfo" class="form-label">
                   Información extra del producto:<span class="font-red"> (Indicar la información extra separados por comas)</span></label>
                 <textarea                  
                   type="text"
                   class="form-control"
-                  name="infoExtra"
-                  id="infoExtra"
+                  name="extraInfo"
+                  id="extraInfo"
                 ><%=productoEditar.extraInfo%></textarea>
               </div>
               <!--medidas-->
               <div class="col-12 col-md-6 mt-3">
-                <label for="medidas" class="form-label">Medidas:</label>
+                <label for="measurements" class="form-label">Medidas:</label>
                 <input
                   type="text"
                   value="<%=productoEditar.measurements%>"
                   class="form-control"
-                  id="medidas"
-                  name="medidas"
+                  id="measurements"
+                  name="measurements"
                   placeholder=""
                 />
               </div>
                <!-- envio gratis -->
                <div class="col-12 col-md-6">
 
-                <label for="envioGratis" class="form-label col-12"
+                <label for="freeDelivery" class="form-label col-12"
                   >Envio gratis:</label
                 >
                 <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" id="envioGratis" name="envioGratis" <% if(productoEditar.freeDelivery){%> checked<%} %>>
+                  <input class="form-check-input" type="checkbox" id="freeDelivery" name="freeDelivery" <% if(productoEditar.freeDelivery){%> checked<%} %>>
                   
                 </div>
               </div>
@@ -175,8 +184,8 @@
                 <input
                   type="file"
                   class="form-control"
-                  id="image"
-                  name="image"
+                  id="picture"
+                  name="picture"
                   placeholder="Subir una nueva imagen"
                 />
               </div>
