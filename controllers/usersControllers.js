@@ -170,16 +170,11 @@ module.exports = {
   // Borrado de un usuario
   delete: async function (req, res){
     let userId = req.params.id;
-
     try{
       let userToDelete = await database.User.findByPk(userId);
       if (userToDelete){
-        await userToDelete.setUserRole();
-        await userToDelete.setAddress();
-               
-        //await database.User.setOrders([]);
         await userToDelete.destroy();
-        res.redirect("users/index")
+        res.redirect("/")
       };
     }catch(error){
       console.error(error);
