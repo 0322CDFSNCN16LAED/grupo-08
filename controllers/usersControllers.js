@@ -154,17 +154,33 @@ module.exports = {
 
   //se procesa la edición de un usuario
   update: async function (req, res) {
-    let address = await database.Address.findAll(); //Traigo las tablas que puedo necesitar
-    let userRoles = await database.UserRole.findAll();
-    
-    let userToEdit = await database.User.findByPk(req.params.id,{ //capturo el registro a modificar
+    //capturo el registro a modificar
+    let user = await database.User.findByPk(req.params.id,{ 
       include: ["userRole", "address"],
     })
 
     try {
-
-    } catch(error) {}
-
+      let newAddress = await database.Address.create ({//primero guardo la nueva dirección
+        address: req.body.address,
+        city: req.body.city,
+        state: req.body.state,
+        country: req.body.country,
+        zipCode: req.body.zipCode,
+      })
+      database.User.update({ // luego actualizo con el metodo UPDATE de Sequelize
+        name: req.body.name,
+        lastname: req.body.lastname,
+        email: req.body.email,
+        phoneNumber: req.body.phoneNumber,
+        addressId: newAddress.dataValues.id, // guardo el id de la new address creada
+        password: bcryptjs.hashSync(req.body.password, 10), 
+        profilePic:req.file ? req.file.filename : "defaultImage.jpg",
+        userRoleId: req.body.userRoleId,
+      },{
+        where: {id: user.id}
+      })
+        res.render("users/user-detail", {user} )
+      } catch(error) {console.error(error)}
   },
 
   // Borrado de un usuario
