@@ -5,6 +5,9 @@ const path = require("path");
 
 const productControllers = require("../controllers/productControllers");
 
+// Middlewares
+const basicCreateValidationsProducts = require("../validation/productValidation");
+
 /*para guardar los archivos y el nombre que quiero que se guarde */
 const multerDiskStorage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -23,7 +26,7 @@ router.get("/", productControllers.index);
 
 /* Crear un producto*/
 router.get("/create", productControllers.create);
-router.post("/", uploadFile.single("picture"), productControllers.store);
+router.post("/", uploadFile.single("picture"), basicCreateValidationsProducts, productControllers.store);
 
 /* Buscar producto */
 router.get("/search", productControllers.search);

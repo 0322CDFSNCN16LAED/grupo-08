@@ -25,7 +25,13 @@
                 id="name"
                 class="form-control"
                 placeholder=""
+                value="<%= locals.oldData ? oldData.name : null %>"
+
               />
+              <% if (locals.errors && errors.name) { %>
+                <div class="text-danger"><%= errors.name.msg %></div>
+                <% } %>
+
             </div>
             <!--precio-->
             <div class="col-4 mt-3">
@@ -36,6 +42,8 @@
                 id="price"
                 class="form-control"
                 placeholder=""
+                value="<%= locals.oldData ? oldData.price : null %>"
+
               />
             </div>
              <!--cuotas-->
@@ -101,17 +109,30 @@
             <!--descripcion del producto-->
             <div class="col-12 col-md-6 mt-3">
               <label for="description" class="form-label col-12">Descripción</label>
-              <textarea class="form-control" id="description" name="description" rows="3"></textarea>            
+              <textarea class="form-control" id="description" name="description" rows="3" value="<%= locals.oldData ? oldData.description : null %>"></textarea>            
             </div>
             <!--detalles del producto-->
             <div class="col-12 col-md-6 mt-3">
               <label for="details" class="form-label col-12">Detalles <span class="font-red"> (Indicar los detalles separados por comas)</span></label>
-              <textarea class="form-control" id="details" name="details" rows="3"></textarea>            
+              <textarea 
+                class="form-control" 
+                id="details" 
+                name="details" 
+                rows="3"
+                value="<%= locals.oldData ? oldData.details : null %>"
+                >
+              </textarea>            
             </div>
             <!--Información extra del producto-->
             <div class="col-12 col-md-6 mt-3">
               <label for="extraInfo" class="form-label">Información extra del producto<span class="font-red"> (Indicar la información extra separados por comas)</span></label>
-              <textarea class="form-control" id="extraInfo" name="extraInfo" rows="3"></textarea>            
+              <textarea 
+                class="form-control" 
+                id="extraInfo" 
+                name="extraInfo" 
+                rows="3"
+                >
+              </textarea>            
             </div>          
             <!--medidas-->
             <div class="col-12 col-md-6 mt-3">
@@ -122,6 +143,8 @@
                 id="measurements"
                 class="form-control"
                 placeholder=""
+                value="<%= locals.oldData ? oldData.measurements : null %>"
+
               />
             </div>
             <!-- envio gratis -->
