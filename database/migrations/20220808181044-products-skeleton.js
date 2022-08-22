@@ -41,7 +41,7 @@ module.exports = {
           key: "id",
         },
       },
-      colorId: {
+      colourId: {
         type: DataTypes.UUID,
         allowNull: false,
         references: {
