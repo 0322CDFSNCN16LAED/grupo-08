@@ -12,6 +12,7 @@ module.exports = function (sequelize, DataTypes) {
     },
     name: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
     categoryId: {
       type: DataTypes.UUID,
@@ -23,6 +24,7 @@ module.exports = function (sequelize, DataTypes) {
     },
     price: {
       type: DataTypes.DECIMAL(25, 2),
+      allowNull: false,
     },
     sale: {
       type: DataTypes.DECIMAL(1, 2),
@@ -33,6 +35,7 @@ module.exports = function (sequelize, DataTypes) {
     },
     freeDelivery: {
       type: DataTypes.INTEGER,
+      allowNull: false,
     },
     brandId: {
       type: DataTypes.UUID,
@@ -40,6 +43,7 @@ module.exports = function (sequelize, DataTypes) {
     },
     description: {
       type: DataTypes.TEXT,
+      allowNull: false,
     },
     measurements: {
       type: DataTypes.STRING,
@@ -56,6 +60,7 @@ module.exports = function (sequelize, DataTypes) {
     },
     picture: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
   };
 
