@@ -1,7 +1,6 @@
 const db = require("../database/models");
 const { Op } = require("sequelize");
 
-
 const { validationResult } = require("express-validator");
 
 module.exports = {
@@ -52,6 +51,8 @@ module.exports = {
       console.error("Error en Create Product---> " + error);
     }
   },
+
+  
   //accion de procesar el producto. CREAR
   store: async function (req, res) {
     try {
@@ -86,51 +87,17 @@ module.exports = {
     }
   },
 
-  processCreate: async function (req, res) {
+// Metodo que procesa la validacion de la creacion del productos x POST
+ processCreate: async function (req, res) {
     // Metodo que procesa la creacion de productos x POST
     const resultValidation = validationResult(req);
 
     if (resultValidation.errors.length >0) { // si el array es mayor a cero quiere decir que hay errores
       return res.render("products/products-create-form", {
         errors: resultValidation.mapped(),//convierte al array en un obj literal
-        oldData: req.body,
-      });
-    }
-    let userToLogin = await database.User.findOne({// busco al usuario por su mail en la DB
-      where: {
-        email : req.body.email
-      }
-    })
-    if (userToLogin) {
-      //si existe
-      if (bcryptjs.compareSync(req.body.password, userToLogin.password)) {
-        //comparo la contraseña
-        delete userToLogin.password; //por seguridad la borramos
-        req.session.userLogged = userToLogin; // creamos la variable en session con el usuario loggeado
-        // si el usuario tildó ser recordado:
-        if (req.body.recordar) {
-          res.cookie("userEmail", req.body.email, { maxAge: 1000 * 60 }); //dura 1 minuto
-        }
-        return res.redirect("/users/" + userToLogin.id); //¿va en esta parte + userToLogin.id?
-      }
-      return res.render("users/login", {
-        // Si la password no coincide
-        errors: {
-          email: {
-            msg: "Las credenciales son incorrectas",
-          },
-        },
-      });
-    }
-    return res.render("users/login", {
-      // si el mail no esta en la DB
-      errors: {
-        email: {
-          msg: "El usuario no se encuentra registrado",
-        },
-      },
     });
-  },
+    }
+     },
   // vista para editar detalles de productos
   edit: async (req, res) => {
     const productEdit = await db.Product.findByPk(req.params.id, {

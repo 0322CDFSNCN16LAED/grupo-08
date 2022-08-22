@@ -26,7 +26,10 @@ router.get("/", productControllers.index);
 
 /* Crear un producto*/
 router.get("/create", productControllers.create);
-router.post("/", uploadFile.single("picture"), basicCreateValidationsProducts, productControllers.store);
+router.post("/create", uploadFile.single("picture"), basicCreateValidationsProducts, productControllers.processCreate);
+
+
+router.post("/", uploadFile.single("picture"), productControllers.store);
 
 /* Buscar producto */
 router.get("/search", productControllers.search);
