@@ -43,9 +43,9 @@ module.exports = function (sequelize, DataTypes) {
   // creamos la relacion con la tabla
 
   Address.associate = function (models) {
-    Address.belongsTo(models.User, {
+    Address.hasOne(models.User, {
       as: "Users", // el alias de la tabla
-      foreignKey: "userId",
+      foreignKey: "addressId",
       timestamps: false,
     });
   };

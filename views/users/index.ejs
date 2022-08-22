@@ -19,6 +19,11 @@
               <th scope="col">Email</th>
               <th scope="col">Teléfono</th>
               <th scope="col">Dirección</th>
+              <th scope="col">Ciudad</th>
+              <th scope="col">Localidad</th>
+              <th scope="col">País</th>
+              <th scope="col">Código Postal</th>
+              <th scope="col">Rol de usuario</th>
               <th scope="col"></th>
             </tr>
           </thead>
@@ -32,12 +37,15 @@
                 >
               </th>
               <td class="col-3"><%=user.email%></td>
-              <td class="col-2"><%=user.phoneNumber%></td>
-              <td class="col-3"><%=user.address%></td>
-              <td class="col-3"><%=user.city%></td>
-              <td class="col-3"><%=user.state%></td>
-              <td class="col-3"><%=user.country%></td>
-              <td class="col-3"><%=user.zipCode%></td>
+              <td class="col-2"><%=user.phoneNumber%></td>          
+              <td class="col-3"><%=user.address.address%></td>
+              <td class="col-3"><%=user.address.city%></td>
+              <td class="col-3"><%=user.address.state%></td>
+              <td class="col-3"><%=user.address.country%></td>
+              <td class="col-3"><%=user.address.zipCode%></td>
+              
+
+              <td class="col-2"><%=user.userRole.name%></td>
               <td class="col-2">
                 <a href="/users/<%=user.id %>">
                   <img

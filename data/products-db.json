@@ -12,7 +12,7 @@
         "precioContado": "5300",
         "cantidadDeCuotas": "2",
         "precioCuota": "1733.33",
-        "envioGratis": true,
+        "envioGratis": 0,
         "alt": "lampara negra",
         "descripcion": "El diseño industrial en iluminación está muy de moda. Con nuestra linea de lamparas galponeras podrás iluminar y destacar tanto ambientes de tu hogar como tu comercio.",
         "medidas": "32cm alto x 30cm + Cable: 120 cm largo",
@@ -47,7 +47,7 @@
         "precioContado": "20000",
         "cantidadDeCuotas": "1",
         "precioCuota": "1666.67",
-        "envioGratis": true,
+        "envioGratis": 0,
         "alt": "estantería nórdica",
         "descripcion": "Biblioteca estilo nórdico. Fabricada con ménsulas de roble y estantes de madera laqueada en pintura poliuretánica color blanco matte.",
         "medidas": "107 cm x 35 cm x 200 cm",
@@ -64,33 +64,6 @@
         "imagen": "/images/products/mueble.PNG"
     },
     {
-        "nombre": "Silla Tólix",
-        "id": 3,
-        "categoria": 3,
-        "ambiente": [
-            12,
-            3,
-            4,
-            7
-        ],
-        "estilo": 3,
-        "precioContado": 12500,
-        "cantidadDeCuotas": 5,
-        "precioCuota": 2083.33,
-        "envioGratis": true,
-        "imagen": "/images/products/tolix-amarilla.jpg",
-        "alt": "Silla Tolix Amarilla",
-        "descripcion": "La Silla Tolix, ya es un clásico centenario. Este clásico del diseño ha sido utilizado en cafeterías y cocinas retro de todo el mundo, pero es combinable con multitud de estilos y tendencias decorativas.   En la década de los 70 se utilizaban a menudo en fábricas, oficinas u hospitales. Hoy se ha impuesto como un diseño de moda ideal para múltiples ambientes.",
-        "medidas": "Medidas: 86cm altura respaldo x 44cm ancho x 45cm profundidad asiento ",
-        "color": "amarillo",
-        "detalles": [
-            "Calidad garantizada acero reforzado",
-            "Apilable - Resistencia hasta 130kg",
-            "Viene en variedad de colores"
-        ],
-        "infoExtra": []
-    },
-    {
         "nombre": "Lampara Minimal Black",
         "categoria": "4",
         "ambiente": [
@@ -103,7 +76,7 @@
         "precioContado": "15000",
         "cantidadDeCuotas": "1",
         "precioCuota": "15000",
-        "envioGratis": true,
+        "envioGratis": 0,
         "alt": "Lampara de techo negra",
         "descripcion": "lampara de techo 220v.",
         "medidas": "34x56",
@@ -132,7 +105,7 @@
         "precioContado": "6500",
         "cantidadDeCuotas": "3",
         "precioCuota": "2166.66",
-        "envioGratis": true,
+        "envioGratis": 0,
         "alt": "Jarra de porcelana blanca con manija de  madera ",
         "descripcion": "Termo de vidrio diseño de doble capa.Manija de madera",
         "medidas": "24cm de alto x 13cm de diámetro",
@@ -164,7 +137,7 @@
         "precioContado": "2750",
         "cantidadDeCuotas": 2,
         "precioCuota": "2750",
-        "envioGratis": false,
+        "envioGratis": 1,
         "alt": "Cucharon y tenedor ensaladera",
         "descripcion": "Set Utensilios Para Ensalada Bamboo 2 Piezas cuchara y pinza",
         "medidas": "Largo 29cm",
@@ -192,7 +165,7 @@
         "precioContado": "120865",
         "cantidadDeCuotas": "4",
         "precioCuota": "10072.08",
-        "envioGratis": false,
+        "envioGratis": 1,
         "alt": "Alfombra geometrica",
         "descripcion": "ALFOMBRA CONCRETA - COLECCION ANDES\r\n\r\nColores: Celeste Brillante, Azul Marino, Gris Cemento, Verde Palta y Crudo Natural.",
         "medidas": "1,50 x 2,10 mts.",
@@ -225,7 +198,7 @@
         "precioContado": "75000",
         "cantidadDeCuotas": "2",
         "precioCuota": "25000",
-        "envioGratis": true,
+        "envioGratis": 0,
         "alt": "set porcelana",
         "descripcion": "Set de vajilla de porcelana 24 piezas - 6 comensales",
         "medidas": "",
@@ -260,7 +233,7 @@
         "precioContado": "4280",
         "cantidadDeCuotas": "1",
         "precioCuota": "4280",
-        "envioGratis": false,
+        "envioGratis": 1,
         "alt": "",
         "descripcion": "Ficus elastica rubra, gomero artificial. ",
         "medidas": "Maceta 18''",
@@ -273,5 +246,35 @@
         ],
         "id": 11,
         "imagen": "/images/products/1658175632428.jpg"
+    },
+    {
+        "nombre": "Silla Tolix",
+        "categoria": "3",
+        "ambiente": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "8"
+        ],
+        "estilo": "2",
+        "precioContado": "120865",
+        "cantidadDeCuotas": "1",
+        "precioCuota": "4280",
+        "envioGratis": 0,
+        "alt": "",
+        "descripcion": "La Silla Tolix, ya es un clásico centenario. Este clásico del diseño ha sido utilizado en cafeterías y cocinas retro de todo el mundo, pero es combinable con multitud de estilos y tendencias decorativas.   En la década de los 70 se utilizaban a menudo en fábricas, oficinas u hospitales. Hoy se ha impuesto como un diseño de moda ideal para múltiples ambientes.",
+        "medidas": "Medidas: 86cm altura respaldo x 44cm ancho x 45cm profundidad asiento ",
+        "color": "amarillo",
+        "detalles": [
+            "Calidad garantizada acero reforzado",
+            "Apilable - Resistencia hasta 130kg",
+            "Viene en variedad de colores"
+        ],
+        "infoExtra": [
+            ""
+        ],
+        "id": 3,
+        "imagen": "/images/products/1660090571332.jpg"
     }
 ]
