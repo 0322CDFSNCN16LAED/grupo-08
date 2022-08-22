@@ -13,6 +13,18 @@ module.exports = {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      createdAt: {
+        type: DataTypes.DATE,
+        allowNull: true,
+      },
+      updatedAt:  {
+        type: DataTypes.DATE,
+        allowNull: true,
+      },
+      deletedAt:  {
+        type: DataTypes.DATE,
+        allowNull: true,
+      }
     });
   },
 

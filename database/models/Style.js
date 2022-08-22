@@ -19,7 +19,8 @@ module.exports = function (sequelize, DataTypes) {
   // asignamos en nombre de la tabla en la DB
   let config = {
     tableName: "Styles",
-    timestamps: false,
+    timestamps: true,
+    paranoid: true,
   };
 
   // definimos la constante modelo.
@@ -29,9 +30,8 @@ module.exports = function (sequelize, DataTypes) {
 
   Style.associate = function (models) {
     Style.hasMany(models.Product, {
-      as: "Products", // el alias de la tabla
-      foreignKey: "styleId", // ojo aca verlo
-      timestamps: false,
+      as: "Products", // el alias de la relación
+      foreignKey: "styleId", 
     });
   };
 

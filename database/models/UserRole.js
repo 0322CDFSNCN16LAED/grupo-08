@@ -19,7 +19,8 @@ module.exports = function (sequelize, DataTypes){
      // asignamos en nombre de la tabla en la DB
     let config = {
         tableName: 'UserRoles',
-        timestamps: false
+        timestamps: true,
+        paranoid: true,
     }
 
     // definimos la constante modelo.
