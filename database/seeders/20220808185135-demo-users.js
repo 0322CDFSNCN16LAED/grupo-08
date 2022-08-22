@@ -2,9 +2,13 @@ const { v4 } = require("uuid");
 const uuid = v4;
 const { faker } = require("@faker-js/faker");
 const bcrypt = require("bcryptjs");
+const db = require ('../models')
 
 module.exports = {
   async up(queryInterface, Sequelize) {
+    const address = await db.Address.findAll();
+    const userRole = await db.UserRole.findAll();
+    
     await queryInterface.bulkInsert(
       "Users",
       [
@@ -16,8 +20,8 @@ module.exports = {
           password: await bcrypt.hash("123456", 12),
           phoneNumber: 123456789,
           profilePic: "/images/usersProfiles/defaultImage.jpg",
-          userRoleId: "585706da-aa55-4bd1-9180-698cce33c5a4",
-          addressId: "088b1814-1d2c-4642-bee8-2afbaaa24e30",
+          userRoleId: userRole[0].id,
+          addressId: address[0].id ,
         },
         {
           id: uuid(),
@@ -27,8 +31,8 @@ module.exports = {
           password: await bcrypt.hash("123456", 12),
           phoneNumber: 123456789,
           profilePic: "/images/usersProfiles/defaultImage.jpg",
-          userRoleId: "585706da-aa55-4bd1-9180-698cce33c5a4",
-          addressId: "088b1814-1d2c-4642-bee8-2afbaaa24e30",
+          userRoleId: userRole[0].id,
+          addressId: address[0].id,
         },
         {
           id: uuid(),
@@ -38,8 +42,8 @@ module.exports = {
           password: await bcrypt.hash("123456", 12),
           phoneNumber: 123456789,
           profilePic: "/images/usersProfiles/defaultImage.jpg",
-          userRoleId: "585706da-aa55-4bd1-9180-698cce33c5a4",
-          addressId: "088b1814-1d2c-4642-bee8-2afbaaa24e30",
+          userRoleId: userRole[0].id,
+          addressId: address[0].id,
         },
         {
           id: uuid(),
@@ -49,8 +53,8 @@ module.exports = {
           password: await bcrypt.hash("123456", 12),
           phoneNumber: 123456789,
           profilePic: "/images/usersProfiles/defaultImage.jpg",
-          userRoleId: "585706da-aa55-4bd1-9180-698cce33c5a4",
-          addressId: "088b1814-1d2c-4642-bee8-2afbaaa24e30",
+          userRoleId: userRole[0].id,
+          addressId: address[0].id,
         },
         {
           id: uuid(),
@@ -60,8 +64,8 @@ module.exports = {
           password: await bcrypt.hash("123456", 12),
           phoneNumber: 123456789,
           profilePic: "/images/usersProfiles/defaultImage.jpg",
-          userRoleId: "585706da-aa55-4bd1-9180-698cce33c5a4",
-          addressId: "088b1814-1d2c-4642-bee8-2afbaaa24e30",
+          userRoleId: userRole[0].id,
+          addressId: address[0].id,
         },
       ],
       {}
