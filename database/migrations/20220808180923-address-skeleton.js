@@ -10,6 +10,14 @@ module.exports = {
         allowNull: false,
         defaultValue: DataTypes.UUIDV4,
       },
+      userId: {
+        type: DataTypes.UUID,
+        allowNull: false,
+        references: {
+          model: "User",
+          key: "id",
+        },
+      },
       address: {
         type: DataTypes.STRING,
         allowNull: false,

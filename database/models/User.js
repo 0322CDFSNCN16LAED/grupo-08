@@ -37,10 +37,6 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
       default: "d3c54232-8d0b-44de-ba8d-fe28cd2ad46f",
     },
-    addressId: {
-      type: DataTypes.UUID,
-      allowNull: false,
-    },
   };
 
   // asignamos en nombre de la tabla en la DB

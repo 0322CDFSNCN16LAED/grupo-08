@@ -18,6 +18,9 @@ module.exports = {
       price: {
         type: DataTypes.DECIMAL(25, 2),
       },
+      sale: {
+        type: DataTypes.DECIMAL(1, 2),
+      },
       measurements: {
         type: DataTypes.STRING,
       },

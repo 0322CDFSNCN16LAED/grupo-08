@@ -40,14 +40,6 @@ module.exports = {
           key: "id",
         },
       },
-      addressId: {
-        type: DataTypes.UUID,
-        allowNull: false,
-        references: {
-          model: "Address",
-          key: "id",
-        },
-      },
     });
   },
 

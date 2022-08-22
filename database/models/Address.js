@@ -10,6 +10,10 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
       defaultValue: DataTypes.UUIDV4,
     },
+    userId: {
+      type: DataTypes.UUID,
+      allowNull: false,
+    },
     address: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -29,6 +33,7 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    
   };
 
   // asignamos en nombre de la tabla en la DB

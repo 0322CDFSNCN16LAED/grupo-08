@@ -22,6 +22,7 @@ module.exports = {
             name: faker.commerce.productName(),
             description: faker.commerce.productDescription(),
             price: faker.commerce.price(),
+            sale: faker.commerce.price(0.0,0.9,2),
             measurements: faker.commerce.productDescription(),
             freeDelivery: faker.datatype.boolean(),
             details: faker.commerce.productMaterial(),

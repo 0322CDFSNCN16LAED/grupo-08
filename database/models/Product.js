@@ -24,6 +24,9 @@ module.exports = function (sequelize, DataTypes) {
     price: {
       type: DataTypes.DECIMAL(25, 2),
     },
+    sale: {
+      type: DataTypes.DECIMAL(1, 2),
+    },
     installmentId: {
       type: DataTypes.UUID,
       allowNull: false,

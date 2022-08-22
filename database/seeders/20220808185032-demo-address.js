@@ -1,9 +1,11 @@
 const { v4 } = require("uuid");
 const uuid = v4;
 const { faker } = require("@faker-js/faker");
+const db = require ('../models')
 
 module.exports = {
   async up(queryInterface, Sequelize) {
+    const users = await db.User.findAll();
     await queryInterface.bulkInsert(
       "Address",
       Array(50)
@@ -11,6 +13,7 @@ module.exports = {
         .map(() => {
           return {
             id: uuid(),
+            userId: users[0].id,
             address: faker.address.streetAddress(),
             city: faker.address.city(),
             state: faker.address.state(),

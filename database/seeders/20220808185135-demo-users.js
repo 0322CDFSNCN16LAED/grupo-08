@@ -21,7 +21,6 @@ module.exports = {
           phoneNumber: 123456789,
           profilePic: "/images/usersProfiles/defaultImage.jpg",
           userRoleId: userRole[0].id,
-          addressId: address[0].id ,
         },
         {
           id: uuid(),
@@ -32,7 +31,6 @@ module.exports = {
           phoneNumber: 123456789,
           profilePic: "/images/usersProfiles/defaultImage.jpg",
           userRoleId: userRole[0].id,
-          addressId: address[0].id,
         },
         {
           id: uuid(),
@@ -43,7 +41,6 @@ module.exports = {
           phoneNumber: 123456789,
           profilePic: "/images/usersProfiles/defaultImage.jpg",
           userRoleId: userRole[0].id,
-          addressId: address[0].id,
         },
         {
           id: uuid(),
@@ -54,7 +51,6 @@ module.exports = {
           phoneNumber: 123456789,
           profilePic: "/images/usersProfiles/defaultImage.jpg",
           userRoleId: userRole[0].id,
-          addressId: address[0].id,
         },
         {
           id: uuid(),
@@ -65,7 +61,6 @@ module.exports = {
           phoneNumber: 123456789,
           profilePic: "/images/usersProfiles/defaultImage.jpg",
           userRoleId: userRole[0].id,
-          addressId: address[0].id,
         },
       ],
       {}
