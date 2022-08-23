@@ -51,11 +51,31 @@ module.exports = {
       console.error("Error en Create Product---> " + error);
     }
   },
-
-  
   //accion de procesar el producto. CREAR
   store: async function (req, res) {
-    try {
+
+  //para hacer la validacion 
+    const resultValidation = validationResult(req)
+  // llamo a las variables
+    let vInstallments = await db.Installment.findAll({order: [["name", "asc"]] });
+    let vCategorys = await db.Category.findAll({ order: [["name", "asc"]] });
+    let vRooms = await db.Room.findAll({ order: [["name", "asc"]] });
+    let vStyles = await db.Style.findAll({ order: [["name", "asc"]] });
+    let vColours = await db.Colour.findAll({ order: [["name", "asc"]] });
+    let vBrands = await db.Brand.findAll({ order: [["name", "asc"]] });
+
+    if (resultValidation.errors.length >0) { // si el array es mayor a cero quiere decir que hay errores
+      return res.render("products/products-create-form", {
+        errors: resultValidation.mapped(),//convierte al array en un obj literal
+        oldData: req.body,
+        vInstallments,
+        vCategorys,
+        vStyles,
+        vRooms,
+        vColours,
+        vBrands,
+    })
+  } else { try {
       let resp = await db.Product.create({
         ...req.body,
         price: req.body.price.trim().replace(",", "."),
@@ -80,24 +100,13 @@ module.exports = {
           });
         });
       }
-      res.redirect("/products");
+    res.redirect("/products");
     } catch (error) {
       console.log("error en create " + error);
       res.send(error);
     }
-  },
-
-// Metodo que procesa la validacion de la creacion del productos x POST
- processCreate: async function (req, res) {
-    // Metodo que procesa la creacion de productos x POST
-    const resultValidation = validationResult(req);
-
-    if (resultValidation.errors.length >0) { // si el array es mayor a cero quiere decir que hay errores
-      return res.render("products/products-create-form", {
-        errors: resultValidation.mapped(),//convierte al array en un obj literal
-    });
-    }
-     },
+  }
+ },
   // vista para editar detalles de productos
   edit: async (req, res) => {
     const productEdit = await db.Product.findByPk(req.params.id, {
