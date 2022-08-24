@@ -26,20 +26,23 @@
             class="form-field"
             >
             <div class="row product-detail">
-              <!--nombre-->
+              <!--nombre OBLIGATORIO-->
               <div class="col-12 mt-3">
                 <label for="nombre" class="form-label"
                   >Nombre del producto:</label
                 >
                 <input
-                  value="<%=productoEditar.name%>"
+                  value="<%= locals.oldData ? oldData.name : null %>"
                   type="text"
                   id="name"
                   name="name"                  
-                  class="form-control"
+                  class="form-control <%=locals.errors && errors.name ? "is-invalid":null%>"
                 />
+                <% if (locals.errors && errors.name) { %>
+                  <div class="text-danger"><%= errors.name.msg %></div>
+                  <% } %>
               </div>
-              <!--precio-->
+              <!--precio OBLIGATORIO-->
               <div class="col-4 mt-3">
                 <label for="price" class="form-label"
                   >Precio</label
@@ -52,7 +55,7 @@
                   placeholder="Precio al contado es de..."
                 />
               </div>
-              <!--cuotas-->
+              <!--cuotas OBLIGATORIO-->
               <div class="col-4 mt-3">
                 <label for="installmentId" class="form-label col-12"
                   >Cuotas: </label
@@ -65,7 +68,7 @@
                   
                 </select>
               </div>  
-              <!-- color -->
+              <!-- color OBLIGATORIO-->
               <div class="col-4 mt-3">
                 <label for="color" class="form-label">Color:</label>
                 <select name="colourId" id="colourId" class="form-select">
@@ -75,7 +78,7 @@
                   <% })%> 
                 </select>              
               </div>            
-              <!--categoria-->
+              <!--categoria OBLIGATORIO-->
               <div class="col-4 mt-3">
                 <label for="categoryId" class="form-label">Categoria:</label>                
                 <select name="categoryId" id="categoryId" class="form-select">
@@ -85,7 +88,7 @@
                   <% })%>
                 </select>
               </div>
-              <!--estilos-->
+              <!--estilos OBLIGATORIO-->
               <div class="col-4 mt-3">
                 <label for="styleId" class="form-label">Estilo:</label>                
                 <select name="styleId" id="styleId" class="form-select">
@@ -95,7 +98,7 @@
                   <% })%>
                 </select>
               </div>
-              <!--marcas-->
+              <!--marcas OBLIGATORIO-->
               <div class="col-4 mt-3">
                 <label for="brandId" class="form-label">Marca:</label>                
                 <select name="brandId" id="brandId" class="form-select">
@@ -105,7 +108,7 @@
                   <% })%>
                 </select>
               </div>
-              <!--ambientes-->
+              <!--ambientes OBLIGATORIO-->
               <div class="col-12 col-md-6 mt-3">
                 <label for="rooms" class="form-label col-12">Ambientes:</label>             
                 <% vRooms.forEach(room => {%>
@@ -118,7 +121,7 @@
                   <% })%>             
               </div> 
               
-              <!--descripcion del producto-->
+              <!--descripcion del producto OBLIGATORIO-->
               <div class="col-12 col-md-6 mt-3">
                 <label for="description" class="form-label"
                   >Descripcion:</label

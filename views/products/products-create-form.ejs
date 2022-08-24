@@ -157,24 +157,19 @@
               <label for="rooms" class="form-label col-12">Ambientes:</label>
               <div>             
               <% vRooms.forEach(room =>{%>
-                <div class="form-check form-check-inline">
-                  <input 
-                    class="form-check-input <%=locals.errors && errors.rooms ? "is-invalid":null%>"
-                    type="checkbox" 
-                    id="<%=room.id%>"  
-                    name="rooms">
-                  <label class="form-check-label" 
-                    for="<%=room.id%>">
-                         <%=room.name%>
-                  </label>
-                </div>
-                <%})%>   
-               </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="<%=room.id%>" name="rooms" value="<%=room.id%>">
+                    <label class="form-check-label" for="<%=room.id%>"
+                      <%=locals.oldData && (room.id === oldData.room) ? "checkboxed": null%>>
+                      <%=room.name%></label>
+                  </div>
+                  <% })%>             
+              </div>   
                 <%if(locals.errors && errors.rooms) {%>
                   <div class="text-danger"><%=errors.rooms.msg %></div>
                 <%}%>  
             </div>            
-            <!--descripcion del producto-->
+            <!--descripcion del producto OBLIGATORIO-->
             <div class="col-12 col-md-6 mt-3">
                 <label 
                   for="description" 
@@ -183,7 +178,7 @@
                   id="description" 
                   name="description"
                   rows="3"
-                  class="form-control <%=locals.errors&&errors.description?"is-invalid":null%>" 
+                  class="form-control <%=locals.errors&&errors.description ? "is-invalid":null%>" 
                   value="<%=locals.oldData ? oldData.name:null%>">
                 </textarea>            
                   <%if(locals.errors && errors.description){%>
@@ -197,7 +192,7 @@
                 id="details" 
                 name="details" 
                 rows="3"
-                value="<%= locals.oldData ? oldData.details : " " %>">
+                value="<%=locals.oldData ? oldData.details : null %>">
               </textarea>
             </div>
             <!--Información extra del producto-->
@@ -207,7 +202,7 @@
                 id="extraInfo" 
                 name="extraInfo" 
                 rows="3"
-                value="<%= locals.oldData ? oldData.extraInfo : " " %>">
+                value="<%= locals.oldData ? oldData.extraInfo : null %>">
               </textarea>            
             </div>          
             <!--medidas-->

@@ -109,6 +109,8 @@ module.exports = {
  },
   // vista para editar detalles de productos
   edit: async (req, res) => {
+    const resultValidation = validationResult(req)
+
     const productEdit = await db.Product.findByPk(req.params.id, {
       include: ["Rooms"],
     });
@@ -129,7 +131,19 @@ module.exports = {
       vColours,
       vBrands,
     ])
-      .then(
+    
+    if (resultValidation.errors.length >0) { // si el array es mayor a cero quiere decir que hay errores
+      return res.render("products/products-edit-form", {
+        errors: resultValidation.mapped(),//convierte al array en un obj literal
+        oldData: req.body,
+        vInstallments,
+        vCategorys,
+        vStyles,
+        vRooms,
+        vColours,
+        vBrands,
+      })
+    } else {
         ([
           productoEdit,
           allInstallments,
@@ -149,8 +163,8 @@ module.exports = {
             vBrands: allBrands,
           });
         }
-      )
-      .catch((error) => res.send(error));
+    }
+      
   },
   // accion de actualizar un producto.
   update: async (req, res) => {
