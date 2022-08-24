@@ -2,8 +2,8 @@ module.exports = {
   development: {
     username: "root",
     password: "",
-    port: "3306",
-    database: "decohome",
+    port: "3307",
+    database: "decohome_bck",
     host: "127.0.0.1",
     dialect: "mysql",
   },
