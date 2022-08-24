@@ -14,7 +14,7 @@ module.exports = {
         type: DataTypes.UUID,
         allowNull: false,
         references: {
-          model: "User",
+          model: "Users",
           key: "id",
         },
       },
@@ -42,14 +42,14 @@ module.exports = {
         type: DataTypes.DATE,
         allowNull: true,
       },
-      updatedAt:  {
+      updatedAt: {
         type: DataTypes.DATE,
         allowNull: true,
       },
-      deletedAt:  {
+      deletedAt: {
         type: DataTypes.DATE,
         allowNull: true,
-      }
+      },
     });
   },
 

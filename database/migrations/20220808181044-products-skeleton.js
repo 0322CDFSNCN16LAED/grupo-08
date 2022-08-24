@@ -19,7 +19,7 @@ module.exports = {
         type: DataTypes.DECIMAL(25, 2),
       },
       sale: {
-        type: DataTypes.DECIMAL(1, 2),
+        type: DataTypes.DECIMAL(2, 2),
       },
       measurements: {
         type: DataTypes.STRING,
@@ -80,14 +80,14 @@ module.exports = {
         type: DataTypes.DATE,
         allowNull: true,
       },
-      updatedAt:  {
+      updatedAt: {
         type: DataTypes.DATE,
         allowNull: true,
       },
-      deletedAt:  {
+      deletedAt: {
         type: DataTypes.DATE,
         allowNull: true,
-      }
+      },
     });
 
     await queryInterface.createTable("RoomsProducts", {
