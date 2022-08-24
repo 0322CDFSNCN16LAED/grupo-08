@@ -1,9 +1,9 @@
 window.addEventListener("load", function(){
 
     let formularioLogIn = document.querySelector("form.form-field");
-    let formularioRegister = document.querySelector("form.form-register");
+    let formularioRegister = document.querySelector("form.form-field");
 
-    formularioLogIn.addEventListener("submit", function(e){
+    formularioLogIn.addEventListener("submit", function(event){
 
         let errores = [];
 
@@ -19,7 +19,7 @@ window.addEventListener("load", function(){
         }
 
         if(errores.length > 0) {
-            e.preventDefault();
+            event.preventDefault();
         }
 
         let ulErrores = document.querySelector("div.errores ul");
@@ -28,7 +28,7 @@ window.addEventListener("load", function(){
         }
     })
 
-    formularioRegister.addEventListener("submit", function(e){
+    formularioRegister.addEventListener("submit", function(event){
 
         let errores = [];
 
@@ -61,7 +61,7 @@ window.addEventListener("load", function(){
         }
 
         if(errores.length > 0) {
-            e.preventDefault();
+            event.preventDefault();
         }
 
         let ulErrores = document.querySelector("div.errores ul");
@@ -69,6 +69,4 @@ window.addEventListener("load", function(){
             ulErrores.innerHTML += "<li>" + errores[i] + "</li>" 
         }
     })
-
-
 })
