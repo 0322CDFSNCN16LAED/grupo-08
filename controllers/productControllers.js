@@ -75,7 +75,8 @@ module.exports = {
         vColours,
         vBrands,
     })
-  } else { try {
+  } else { 
+    try {
       let resp = await db.Product.create({
         ...req.body,
         price: req.body.price.trim().replace(",", "."),
@@ -109,8 +110,6 @@ module.exports = {
  },
   // vista para editar detalles de productos
   edit: async (req, res) => {
-    const resultValidation = validationResult(req)
-
     const productEdit = await db.Product.findByPk(req.params.id, {
       include: ["Rooms"],
     });
@@ -131,19 +130,7 @@ module.exports = {
       vColours,
       vBrands,
     ])
-    
-    if (resultValidation.errors.length >0) { // si el array es mayor a cero quiere decir que hay errores
-      return res.render("products/products-edit-form", {
-        errors: resultValidation.mapped(),//convierte al array en un obj literal
-        oldData: req.body,
-        vInstallments,
-        vCategorys,
-        vStyles,
-        vRooms,
-        vColours,
-        vBrands,
-      })
-    } else {
+      .then(
         ([
           productoEdit,
           allInstallments,
@@ -154,7 +141,7 @@ module.exports = {
           allBrands,
         ]) => {
           res.render("products/productos-edit-product", {
-            productoEditar: productoEdit,
+            productoEdit: productoEdit,
             vInstallments: allInstallments,
             vCategorys: allCategorys,
             vRooms: allRooms,
@@ -163,8 +150,8 @@ module.exports = {
             vBrands: allBrands,
           });
         }
-    }
-      
+      )
+      .catch((error) => res.send(error));
   },
   // accion de actualizar un producto.
   update: async (req, res) => {
@@ -204,10 +191,34 @@ module.exports = {
           });
         });
       }
-      res.redirect("/products");
+     // res.redirect("/products");
     } catch (error) {
       res.send(error);
     }
+    const resultValidation = validationResult(req)
+    // llamo a las variables
+      let vInstallments = await db.Installment.findAll({order: [["name", "asc"]] });
+      let vCategorys = await db.Category.findAll({ order: [["name", "asc"]] });
+      let vRooms = await db.Room.findAll({ order: [["name", "asc"]] });
+      let vStyles = await db.Style.findAll({ order: [["name", "asc"]] });
+      let vColours = await db.Colour.findAll({ order: [["name", "asc"]] });
+      let vBrands = await db.Brand.findAll({ order: [["name", "asc"]] });
+  
+      if (resultValidation.errors.length >0) { // si el array es mayor a cero quiere decir que hay errores
+        return res.render("productos-edit-product", {
+          errors: resultValidation.mapped(),//convierte al array en un obj literal
+          oldData: req.body,
+          vInstallments,
+          vCategorys,
+          vStyles,
+          vRooms,
+          vColours,
+          vBrands,
+      })
+    } else {res.redirect("/products");
+  
+  }
+  
   },
   // accion de eliminar un producto
   destroy: async (req, res) => {

@@ -137,7 +137,7 @@
             <div class="col-12 col-md-4 mt-3">
               <label for="brandId" class="form-label col-12">Marca:</label>
               <select 
-              class="form-select <%=locals.errors && errors.brandId ? "is-invalid": null%>"
+              class="form-select <%=locals.errors && errors.brandId ? "is-invalid": null%> <%=locals.errors && errors.brandId ? "is-invalid": null%>"
               name="brandId" 
               id="brandId">
                 <option value="">Seleccione</option>

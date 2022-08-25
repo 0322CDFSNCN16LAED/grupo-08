@@ -16,11 +16,11 @@
         <div class="row">
           <div class="col-12">
             <h2 class="products-title align-center">
-              Estas editando: <i> <%=productoEditar.name%> </i>
+              Estas editando: <i> <%=productoEdit.name%> </i>
             </h2>
           </div>
           <form
-            action="/products/<%=productoEditar.id%>?_method=PUT"
+            action="/products/<%=productoEdit.id%>?_method=PUT"
             method="POST"
             enctype="multipart/form-data"
             class="form-field"
@@ -48,12 +48,15 @@
                   >Precio</label
                 >
                 <input
-                  value="<%=productoEditar.price%>"
-                  class="form-control"
+                  value="<%=productoEdit.price%>"
+                  class="form-control <%=locals.errors && errors.price ? "is-invalid":null%>"
                   id="price"
                   name="price"
                   placeholder="Precio al contado es de..."
                 />
+                      <% if (locals.errors && errors.name) { %>
+                  <div class="text-danger"><%= errors.name.msg %></div>
+                  <% } %>
               </div>
               <!--cuotas OBLIGATORIO-->
               <div class="col-4 mt-3">
@@ -63,7 +66,7 @@
                 <select name="installmentId" id="installmentId" class="form-select">
                   <option value=""> Seleccione</option>                  
                   <% vInstallments.forEach(vInstallment => {%>
-                  <option value="<%=vInstallment.id%>" <% if(vInstallment.id==productoEditar.installmentId){%> selected <% } %> ><%=vInstallment.name%> </option>
+                  <option value="<%=vInstallment.id%>" <% if(vInstallment.id==productoEdit.installmentId){%> selected <% } %> ><%=vInstallment.name%> </option>
                   <% })%>
                   
                 </select>
@@ -74,7 +77,7 @@
                 <select name="colourId" id="colourId" class="form-select">
                   <option value=""> Seleccione</option>                  
                   <% vColours.forEach(vColour => {%>
-                  <option value="<%=vColour.id%>" <% if(vColour.id==productoEditar.colourId){%> selected <% } %> ><%=vColour.name%> </option>
+                  <option value="<%=vColour.id%>" <% if(vColour.id==productoEdit.colourId){%> selected <% } %> ><%=vColour.name%> </option>
                   <% })%> 
                 </select>              
               </div>            
@@ -84,7 +87,7 @@
                 <select name="categoryId" id="categoryId" class="form-select">
                   <option value="">Seleccione</option>
                   <% vCategorys.forEach(vCategory => {%>
-                    <option value="<%=vCategory.id%>" <% if(vCategory.id == productoEditar.categoryId){%> selected <% } %> ><%=vCategory.name%></option>
+                    <option value="<%=vCategory.id%>" <% if(vCategory.id == productoEdit.categoryId){%> selected <% } %> ><%=vCategory.name%></option>
                   <% })%>
                 </select>
               </div>
@@ -94,7 +97,7 @@
                 <select name="styleId" id="styleId" class="form-select">
                   <option value="">Seleccione</option>
                   <% vStyles.forEach(vStyle => {%>
-                    <option value="<%=vStyle.id%>" <% if(vStyle.id == productoEditar.styleId){%> selected <% } %> ><%=vStyle.name%></option>
+                    <option value="<%=vStyle.id%>" <% if(vStyle.id == productoEdit.styleId){%> selected <% } %> ><%=vStyle.name%></option>
                   <% })%>
                 </select>
               </div>
@@ -104,7 +107,7 @@
                 <select name="brandId" id="brandId" class="form-select">
                   <option value="">Seleccione</option>
                   <% vBrands.forEach(vBrand => {%>
-                    <option value="<%=vBrand.id%>" <% if(vBrand.id == productoEditar.brandId){%> selected <% } %> ><%=vBrand.name%></option>
+                    <option value="<%=vBrand.id%>" <% if(vBrand.id == productoEdit.brandId){%> selected <% } %> ><%=vBrand.name%></option>
                   <% })%>
                 </select>
               </div>
@@ -114,7 +117,7 @@
                 <% vRooms.forEach(room => {%>
                   <div class="form-check form-check-inline">
                     <input class="form-check-input" type="checkbox" id="<%=room.id%>" name="rooms" value="<%=room.id%>"  
-                    <% if(productoEditar.Rooms.find(ele => ele.id==room.id)){%>checked<%}%>
+                    <% if(productoEdit.Rooms.find(ele => ele.id==room.id)){%>checked<%}%>
                     >
                     <label class="form-check-label" for="<%=room.id%>"><%=room.name%></label>
                   </div>
@@ -127,7 +130,7 @@
                   >Descripcion:</label
                 >
                 <input 
-                  value="<%=productoEditar.description%>"
+                  value="<%=productoEdit.description%>"
                   type="text"
                   class="form-control"
                   id="description"
@@ -145,7 +148,7 @@
                   class="form-control"
                   name="details"
                   id="details"
-                ><%=productoEditar.details%></textarea>
+                ><%=productoEdit.details%></textarea>
               </div>
               <!--Información extra del producto-->
               <div class="col-12 col-md-6 mt-3">
@@ -156,14 +159,14 @@
                   class="form-control"
                   name="extraInfo"
                   id="extraInfo"
-                ><%=productoEditar.extraInfo%></textarea>
+                ><%=productoEdit.extraInfo%></textarea>
               </div>
               <!--medidas-->
               <div class="col-12 col-md-6 mt-3">
                 <label for="measurements" class="form-label">Medidas:</label>
                 <input
                   type="text"
-                  value="<%=productoEditar.measurements%>"
+                  value="<%=productoEdit.measurements%>"
                   class="form-control"
                   id="measurements"
                   name="measurements"
@@ -177,7 +180,7 @@
                   >Envio gratis:</label
                 >
                 <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" id="freeDelivery" name="freeDelivery" <% if(productoEditar.freeDelivery){%> checked<%} %>>
+                  <input class="form-check-input" type="checkbox" id="freeDelivery" name="freeDelivery" <% if(productoEdit.freeDelivery){%> checked<%} %>>
                   
                 </div>
               </div>
