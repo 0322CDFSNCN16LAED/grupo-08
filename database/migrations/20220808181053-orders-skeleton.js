@@ -40,12 +40,6 @@ module.exports = {
     });
     // aca la tabla de muchos a  muchos
     await queryInterface.createTable("OrdersProducts", {
-      id: {
-        type: DataTypes.UUID,
-        primaryKey: true,
-        allowNull: false,
-        defaultValue: DataTypes.UUIDV4,
-      },
       priceProduct: {
         type: DataTypes.DECIMAL(25, 2),
       },

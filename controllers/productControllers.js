@@ -94,6 +94,12 @@ module.exports = {
     const productEdit = await db.Product.findByPk(req.params.id, {
       include: ["Rooms"],
     });
+    /*const productEdit = await db.Product.findOne(
+      { where: {id: req.params.id, } },
+      {
+        include: ["Rooms"],
+      }
+    );*/
     const vInstallments = await db.Installment.findAll({
       order: [["name", "asc"]],
     });
@@ -154,6 +160,9 @@ module.exports = {
       );
       let ambientes = [];
       if (resp) {
+        console.log(
+          "valor de body rooms------------------------------> " + req.body.rooms
+        );
         if (req.body.rooms) {
           if (typeof req.body.rooms == "string") {
             ambientes.push(req.body.rooms);
@@ -162,15 +171,19 @@ module.exports = {
           }
         }
       }
+      console.log(
+        "aqui el valro de abienntes******************************",
+        ambientes
+      );
       await db.RoomProduct.destroy({ where: { productId: productId } });
-      if (ambientes.length > 0) {
+      /*if (ambientes.length > 0) {
         ambientes.forEach(async (element) => {
           await db.RoomProduct.create({
             roomId: element,
             productId: productId,
           });
         });
-      }
+      }*/
       res.redirect("/products");
     } catch (error) {
       res.send("aca hay un error  " + error);

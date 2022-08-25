@@ -91,12 +91,6 @@ module.exports = {
     });
 
     await queryInterface.createTable("RoomsProducts", {
-      id: {
-        type: DataTypes.UUID,
-        primaryKey: true,
-        allowNull: false,
-        defaultValue: DataTypes.UUIDV4,
-      },
       roomId: {
         type: DataTypes.UUID,
         allowNull: false,
