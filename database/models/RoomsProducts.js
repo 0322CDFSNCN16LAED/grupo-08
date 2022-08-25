@@ -4,12 +4,6 @@ module.exports = function (sequelize, DataTypes) {
   let alias = "RoomProduct";
   // configuramos las columnas
   let cols = {
-    id: {
-      type: DataTypes.UUID,
-      primaryKey: true,
-      allowNull: false,
-      defaultValue: DataTypes.UUIDV4,
-    },
     roomId: {
       type: DataTypes.UUID,
       allowNull: false,

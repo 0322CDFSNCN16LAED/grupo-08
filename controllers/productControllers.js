@@ -60,6 +60,13 @@ module.exports = {
           ? "/images/products/" + req.file.filename
           : "/images/products/default-image.png",
       });
+      // guardamos en la muchos a muchos
+      if (req.body.rooms) {
+        let respRooms = resp.addRooms(req.body.rooms, {
+          through: { selfGranted: false },
+        });
+      }
+      /*
       let ambientes = [];
       if (req.body.rooms) {
         if (typeof req.body.rooms == "string") {
@@ -75,7 +82,7 @@ module.exports = {
             productId: resp.dataValues.id,
           });
         });
-      }
+      }*/
       res.redirect("/products");
     } catch (error) {
       console.log("error en create " + error);
@@ -156,7 +163,6 @@ module.exports = {
         }
       }
       await db.RoomProduct.destroy({ where: { productId: productId } });
-      //await oldProduct.setRooms([]);
       if (ambientes.length > 0) {
         ambientes.forEach(async (element) => {
           await db.RoomProduct.create({
@@ -167,7 +173,7 @@ module.exports = {
       }
       res.redirect("/products");
     } catch (error) {
-      res.send(error);
+      res.send("aca hay un error  " + error);
     }
   },
   // accion de eliminar un producto
