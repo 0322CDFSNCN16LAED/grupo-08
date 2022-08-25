@@ -26,7 +26,7 @@ module.exports = {
       console.error("error en Detalle de producto ---->" + error);
     }
   },
-  //crear un nuevo producto
+  //vista crear un nuevo producto
   create: async (req, res) => {
     try {
       let vInstallments = await db.Installment.findAll({
