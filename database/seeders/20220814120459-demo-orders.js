@@ -1,12 +1,12 @@
 const { v4 } = require("uuid");
 const uuid = v4;
 const { faker } = require("@faker-js/faker");
-const db = require ('../models');
+const db = require("../models");
 
 module.exports = {
-  async up (queryInterface, Sequelize) {
-    let user = await db.User.findAll();
-    await queryInterface.bulkInsert('Orders', [
+  async up(queryInterface, Sequelize) {
+    //let user = await db.User.findAll();
+    /*await queryInterface.bulkInsert('Orders', [
       {
         id: uuid(),
         orderDate: '2022-12-01 12:12:00',
@@ -32,12 +32,10 @@ module.exports = {
         userId: user[1].id,
       },
 
-    ], {});
-    
+    ], {});*/
   },
 
-  async down (queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('Orders', null, {});
-    
-  }
+  async down(queryInterface, Sequelize) {
+    /* await queryInterface.bulkDelete('Orders', null, {});*/
+  },
 };

@@ -3,7 +3,7 @@ module.exports = {
     username: "root",
     password: "",
     port: "3307",
-    database: "decohome_bck",
+    database: "decohome",
     host: "127.0.0.1",
     dialect: "mysql",
   },

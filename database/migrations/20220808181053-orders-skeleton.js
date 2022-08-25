@@ -29,14 +29,14 @@ module.exports = {
         type: DataTypes.DATE,
         allowNull: true,
       },
-      updatedAt:  {
+      updatedAt: {
         type: DataTypes.DATE,
         allowNull: true,
       },
-      deletedAt:  {
+      deletedAt: {
         type: DataTypes.DATE,
         allowNull: true,
-      }
+      },
     });
     // aca la tabla de muchos a  muchos
     await queryInterface.createTable("OrdersProducts", {
@@ -68,6 +68,18 @@ module.exports = {
           model: "Orders",
           key: "id",
         },
+      },
+      createdAt: {
+        type: DataTypes.DATE,
+        allowNull: true,
+      },
+      updatedAt: {
+        type: DataTypes.DATE,
+        allowNull: true,
+      },
+      deletedAt: {
+        type: DataTypes.DATE,
+        allowNull: true,
       },
     });
   },
