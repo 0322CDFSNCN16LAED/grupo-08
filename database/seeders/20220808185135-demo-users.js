@@ -6,7 +6,6 @@ const db = require ('../models')
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    const address = await db.Address.findAll();
     const userRole = await db.UserRole.findAll();
     
     await queryInterface.bulkInsert(
@@ -14,49 +13,9 @@ module.exports = {
       [
         {
           id: uuid(),
-          name: "Norma",
-          lastname: "Parada",
-          email: "norma@gmail.com",
-          password: await bcrypt.hash("123456", 12),
-          phoneNumber: 123456789,
-          profilePic: "/images/usersProfiles/defaultImage.jpg",
-          userRoleId: userRole[0].id,
-        },
-        {
-          id: uuid(),
-          name: "Mariana",
-          lastname: "Candia",
-          email: "mariana@gmail.com",
-          password: await bcrypt.hash("123456", 12),
-          phoneNumber: 123456789,
-          profilePic: "/images/usersProfiles/defaultImage.jpg",
-          userRoleId: userRole[0].id,
-        },
-        {
-          id: uuid(),
-          name: "Camila",
-          lastname: "Mandieta",
-          email: "camila@gmail.com",
-          password: await bcrypt.hash("123456", 12),
-          phoneNumber: 123456789,
-          profilePic: "/images/usersProfiles/defaultImage.jpg",
-          userRoleId: userRole[0].id,
-        },
-        {
-          id: uuid(),
-          name: "Nahuel",
-          lastname: "Blanco",
-          email: "nahuel@gmail.com",
-          password: await bcrypt.hash("123456", 12),
-          phoneNumber: 123456789,
-          profilePic: "/images/usersProfiles/defaultImage.jpg",
-          userRoleId: userRole[0].id,
-        },
-        {
-          id: uuid(),
-          name: "Gaspar",
-          lastname: "Costo",
-          email: "gaspar@gmail.com",
+          name: "usuario",
+          lastname: "de prueba",
+          email: "usuariodeprueba@gmail.com",
           password: await bcrypt.hash("123456", 12),
           phoneNumber: 123456789,
           profilePic: "/images/usersProfiles/defaultImage.jpg",
