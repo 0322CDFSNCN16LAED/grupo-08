@@ -13,9 +13,9 @@ module.exports = {
       [
         {
           id: uuid(),
-          name: "usuario",
-          lastname: "de prueba",
-          email: "usuariodeprueba@gmail.com",
+          name: "Usuario",
+          lastname: "De Prueba",
+          email: "usuario@gmail.com",
           password: await bcrypt.hash("123456", 12),
           phoneNumber: 123456789,
           profilePic: "/images/usersProfiles/defaultImage.jpg",

@@ -199,9 +199,12 @@ module.exports = {
   delete: async function (req, res){
     let userId = req.params.id;
     try{
-      let userToDelete = await database.User.findByPk(userId);
+      let userToDelete = await database.User.findByPk(userId,{ include: ["address"]});
       if (userToDelete){
         await userToDelete.destroy();
+        await database.Address.destroy({
+          where: {userId: userToDelete.id}
+        })
         res.redirect("/")
       };
     }catch(error){
