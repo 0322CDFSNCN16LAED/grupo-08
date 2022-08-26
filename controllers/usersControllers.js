@@ -105,29 +105,28 @@ module.exports = {
           addresses
         });
       } else {// SI NO HAY USUARIO CON ESE MAIL EN LA DB - LO GUARDO
-
-      let newUser = await database.User.create({ // primero creo un usuario con el metodo CREATE de Sequelize
-            name: req.body.name,
+        
+        await database.User.create({
+          name: req.body.name,
             lastname: req.body.lastname,
             email: req.body.email,
             phoneNumber: req.body.phoneNumber,
             password: bcryptjs.hashSync(req.body.password, 10), 
             profilePic:req.file ? req.file.filename : "defaultImage.jpg",
             userRoleId: req.body.userRoleId,
-            
-      })  
+          address: {
+            address: req.body.address,
+            city: req.body.city,
+            state: req.body.state,
+            country: req.body.country,
+            zipCode: req.body.zipCode,
+          }
+        }, {
+          include: [{
+            association: "address",
+          }]
+        });
 
-        database.Address.create ({//primero guardando su dirección
-          userId: newUser.dataValues.id,// guardo el id del nuevo usuario creado
-          address: req.body.address,
-          city: req.body.city,
-          state: req.body.state,
-          country: req.body.country,
-          zipCode: req.body.zipCode,
-        })
-
-      
-        console.log(req.body)
         res.redirect("/"); //finalmente, redirecciono al home.
       }
     }
