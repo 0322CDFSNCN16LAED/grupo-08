@@ -123,7 +123,7 @@
                   <div class="form-check form-check-inline">
                     <!-- aca  deberia hacer un foreach de productoEdit-->
                     <input class="form-check-input" type="checkbox" id="<%=room.id%>" name="rooms" value="<%=room.id%>"                      
-                    <% if(productoEditar.Rooms.find(ele => (ele.id==room.id && ele.RoomsProducts.deletedAt ) ) ){%>checked<%}%>>
+                    <% if(productoEditar.Rooms.find(ele => ele.id==room.id  ) ){%>checked<%}%>>
                     <label class="form-check-label" for="<%=room.id%>"><%=room.name%></label>
                   </div>
                   <% })%>             

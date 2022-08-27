@@ -66,23 +66,6 @@ module.exports = {
           through: { selfGranted: false },
         });
       }
-      /*
-      let ambientes = [];
-      if (req.body.rooms) {
-        if (typeof req.body.rooms == "string") {
-          ambientes.push(req.body.rooms);
-        } else {
-          ambientes = req.body.rooms;
-        }
-      }
-      if (ambientes.length > 0) {
-        ambientes.forEach(async (element) => {
-          await db.RoomProduct.create({
-            roomId: element,
-            productId: resp.dataValues.id,
-          });
-        });
-      }*/
       res.redirect("/products");
     } catch (error) {
       console.log("error en create " + error);
@@ -91,8 +74,13 @@ module.exports = {
   },
   // vista para editar detalles de productos
   edit: async (req, res) => {
-    const productEdit = await db.Product.findByPk(req.params.id, {
+    /*const productEdit = await db.Product.findByPk(req.params.id, {
       include: ["Rooms"],
+    });*/
+    const productEdit = await db.Product.findOne({
+      where: { id: req.params.id },
+      include: ["Rooms"],
+      paranoid: true,
     });
     /*const productEdit = await db.Product.findOne(
       { where: {id: req.params.id, } },
@@ -100,6 +88,7 @@ module.exports = {
         include: ["Rooms"],
       }
     );*/
+    //res.send(productEdit);
     const vInstallments = await db.Installment.findAll({
       order: [["name", "asc"]],
     });
@@ -109,38 +98,15 @@ module.exports = {
     const vColours = await db.Colour.findAll({ order: [["name", "asc"]] });
     const vBrands = await db.Brand.findAll({ order: [["name", "asc"]] });
     //res.send(productEdit);
-    //console.log("El producto a editar ---------> " + productEdit.Rooms);
-    Promise.all([
-      productEdit,
-      vInstallments,
-      vCategorys,
-      vRooms,
-      vStyles,
-      vColours,
-      vBrands,
-    ])
-      .then(
-        ([
-          productoEdit,
-          allInstallments,
-          allCategorys,
-          allRooms,
-          allStyles,
-          allColours,
-          allBrands,
-        ]) => {
-          res.render("products/productos-edit-product", {
-            productoEditar: productoEdit,
-            vInstallments: allInstallments,
-            vCategorys: allCategorys,
-            vRooms: allRooms,
-            vStyles: allStyles,
-            vColours: allColours,
-            vBrands: allBrands,
-          });
-        }
-      )
-      .catch((error) => res.send(error));
+    res.render("products/productos-edit-product", {
+      productoEditar: productEdit,
+      vInstallments: vInstallments,
+      vCategorys: vCategorys,
+      vRooms: vRooms,
+      vStyles: vStyles,
+      vColours: vColours,
+      vBrands: vBrands,
+    });
   },
   // accion de actualizar un producto.
   update: async (req, res) => {
