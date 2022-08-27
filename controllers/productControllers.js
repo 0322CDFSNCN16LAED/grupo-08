@@ -108,6 +108,8 @@ module.exports = {
     const vStyles = await db.Style.findAll({ order: [["name", "asc"]] });
     const vColours = await db.Colour.findAll({ order: [["name", "asc"]] });
     const vBrands = await db.Brand.findAll({ order: [["name", "asc"]] });
+    //res.send(productEdit);
+    //console.log("El producto a editar ---------> " + productEdit.Rooms);
     Promise.all([
       productEdit,
       vInstallments,

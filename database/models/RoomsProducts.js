@@ -7,18 +7,20 @@ module.exports = function (sequelize, DataTypes) {
     roomId: {
       type: DataTypes.UUID,
       allowNull: false,
+      primaryKey: true,
     },
     productId: {
       type: DataTypes.UUID,
       allowNull: false,
+      primaryKey: true,
     },
   };
 
   // asignamos en nombre de la tabla en la DB
   let config = {
     tableName: "RoomsProducts",
-    timestamps: true,
-    paranoid: true,
+    //timestamps: true,
+    //paranoid: true,
   };
 
   // definimos la constante modelo.
