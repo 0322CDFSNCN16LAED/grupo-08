@@ -4,7 +4,7 @@ const multer = require("multer");
 const path = require("path");
 
 //Middlewares de roles de usuario
-const sellerMiddleware = require('../middlewares/sellerMiddleware'); //VENDEDOR
+//const sellerMiddleware = require('../middlewares/sellerMiddleware'); //VENDEDOR
 
 const productControllers = require("../controllers/productControllers");
 
@@ -25,8 +25,9 @@ const uploadFile = multer({ storage: multerDiskStorage });
 router.get("/", productControllers.index);
 
 /* Crear un producto*/
-router.get("/create", sellerMiddleware, productControllers.create);
-router.post("/", sellerMiddleware, uploadFile.single("picture"), productControllers.store);
+//sellerMiddleware
+router.get("/create", productControllers.create);
+router.post("/", uploadFile.single("picture"), productControllers.store);
 
 /* Buscar producto */
 router.get("/search", productControllers.search);
@@ -35,10 +36,12 @@ router.get("/search", productControllers.search);
 router.get("/:id", productControllers.detail);
 
 /* Editar un producto*/
-router.get("/edit/:id", sellerMiddleware, productControllers.edit);
-router.put("/:id", sellerMiddleware, uploadFile.single("picture"), productControllers.update);
+//sellerMiddleware
+router.get("/edit/:id", productControllers.edit);
+router.put("/:id", uploadFile.single("picture"), productControllers.update);
 
 /* Eliminar un producto*/
-router.delete("/:id", sellerMiddleware, productControllers.destroy);
+//sellerMiddleware
+router.delete("/:id", productControllers.destroy);
 
 module.exports = router;

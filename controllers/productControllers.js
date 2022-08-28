@@ -163,10 +163,14 @@ module.exports = {
     try {
       const product = await db.Product.findByPk(productoId);
       if (product) {
+        console.log("encontro el product " + product);
         await product.setRooms([]);
         //await product.setOrder([]); falta el logico de orders
         await product.destroy();
-        res.redirect("/products");
+
+        res.redirect("/products/");
+      } else {
+        console.log("no existe el producto");
       }
     } catch (error) {
       res.send("el errrrrrrrrrrrror " + error);
@@ -174,6 +178,7 @@ module.exports = {
   },
   // buscar un producto
   search: async (req, res) => {
+    //res.send("esta llegando aqui");
     const productSearch = req.query.search.trim();
     try {
       const productos = await db.Product.findAll({
