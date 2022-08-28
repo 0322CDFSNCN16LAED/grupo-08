@@ -24,6 +24,7 @@ module.exports = {
       where: {
         email: req.body.email,
       },
+      include: ["userRole"],
     });
     if (userToLogin) {
       //si existe
