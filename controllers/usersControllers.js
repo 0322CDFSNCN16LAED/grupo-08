@@ -76,6 +76,7 @@ module.exports = {
     let users = await database.User.findAll(); //traigo la tabla de users
     let userRoles = await database.UserRole.findAll(); //traigo la tabla  de userRoles
     let addresses = await database.Address.findAll(); //traigo la tabla de direcciones
+
     const validationErrors = validationResult(req); // guardo los errores de validacion
 
     if (!validationErrors.isEmpty()) {
@@ -112,7 +113,6 @@ module.exports = {
         });
       } else {
         // SI NO HAY USUARIO CON ESE MAIL EN LA DB - LO GUARDO
-
         await database.User.create(
           {
             name: req.body.name,
@@ -138,7 +138,6 @@ module.exports = {
             ],
           }
         );
-
         res.redirect("/"); //finalmente, redirecciono al home.
       }
     }
@@ -230,7 +229,7 @@ module.exports = {
         res.redirect("/");
       }
     } catch (error) {
-      res.send(error);
+      console.error(error);
     }
   },
 };
