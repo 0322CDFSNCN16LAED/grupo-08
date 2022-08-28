@@ -157,6 +157,28 @@ module.exports = {
   update: async (req, res) => {
     let productId = req.params.id;
     const oldProduct = db.Product.findByPk(productId);
+    
+    const resultValidation = validationResult(req)
+    // llamo a las variables
+      let vInstallments = req.body.installmentId
+      let vCategorys = req.body.categoryId
+      let vRooms = req.body.rooms
+      let vStyles = req.body.styleId
+      let vColours = req.body.colourId
+      let vBrands = req.body.brandId
+  
+      if (resultValidation.errors.length >0) { // si el array es mayor a cero quiere decir que hay errores
+        return res.render("productos-edit-product", {
+          errors: resultValidation.mapped(),//convierte al array en un obj literal
+          oldData: req.body,
+          vInstallments,
+          vCategorys,
+          vStyles,
+          vRooms,
+          vColours,
+          vBrands,
+        })
+      }else {
     try {
       let resp = await db.Product.update(
         {
@@ -191,32 +213,10 @@ module.exports = {
           });
         });
       }
-     // res.redirect("/products");
+      res.redirect("/products");
     } catch (error) {
       res.send(error);
     }
-    const resultValidation = validationResult(req)
-    // llamo a las variables
-      let vInstallments = await db.Installment.findAll({order: [["name", "asc"]] });
-      let vCategorys = await db.Category.findAll({ order: [["name", "asc"]] });
-      let vRooms = await db.Room.findAll({ order: [["name", "asc"]] });
-      let vStyles = await db.Style.findAll({ order: [["name", "asc"]] });
-      let vColours = await db.Colour.findAll({ order: [["name", "asc"]] });
-      let vBrands = await db.Brand.findAll({ order: [["name", "asc"]] });
-  
-      if (resultValidation.errors.length >0) { // si el array es mayor a cero quiere decir que hay errores
-        return res.render("productos-edit-product", {
-          errors: resultValidation.mapped(),//convierte al array en un obj literal
-          oldData: req.body,
-          vInstallments,
-          vCategorys,
-          vStyles,
-          vRooms,
-          vColours,
-          vBrands,
-      })
-    } else {res.redirect("/products");
-  
   }
   
   },
