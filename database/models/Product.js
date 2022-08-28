@@ -12,6 +12,7 @@ module.exports = function (sequelize, DataTypes) {
     },
     name: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
     categoryId: {
       type: DataTypes.UUID,
@@ -23,6 +24,10 @@ module.exports = function (sequelize, DataTypes) {
     },
     price: {
       type: DataTypes.DECIMAL(25, 2),
+      allowNull: false,
+    },
+    sale: {
+      type: DataTypes.DECIMAL(1, 2),
     },
     installmentId: {
       type: DataTypes.UUID,
@@ -30,6 +35,7 @@ module.exports = function (sequelize, DataTypes) {
     },
     freeDelivery: {
       type: DataTypes.INTEGER,
+      allowNull: false,
     },
     brandId: {
       type: DataTypes.UUID,
@@ -37,6 +43,7 @@ module.exports = function (sequelize, DataTypes) {
     },
     description: {
       type: DataTypes.TEXT,
+      allowNull: false,
     },
     measurements: {
       type: DataTypes.STRING,
@@ -53,13 +60,15 @@ module.exports = function (sequelize, DataTypes) {
     },
     picture: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
   };
 
   // asignamos en nombre de la tabla en la DB
   let config = {
     tableName: "Products",
-    timestamps: false,
+    timestamps: true,
+    paranoid: true,
   };
 
   // definimos la constante modelo.
@@ -71,27 +80,22 @@ module.exports = function (sequelize, DataTypes) {
     Product.belongsTo(models.Category, {
       as: "Category", // el alias de la relacion
       foreignKey: "categoryId",
-      timestamps: false,
     });
     Product.belongsTo(models.Colour, {
       as: "Colour", // el alias de la relacion
       foreignKey: "colourId",
-      timestamps: false,
     });
     Product.belongsTo(models.Brand, {
       as: "Brand", // el alias de la relacion
       foreignKey: "brandId",
-      timestamps: false,
     });
     Product.belongsTo(models.Installment, {
       as: "Installment", // el alias de la relacion
       foreignKey: "installmentId",
-      timestamps: false,
     });
     Product.belongsTo(models.Style, {
       as: "Style", // el alias de la relacion
       foreignKey: "styleId",
-      timestamps: false,
     });
     // muchos a muchos
     Product.belongsToMany(models.Room, {
@@ -99,7 +103,6 @@ module.exports = function (sequelize, DataTypes) {
       through: "RoomsProducts",
       foreignKey: "productId",
       otherKey: "roomId",
-      timestamps: false,
       onDelete: "cascade",
     });
     Product.belongsToMany(models.Order, {
@@ -107,7 +110,6 @@ module.exports = function (sequelize, DataTypes) {
       through: "OrdersProducts",
       foreignKey: "productId",
       otherKey: "orderId",
-      timestamps: false,
       onDelete: "cascade",
     });
   };

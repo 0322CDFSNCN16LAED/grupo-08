@@ -26,7 +26,7 @@ module.exports = {
       console.error("error en Detalle de producto ---->" + error);
     }
   },
-  //crear un nuevo producto
+  //vista crear un nuevo producto
   create: async (req, res) => {
     try {
       let vInstallments = await db.Installment.findAll({
@@ -60,20 +60,10 @@ module.exports = {
           ? "/images/products/" + req.file.filename
           : "/images/products/default-image.png",
       });
-      let ambientes = [];
+      // guardamos en la muchos a muchos
       if (req.body.rooms) {
-        if (typeof req.body.rooms == "string") {
-          ambientes.push(req.body.rooms);
-        } else {
-          ambientes = req.body.rooms;
-        }
-      }
-      if (ambientes.length > 0) {
-        ambientes.forEach(async (element) => {
-          await db.RoomProduct.create({
-            roomId: element,
-            productId: resp.dataValues.id,
-          });
+        let respRooms = resp.addRooms(req.body.rooms, {
+          through: { selfGranted: false },
         });
       }
       res.redirect("/products");
@@ -84,9 +74,21 @@ module.exports = {
   },
   // vista para editar detalles de productos
   edit: async (req, res) => {
-    const productEdit = await db.Product.findByPk(req.params.id, {
+    /*const productEdit = await db.Product.findByPk(req.params.id, {
       include: ["Rooms"],
+    });*/
+    const productEdit = await db.Product.findOne({
+      where: { id: req.params.id },
+      include: ["Rooms"],
+      paranoid: true,
     });
+    /*const productEdit = await db.Product.findOne(
+      { where: {id: req.params.id, } },
+      {
+        include: ["Rooms"],
+      }
+    );*/
+    //res.send(productEdit);
     const vInstallments = await db.Installment.findAll({
       order: [["name", "asc"]],
     });
@@ -95,37 +97,16 @@ module.exports = {
     const vStyles = await db.Style.findAll({ order: [["name", "asc"]] });
     const vColours = await db.Colour.findAll({ order: [["name", "asc"]] });
     const vBrands = await db.Brand.findAll({ order: [["name", "asc"]] });
-    Promise.all([
-      productEdit,
-      vInstallments,
-      vCategorys,
-      vRooms,
-      vStyles,
-      vColours,
-      vBrands,
-    ])
-      .then(
-        ([
-          productoEdit,
-          allInstallments,
-          allCategorys,
-          allRooms,
-          allStyles,
-          allColours,
-          allBrands,
-        ]) => {
-          res.render("products/productos-edit-product", {
-            productoEditar: productoEdit,
-            vInstallments: allInstallments,
-            vCategorys: allCategorys,
-            vRooms: allRooms,
-            vStyles: allStyles,
-            vColours: allColours,
-            vBrands: allBrands,
-          });
-        }
-      )
-      .catch((error) => res.send(error));
+    //res.send(productEdit);
+    res.render("products/productos-edit-product", {
+      productoEditar: productEdit,
+      vInstallments: vInstallments,
+      vCategorys: vCategorys,
+      vRooms: vRooms,
+      vStyles: vStyles,
+      vColours: vColours,
+      vBrands: vBrands,
+    });
   },
   // accion de actualizar un producto.
   update: async (req, res) => {
@@ -147,6 +128,9 @@ module.exports = {
       );
       let ambientes = [];
       if (resp) {
+        console.log(
+          "valor de body rooms------------------------------> " + req.body.rooms
+        );
         if (req.body.rooms) {
           if (typeof req.body.rooms == "string") {
             ambientes.push(req.body.rooms);
@@ -155,19 +139,22 @@ module.exports = {
           }
         }
       }
+      console.log(
+        "aqui el valro de abienntes******************************",
+        ambientes
+      );
       await db.RoomProduct.destroy({ where: { productId: productId } });
-      //await oldProduct.setRooms([]);
-      if (ambientes.length > 0) {
+      /*if (ambientes.length > 0) {
         ambientes.forEach(async (element) => {
           await db.RoomProduct.create({
             roomId: element,
             productId: productId,
           });
         });
-      }
+      }*/
       res.redirect("/products");
     } catch (error) {
-      res.send(error);
+      res.send("aca hay un error  " + error);
     }
   },
   // accion de eliminar un producto
@@ -176,10 +163,14 @@ module.exports = {
     try {
       const product = await db.Product.findByPk(productoId);
       if (product) {
+        console.log("encontro el product " + product);
         await product.setRooms([]);
         //await product.setOrder([]); falta el logico de orders
         await product.destroy();
-        res.redirect("/products");
+
+        res.redirect("/products/");
+      } else {
+        console.log("no existe el producto");
       }
     } catch (error) {
       res.send("el errrrrrrrrrrrror " + error);
@@ -187,6 +178,7 @@ module.exports = {
   },
   // buscar un producto
   search: async (req, res) => {
+    //res.send("esta llegando aqui");
     const productSearch = req.query.search.trim();
     try {
       const productos = await db.Product.findAll({

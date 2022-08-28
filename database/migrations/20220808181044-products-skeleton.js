@@ -18,6 +18,9 @@ module.exports = {
       price: {
         type: DataTypes.DECIMAL(25, 2),
       },
+      sale: {
+        type: DataTypes.DECIMAL(2, 2),
+      },
       measurements: {
         type: DataTypes.STRING,
       },
@@ -73,15 +76,21 @@ module.exports = {
           key: "id",
         },
       },
+      createdAt: {
+        type: DataTypes.DATE,
+        allowNull: true,
+      },
+      updatedAt: {
+        type: DataTypes.DATE,
+        allowNull: true,
+      },
+      deletedAt: {
+        type: DataTypes.DATE,
+        allowNull: true,
+      },
     });
 
     await queryInterface.createTable("RoomsProducts", {
-      id: {
-        type: DataTypes.UUID,
-        primaryKey: true,
-        allowNull: false,
-        defaultValue: DataTypes.UUIDV4,
-      },
       roomId: {
         type: DataTypes.UUID,
         allowNull: false,
@@ -97,6 +106,18 @@ module.exports = {
           model: "Products",
           key: "id",
         },
+      },
+      createdAt: {
+        type: DataTypes.DATE,
+        allowNull: true,
+      },
+      updatedAt: {
+        type: DataTypes.DATE,
+        allowNull: true,
+      },
+      deletedAt: {
+        type: DataTypes.DATE,
+        allowNull: true,
       },
     });
   },

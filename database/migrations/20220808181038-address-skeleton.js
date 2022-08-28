@@ -10,6 +10,14 @@ module.exports = {
         allowNull: false,
         defaultValue: DataTypes.UUIDV4,
       },
+      userId: {
+        type: DataTypes.UUID,
+        allowNull: false,
+        references: {
+          model: "Users",
+          key: "id",
+        },
+      },
       address: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -29,6 +37,18 @@ module.exports = {
       zipcode: {
         type: DataTypes.INTEGER,
         allowNull: false,
+      },
+      createdAt: {
+        type: DataTypes.DATE,
+        allowNull: true,
+      },
+      updatedAt: {
+        type: DataTypes.DATE,
+        allowNull: true,
+      },
+      deletedAt: {
+        type: DataTypes.DATE,
+        allowNull: true,
       },
     });
   },

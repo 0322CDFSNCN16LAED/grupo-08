@@ -25,15 +25,21 @@ module.exports = {
           key: "id",
         },
       },
+      createdAt: {
+        type: DataTypes.DATE,
+        allowNull: true,
+      },
+      updatedAt: {
+        type: DataTypes.DATE,
+        allowNull: true,
+      },
+      deletedAt: {
+        type: DataTypes.DATE,
+        allowNull: true,
+      },
     });
     // aca la tabla de muchos a  muchos
     await queryInterface.createTable("OrdersProducts", {
-      id: {
-        type: DataTypes.UUID,
-        primaryKey: true,
-        allowNull: false,
-        defaultValue: DataTypes.UUIDV4,
-      },
       priceProduct: {
         type: DataTypes.DECIMAL(25, 2),
       },
@@ -56,6 +62,18 @@ module.exports = {
           model: "Orders",
           key: "id",
         },
+      },
+      createdAt: {
+        type: DataTypes.DATE,
+        allowNull: true,
+      },
+      updatedAt: {
+        type: DataTypes.DATE,
+        allowNull: true,
+      },
+      deletedAt: {
+        type: DataTypes.DATE,
+        allowNull: true,
       },
     });
   },

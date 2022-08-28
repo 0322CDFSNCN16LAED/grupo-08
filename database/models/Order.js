@@ -27,7 +27,8 @@ module.exports = function (sequelize, DataTypes) {
   // asignamos en nombre de la tabla en la DB
   let config = {
     tableName: "Orders",
-    timestamps: false,
+    timestamps: true,
+    paranoid: true,
   };
 
   // definimos la constante modelo.
@@ -37,9 +38,8 @@ module.exports = function (sequelize, DataTypes) {
   // esta es la relacion con usuarios
   Order.associate = function (models) {
     Order.belongsTo(models.User, {
-      as: "User", // el alias de la tabla
-      foreignKey: "userId", // ojo aca verlo
-      timestamps: false,
+      as: "User", // el alias de la relación
+      foreignKey: "userId",
     });
 
     Order.belongsToMany(models.Product, {
@@ -47,7 +47,6 @@ module.exports = function (sequelize, DataTypes) {
       through: "OrdersProducts",
       foreignKey: "orderId",
       otherKey: "productId",
-      timestamps: false,
     });
   };
 

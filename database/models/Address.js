@@ -10,6 +10,10 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
       defaultValue: DataTypes.UUIDV4,
     },
+    userId: {
+      type: DataTypes.UUID,
+      allowNull: false,
+    },
     address: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -29,12 +33,14 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    
   };
 
   // asignamos en nombre de la tabla en la DB
   let config = {
     tableName: "Address",
-    timestamps: false,
+    timestamps: true,
+    paranoid: true,
   };
 
   // definimos la constante modelo.
@@ -43,10 +49,9 @@ module.exports = function (sequelize, DataTypes) {
   // creamos la relacion con la tabla
 
   Address.associate = function (models) {
-    Address.hasOne(models.User, {
-      as: "Users", // el alias de la tabla
-      foreignKey: "addressId",
-      timestamps: false,
+    Address.belongsTo(models.User, {
+      as: "User", // el alias de la relacion 
+      foreignKey: "userId",
     });
   };
 

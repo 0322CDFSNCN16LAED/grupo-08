@@ -32,6 +32,9 @@
                   <div class="col-12 display-6 align-center">
                     $<%= new Intl.NumberFormat('de-DE').format(producto.price)%>
                   </div>
+                  <div class="col-12 display-6 align-center font-red">
+                    <%= (producto.sale*100)%> % OFF!
+                  </div>
                   <div class="col-12"><%= producto.description%></div>
                   <div class="col-12 font-black"><hr class="hr-detail" /></div>
                   <!--agregarle las viñetas-->

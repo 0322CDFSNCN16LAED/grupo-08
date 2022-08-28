@@ -4,12 +4,6 @@ module.exports = function (sequelize, DataTypes) {
   let alias = "RoomProduct";
   // configuramos las columnas
   let cols = {
-    id: {
-      type: DataTypes.UUID,
-      primaryKey: true,
-      allowNull: false,
-      defaultValue: DataTypes.UUIDV4,
-    },
     roomId: {
       type: DataTypes.UUID,
       allowNull: false,
@@ -23,7 +17,8 @@ module.exports = function (sequelize, DataTypes) {
   // asignamos en nombre de la tabla en la DB
   let config = {
     tableName: "RoomsProducts",
-    timestamps: false,
+    timestamps: true,
+    paranoid: true,
   };
 
   // definimos la constante modelo.
@@ -33,14 +28,12 @@ module.exports = function (sequelize, DataTypes) {
 
   RoomsProducts.associate = function (models) {
     RoomsProducts.belongsTo(models.Room, {
-      as: "Rooms", // el alias de la tabla
+      as: "Rooms", // el alias de la relación
       foreignKey: "roomId",
-      timestamps: false,
     });
     RoomsProducts.belongsTo(models.Product, {
-      as: "Products", // el alias de la tabla
+      as: "Products", // el alias de la relación
       foreignKey: "productId",
-      timestamps: false,
     });
   };
 

@@ -19,7 +19,8 @@ module.exports = function (sequelize, DataTypes) {
   // asignamos en nombre de la tabla en la DB
   let config = {
     tableName: "Rooms",
-    timestamps: false,
+    timestamps: true,
+    paranoid: true,
   };
 
   // definimos la constante modelo.
@@ -29,11 +30,10 @@ module.exports = function (sequelize, DataTypes) {
 
   Room.associate = function (models) {
     Room.belongsToMany(models.Product, {
-      as: "Products", // el alias de la tabla
+      as: "Products", // el alias de la relación
       through: "RoomsProducts", // tabla que rompe la relacion
       foreignKey: "roomId", // ojo aca verlo
       otherKey: "productId", // la otra clave foranea
-      timestamps: false,
       onDelete: "cascade",
     });
   };

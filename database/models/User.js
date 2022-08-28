@@ -35,18 +35,15 @@ module.exports = function (sequelize, DataTypes) {
     userRoleId: {
       type: DataTypes.UUID,
       allowNull: false,
-      default: "d3c54232-8d0b-44de-ba8d-fe28cd2ad46f",
-    },
-    addressId: {
-      type: DataTypes.UUID,
-      allowNull: false,
+      //default: "d3c54232-8d0b-44de-ba8d-fe28cd2ad46f",
     },
   };
 
   // asignamos en nombre de la tabla en la DB
   let config = {
     tableName: "Users",
-    timestamps: false,
+    timestamps: true,
+    paranoid: true,
   };
 
   // definimos la constante modelo.
@@ -59,19 +56,16 @@ module.exports = function (sequelize, DataTypes) {
     User.belongsTo(models.UserRole, {
       as: "userRole",
       foreignKey: "userRoleId",
-      timestamps: false,
     }),
       //relacion con address
-      User.belongsTo(models.Address, {
+      User.hasOne(models.Address, {
         as: "address",
-        foreignKey: "addressId",
-        timestamps: false,
+        foreignKey: "userId",
       }),
       // relacion con order
       User.hasMany(models.Order, {
-        as: "Orders", // el alias de la tabla
+        as: "Orders", // el alias de la relación
         foreignKey: "userId", // ojo aca verlo
-        timestamps: false,
       });
   };
 

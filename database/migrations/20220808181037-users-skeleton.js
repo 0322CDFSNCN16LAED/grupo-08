@@ -40,14 +40,18 @@ module.exports = {
           key: "id",
         },
       },
-      addressId: {
-        type: DataTypes.UUID,
-        allowNull: false,
-        references: {
-          model: "Address",
-          key: "id",
-        },
+      createdAt: {
+        type: DataTypes.DATE,
+        allowNull: true,
       },
+      updatedAt:  {
+        type: DataTypes.DATE,
+        allowNull: true,
+      },
+      deletedAt:  {
+        type: DataTypes.DATE,
+        allowNull: true,
+      }
     });
   },
 
