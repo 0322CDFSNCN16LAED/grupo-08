@@ -34,7 +34,7 @@ module.exports = {
         // si el usuario tildó ser recordado:
         if (req.body.recordar) {
           res.cookie("userEmail", req.body.email, { maxAge: 1000 * 60 }); //dura 1 minuto
-        }
+        } 
         return res.redirect("/users/" + userToLogin.id); //¿va en esta parte + userToLogin.id?
       }
       return res.render("users/login", {
@@ -66,13 +66,15 @@ module.exports = {
     //Metodo que muestra el formulario de Registro de usuarios (GET)
   showRegister: async function (req, res) {
     let userRoles = await database.UserRole.findAll();
-    return res.render("users/register", {userRoles});
+    let addresses = await database.Address.findAll();
+    return res.render("users/register", {userRoles, addresses});
   },
 
   // Metodo que procesar el Registro de usuario nuevo (POST)
   register: async function (req, res) {
-    let users = await database.User.findAll();//traigo el modelo de users
-    let userRoles = await database.UserRole.findAll();//traigo el modelo de userRoles
+    let users = await database.User.findAll();//traigo la tabla de users
+    let userRoles = await database.UserRole.findAll();//traigo la tabla  de userRoles
+    let addresses = await database.Address.findAll();//traigo la tabla de direcciones
     const validationErrors = validationResult(req); // guardo los errores de validacion
     
     if (!validationErrors.isEmpty()) {// SI HAY ERRORES, 
@@ -80,7 +82,8 @@ module.exports = {
         errors: validationErrors.mapped(), // con los errores mappeados y
         oldData: req.body, // los datos que sí pasaron la validacion
         users,
-        userRoles
+        userRoles, 
+        addresses
       });
     } else { // SI NO HAY ERRORES de validacion
       // busca el usuario por email, si existe
@@ -98,30 +101,32 @@ module.exports = {
           },
           oldData: req.body, // y los datos que sì pasaron la validacion
           userInDB,
-          userRoles
+          userRoles,
+          addresses
         });
       } else {// SI NO HAY USUARIO CON ESE MAIL EN LA DB - LO GUARDO
-
-        let newAddress = await database.Address.create ({//primero guardando su dirección
-          address: req.body.address,
-          city: req.body.city,
-          state: req.body.state,
-          country: req.body.country,
-          zipCode: req.body.zipCode,
-        })
-
-      database.User.create({ // y luego usando el metodo CREATE de Sequelize
-            name: req.body.name,
+        
+        await database.User.create({
+          name: req.body.name,
             lastname: req.body.lastname,
             email: req.body.email,
             phoneNumber: req.body.phoneNumber,
-            addressId: newAddress.dataValues.id, // guardo el id de la new address creada
             password: bcryptjs.hashSync(req.body.password, 10), 
             profilePic:req.file ? req.file.filename : "defaultImage.jpg",
             userRoleId: req.body.userRoleId,
-            
-      })
-        console.log(req.body)
+          address: {
+            address: req.body.address,
+            city: req.body.city,
+            state: req.body.state,
+            country: req.body.country,
+            zipCode: req.body.zipCode,
+          }
+        }, {
+          include: [{
+            association: "address",
+          }]
+        });
+
         res.redirect("/"); //finalmente, redirecciono al home.
       }
     }
@@ -129,18 +134,21 @@ module.exports = {
   
   //READ - listar todos los usuarios
   index: async function (req, res){
+    let addresses = await database.Address.findAll();//traigo la tabla de direcciones
     let users = await database.User.findAll({
       include: ["userRole", 'address'],
     })
-    res.render("users/index", {users})
+    res.render("users/index", {users, addresses})
   },   
   
   // detalle de user
   detail: async function (req, res) {
+    let address = await database.Address.findAll();//traigo la tabla de direcciones
     let user = await database.User.findByPk(req.params.id, {
       include: ["userRole", "address"],
     })
-    res.render("../views/users/user-detail", {user})
+    console.log(user)
+    res.render("../views/users/user-detail", {user, address})
   },
 
   // formulario de edicion de un user
@@ -160,25 +168,28 @@ module.exports = {
     })
 
     try {
-      let newAddress = await database.Address.create ({//primero guardo la nueva dirección
-        address: req.body.address,
-        city: req.body.city,
-        state: req.body.state,
-        country: req.body.country,
-        zipCode: req.body.zipCode,
-      })
-      database.User.update({ // luego actualizo con el metodo UPDATE de Sequelize
+      let newUser = await database.User.update({ // Actualizo al usuario con el metodo UPDATE de Sequelize
         name: req.body.name,
         lastname: req.body.lastname,
         email: req.body.email,
         phoneNumber: req.body.phoneNumber,
-        addressId: newAddress.dataValues.id, // guardo el id de la new address creada
         password: bcryptjs.hashSync(req.body.password, 10), 
         profilePic:req.file ? req.file.filename : "defaultImage.jpg",
         userRoleId: req.body.userRoleId,
       },{
         where: {id: user.id}
       })
+      database.Address.update ({//luego guardo el id en  la nueva dirección
+        address: req.body.address,
+        city: req.body.city,
+        state: req.body.state,
+        country: req.body.country,
+        zipCode: req.body.zipCode,
+      },{
+        where: {userId: user.id}
+      }
+      )
+      
         res.render("users/user-detail", {user} )
       } catch(error) {console.error(error)}
   },
@@ -187,9 +198,12 @@ module.exports = {
   delete: async function (req, res){
     let userId = req.params.id;
     try{
-      let userToDelete = await database.User.findByPk(userId);
+      let userToDelete = await database.User.findByPk(userId,{ include: ["address"]});
       if (userToDelete){
         await userToDelete.destroy();
+        await database.Address.destroy({
+          where: {userId: userToDelete.id}
+        })
         res.redirect("/")
       };
     }catch(error){
