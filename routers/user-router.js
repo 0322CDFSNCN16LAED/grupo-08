@@ -16,6 +16,10 @@ const authMiddleware = require("../middlewares/authMiddleware");
 // para verificar si un usuario existe en la base, si no existe lo envia a not-found
 const validUserMiddleware = require("../middlewares/validUserMiddleware");
 
+//Middlewares de roles de usuario
+const adminMiddleware= require ('../middlewares/adminMiddleware'); //ADMIN
+
+
 /*Definimos un storage para las imagenes de perfil */
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -32,8 +36,7 @@ const usersControllers = require("../controllers/usersControllers");
 
 /*RUTAS */
 /*Listado de todos los usuarios */
-router.get("/", authMiddleware, usersControllers.index);
-
+router.get("/", authMiddleware, adminMiddleware, usersControllers.index);
 
 /*Formulario de Login*/
 router.get("/login", guestMiddleware, usersControllers.login);
@@ -78,6 +81,6 @@ router.get(
 router.put("/:id", uploadFile.single("profilePic"), usersControllers.update);
 
 /* DELETE - Borrar usuario */
-router.delete("/:id", usersControllers.delete);
+router.delete("/:id", adminMiddleware, usersControllers.delete);
 
 module.exports = router;

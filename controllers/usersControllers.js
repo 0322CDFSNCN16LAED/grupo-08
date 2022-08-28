@@ -23,7 +23,7 @@ module.exports = {
     let userToLogin = await database.User.findOne({// busco al usuario por su mail en la DB
       where: {
         email : req.body.email
-      }
+      },include: ["userRole"],
     })
     if (userToLogin) {
       //si existe
@@ -147,7 +147,7 @@ module.exports = {
     let user = await database.User.findByPk(req.params.id, {
       include: ["userRole", "address"],
     })
-    console.log(user)
+    
     res.render("../views/users/user-detail", {user, address})
   },
 
@@ -157,7 +157,7 @@ module.exports = {
       include: ["userRole", "address"],
     } )
       res.render("users/edit-user", {userToEdit})
-        console.log(userToEdit)
+        
   },
 
   //se procesa la edición de un usuario
