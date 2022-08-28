@@ -21,7 +21,7 @@
             </h2>
           </div>
           <form
-            action="/users/<%= userToEdit.id %>?_method=PUT"
+            action="/users/<%=userToEdit.id%>?_method=PUT"
             method="POST"
             class="form-field"
             enctype="multipart/form-data"
@@ -39,7 +39,7 @@
               <div class="col-4">
                 <label for="name" class="form-label col-12">Nombre</label>
                 <input
-                  value="<%= userToEdit.name %> "
+                  value="<%=userToEdit.name%>"
                   type="text"
                   name="name"
                   id="name"
@@ -49,7 +49,7 @@
               <div class="col-4">
                 <label for="lastname" class="form-label">Apellido</label>
                 <input
-                  value="<%= userToEdit.lastname %> "
+                  value="<%=userToEdit.lastname%>"
                   type="text"
                   name="lastname"
                   id="lastname"
@@ -59,7 +59,7 @@
               <div class="col-6">
                 <label for="email" class="form-label">E-mail</label>
                 <input
-                  value="<%= userToEdit.email %> "
+                  value="<%=userToEdit.email%>"
                   type="email"
                   name="email"
                   id="email"
@@ -70,7 +70,7 @@
               <div class="col-12 col-md-6">
                 <label for="tlf" class="form-label">Teléfono</label>
                 <input
-                  value="<%= userToEdit.phoneNumber %> "
+                  value="<%=userToEdit.phoneNumber%>"
                   type="tel"
                   name="phoneNumber"
                   id="phoneNumber"
@@ -82,7 +82,7 @@
               <div class="col-12">
                 <label for="address" class="form-label">Dirección</label>
                 <input
-                  value="<%= userToEdit.address.address %> "
+                  value="<%=userToEdit.address.address%>"
                   type="text"
                   name="address"
                   id="address"
@@ -93,7 +93,7 @@
               <div class="col-12">
                 <label for="city" class="form-label">Ciudad / Localidad</label>
                 <input
-                  value="<%= userToEdit.address.city %> "
+                  value="<%=userToEdit.address.city%>"
                   type="text"
                   name="city"
                   id="city"
@@ -104,7 +104,7 @@
               <div class="col-12">
                 <label for="state" class="form-label">Provincia</label>
                 <input
-                  value="<%= userToEdit.address.state %> "
+                  value="<%=userToEdit.address.state%>"
                   type="text"
                   name="state"
                   id="state"
@@ -115,7 +115,7 @@
               <div class="col-12">
                 <label for="country" class="form-label">País</label>
                 <input
-                  value="<%= userToEdit.address.country %> "
+                  value="<%=userToEdit.address.country%>"
                   type="text"
                   name="country"
                   id="country"
@@ -126,7 +126,7 @@
               <div class="col-12">
                 <label for="zipCode" class="form-label">Código Postal</label>
                 <input
-                  value="<%= userToEdit.address.zipCode %> "
+                  value="<%=userToEdit.address.zipCode%>"
                   type="text"
                   name="zipCode"
                   id="zipCode"

@@ -25,8 +25,8 @@
                 type="text"
                 name="name"
                 id="name" 
-                class="form-control col-12 <%= locals.errors && errors.name ? 'is-invalid' : null %> "
-                value="<%= locals.oldData ? oldData.name : null %>"
+                class="form-control col-12 <%= locals.errors && errors.name ? 'is-invalid' : null %>"
+                value="<%=locals.oldData ? oldData.name : null%>"
               />
               <!--si hay errores en la validacion, da el mensaje de error-->
               <% if (locals.errors && errors.name) { %>
@@ -45,7 +45,7 @@
                 name="lastname"
                 id="lastname"
                 class="form-control <%= locals.errors && errors.lastname ? 'is-invalid' : null %>"
-                value="<%= locals.oldData ? oldData.lastname : null %>"
+                value="<%=locals.oldData?oldData.lastname:null%>"
               />
               <!--si hay errores en la validacion, da el mensaje de error-->
               <% if (locals.errors && errors.lastname) { %>
@@ -65,7 +65,7 @@
                 id="email"
                 class="form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>"
                 placeholder="juanperez@mail.com"
-                value="<%= locals.oldData ? oldData.email : null %>"
+                value="<%=locals.oldData ? oldData.email : null%>"
               />
               <!--si hay errores en la validacion, da el mensaje de error-->
               <% if (locals.errors && errors.email) { %>
@@ -83,7 +83,7 @@
                 type="tel"
                 name="phoneNumber"
                 id="phoneNumber"
-                class="form-control <%= locals.errors && errors.phoneNumber ? 'is-invalid' : null %>"
+                class="form-control <%=locals.errors && errors.phoneNumber ? 'is-invalid':null%>"
                 placeholder="+54 9 11 74128653"
                 value="<%= locals.oldData ? oldData.phoneNumber : null %>"
               />
@@ -105,7 +105,7 @@
                 id="address"
                 class="form-control <%= locals.errors && errors.address ? 'is-invalid' : null %>"
                 placeholder="Calle, altura (piso y departamento)"
-                value="<%= locals.oldData ? oldData.address : null %>"
+                value="<%=locals.oldData ? oldData.address : null%>"
               />
               <!--si hay errores en la validacion, da el mensaje de error-->
               <% if (locals.errors && errors.address) { %>
@@ -125,7 +125,7 @@
                   id="city"
                   class="form-control <%= locals.errors && errors.city ? 'is-invalid' : null %>"
                   placeholder="Ciudad/ Localidad"
-                  value="<%= locals.oldData ? oldData.city : null %>"
+                  value="<%=locals.oldData ? oldData.city : null %>"
                 />
                 <!--si hay errores en la validacion, da el mensaje de error-->
               <% if (locals.errors && errors.city) { %>
@@ -145,7 +145,7 @@
                   id="state"
                   class="form-control <%= locals.errors && errors.state ? 'is-invalid' : null %>"
                   placeholder="Provincia"
-                  value="<%= locals.oldData ? oldData.state : null %>"
+                  value="<%=locals.oldData ? oldData.state : null%>"
                 />
                 <!--si hay errores en la validacion, da el mensaje de error-->
               <% if (locals.errors && errors.state) { %>
@@ -165,7 +165,7 @@
                   id="country"
                   class="form-control <%= locals.errors && errors.country ? 'is-invalid' : null %>"
                   placeholder="País"
-                  value="<%= locals.oldData ? oldData.country : null %>"
+                  value="<%=locals.oldData ? oldData.country : null%>"
                 />
                 <!--si hay errores en la validacion, da el mensaje de error-->
               <% if (locals.errors && errors.country) { %>
@@ -185,7 +185,7 @@
                   id="zipCode"
                   class="form-control <%= locals.errors && errors.zipCode ? 'is-invalid' : null %>"
                   placeholder="Código Postal"
-                  value="<%= locals.oldData ? oldData.zipCode : null %>"
+                  value="<%=locals.oldData ? oldData.zipCode : null%>"
                 />
                 <!--si hay errores en la validacion, da el mensaje de error-->
               <% if (locals.errors && errors.zipCode) { %>
@@ -200,7 +200,7 @@
                 type="password"
                 name="password"
                 id="password"
-                class="form-control <%= locals.errors && errors.password ? 'is-invalid' : null %> <%= locals.errors && errors.password ? 'help is-danger' : null %>"
+                class="form-control <%=locals.errors && errors.password?'is-invalid':null%> <%= locals.errors && errors.password ? 'help is-danger' : null %>"
                 placeholder="********"
               />
               <!--si hay errores en la validacion, da el mensaje de error-->
