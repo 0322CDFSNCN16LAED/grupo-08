@@ -21,7 +21,7 @@ const validations = [
       },
     ],
   },
-  /*{
+  {
     inputName: "rooms",
     validations: [
       {
@@ -29,11 +29,11 @@ const validations = [
         errorMsg: "Debe seleccionar al menos una opcion",
       },
       {
-        validator: (input) => input.check > 0,
+        validator: (input) => input.checked = false,
         errorMsg: "Debe seleccionar al menos una opcion",
       },
     ],
-  },*/
+  },
   {
     inputName: "styleId",
     validations: [
