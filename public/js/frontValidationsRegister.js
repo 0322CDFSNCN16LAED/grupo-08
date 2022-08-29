@@ -1,7 +1,33 @@
-const validationsLogIn = [
+const validationsRegister = [
+    {
+        inputName: "name",
+        formularioRegister: [
+            {   
+                validator: (input) => input.value.trim() != "",
+                errorMsg: "Debe ingresar un nombre",
+            },
+            {   
+                validator: (input) => input.value >= 2,
+                errorMsg: "Debe ingresar un más de 2 caracteres",
+            },
+        ],
+    },
+    {
+        inputName: "lastname",
+        formularioRegister: [
+            {   
+                validator: (input) => input.value.trim() != "",
+                errorMsg: "Debe ingresar un nombre",
+            },
+            {   
+                validator: (input) => input.value >= 2,
+                errorMsg: "Debe ingresar un más de 2 caracteres",
+            },
+        ],
+    },
     {
         inputName: "email",
-        validationsLogIn: [
+        formularioRegister: [
             {   
                 validator: (input) => input.value.trim() != "",
                 errorMsg: "Debe ingresar un correo electrónico",
@@ -14,10 +40,23 @@ const validationsLogIn = [
     },
     {
         inputName: "password",
-        validationsLogIn: [
+        formularioRegister: [
             {   
                 validator: (input) => input.value.trim() != "",
                 errorMsg: "Debe ingresar una contraseña",
+            },
+            {   
+                validator: (input) => input.value >= 2,
+                errorMsg: "Debe ingresar una contraseña mayor a 8 caracteres",
+            },
+        ],
+    },
+    {
+        inputName: "profilePic",
+        formularioRegister: [
+            {   
+                validator: (input) => input.value != "",
+                errorMsg: "Debe ingresar un archivo válido (JPG, JPEG, PNG, GIF).",
             },
         ],
     },
@@ -25,18 +64,18 @@ const validationsLogIn = [
 
 window.onload = function(){
 
-    const formularioLogIn = document.querySelector("form.form-field");
+    const formularioRegister = document.querySelector("form.form-field");
 
-    formularioLogIn.addEventListener("submit", (evt)=>{
+    formularioRegister.addEventListener("submit", (evt)=>{
 
         evt.preventDefault();
         const errores = [];
 
         // hago validaciones
 
-        validationsLogIn.forEach((inputToValidate)=>{
-            const input = formularioLogIn[inputToValidate.inputName];
-            for (const validation of inputToValidate.validationsLogIn) {
+        formularioRegister.forEach((inputToValidate)=>{
+            const input = formularioRegister[inputToValidate.inputName];
+            for (const validation of inputToValidate.formularioRegister) {
                 const isValid = validation.validator(input);
                 if(!isValid){
                     errores.push(validation.errorMsg);
@@ -54,7 +93,7 @@ window.onload = function(){
         // si no fallan
 
         if(errores.length == 0){
-            formularioLogIn.submit();
+            formularioRegister.submit();
         } else {
             console.log("errores");
         }
