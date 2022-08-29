@@ -10,6 +10,8 @@
 
     <!--MAIN -->
     <main>
+      <!--Si el usuario loggeado tiene rol de vendedor, se muestra el boton de crear nuevo producto-->
+      <% if (locals.userLogged.userRole.name == 'seller') { %> 
       <div class="col-12 text-align-r mt-3">
         <a href="/products/create">
           <button
@@ -23,6 +25,7 @@
           </button>
         </a>
       </div>
+      <% } %> 
       <!--agregar un input para hacer busquedas por categoria-->
       <div class="mlr-5 mt-3">
         <label for="categoriaList" class="form-label"

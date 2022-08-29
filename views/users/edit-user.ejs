@@ -167,6 +167,15 @@
                   name="profilePic"
                 />
               </div>
+              <div class="col-12 col-md-6">
+                <label for="userRoleId" class="form-label"> Rol de usuario </label>
+                <select class="form-select" name="userRoleId" id="userRoleId">
+                  <option value="<%=userToEdit.userRole.name%>">Seleccione</option>
+                  <% userRoles.forEach(userRole => {%>
+                    <option value="<%=userRole.id%>"><%=userRole.name%></option>
+                  <% })%> 
+                </select>
+              </div>
               <div class="col-12 mt-3 align-center mt-5">
                 <button type="submit" class="btn bg-grey btn-lg font-white">
                   CANCELAR
