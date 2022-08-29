@@ -3,6 +3,7 @@
   <head>
     <!--HEAD -->
     <%- include('../partials/head') %>
+    <script src="/js/js-front.js"></script>
   </head>
   <body class="bg-ligth-grey">
     <!--HEADER -->
@@ -26,6 +27,7 @@
                 placeholder="juanperez@mail.com"
                 value="<%= locals.oldData ? oldData.email : null %>"
               />
+              <span class="errorValidation"> Debe ingresar un correo electrónico </span>
               <!--si hay errores en la validacion, da el mensaje de error-->
               <% if (locals.errors && errors.email) { %>
               <div class="text-danger"><%= errors.email.msg %></div>
@@ -41,6 +43,7 @@
                 id="password"
                 class="form-control <%= locals.errors && errors.password ? 'is-invalid' : null %>"
               />
+              <span class="errorValidation"> Debe ingresar una contraseña </span>
               <!--si hay errores en la validacion, da el mensaje de error-->
               <% if (locals.errors && errors.password) { %>
               <div class="text-danger"><%= errors.password.msg %></div>
@@ -93,6 +96,5 @@
 
     <!--FOOTER -->
     <%- include('../partials/footer') %>
-    <script src="/js/js-front.js"></script>
   </body>
 </html>

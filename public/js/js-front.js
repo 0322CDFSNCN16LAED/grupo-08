@@ -1,9 +1,68 @@
-window.addEventListener("load", function(){
+const validationsLogIn = [
+    {
+        inputName: "email",
+        validationsLogIn: [
+            {   
+                validator: (input) => input.value.trim != "",
+                errosMsg: "Debe ingresar un correo electrónico",
+            },
+            {   
+                validator: (input) => input.value.isEmail,
+                errosMsg: "Debe ingresar un correo electrónico válido",
+            },
+        ],
+    },
+    {
+        inputName: "password",
+        validationsLogIn: [
+            {   
+                validator: (input) => input.value.trim != "",
+                errosMsg: "Debe ingresar una contraseña correo electrónico",
+            },
+        ],
+    },
+],
 
-    let formularioLogIn = document.querySelector("form.form-field");
-    let formularioRegister = document.querySelector("form.form-field");
 
-    formularioLogIn.addEventListener("submit", function(event){
+window.onload = function(){
+
+    const formularioLogIn = document.querySelector("form.form-field");
+    //const formularioRegister = document.querySelector("form.form-field");
+
+    formularioLogIn.email.focus()
+
+    formularioLogIn.addEventListener("submit", (evt)=>{
+
+        evt.preventDefault();
+        const errores = [];
+
+        // hago validaciones
+
+        if(!formularioLogIn.email.value.trim()){
+            errores.push("Debe ingresar un correo electrónico");
+            formularioLogIn.email.parentElement.classList.add("is-invalid");
+            formularioLogIn.email.parentElement.classList.remove("is-valid");
+            formularioLogIn.email.querySelector(".errorValidation").innerHTML = "Debe ingresar un correo electrónico";
+        } else {
+            formularioLogIn.email.parentElement.classList.add("is-valid");
+            formularioLogIn.email.parentElement.parent.classList.remove("is-invalid");
+            formularioLogIn.email.nextSibling.innerHTML = "";
+        }
+
+        // si no fallan
+
+        if(errores.length == 0){
+            formularioLogIn.submit();
+        } else {
+            console.log("errores");
+        }
+        
+
+    })
+
+
+
+    /*formularioLogIn.addEventListener("submit", function(event){
 
         let errores = [];
 
@@ -68,5 +127,5 @@ window.addEventListener("load", function(){
         for(let i = 0; i< errores.length; i++){
             ulErrores.innerHTML += "<li>" + errores[i] + "</li>" 
         }
-    })
+    })*/
 })

@@ -349,6 +349,26 @@ div.erroresFront{
   color: red;
 }
 
+.is-valid input,
+.is-valid select{
+  border-color: #198754;
+}
+
+.is-invalid input,
+.is-invalid select{
+  border-color: #842209;
+}
+
+.error{
+  display: none;
+}
+
+.is-invalid .error{
+  display: block;
+  color: #842209;
+}
+
+
 /***************************************************************************/
 /*               PARA LA VIEW TODOS LOS PRODUCTOS                          */
 /***************************************************************************/
