@@ -103,7 +103,7 @@ window.onload = function () {
   formularioCreat.name.focus()
 
   formularioCreat.addEventListener("submit", (event) => {
-   // event.preventDefault();
+   //event.preventDefault();
     const errores = [];
 
     //Hago el proceso de validacion
@@ -112,10 +112,11 @@ window.onload = function () {
       
       //hago un for of para que me recorra todos los elementos de la variable validacion of todos los elementos a iterar y luego cuando temrine de recorrer y no encuentre errores para a la segunda parte 
       for (const validation of inputToValidate.validations) {
+        
         const isValid = validation.validator(input);
         if (!isValid) {
           errores.push(validation.errorMsg);
-
+          event.preventDefault();
           //como los campos son validos quiero que me deje de seleccionar la clase donde aparece invalid y agregue la valida
           input.parentElement.classList.add("is-invalid");
           input.parentElement.classList.remove("is-valid");
