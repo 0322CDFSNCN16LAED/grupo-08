@@ -178,7 +178,7 @@ module.exports = {
     });
 
     try {
-      let newUser = await database.User.update(
+      await database.User.update(
         {
           // Actualizo al usuario con el metodo UPDATE de Sequelize
           name: req.body.name,
