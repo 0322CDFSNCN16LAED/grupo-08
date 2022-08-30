@@ -37,7 +37,11 @@
                 <li><a class="dropdown-item pt-3" href="/products">Últimas tendencias</a></li>
                 <li><a class="dropdown-item pt-3" href="products">Sale</a></li>
                 <li><a class="dropdown-item pt-3" href="/catalogo">Catalogo completo</a></li>
+                <% if(locals.isLogged) {%>
+                <% if (locals.userLogged.userRole.name == 'admin') { %> 
                 <li><a class="dropdown-item pt-3" href="/users">Usuarios</a></li>
+                <% } %>
+                <% } %>
               </ul>
             </li>
         </div>

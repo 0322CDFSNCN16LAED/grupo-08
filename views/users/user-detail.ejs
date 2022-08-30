@@ -191,6 +191,7 @@
               </a>
             </button>
           </div>
+          <% if (locals.userLogged.userRole.name == 'admin') { %> 
           <div class="col-6 mt-3 flex-center pb-2">
             <form action="/users/<%=user.id%>?_method=DELETE" method="POST">
               <button
@@ -201,6 +202,7 @@
               </button>
             </form>
           </div>
+          <% } %>
         </div>
       </div>
       <div class="row">

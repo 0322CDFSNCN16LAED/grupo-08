@@ -80,6 +80,9 @@
                       AGREGAR AL CARRITO
                     </button>
                   </div>
+                  <% if(locals.isLogged) {%>
+                  <% if (locals.userLogged.userRole.name == 'seller') { %>
+
                   <div class="col-6 mt-3">
                     <a
                       href="/products/edit/<%= producto.id %>"
@@ -97,6 +100,8 @@
                       </button>
                     </form>
                   </div>
+                  <% } %>
+                  <% } %>
                 </div>
               </div>
             </div>

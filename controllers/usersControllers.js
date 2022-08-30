@@ -163,10 +163,11 @@ module.exports = {
 
   // formulario de edicion de un user
   edit: async function (req, res) {
+    let userRoles = await database.UserRole.findAll(); //traigo la tabla  de userRoles
     let userToEdit = await database.User.findByPk(req.params.id, {
       include: ["userRole", "address"],
     });
-    res.render("users/edit-user", { userToEdit });
+    res.render("users/edit-user", { userToEdit, userRoles });
   },
 
   //se procesa la edición de un usuario
@@ -177,7 +178,7 @@ module.exports = {
     });
 
     try {
-      let newUser = await database.User.update(
+      await database.User.update(
         {
           // Actualizo al usuario con el metodo UPDATE de Sequelize
           name: req.body.name,
