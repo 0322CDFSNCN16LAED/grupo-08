@@ -1,52 +1,160 @@
-window.addEventListener("load", function(){
+var checkbox = document.getElementById('rooms');
 
-
-    //atrapo al formulario con la etiqueta 
-        let formularioEdit = document.querySelector("form.form-field");
-
-        formularioEdit.title.focus()
-})
-
-/*
-    formularioEdit.addEventListener("submit", function(event){
-
-        let errores = [];
-
-        let nameRegister = document.querySelector("input.name");
-
-        if(nameRegister.value == ""){
-            errores.push("Debe ingresar un e-mail");
+//defino la variable validacion con todos los campos que son obligatorios
+const validations = [
+    {
+      inputName: "name",
+      validations: [
+        {
+          validator: (input) => input.value.trim() != "",
+          errorMsg: "Debe ingresar un nombre del producto de minimo 5 caracteres",
+        },
+        {
+          validator: (input) => input.value.length >= 5,
+          errorMsg: "caquiii",
+        },
+  
+      ],
+    },
+    {
+      inputName: "categoryId",
+      validations: [
+        {
+          validator: (input) => input.value.trim() != "",
+          errorMsg: "Debe elegir una opcion",
+        },
+      ],
+    },
+   /*{
+      inputName: "rooms",
+      validations: [
+        {
+          validator: (input)=>input.checkbox.checked,
+          errorMsg: "Debe seleccionar al menos una opcion",
         }
-
-        let lastNameRegister = document.querySelector("input.lastname");
-
-        if(lastNameRegister.value == ""){
-            errores.push("Debe ingresar un e-mail");
+       /* {
+          validator: (input) => input.checked = false,
+          errorMsg: "Debe seleccionar al menos una opcion",
         }
-
-        let inputEmailRegister = document.querySelector("input.email");
-
-        if(inputEmailRegister.value == ""){
-            errores.push("Debe ingresar un e-mail");
-        }
-
-        let inputPassword = document.querySelector("input.password");
-        if(inputPassword.value == "" ){
-            errores.push("Debe ingresar una contraseña");
-        }
-
-        let inputProfilePic = document.querySelector("input.profilePic");
-        if(inputProfilePic.value == "" ){
-            errores.push("Debe seleccionar una imagen de perfil");
-        }
-
-        if(errores.length > 0) {
+     ],
+    },*/
+    {
+      inputName: "styleId",
+      validations: [
+        {
+          validator: (input) => input.value.trim() != "",
+          errorMsg: "Debe ingresar alguna opcion valida",
+        },
+      ],
+    },
+    {
+      inputName: "price",
+      validations: [
+        {
+          validator:(input) => input.value.trim() != "",
+          errorMsg: "Debe ingresar el precio del producto de manera numerica",
+        },
+        {
+          validator: (input) => input.value > 0,
+          errorMsg: "Debe ser de manera numerica",
+        },
+      ],
+    },
+    {
+      inputName: "installmentId",
+      validations: [
+        {
+          validator: (input) => input.value.trim() != "",
+          errorMsg: "Debe ingresar alguna opcion valida",
+        },
+        
+      ],
+    },
+    {
+      inputName: "brandId",
+      validations: [
+        {
+          validator:(input) => input.value.trim() != "",
+          errorMsg: "Debe ingresar alguna opcion valida",
+        },
+     ],
+    },
+    {
+      inputName: "description",
+      validations: [
+        {
+          validator: (input) => input.value.trim() != "",
+          errorMsg: "Debe dar una breve descripcion del producto de minimo 20 caracteres",
+        },
+        {
+          validator: (input) => input.value.length >= 20,
+          errorMsg: "Debe descripcion minima de 20 caracteres",
+        },
+  
+      ],
+    },
+    {
+      inputName: "colourId",
+      validations: [
+        {
+          validator: (input) => input.value.trim() != "",
+          errorMsg: "Debe ingresar alguna opcion valida",
+        },
+        
+      ],
+    },
+    {
+      inputName: "picture",
+      validations: [
+          {   
+              validator: (input) => /.(gif|jpeg|jpg|png)$/i.test(input.value) != "",
+              errorMsg: "Debe ingresar un archivo válido (JPG, JPEG, PNG, GIF).",
+          },
+      ],
+  },
+  ];
+  
+  window.onload = function () {
+    const formularioEdit = document.querySelector("form.form-field");// me traigo la clase de la vista del formualario
+    
+    formularioEdit.name.focus()
+  
+    formularioEdit.addEventListener("submit", (event) => {
+     //event.preventDefault();
+      const errores = [];
+  
+      //Hago el proceso de validacion
+      validations.forEach((inputToValidate) => {
+        const input = formularioEdit[inputToValidate.inputName];
+        
+        //hago un for of para que me recorra todos los elementos de la variable validacion of todos los elementos a iterar y luego cuando temrine de recorrer y no encuentre errores para a la segunda parte 
+        for (const validation of inputToValidate.validations) {
+          
+             const isValid = validation.validator(input);
+          if (!isValid) {
+            errores.push(validation.errorMsg);
             event.preventDefault();
-        }
-
-        let ulErrores = document.querySelector("div.errores ul");
-        for(let i = 0; i< errores.length; i++){
-            ulErrores.innerHTML += "<li>" + errores[i] + "</li>" 
-        }
-    })
-})*/
+            //como los campos son validos quiero que me deje de seleccionar la clase donde aparece invalid y agregue la valida
+            input.parentElement.classList.add("is-invalid");
+            input.parentElement.classList.remove("is-valid");
+            input.parentElement.querySelector(".error").innerHTML =
+              validation.errorMsg;
+            return;
+          }
+          }
+        //cuando termina el for of quiere decir que no hay mas errores
+        input.parentElement.classList.add("is-valid");
+        input.parentElement.classList.remove("is-invalid");
+        input.parentElement.querySelector(".error").innerHTML = "";
+      });
+  
+      //Si no fallaron las validaciones
+      if (errores.length == 0) {
+  console.log("hiola")
+        formularioEdit.submit();  
+  
+      } else {
+        console.log(errores);
+      }
+    });
+  };

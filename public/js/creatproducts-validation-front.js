@@ -1,4 +1,4 @@
-const isEmpty = (input) => input.value.trim() != "";
+var checkbox = document.getElementById('rooms');
 
 //defino la variable validacion con todos los campos que son obligatorios
 const validations = [
@@ -6,8 +6,12 @@ const validations = [
     inputName: "name",
     validations: [
       {
-        validator: isEmpty,
+        validator: (input) => input.value.trim() != "",
         errorMsg: "Debe ingresar un nombre del producto de minimo 5 caracteres",
+      },
+      {
+        validator: (input) => input.value.length >4 ,
+        errorMsg: "Debe ingresar un nombre de minimo 5 caracteres",
       },
 
     ],
@@ -16,29 +20,29 @@ const validations = [
     inputName: "categoryId",
     validations: [
       {
-        validator: isEmpty,
+        validator: (input) => input.value.trim() != "",
         errorMsg: "Debe elegir una opcion",
       },
     ],
   },
-  {
+/* {
     inputName: "rooms",
     validations: [
-      {
-        validator: isEmpty,
-        errorMsg: "Debe seleccionar al menos una opcion",
-      },
+     {
+          validator: (input)=>input.checkbox.checked,
+          errorMsg: "Debe seleccionar al menos una opcion",
+        }
       {
         validator: (input) => input.checked = false,
         errorMsg: "Debe seleccionar al menos una opcion",
       },
     ],
-  },
+  },*/
   {
     inputName: "styleId",
     validations: [
       {
-        validator: isEmpty,
+        validator: (input) => input.value.trim() != "",
         errorMsg: "Debe ingresar alguna opcion valida",
       },
     ],
@@ -47,7 +51,7 @@ const validations = [
     inputName: "price",
     validations: [
       {
-        validator: isEmpty,
+        validator:(input) => input.value.trim() != "",
         errorMsg: "Debe ingresar el precio del producto de manera numerica",
       },
       {
@@ -60,7 +64,7 @@ const validations = [
     inputName: "installmentId",
     validations: [
       {
-        validator: isEmpty,
+        validator: (input) => input.value.trim() != "",
         errorMsg: "Debe ingresar alguna opcion valida",
       },
       
@@ -70,7 +74,7 @@ const validations = [
     inputName: "brandId",
     validations: [
       {
-        validator: isEmpty,
+        validator:(input) => input.value.trim() != "",
         errorMsg: "Debe ingresar alguna opcion valida",
       },
    ],
@@ -79,22 +83,35 @@ const validations = [
     inputName: "description",
     validations: [
       {
-        validator: isEmpty,
+        validator: (input) => input.value.trim() != "",
         errorMsg: "Debe dar una breve descripcion del producto de minimo 20 caracteres",
       },
-     
+      {
+        validator: (input) => input.value.length >= 20,
+        errorMsg: "Debe descripcion minima de 20 caracteres",
+      },
+
     ],
   },
   {
     inputName: "colourId",
     validations: [
       {
-        validator: isEmpty,
+        validator: (input) => input.value.trim() != "",
         errorMsg: "Debe ingresar alguna opcion valida",
       },
       
     ],
   },
+  {
+    inputName: "picture",
+    validations: [
+        {   
+            validator: (input) => /.(gif|jpeg|jpg|png)$/i.test(input.value) != "",
+            errorMsg: "Debe ingresar un archivo válido (JPG, JPEG, PNG, GIF).",
+        },
+    ],
+},
 ];
 
 window.onload = function () {
@@ -113,7 +130,7 @@ window.onload = function () {
       //hago un for of para que me recorra todos los elementos de la variable validacion of todos los elementos a iterar y luego cuando temrine de recorrer y no encuentre errores para a la segunda parte 
       for (const validation of inputToValidate.validations) {
         
-        const isValid = validation.validator(input);
+           const isValid = validation.validator(input);
         if (!isValid) {
           errores.push(validation.errorMsg);
           event.preventDefault();
@@ -124,7 +141,7 @@ window.onload = function () {
             validation.errorMsg;
           return;
         }
-      }
+        }
       //cuando termina el for of quiere decir que no hay mas errores
       input.parentElement.classList.add("is-valid");
       input.parentElement.classList.remove("is-invalid");
@@ -134,8 +151,8 @@ window.onload = function () {
     //Si no fallaron las validaciones
     if (errores.length == 0) {
 
-       console.log("hola");
-      
+      formularioCreat.submit();  
+
     } else {
       console.log(errores);
     }

@@ -7,7 +7,6 @@
   <body>
     <!--HEADER -->
     <%- include('../partials/header') %>
-    <script src="/js/editproducts-validation-front.js"></script>
 
     <!--MAIN -->
     <main>
@@ -39,6 +38,7 @@
                   name="name"                  
                   class="form-control"
                 />
+                <span class="error"></span>
               </div>
               <!--precio-->
               <div class="col-4 mt-3">
@@ -52,6 +52,7 @@
                   name="price"
                   placeholder="Precio al contado es de..."
                 />
+                <span class="error"></span>
               </div>
               <!--cuotas-->
               <div class="col-4 mt-3">
@@ -63,8 +64,8 @@
                   <% vInstallments.forEach(vInstallment => {%>
                   <option value="<%=vInstallment.id%>" <% if(vInstallment.id==productoEditar.installmentId){%> selected <% } %> ><%=vInstallment.name%> </option>
                   <% })%>
-                  
                 </select>
+                <span class="error"></span>
               </div>  
               <!-- color -->
               <div class="col-4 mt-3">
@@ -74,7 +75,8 @@
                   <% vColours.forEach(vColour => {%>
                   <option value="<%=vColour.id%>" <% if(vColour.id==productoEditar.colourId){%> selected <% } %> ><%=vColour.name%> </option>
                   <% })%> 
-                </select>              
+                </select>   
+                <span class="error"></span>           
               </div>            
               <!--categoria-->
               <div class="col-4 mt-3">
@@ -85,6 +87,7 @@
                     <option value="<%=vCategory.id%>" <% if(vCategory.id == productoEditar.categoryId){%> selected <% } %> ><%=vCategory.name%></option>
                   <% })%>
                 </select>
+                <span class="error"></span>
               </div>
               <!--estilos-->
               <div class="col-4 mt-3">
@@ -95,6 +98,7 @@
                     <option value="<%=vStyle.id%>" <% if(vStyle.id == productoEditar.styleId){%> selected <% } %> ><%=vStyle.name%></option>
                   <% })%>
                 </select>
+                <span class="error"></span>
               </div>
               <!--marcas-->
               <div class="col-4 mt-3">
@@ -105,6 +109,7 @@
                     <option value="<%=vBrand.id%>" <% if(vBrand.id == productoEditar.brandId){%> selected <% } %> ><%=vBrand.name%></option>
                   <% })%>
                 </select>
+                <span class="error"></span>
               </div>
               <!--ambientes-->
               <div class="col-12 col-md-6 mt-3">
@@ -115,10 +120,11 @@
                     <% if(productoEditar.Rooms.find(ele => ele.id==room.id)){%>checked<%}%>
                     >
                     <label class="form-check-label" for="<%=room.id%>"><%=room.name%></label>
+                  
                   </div>
-                  <% })%>             
+                  <% })%>    
+                  <span class="error"></span>         
               </div> 
-              
               <!--descripcion del producto-->
               <div class="col-12 col-md-6 mt-3">
                 <label for="description" class="form-label"
@@ -132,9 +138,10 @@
                   name="description"
                   placeholder=""
                 />
+                <span class="error"></span>
               </div>
+              <!--detalles del producto-->
               <div class="col-12 col-md-6 mt-3">
-                <!--detalles del producto-->
                 <label for="details" class="form-label"
                   >Detalles:<span class="font-red"> (Indicar los detalles separados por comas)</span></label
                 >                
@@ -189,6 +196,7 @@
                   name="picture"
                   placeholder="Subir una nueva imagen"
                 />
+                <span class="error"></span>
               </div>
               <!--Boton SUBMIT -->
               <div class="align-center mt-3">
@@ -210,5 +218,6 @@
 
     <!--FOOTER -->
     <%- include('../partials/footer') %>
+    <script src="/js/editproducts-validation-front.js"></script>
   </body>
 </html>
