@@ -8,7 +8,7 @@ const validationsRegister = [
             },
             {   
                 validator: (input) => input.value >= 2,
-                errorMsg: "Debe ingresar un más de 2 caracteres",
+                errorMsg: "Debe ingresar más de 2 caracteres",
             },
         ],
     },
@@ -17,11 +17,11 @@ const validationsRegister = [
         formularioRegister: [
             {   
                 validator: (input) => input.value.trim() != "",
-                errorMsg: "Debe ingresar un nombre",
+                errorMsg: "Debe ingresar un apellido",
             },
             {   
                 validator: (input) => input.value >= 2,
-                errorMsg: "Debe ingresar un más de 2 caracteres",
+                errorMsg: "Debe ingresar más de 2 caracteres",
             },
         ],
     },
@@ -33,7 +33,7 @@ const validationsRegister = [
                 errorMsg: "Debe ingresar un correo electrónico",
             },
             {   
-                validator: (input) => input.value.isEmail,
+                validator: (input) => input.value != "",
                 errorMsg: "Debe ingresar un correo electrónico válido",
             },
         ],
@@ -55,7 +55,7 @@ const validationsRegister = [
         inputName: "profilePic",
         formularioRegister: [
             {   
-                validator: (input) => input.value.isFile(),
+                validator: (input) => input.value.isFile,
                 errorMsg: "Debe ingresar un archivo válido (JPG, JPEG, PNG, GIF).",
             },
         ],
@@ -73,7 +73,7 @@ window.onload = function(){
 
         // hago validaciones
 
-        formularioRegister.forEach((inputToValidate)=>{
+        validationsRegister.forEach((inputToValidate)=>{
             const input = formularioRegister[inputToValidate.inputName];
             for (const validation of inputToValidate.formularioRegister) {
                 const isValid = validation.validator(input);

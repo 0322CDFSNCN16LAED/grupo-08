@@ -29,6 +29,7 @@
                 class="form-control col-12 <%= locals.errors && errors.name ? 'is-invalid' : null %>"
                 value="<%=locals.oldData ? oldData.name : null%>"
               />
+              <span class="error"> Debe ingresar un nombre </span>
               <!--si hay errores en la validacion, da el mensaje de error-->
               <% if (locals.errors && errors.name) { %>
                 <div class="text-danger">
@@ -48,6 +49,7 @@
                 class="form-control <%= locals.errors && errors.lastname ? 'is-invalid' : null %>"
                 value="<%=locals.oldData?oldData.lastname:null%>"
               />
+              <span class="error"> Debe ingresar un apellido </span>
               <!--si hay errores en la validacion, da el mensaje de error-->
               <% if (locals.errors && errors.lastname) { %>
                 <div class="text-danger">
@@ -68,6 +70,7 @@
                 placeholder="juanperez@mail.com"
                 value="<%=locals.oldData ? oldData.email : null%>"
               />
+              <span class="error"> Debe ingresar un correo electrónico </span>
               <!--si hay errores en la validacion, da el mensaje de error-->
               <% if (locals.errors && errors.email) { %>
                 <div class="text-danger">
@@ -204,6 +207,7 @@
                 class="form-control <%=locals.errors && errors.password?'is-invalid':null%> <%= locals.errors && errors.password ? 'help is-danger' : null %>"
                 placeholder="********"
               />
+              <span class="error"> Debe ingresar una contraseña </span>
               <!--si hay errores en la validacion, da el mensaje de error-->
               <% if (locals.errors && errors.password) { %>
                 <div class="text-danger">
@@ -242,6 +246,7 @@
             <div class="col-12 col-md-6">
               <label for="profile" class="form-label">Cargar imagen de perfil</label>
               <input class="form-control" type="file" id="profile" name="profilePic">
+              <span class="error"> Debe ingresar un archivo válido (JPG, JPEG, PNG, GIF). </span>
             </div>         
             </div>
             <div class="col-12 mt-3 align-center mt-5">
