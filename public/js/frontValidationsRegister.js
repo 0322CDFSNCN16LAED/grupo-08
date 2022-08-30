@@ -55,7 +55,7 @@ const validationsRegister = [
         inputName: "profilePic",
         formularioRegister: [
             {   
-                validator: (input) => input.value != "",
+                validator: (input) => input.value.isFile(),
                 errorMsg: "Debe ingresar un archivo válido (JPG, JPEG, PNG, GIF).",
             },
         ],
