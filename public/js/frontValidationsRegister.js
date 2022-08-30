@@ -33,7 +33,7 @@ const validationsRegister = [
                 errorMsg: "Debe ingresar un correo electrónico",
             },
             {   
-                validator: (input) => input.value != "",
+                validator: (input) => /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(input.value) != "",
                 errorMsg: "Debe ingresar un correo electrónico válido",
             },
         ],
@@ -55,7 +55,7 @@ const validationsRegister = [
         inputName: "profilePic",
         formularioRegister: [
             {   
-                validator: (input) => input.value.isFile,
+                validator: (input) => /.(gif|jpeg|jpg|png)$/i.test(input.value) != "",
                 errorMsg: "Debe ingresar un archivo válido (JPG, JPEG, PNG, GIF).",
             },
         ],
