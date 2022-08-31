@@ -53,20 +53,22 @@ module.exports = {
   },
   //accion de procesar el producto. CREAR
   store: async function (req, res) {
-
-  //para hacer la validacion 
-    const resultValidation = validationResult(req)
-  // llamo a las variables
-    let vInstallments = await db.Installment.findAll({order: [["name", "asc"]] });
+    //para hacer la validacion
+    const resultValidation = validationResult(req);
+    // llamo a las variables
+    let vInstallments = await db.Installment.findAll({
+      order: [["name", "asc"]],
+    });
     let vCategorys = await db.Category.findAll({ order: [["name", "asc"]] });
     let vRooms = await db.Room.findAll({ order: [["name", "asc"]] });
     let vStyles = await db.Style.findAll({ order: [["name", "asc"]] });
     let vColours = await db.Colour.findAll({ order: [["name", "asc"]] });
     let vBrands = await db.Brand.findAll({ order: [["name", "asc"]] });
-
-    if (resultValidation.errors.length >0) { // si el array es mayor a cero quiere decir que hay errores
+    //res.send(req.body);
+    if (resultValidation.errors.length > 0) {
+      // si el array es mayor a cero quiere decir que hay errores
       return res.render("products/products-create-form", {
-        errors: resultValidation.mapped(),//convierte al array en un obj literal
+        errors: resultValidation.mapped(), //convierte al array en un obj literal
         oldData: req.body,
         vInstallments,
         vCategorys,
@@ -74,40 +76,40 @@ module.exports = {
         vRooms,
         vColours,
         vBrands,
-    })
-  } else { 
-    try {
-      let resp = await db.Product.create({
-        ...req.body,
-        price: req.body.price.trim().replace(",", "."),
-        freeDelivery: req.body.freeDelivery ? true : false,
-        picture: req.file
-          ? "/images/products/" + req.file.filename
-          : "/images/products/default-image.png",
       });
-      let ambientes = [];
-      if (req.body.rooms) {
-        if (typeof req.body.rooms == "string") {
-          ambientes.push(req.body.rooms);
-        } else {
-          ambientes = req.body.rooms;
-        }
-      }
-      if (ambientes.length > 0) {
-        ambientes.forEach(async (element) => {
-          await db.RoomProduct.create({
-            roomId: element,
-            productId: resp.dataValues.id,
-          });
+    } else {
+      try {
+        let resp = await db.Product.create({
+          ...req.body,
+          price: req.body.price.trim().replace(",", "."),
+          freeDelivery: req.body.freeDelivery ? true : false,
+          picture: req.file
+            ? "/images/products/" + req.file.filename
+            : "/images/products/default-image.png",
         });
+        let ambientes = [];
+        if (req.body.rooms) {
+          if (typeof req.body.rooms == "string") {
+            ambientes.push(req.body.rooms);
+          } else {
+            ambientes = req.body.rooms;
+          }
+        }
+        if (ambientes.length > 0) {
+          ambientes.forEach(async (element) => {
+            await db.RoomProduct.create({
+              roomId: element,
+              productId: resp.dataValues.id,
+            });
+          });
+        }
+        res.redirect("/products");
+      } catch (error) {
+        console.log("error en create " + error);
+        res.send(error);
       }
-    res.redirect("/products");
-    } catch (error) {
-      console.log("error en create " + error);
-      res.send(error);
     }
-  }
- },
+  },
   // vista para editar detalles de productos
   edit: async (req, res) => {
     const productEdit = await db.Product.findByPk(req.params.id, {
@@ -157,68 +159,68 @@ module.exports = {
   update: async (req, res) => {
     let productId = req.params.id;
     const oldProduct = db.Product.findByPk(productId);
-    
-    const resultValidation = validationResult(req)
+
+    const resultValidation = validationResult(req);
     // llamo a las variables
-      let vInstallments = req.body.installmentId
-      let vCategorys = req.body.categoryId
-      let vRooms = req.body.rooms
-      let vStyles = req.body.styleId
-      let vColours = req.body.colourId
-      let vBrands = req.body.brandId
-  
-      if (resultValidation.errors.length >0) { // si el array es mayor a cero quiere decir que hay errores
-        return res.render("productos-edit-product", {
-          errors: resultValidation.mapped(),//convierte al array en un obj literal
-          oldData: req.body,
-          vInstallments,
-          vCategorys,
-          vStyles,
-          vRooms,
-          vColours,
-          vBrands,
-        })
-      }else {
-    try {
-      let resp = await db.Product.update(
-        {
-          ...req.body,
-          price: req.body.price.trim().replace(",", "."),
-          freeDelivery: req.body.freeDelivery ? true : false,
-          picture: req.file
-            ? "/images/products/" + req.file.filename
-            : oldProduct.picture,
-        },
-        {
-          where: { id: productId },
-        }
-      );
-      let ambientes = [];
-      if (resp) {
-        if (req.body.rooms) {
-          if (typeof req.body.rooms == "string") {
-            ambientes.push(req.body.rooms);
-          } else {
-            ambientes = req.body.rooms;
+    let vInstallments = req.body.installmentId;
+    let vCategorys = req.body.categoryId;
+    let vRooms = req.body.rooms;
+    let vStyles = req.body.styleId;
+    let vColours = req.body.colourId;
+    let vBrands = req.body.brandId;
+
+    if (resultValidation.errors.length > 0) {
+      // si el array es mayor a cero quiere decir que hay errores
+      return res.render("productos-edit-product", {
+        errors: resultValidation.mapped(), //convierte al array en un obj literal
+        oldData: req.body,
+        vInstallments,
+        vCategorys,
+        vStyles,
+        vRooms,
+        vColours,
+        vBrands,
+      });
+    } else {
+      try {
+        let resp = await db.Product.update(
+          {
+            ...req.body,
+            price: req.body.price.trim().replace(",", "."),
+            freeDelivery: req.body.freeDelivery ? true : false,
+            picture: req.file
+              ? "/images/products/" + req.file.filename
+              : oldProduct.picture,
+          },
+          {
+            where: { id: productId },
+          }
+        );
+        let ambientes = [];
+        if (resp) {
+          if (req.body.rooms) {
+            if (typeof req.body.rooms == "string") {
+              ambientes.push(req.body.rooms);
+            } else {
+              ambientes = req.body.rooms;
+            }
           }
         }
-      }
-      await db.RoomProduct.destroy({ where: { productId: productId } });
-      //await oldProduct.setRooms([]);
-      if (ambientes.length > 0) {
-        ambientes.forEach(async (element) => {
-          await db.RoomProduct.create({
-            roomId: element,
-            productId: productId,
+        await db.RoomProduct.destroy({ where: { productId: productId } });
+        //await oldProduct.setRooms([]);
+        if (ambientes.length > 0) {
+          ambientes.forEach(async (element) => {
+            await db.RoomProduct.create({
+              roomId: element,
+              productId: productId,
+            });
           });
-        });
+        }
+        res.redirect("/products");
+      } catch (error) {
+        res.send(error);
       }
-      res.redirect("/products");
-    } catch (error) {
-      res.send(error);
     }
-  }
-  
   },
   // accion de eliminar un producto
   destroy: async (req, res) => {
