@@ -4,6 +4,7 @@ const multer = require("multer");
 const path = require("path");
 
 //Middlewares de roles de usuario
+
 const sellerMiddleware = require("../middlewares/sellerMiddleware"); //VENDEDOR
 
 const productControllers = require("../controllers/productControllers");
@@ -25,12 +26,14 @@ const uploadFile = multer({ storage: multerDiskStorage });
 router.get("/", productControllers.index);
 
 /* Crear un producto*/
+
 //sellerMiddleware
-router.get("/create", productControllers.create);
+
+router.get("/create", sellerMiddleware, productControllers.create);
 router.post(
   "/",
-  sellerMiddleware,
   uploadFile.single("picture"),
+  sellerMiddleware,
   productControllers.store
 );
 
@@ -45,8 +48,8 @@ router.get("/:id", productControllers.detail);
 router.get("/edit/:id", sellerMiddleware, productControllers.edit);
 router.put(
   "/:id",
-  sellerMiddleware,
   uploadFile.single("picture"),
+  sellerMiddleware,
   productControllers.update
 );
 
