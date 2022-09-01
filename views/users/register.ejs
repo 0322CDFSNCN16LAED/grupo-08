@@ -196,6 +196,8 @@
             </div>
             <div class="col-12 col-md-6">
               <label for="pass" class="form-label">Contraseña</label>
+
+              <div class = "flex-cont">
               <input
                 type="password"
                 name="password"
@@ -203,6 +205,18 @@
                 class="form-control <%=locals.errors && errors.password?'is-invalid':null%> <%= locals.errors && errors.password ? 'help is-danger' : null %>"
                 placeholder="********"
               />
+              <!--boton de mostrar contrasena-->  
+              <div class=" w-10">
+                <input
+                  type="button"
+                  name="button"
+                  onclick="mostrar()"
+                  class="form-control"
+                  value= "Mostrar"
+                  />
+              </div>
+              </div>
+              
               <!--si hay errores en la validacion, da el mensaje de error-->
               <% if (locals.errors && errors.password) { %>
                 <div class="text-danger">
@@ -214,6 +228,8 @@
               <label for="password" class="form-label"
                 >Confirma tu contraseña</label
               >
+
+             <div class = "flex-cont">
               <input
                 type="password"
                 name="rpassword"
@@ -221,6 +237,18 @@
                 class="form-control <%= locals.errors && errors.rpassword ? 'is-invalid' : null %>"
                 placeholder="********"
               />
+              <!--boton de mostrar contrasena-->  
+              <div class=" w-10">
+                <input
+                  type="button"
+                  name="button"
+                  onclick="ver()"
+                  class="form-control"
+                  value= "Mostrar"
+                  />
+              </div>
+            </div>
+
               <!--si hay errores en la validacion, da el mensaje de error-->
               <% if (locals.errors && errors.rpassword) { %>
                 <div class="text-danger">
@@ -276,5 +304,9 @@
     <!--FOOTER -->
     <%- include('../partials/footer') %>
     <script src="/js/js-front.js"></script>
+    <script src="/js/showpass.js"></script>
+    <script src="/js/seepass.js"></script>
+
+
   </body>
 </html>

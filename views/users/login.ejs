@@ -33,14 +33,28 @@
             </div>
 
             <!--cotraseña -->
-            <div class="col-12 mt-3">
+            <div class="col-12 mt-4 ">
               <label for="pass" class="form-label">Contraseña</label>
+          <div class = "flex-cont">
               <input
                 type="password"
                 name="password"
                 id="password"
                 class="form-control <%= locals.errors && errors.password ? 'is-invalid' : null %>"
               />
+              <!--boton de mostrar contrasena-->  
+              <div class=" w-10">
+              <input
+                type="button"
+                name="button"
+                onclick="mostrar()"
+                class="form-control"
+                value= "Mostrar"
+                />
+             </div>
+            </div>
+
+
               <!--si hay errores en la validacion, da el mensaje de error-->
               <% if (locals.errors && errors.password) { %>
               <div class="text-danger"><%= errors.password.msg %></div>
@@ -94,5 +108,6 @@
     <!--FOOTER -->
     <%- include('../partials/footer') %>
     <script src="/js/js-front.js"></script>
+    <script src="/js/showpass.js"></script>
   </body>
 </html>
