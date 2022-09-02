@@ -41,7 +41,7 @@
                 <span class="error"></span>
               </div>
               <!--precio-->
-              <div class="col-sm-6 col-md-3 mt-3">
+              <div class="col-sm-6 col-md-4 mt-3">
                 <label for="price" class="form-label"
                   >Precio</label
                 >
@@ -55,7 +55,7 @@
                 <span class="error"></span>
               </div>
               <!--cuotas-->
-              <div class="col-sm-6 col-md-3 mt-3">
+              <div class="col-sm-6 col-md-4 mt-3">
                 <label for="installmentId" class="form-label col-12"
                   >Cuotas: </label
                 >
@@ -68,7 +68,7 @@
                 <span class="error"></span>
               </div>  
               <!--SALE-->
-             <div class="col-sm-6 col-md-3 mt-3">
+             <div class="col-sm-6 col-md-4 mt-3">
               <label for="sale" class="form-label">Oferta:</label>
               <input
                 value="<%=productoEditar.sale%>"
@@ -89,22 +89,9 @@
                   <% })%> 
                 </select>      
                 <span class="error"></span>
-              </div>
-              <!--ambientes-->
-               <div class="col-sm-6 col-md-6 mt-3">
-                <label for="rooms" class="form-label col-12">Ambientes:</label>             
-                <% vRooms.forEach(room => {%>
-                  <div class="form-check form-check-inline">
-                    <!-- aca  deberia hacer un foreach de productoEdit-->
-                    <input class="form-check-input" type="checkbox" id="<%=room.id%>" name="rooms" value="<%=room.id%>"                      
-                    <% if(productoEditar.Rooms.find(ele => ele.id==room.id  ) ){%>checked<%}%>>
-                    <label class="form-check-label" for="<%=room.id%>"><%=room.name%></label>
-                  </div>
-                  <% })%>       
-                  <span id="errorRoom" name="errorRoom" class="" style="color:red"></span>     
-              </div>             
+              </div>                       
               <!--categoria-->
-              <div class="col-4 mt-3">
+              <div class="col-sm-6 col-md-3 mt-3">
                 <label for="categoryId" class="form-label">Categoria:</label>                
                 <select name="categoryId" id="categoryId" class="form-select">
                   <option value="">Seleccione</option>
@@ -115,7 +102,7 @@
                 <span class="error"></span>
               </div>
               <!--estilos-->
-              <div class="col-4 mt-3">
+              <div class="col-sm-6 col-md-3 mt-3">
                 <label for="styleId" class="form-label">Estilo:</label>                
                 <select name="styleId" id="styleId" class="form-select">
                   <option value="">Seleccione</option>
@@ -124,10 +111,9 @@
                   <% })%>
                 </select>
                 <span class="error"></span>
-              </div>
-              
+              </div>              
               <!--marcas-->
-              <div class="col-4 mt-3">
+              <div class="col-sm-6 col-md-3 mt-3">
                 <label for="brandId" class="form-label">Marca:</label>                
                 <select name="brandId" id="brandId" class="form-select">
                   <option value="">Seleccione</option>
@@ -137,10 +123,22 @@
                 </select>
                 <span class="error"></span>
               </div>
-             
+             <!--ambientes-->
+             <div class="col-sm-6 col-md-6 mt-3">
+              <label for="rooms" class="form-label col-12">Ambientes:</label>             
+              <% vRooms.forEach(room => {%>
+                <div class="form-check form-check-inline">
+                  <!-- aca  deberia hacer un foreach de productoEdit-->
+                  <input class="form-check-input" type="checkbox" id="<%=room.id%>" name="rooms" value="<%=room.id%>"                      
+                  <% if(productoEditar.Rooms.find(ele => ele.id==room.id  ) ){%>checked<%}%>>
+                  <label class="form-check-label" for="<%=room.id%>"><%=room.name%></label>
+                </div>
+                <% })%>       
+                <span id="errorRoom" name="errorRoom" class="" style="color:red"></span>     
+            </div>    
               
               <!--descripcion del producto-->
-              <div class="col-12 col-md-4 mt-3">
+              <div class="col-12 col-md-6 mt-3">
                 <label for="description" class="form-label"
                   >Descripcion:</label
                 >
@@ -188,7 +186,7 @@
                 />
               </div>
                <!-- envio gratis -->
-               <div class="col-12 col-md-6">
+               <div class="col-12 col-md-6 mt-3">
 
                 <label for="freeDelivery" class="form-label col-12"
                   >Envio gratis:</label
@@ -230,6 +228,6 @@
 
     <!--FOOTER -->
     <%- include('../partials/footer') %>
-    <script src="/js/creatproducts-validation-front.js"></script>
+    <script src="/js/editproducts-validation-front.js"></script>
   </body>
 </html>

@@ -105,11 +105,9 @@ const validations = [
           let isValid = false;
           input.forEach((element) => {
             if (element.checked) {
-              console.log("si valido 1");
               isValid = true;
             }
           });
-          console.log("valor de retorno-->" + isValid);
           return isValid;
         },
       },

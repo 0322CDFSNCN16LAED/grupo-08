@@ -10,7 +10,7 @@ const validations = [
         errorMsg: "Debe ingresar un nombre del producto de minimo 5 caracteres",
       },
       {
-        validator: (input) => input.value.length >= 5,
+        validator: (input) => input.value.length > 4,
         errorMsg: "Debe ingresar un nombre de minimo 5 caracteres",
       },
     ],
@@ -64,7 +64,6 @@ const validations = [
       },
     ],
   },
-
   {
     inputName: "brandId",
     validations: [
@@ -89,16 +88,6 @@ const validations = [
     ],
   },
   {
-    inputName: "picture",
-    validations: [
-      {
-        validator: (input) => /.(gif|jpeg|jpg|png)$/i.test(input.value) != "",
-        errorMsg: "Debe ingresar un archivo válido (JPG, JPEG, PNG, GIF).",
-      },
-    ],
-  },
-  ,
-  {
     inputName: "rooms",
     validations: [
       {
@@ -120,29 +109,35 @@ const validations = [
 ];
 
 window.onload = function () {
-  const formularioEdit = document.querySelector("form.form-field"); // me traigo la clase de la vista del formualario
+  const formularioCreat = document.querySelector("form.form-field"); // me traigo la clase de la vista del formualario
 
-  formularioEdit.name.focus();
+  formularioCreat.name.focus();
 
-  formularioEdit.addEventListener("submit", (event) => {
+  formularioCreat.addEventListener("submit", (event) => {
     //event.preventDefault();
     const errores = [];
-
+    let i = 1;
     //Hago el proceso de validacion
     validations.forEach((inputToValidate) => {
-      const input = formularioEdit[inputToValidate.inputName];
-
+      const input = formularioCreat[inputToValidate.inputName];
       //hago un for of para que me recorra todos los elementos de la variable validacion of todos los elementos a iterar y luego cuando temrine de recorrer y no encuentre errores para a la segunda parte
       for (const validation of inputToValidate.validations) {
         const isValid = validation.validator(input);
         if (!isValid) {
+          i++;
           errores.push(validation.errorMsg);
           event.preventDefault();
           //como los campos son validos quiero que me deje de seleccionar la clase donde aparece invalid y agregue la valida
-          input.parentElement.classList.add("is-invalid");
-          input.parentElement.classList.remove("is-valid");
-          input.parentElement.querySelector(".error").innerHTML =
-            validation.errorMsg;
+          if (inputToValidate.inputName == "rooms") {
+            document.querySelector("#errorRoom").innerHTML =
+              validation.errorMsg;
+          } else {
+            //para el resto de inputs
+            input.parentElement.classList.add("is-invalid");
+            input.parentElement.classList.remove("is-valid");
+            input.parentElement.querySelector(".error").innerHTML =
+              validation.errorMsg;
+          }
           return;
         }
       }
@@ -150,12 +145,12 @@ window.onload = function () {
       input.parentElement.classList.add("is-valid");
       input.parentElement.classList.remove("is-invalid");
       input.parentElement.querySelector(".error").innerHTML = "";
+      document.querySelector("#errorRoom").innerHTML = "";
     });
 
     //Si no fallaron las validaciones
     if (errores.length == 0) {
-      console.log("hiola");
-      formularioEdit.submit();
+      formularioCreat.submit();
     } else {
       console.log(errores);
     }
