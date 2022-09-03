@@ -25,16 +25,25 @@ const validations = [
       },
     ],
   },
-/* {
+  {
     inputName: "rooms",
     validations: [
-     {
-          validator: (input)=>input.checkbox.checked,
-          errorMsg: "Debe seleccionar al menos una opcion",
-        }
-  
-    ],
-  },*/
+      {          
+        errorMsg: "Debe seleccionar al menos una opcion Rooms",
+        validator: (input) => {
+          let isValid = false;
+          input.forEach((element) => {
+            if (element.checked) {
+              console.log("si valido 1");
+              isValid = true;
+            }
+          });
+          console.log("valor de retorno-->" + isValid);
+          return isValid;
+      },
+    },
+   ],
+  },
   {
     inputName: "styleId",
     validations: [
