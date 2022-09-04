@@ -23,6 +23,15 @@ const validations = [
     ],
   },
   {
+    inputName: "email",
+    validations: [
+      {
+        validator: (input) => input.value.trim() != "",
+        errorMsg: "Debe ingresar un Correo",
+      },
+    ],
+  },
+  {
     inputName: "phoneNumber",
     validations: [
       {
@@ -76,9 +85,28 @@ const validations = [
       },
     ],
   },
+  {
+    inputName: "password",
+    validations: [
+      {
+        validator: (input) => input.value.trim() != "",
+        errorMsg: "Debe ingresar una contraseña",
+      },
+    ],
+  },
+  {
+    inputName: "rpassword",
+    validations: [
+      {
+        validator: (input) => input.value.trim() != "",
+        errorMsg: "Debe repetir la contraseña",
+      },
+    ],
+  },
 ];
 
 window.onload = function () {
+  console.log("esta entrando aca");
   const formularioCreat = document.querySelector("form.form-field"); // me traigo la clase de la vista del formualario
 
   formularioCreat.name.focus();

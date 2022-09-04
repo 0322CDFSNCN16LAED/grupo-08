@@ -90,7 +90,7 @@
               <div class="col-12">
                 <label for="address" class="form-label">Dirección</label>
                 <input
-                  value="<%=locals.oldData ? oldData.address : userToEdit.address%>"
+                  value="<%=locals.oldData ? oldData.address.address : userToEdit.address.address%>"
                   type="text"
                   name="address"
                   id="address"
@@ -105,7 +105,7 @@
               <div class="col-12">
                 <label for="city" class="form-label">Ciudad / Localidad</label>
                 <input
-                  value="<%=locals.oldData ? oldData.city : userToEdit.city%>"
+                  value="<%=locals.oldData ? oldData.address.city : userToEdit.address.city%>"
                   type="text"
                   name="city"
                   id="city"
@@ -120,7 +120,7 @@
               <div class="col-12">
                 <label for="state" class="form-label">Provincia</label>
                 <input
-                  value="<%=locals.oldData ? oldData.state : userToEdit.address.state%>"
+                  value="<%=locals.oldData ? oldData.address.state : userToEdit.address.state%>"
                   type="text"
                   name="state"
                   id="state"
@@ -134,7 +134,7 @@
               <div class="col-12">
                 <label for="country" class="form-label">País</label>
                 <input
-                  value="<%=locals.oldData ? oldData.state : userToEdit.address.country%>"
+                  value="<%=locals.oldData ? oldData.address.state : userToEdit.address.country%>"
                   type="text"
                   name="country"
                   id="country"
@@ -148,7 +148,7 @@
               <div class="col-12">
                 <label for="zipCode" class="form-label">Código Postal</label>
                 <input
-                  value="<%=locals.oldData ? oldData.state : userToEdit.address.zipCode%>"
+                  value="<%=locals.oldData ? oldData.address.state : userToEdit.address.zipCode%>"
                   type="text"
                   name="zipCode"
                   id="zipCode"
