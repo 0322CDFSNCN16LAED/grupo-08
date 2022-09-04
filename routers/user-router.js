@@ -3,10 +3,10 @@ const router = express.Router();
 const path = require("path");
 const multer = require("multer");
 
-
 // Middlewares
 const basicRegisterValidations = require("../validation/userValidations");
 const loginValidations = require("../validation/loginValidation");
+//const editValidations = requiere("../validation/editUserValidations");
 // si esta logueado lo envia a la vista de su detalle
 const guestMiddleware = require("../middlewares/guestMiddleware");
 
@@ -17,8 +17,7 @@ const authMiddleware = require("../middlewares/authMiddleware");
 const validUserMiddleware = require("../middlewares/validUserMiddleware");
 
 //Middlewares de roles de usuario
-const adminMiddleware= require ('../middlewares/adminMiddleware'); //ADMIN
-
+const adminMiddleware = require("../middlewares/adminMiddleware"); //ADMIN
 
 /*Definimos un storage para las imagenes de perfil */
 const storage = multer.diskStorage({
@@ -47,7 +46,6 @@ router.post("/", loginValidations, usersControllers.processLogin);
 /*Logout */
 router.get("/logout", usersControllers.logout);
 
-
 /*CRUD USERS */
 /* CREATE - Formulario de registro */
 router.get("/register", guestMiddleware, usersControllers.showRegister);
@@ -68,7 +66,6 @@ router.get(
   usersControllers.detail
 );
 
-
 /* UPDATE - Formulario de edicion de usuario */
 router.get(
   "/edit/:id",
@@ -78,7 +75,12 @@ router.get(
 );
 
 /* Guardar edición de usuario */
-router.put("/:id", uploadFile.single("profilePic"), usersControllers.update);
+router.put(
+  "/:id",
+  //editValidations,
+  uploadFile.single("profilePic"),
+  usersControllers.update
+);
 
 /* DELETE - Borrar usuario */
 router.delete("/:id", adminMiddleware, usersControllers.delete);

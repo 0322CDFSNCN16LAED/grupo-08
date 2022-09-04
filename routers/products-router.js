@@ -6,7 +6,6 @@ const path = require("path");
 //Middlewares de roles de usuario
 
 const sellerMiddleware = require("../middlewares/sellerMiddleware"); //VENDEDOR
-
 const productControllers = require("../controllers/productControllers");
 
 /*para guardar los archivos y el nombre que quiero que se guarde */
