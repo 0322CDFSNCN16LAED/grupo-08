@@ -172,46 +172,59 @@ module.exports = {
 
   //se procesa la edición de un usuario
   update: async function (req, res) {
+    const validationErrors = validationResult(req);
+
     //capturo el registro a modificar
     let user = await database.User.findByPk(req.params.id, {
       include: ["userRole", "address"],
     });
-
-    try {
-      await database.User.update(
-        {
-          // Actualizo al usuario con el metodo UPDATE de Sequelize
-          name: req.body.name,
-          lastname: req.body.lastname,
-          email: req.body.email,
-          phoneNumber: req.body.phoneNumber,
-          password: bcryptjs.hashSync(req.body.password, 10),
-          profilePic: req.file ? req.file.filename : "defaultImage.jpg",
-          userRoleId: req.body.userRoleId,
-        },
-        {
-          where: { id: user.id },
-        }
-      );
-      database.Address.update(
-        {
-          //luego guardo el id en  la nueva dirección
-          address: req.body.address,
-          city: req.body.city,
-          state: req.body.state,
-          country: req.body.country,
-          zipCode: req.body.zipCode,
-        },
-        {
-          where: { userId: user.id },
-        }
-      );
-      user = await database.User.findByPk(req.params.id, {
-        include: ["userRole", "address"],
+    // verifico
+    if (!validationErrors.isEmpty()) {
+      console.log(req.body);
+      res.render("users/edit-user", {
+        //renderizo el formulario
+        errors: validationErrors.mapped(), // con los errores mappeados y
+        oldData: req.body, // los datos que sí pasaron la validacion
+        userRoles,
       });
-      res.render("users/user-detail", { user });
-    } catch (error) {
-      res.send(error);
+    } else {
+      // si no hay errores
+      try {
+        await database.User.update(
+          {
+            // Actualizo al usuario con el metodo UPDATE de Sequelize
+            name: req.body.name,
+            lastname: req.body.lastname,
+            email: req.body.email,
+            phoneNumber: req.body.phoneNumber,
+            password: bcryptjs.hashSync(req.body.password, 10),
+            profilePic: req.file ? req.file.filename : "defaultImage.jpg",
+            userRoleId: req.body.userRoleId,
+          },
+          {
+            where: { id: user.id },
+          }
+        );
+        database.Address.update(
+          {
+            //luego guardo el id en  la nueva dirección
+            address: req.body.address,
+            city: req.body.city,
+            state: req.body.state,
+            country: req.body.country,
+            zipCode: req.body.zipCode,
+          },
+          {
+            where: { userId: user.id },
+          }
+        );
+        user = await database.User.findByPk(req.params.id, {
+          include: ["userRole", "address"],
+        });
+        res.render("users/user-detail", { user });
+      } catch (error) {
+        res.send(error);
+      }
     }
   },
 

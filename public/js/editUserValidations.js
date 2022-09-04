@@ -1,5 +1,3 @@
-var checkbox = document.getElementById("rooms");
-
 //defino la variable validacion con todos los campos que son obligatorios
 const validations = [
   {
@@ -7,114 +5,87 @@ const validations = [
     validations: [
       {
         validator: (input) => input.value.trim() != "",
-        errorMsg: "Debe ingresar un nombre del producto de minimo 5 caracteres",
+        errorMsg: "Debe ingresar un Nombre",
       },
       {
         validator: (input) => input.value.length > 4,
-        errorMsg: "Debe ingresar un nombre de minimo 5 caracteres",
+        errorMsg: "Debe ingresar un nombre de minimo 2 caracteres",
       },
     ],
   },
   {
-    inputName: "price",
+    inputName: "lastname",
     validations: [
       {
         validator: (input) => input.value.trim() != "",
-        errorMsg: "Debe ingresar el precio del producto de manera numerica",
-      },
-      {
-        validator: (input) => input.value > 0,
-        errorMsg: "Debe ser de manera numerica",
+        errorMsg: "Debe ingresar un Apellido",
       },
     ],
   },
   {
-    inputName: "installmentId",
+    inputName: "phoneNumber",
     validations: [
       {
         validator: (input) => input.value.trim() != "",
-        errorMsg: "Debe ingresar alguna opcion valida",
+        errorMsg: "Debe ingresar un Teléfono",
       },
     ],
   },
   {
-    inputName: "colourId",
+    inputName: "address",
     validations: [
       {
         validator: (input) => input.value.trim() != "",
-        errorMsg: "Debe ingresar alguna opcion valida",
+        errorMsg: "Debe ingresar una Dirección",
       },
     ],
   },
   {
-    inputName: "categoryId",
+    inputName: "city",
     validations: [
       {
         validator: (input) => input.value.trim() != "",
-        errorMsg: "Debe elegir una opcion",
+        errorMsg: "Debe ingresar la Ciudad",
       },
     ],
   },
   {
-    inputName: "styleId",
+    inputName: "state",
     validations: [
       {
         validator: (input) => input.value.trim() != "",
-        errorMsg: "Debe ingresar alguna opcion valida",
+        errorMsg: "Debe ingresar la Provincia",
       },
     ],
   },
   {
-    inputName: "brandId",
+    inputName: "country",
     validations: [
       {
         validator: (input) => input.value.trim() != "",
-        errorMsg: "Debe ingresar alguna opcion valida",
+        errorMsg: "Debe ingresar el País",
       },
     ],
   },
   {
-    inputName: "description",
+    inputName: "zipCode",
     validations: [
       {
         validator: (input) => input.value.trim() != "",
-        errorMsg:
-          "Debe dar una breve descripcion del producto de minimo 20 caracteres",
-      },
-      {
-        validator: (input) => input.value.length >= 20,
-        errorMsg: "Debe descripcion minima de 20 caracteres",
-      },
-    ],
-  },
-  {
-    inputName: "rooms",
-    validations: [
-      {
-        errorMsg: "Debe seleccionar al menos una opcion Rooms",
-        validator: (input) => {
-          let isValid = false;
-          input.forEach((element) => {
-            if (element.checked) {
-              console.log("si valido 1");
-              isValid = true;
-            }
-          });
-          console.log("valor de retorno-->" + isValid);
-          return isValid;
-        },
+        errorMsg: "Debe ingresar Código Postal",
       },
     ],
   },
 ];
 
 window.onload = function () {
+  console.log("esta entrando aca");
   const formularioCreat = document.querySelector("form.form-field"); // me traigo la clase de la vista del formualario
 
   formularioCreat.name.focus();
 
   formularioCreat.addEventListener("submit", (event) => {
-    //event.preventDefault();
+    event.preventDefault();
     const errores = [];
     let i = 1;
     //Hago el proceso de validacion
@@ -128,16 +99,11 @@ window.onload = function () {
           errores.push(validation.errorMsg);
           event.preventDefault();
           //como los campos son validos quiero que me deje de seleccionar la clase donde aparece invalid y agregue la valida
-          if (inputToValidate.inputName == "rooms") {
-            document.querySelector("#errorRoom").innerHTML =
-              validation.errorMsg;
-          } else {
-            //para el resto de inputs
-            input.parentElement.classList.add("is-invalid");
-            input.parentElement.classList.remove("is-valid");
-            input.parentElement.querySelector(".error").innerHTML =
-              validation.errorMsg;
-          }
+          //para el resto de inputs
+          input.parentElement.classList.add("is-invalid");
+          input.parentElement.classList.remove("is-valid");
+          input.parentElement.querySelector(".error").innerHTML =
+            validation.errorMsg;
           return;
         }
       }
@@ -145,7 +111,6 @@ window.onload = function () {
       input.parentElement.classList.add("is-valid");
       input.parentElement.classList.remove("is-invalid");
       input.parentElement.querySelector(".error").innerHTML = "";
-      document.querySelector("#errorRoom").innerHTML = "";
     });
 
     //Si no fallaron las validaciones
