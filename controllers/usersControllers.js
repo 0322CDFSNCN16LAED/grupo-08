@@ -66,7 +66,9 @@ module.exports = {
   //CRUD DE USUARIOS
   //Metodo que muestra el formulario de Registro de usuarios (GET)
   showRegister: async function (req, res) {
-    let userRoles = await database.UserRole.findAll();
+    let userRoles = await database.UserRole.findAll({
+      where: { name: "user" },
+    });
     let addresses = await database.Address.findAll();
     return res.render("users/register", { userRoles, addresses });
   },

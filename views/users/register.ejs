@@ -271,8 +271,7 @@
             </div>
             <div class="col-12 col-md-6">
               <label for="userRoleId" class="form-label"> Rol de usuario </label>
-              <select class="form-select" name="userRoleId" id="userRoleId">
-                <option value="">Seleccione</option>
+              <select class="form-select" name="userRoleId" id="userRoleId" disabled>
                 <% userRoles.forEach(userRole => {%>
                   <option value="<%=userRole.id%>"><%=userRole.name%></option>
                 <% })%> 
@@ -317,7 +316,7 @@
 
     <!--FOOTER -->
     <%- include('../partials/footer') %>
-    <script src="/js/js-front.js"></script>
+    <script src="/js/createUserValidations.js"></script>
     <script src="/js/showpass.js"></script>
     <script src="/js/seepass.js"></script>
 
