@@ -53,8 +53,10 @@
                     value="Mostrar"
                   />
                 </div>
+                <br />
+                <span class="error"></span>
               </div>
-              <span class="error"></span>
+
               <!--si hay errores en la validacion, da el mensaje de error-->
               <% if (locals.errors && errors.password) { %>
               <div class="text-danger"><%= errors.password.msg %></div>
@@ -74,7 +76,7 @@
             </div>
 
             <div class="col-12 align-center">
-              <button type="submit" class="btn bg-pink btn-lg font-white reg">
+              <button class="btn bg-pink btn-lg font-white reg">
                 INICIA SESION
               </button>
             </div>
