@@ -1,8 +1,12 @@
-export default function MiniCard({ title, color, value, icon }) {
+import React from 'react';
+
+export default function TotalCard({ title, color, value, icon }) {
     return (
         <div className="col-md-4 mb-4">
             <div className={`card border-left-${color} shadow h-100 py-2`}>
                 <div className="card-body">
+                <h4 style={{color: 'green'}} > Soy el componente Total Cards</h4>
+
                     <div className="row no-gutters align-items-center">
                         <div className="col mr-2">
                             <div

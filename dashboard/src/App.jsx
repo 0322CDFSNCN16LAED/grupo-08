@@ -1,43 +1,33 @@
-import './App.css';
-import BigCard from './components/BigCard';
-import MiniCard from './components/Minicards';
-import Weather from './components/Weather';
-import logo from './logo.png';
+import React from 'react'
+import { Switch, Route } from 'react-router-dom'; //PROBLEMA : No me deja usar Switch
 
-const miniCards = [
-  {
-      id: "1", // id para que?
-      title: "Total de productos en venta",
-      color: 'pink',//color c44cb4 no funciona
-      value: "5236",
-      icon: "fa-gifts",
-  },
-  {
-      id: "2",
-      title: "Total de usuarios registrados",
-      color: "pink",
-      value: "739",
-      icon: "fa-users",
-  }
-];  
+import AppBar from './components/AppBar';
+import NavBar from './components/NavBar';
+import Home from './components/Home';
+import ProductsList from './components/ProductsList';
+import UsersList from './components/UsersList';
+import CategoriesPanel from './components/CategoriesPanel';
 
-//  
+  
 function App() {
   return (
-      <div>
-      <header className="" >
-        <img src={logo} alt="logo" />
-        Aca me gustaria el weather a la derecha <Weather/>
-      </header>   
+      <div className="App" 
+      style={{marginLeft: '19rem'}}>
+       <h2 style={{color: 'green'}}> Se monto APP  </h2>
+        <header>
+          <AppBar/>
+        </header>
+        <NavBar/>
+        
+        <Switch>
+          <Route path='/' component={Home}/>
+          <Route path='/users'  component={UsersList}/>
+          <Route path='/products' component={ProductsList}/>
+          <Route path='/categories' component={CategoriesPanel}/> 
 
-        <div className="row">
-          {/* <!-- Minicard con totales de prductos y usuarios --> */}
-          {miniCards.map((data) => {
-            return <MiniCard {...data} key={data.id} />;
-            })}
-        </div>
-     
-        <BigCard/> <BigCard/> 
+                 
+        </Switch>              
+        
       </div>
 
   );

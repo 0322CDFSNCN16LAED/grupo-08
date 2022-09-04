@@ -1,4 +1,6 @@
-import { useEffect, useState } from "react";
+import React from "react";
+import {useState, useEffect} from 'react';
+
 // const api = 'https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}'
 // const apiKey = 'b5ebf1bf183b477557a932990aadfa01';
 
@@ -16,14 +18,13 @@ export default function Weather (){
         .catch(error => console.error (error))
     }, []);
     
-    
     useEffect(()=> {
         console.log('%cSe actualizó el componenente', 'color: yellow');
     }, [weather])
                       
     return(
-        
         <div>
+            <h4 style={{color: 'green'}}> Soy el componente Weather</h4>
             <h2> Estado del clima </h2>
            { weather ?  
             <div>
