@@ -1,212 +1,240 @@
-  <!DOCTYPE html>
-  <html lang="en">
-    <head>
-      <!--HEAD -->
-      <%- include('../partials/head') %>
-    </head>
-    <body class="bg-ligth-grey">
-      <!--HEADER -->
-      <%- include('../partials/header') %>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--HEAD -->
+    <%- include('../partials/head') %>
+  </head>
+  <body class="bg-ligth-grey">
+    <!--HEADER -->
+    <%- include('../partials/header') %>
 
-      <!--MAIN -->
-      <main class="pt-5">
-        <!--section para formulario-->
-        <section
-          class="container products-wrapper overflow-hidden form-register mt-1"
-        >
-          <div class="row">
-            <div class="col-12">
-              <h2 class="products-title align-center">
-                Estas editando: <i> <%=userToEdit.name%> </i>
-              </h2>
-            </div>
-            <form
-              action="/users/<%=userToEdit.id%>?_method=PUT"
-              method="POST"
-              class="form-field"
-              enctype="multipart/form-data"
-            >
-              <div class="row mt-3">
-                <div class="col-2">
-                  <img
-                    name="profile"
-                    id="profile"
-                    class="img-thumbnail"
-                    src="/images/usersProfiles/<%=locals.userToEdit.profilePic%>"
-                  />
-                </div>
-
-                <div class="col-4">
-                  <label for="name" class="form-label col-12">Nombre</label>
-                  <input
-                    value="<%=userToEdit.name%>"
-                    type="text"
-                    name="name"
-                    id="name"
-                    class="form-control col-12"
-                  />
-                </div>
-                <div class="col-4">
-                  <label for="lastname" class="form-label">Apellido</label>
-                  <input
-                    value="<%=userToEdit.lastname%>"
-                    type="text"
-                    name="lastname"
-                    id="lastname"
-                    class="form-control"
-                  />
-                </div>
-                <div class="col-6">
-                  <label for="email" class="form-label">E-mail</label>
-                  <input
-                    value="<%=userToEdit.email%>"
-                    type="email"
-                    name="email"
-                    id="email"
-                    class="form-control"
-                    placeholder="juanperez@mail.com"
-                  />
-                </div>
-                <div class="col-12 col-md-6">
-                  <label for="tlf" class="form-label">Teléfono</label>
-                  <input
-                    value="<%=userToEdit.phoneNumber%>"
-                    type="tel"
-                    name="phoneNumber"
-                    id="phoneNumber"
-                    class="form-control"
-                    placeholder="+54 9 11 74128653"
-                  />
-                </div>
-
-                <div class="col-12">
-                  <label for="address" class="form-label">Dirección</label>
-                  <input
-                    value="<%=userToEdit.address.address%>"
-                    type="text"
-                    name="address"
-                    id="address"
-                    class="form-control"
-                    placeholder="Calle, altura (piso y departamento)"
-                  />
-                </div>
-                <div class="col-12">
-                  <label for="city" class="form-label">Ciudad / Localidad</label>
-                  <input
-                    value="<%=userToEdit.address.city%>"
-                    type="text"
-                    name="city"
-                    id="city"
-                    class="form-control"
-                    placeholder="Ciudad / Localidad"
-                  />
-                </div>
-                <div class="col-12">
-                  <label for="state" class="form-label">Provincia</label>
-                  <input
-                    value="<%=userToEdit.address.state%>"
-                    type="text"
-                    name="state"
-                    id="state"
-                    class="form-control"
-                    placeholder="Provincia"
-                  />
-                </div>
-                <div class="col-12">
-                  <label for="country" class="form-label">País</label>
-                  <input
-                    value="<%=userToEdit.address.country%>"
-                    type="text"
-                    name="country"
-                    id="country"
-                    class="form-control"
-                    placeholder="País"
-                  />
-                </div>
-                <div class="col-12">
-                  <label for="zipCode" class="form-label">Código Postal</label>
-                  <input
-                    value="<%=userToEdit.address.zipCode%>"
-                    type="text"
-                    name="zipCode"
-                    id="zipCode"
-                    class="form-control"
-                    placeholder="Código Postal"
-                  />
-                </div>
-                <div class="col-12 col-md-6">
-                  <label for="pass" class="form-label">Contraseña</label>
-                  <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    class="form-control"
-                    placeholder="********"
-                  />
-                </div>
-                <div class="col-12 col-md-6">
-                  <label for="password" class="form-label"
-                    >Confirma tu contraseña</label
-                  >
-                  <input
-                    type="password"
-                    name="rpassword"
-                    id="rpassword"
-                    class="form-control"
-                    placeholder="********"
-                  />
-                </div>
-                <div class="col-12 col-md-6">
-                  <label for="profile" class="form-label"
-                    >Cargar imagen de perfil</label
-                  >
-                  <input
-                    class="form-control"
-                    type="file"
-                    id="profilePic"
-                    name="profilePic"
-                  />
-                </div>
-                  <% if(locals.isLogged) {%>
-                    <% if (locals.userLogged.userRole.name == 'admin') { %>
-
-                  <div class="col-12 col-md-6">
-                    <label for="userRoleId" class="form-label"> Rol de usuario </label>
-                    <select class="form-select" name="userRoleId" id="userRoleId">
-                      <option value="<%=userToEdit.userRole.name%>">Seleccione</option>
-                      <% userRoles.forEach(userRole => {%>
-                        <option value="<%=userRole.id%>"><%=userRole.name%></option>
-                      <% })%> 
-                    </select>
-                  </div>
-                  <% } %>
-                  <% } %>
-
-                <div class="col-12 mt-3 align-center mt-5">
-                  <button type="submit" class="btn bg-grey btn-lg font-white">
-                    CANCELAR
-                  </button>
-
-                  <button type="submit" class="btn bg-pink btn-lg font-white">
-                    GUARDAR CAMBIOS
-                  </button>
-                </div>
+    <!--MAIN -->
+    <main class="pt-5">
+      <!--section para formulario-->
+      <section
+        class="container products-wrapper overflow-hidden form-register mt-1"
+      >
+        <div class="row">
+          <div class="col-12">
+            <h2 class="products-title align-center">
+              Estas editando: <i> <%=userToEdit.name%> </i>
+            </h2>
+          </div>
+          <form
+            action="/users/<%=userToEdit.id%>?_method=PUT"
+            method="POST"
+            class="form-field"
+            enctype="multipart/form-data"
+          >
+            <div class="row mt-3">
+              <div class="col-2">
+                <img
+                  name="profile"
+                  id="profile"
+                  class="img-thumbnail"
+                  src="/images/usersProfiles/<%=locals.userToEdit.profilePic%>"
+                />
               </div>
-            </form>
-          </div>
-          <!-- section envios-->
-          <div class="col-12 text-align-c mt-5">
-            <i class="fas fa-truck font-xxlarge"></i>
-          </div>
-          <div class="col-12 text-align-c">¡ENVIAMOS A TODO EL PAIS!</div>
-          <div class="col-12 text-align-c pb-2">
-            <h3>Por Correo Argentino, OCA o transporte de tu preferencia</h3>
-          </div>
-        </section>
-      </main>
-    </body>
-    <footer>
-      <!--FOOTER -->
-      <%- include('../partials/footer') %>
-    </footer>
-  </html>
+              <!--name-->
+              <div class="col-4">
+                <label for="name" class="form-label col-12">Nombre</label>
+                <input
+                  value="<%=locals.oldData ? oldData.name : userToEdit.name%>"
+                  type="text"
+                  name="name"
+                  id="name"
+                  class="form-control col-12 <%= locals.errors && errors.name ? 'is-invalid' : null %>"
+                />
+                <% if (locals.errors && errors.name) { %>
+                <div class="text-danger"><%= errors.name.msg %></div>
+                <% } %>
+                <span class="error"></span>
+              </div>
+              <!--lastname -->
+              <div class="col-4">
+                <label for="lastname" class="form-label">Apellido</label>
+                <input
+                  value="<%=locals.oldData ? oldData.lastname : userToEdit.lastname%>"
+                  type="text"
+                  name="lastname"
+                  id="lastname"
+                  class="form-control"
+                />
+                <% if (locals.errors && errors.lastname) { %>
+                <div class="text-danger"><%= errors.lastname.msg %></div>
+                <% } %>
+                <span class="error"></span>
+              </div>
+              <!--email-->
+              <div class="col-6">
+                <label for="email" class="form-label">E-mail</label>
+                <span class="form-control col-6"> <%=userToEdit.email%></span>
+              </div>
+              <!--phonenumber-->
+              <div class="col-12 col-md-6">
+                <label for="tlf" class="form-label">Teléfono</label>
+                <input
+                  value="<%=locals.oldData ? oldData.phoneNumber : userToEdit.phoneNumber%>"
+                  type="tel"
+                  name="phoneNumber"
+                  id="phoneNumber"
+                  class="form-control"
+                  placeholder="+54 9 11 74128653"
+                />
+                <span class="error"></span>
+                <% if (locals.errors && errors.phoneNumber) { %>
+                <div class="text-danger"><%= errors.phoneNumber.msg %></div>
+                <% } %>
+              </div>
+              <!--address-->
+              <div class="col-12">
+                <label for="address" class="form-label">Dirección</label>
+                <input
+                  value="<%=locals.oldData ? oldData.address.address : userToEdit.address.address%>"
+                  type="text"
+                  name="address"
+                  id="address"
+                  class="form-control"
+                  placeholder="Calle, altura (piso y departamento)"
+                /><span class="error"></span>
+                <% if (locals.errors && errors.address) { %>
+                <div class="text-danger"><%= errors.address.msg %></div>
+                <% } %>
+              </div>
+              <!--city-->
+              <div class="col-12">
+                <label for="city" class="form-label">Ciudad / Localidad</label>
+                <input
+                  value="<%=locals.oldData ? oldData.address.city : userToEdit.address.city%>"
+                  type="text"
+                  name="city"
+                  id="city"
+                  class="form-control"
+                  placeholder="Ciudad / Localidad"
+                /><span class="error"></span>
+                <% if (locals.errors && errors.city) { %>
+                <div class="text-danger"><%= errors.city.msg %></div>
+                <% } %>
+              </div>
+              <!-- state -->
+              <div class="col-12">
+                <label for="state" class="form-label">Provincia</label>
+                <input
+                  value="<%=locals.oldData ? oldData.address.state : userToEdit.address.state%>"
+                  type="text"
+                  name="state"
+                  id="state"
+                  class="form-control"
+                  placeholder="Provincia"
+                /><span class="error"></span>
+                <% if (locals.errors && errors.state) { %>
+                <div class="text-danger"><%= errors.state.msg %></div>
+                <% } %>
+              </div>
+              <div class="col-12">
+                <label for="country" class="form-label">País</label>
+                <input
+                  value="<%=locals.oldData ? oldData.address.state : userToEdit.address.country%>"
+                  type="text"
+                  name="country"
+                  id="country"
+                  class="form-control"
+                  placeholder="País"
+                /><span class="error"></span>
+                <% if (locals.errors && errors.country) { %>
+                <div class="text-danger"><%= errors.country.msg %></div>
+                <% } %>
+              </div>
+              <div class="col-12">
+                <label for="zipCode" class="form-label">Código Postal</label>
+                <input
+                  value="<%=locals.oldData ? oldData.address.state : userToEdit.address.zipCode%>"
+                  type="text"
+                  name="zipCode"
+                  id="zipCode"
+                  class="form-control"
+                  placeholder="Código Postal"
+                /><span class="error"></span>
+                <% if (locals.errors && errors.zipCode) { %>
+                <div class="text-danger"><%= errors.zipCode.msg %></div>
+                <% } %>
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="pass" class="form-label">Contraseña</label>
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  class="form-control"
+                  placeholder="********"
+                />
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="password" class="form-label"
+                  >Confirma tu contraseña</label
+                >
+                <input
+                  type="password"
+                  name="rpassword"
+                  id="rpassword"
+                  class="form-control"
+                  placeholder="********"
+                />
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="profile" class="form-label"
+                  >Cargar imagen de perfil</label
+                >
+                <input
+                  class="form-control"
+                  type="file"
+                  id="profilePic"
+                  name="profilePic"
+                />
+              </div>
+              <% if(locals.isLogged) {%> <% if (locals.userLogged.userRole.name
+              == 'admin') { %>
+
+              <div class="col-12 col-md-6">
+                <label for="userRoleId" class="form-label">
+                  Rol de usuario
+                </label>
+                <select class="form-select" name="userRoleId" id="userRoleId">
+                  <option value="<%=userToEdit.userRole.name%>">
+                    Seleccione
+                  </option>
+                  <% userRoles.forEach(userRole => {%>
+                  <option value="<%=userRole.id%>"><%=userRole.name%></option>
+                  <% })%>
+                </select>
+              </div>
+              <% } %> <% } %>
+
+              <div class="col-12 mt-3 align-center mt-5">
+                <button type="submit" class="btn bg-grey btn-lg font-white">
+                  CANCELAR
+                </button>
+
+                <button type="submit" class="btn bg-pink btn-lg font-white">
+                  GUARDAR CAMBIOS
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- section envios-->
+        <div class="col-12 text-align-c mt-5">
+          <i class="fas fa-truck font-xxlarge"></i>
+        </div>
+        <div class="col-12 text-align-c">¡ENVIAMOS A TODO EL PAIS!</div>
+        <div class="col-12 text-align-c pb-2">
+          <h3>Por Correo Argentino, OCA o transporte de tu preferencia</h3>
+        </div>
+      </section>
+    </main>
+  </body>
+  <footer>
+    <%- include('../partials/footer') %>
+    <script src="/js/editUserValidation.js"></script>
+  </footer>
+</html>

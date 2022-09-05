@@ -10,7 +10,7 @@ module.exports = {
         order: [["name", "asc"]],
       });
     } catch (error) {
-      console.error("Error listar productos ---> " + error);
+      res.send("Error listar productos ---> " + error);
     }
     res.render("products/products", { productos: products });
   },
@@ -20,10 +20,9 @@ module.exports = {
       let producto = await db.Product.findByPk(req.params.id, {
         include: ["Category", "Style", "Rooms"],
       });
-      //res.send(producto);
       res.render("products/details", { producto });
     } catch (error) {
-      console.error("error en Detalle de producto ---->" + error);
+      res.send("error en Detalle de producto ---->" + error);
     }
   },
   //vista crear un nuevo producto
@@ -46,7 +45,7 @@ module.exports = {
         vBrands,
       });
     } catch (error) {
-      console.error("Error en Create Product---> " + error);
+      res.send("Error en Create Product---> " + error);
     }
   },
   //accion de procesar el producto. CREAR
@@ -68,7 +67,6 @@ module.exports = {
       }
       res.redirect("/products");
     } catch (error) {
-      console.log("error en create " + error);
       res.send(error);
     }
   },
@@ -128,9 +126,6 @@ module.exports = {
       );
       let ambientes = [];
       if (resp) {
-        console.log(
-          "valor de body rooms------------------------------> " + req.body.rooms
-        );
         if (req.body.rooms) {
           if (typeof req.body.rooms == "string") {
             ambientes.push(req.body.rooms);
@@ -139,10 +134,6 @@ module.exports = {
           }
         }
       }
-      console.log(
-        "aqui el valro de abienntes******************************",
-        ambientes
-      );
       await db.RoomProduct.destroy({ where: { productId: productId } });
       /*if (ambientes.length > 0) {
         ambientes.forEach(async (element) => {
@@ -163,14 +154,11 @@ module.exports = {
     try {
       const product = await db.Product.findByPk(productoId);
       if (product) {
-        console.log("encontro el product " + product);
         await product.setRooms([]);
         //await product.setOrder([]); falta el logico de orders
         await product.destroy();
 
         res.redirect("/products/");
-      } else {
-        console.log("no existe el producto");
       }
     } catch (error) {
       res.send("el errrrrrrrrrrrror " + error);
@@ -195,7 +183,7 @@ module.exports = {
         res.render("products/products", { productos: allProducts });
       }
     } catch (error) {
-      console.error("search error ---> " + error);
+      res.send("search error ---> " + error);
     }
   },
 };

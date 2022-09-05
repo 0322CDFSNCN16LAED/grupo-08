@@ -41,7 +41,7 @@
                 <span class="error"></span>
               </div>
               <!--precio-->
-              <div class="col-4 mt-3">
+              <div class="col-sm-6 col-md-4 mt-3">
                 <label for="price" class="form-label"
                   >Precio</label
                 >
@@ -55,7 +55,7 @@
                 <span class="error"></span>
               </div>
               <!--cuotas-->
-              <div class="col-4 mt-3">
+              <div class="col-sm-6 col-md-4 mt-3">
                 <label for="installmentId" class="form-label col-12"
                   >Cuotas: </label
                 >
@@ -68,7 +68,7 @@
                 <span class="error"></span>
               </div>  
               <!--SALE-->
-             <div class="col-4 mt-3">
+             <div class="col-sm-6 col-md-4 mt-3">
               <label for="sale" class="form-label">Oferta:</label>
               <input
                 value="<%=productoEditar.sale%>"
@@ -80,7 +80,7 @@
            
             </div>
               <!-- color -->
-              <div class="col-4 mt-3">
+              <div class="col-sm-6 col-md-3 mt-3">
                 <label for="color" class="form-label">Color:</label>
                 <select name="colourId" id="colourId" class="form-select">
                   <option value=""> Seleccione</option>                  
@@ -89,9 +89,9 @@
                   <% })%> 
                 </select>      
                 <span class="error"></span>
-              </div>            
+              </div>                       
               <!--categoria-->
-              <div class="col-4 mt-3">
+              <div class="col-sm-6 col-md-3 mt-3">
                 <label for="categoryId" class="form-label">Categoria:</label>                
                 <select name="categoryId" id="categoryId" class="form-select">
                   <option value="">Seleccione</option>
@@ -102,7 +102,7 @@
                 <span class="error"></span>
               </div>
               <!--estilos-->
-              <div class="col-4 mt-3">
+              <div class="col-sm-6 col-md-3 mt-3">
                 <label for="styleId" class="form-label">Estilo:</label>                
                 <select name="styleId" id="styleId" class="form-select">
                   <option value="">Seleccione</option>
@@ -111,9 +111,9 @@
                   <% })%>
                 </select>
                 <span class="error"></span>
-              </div>
+              </div>              
               <!--marcas-->
-              <div class="col-4 mt-3">
+              <div class="col-sm-6 col-md-3 mt-3">
                 <label for="brandId" class="form-label">Marca:</label>                
                 <select name="brandId" id="brandId" class="form-select">
                   <option value="">Seleccione</option>
@@ -123,7 +123,7 @@
                 </select>
                 <span class="error"></span>
               </div>
-              <!--ambientes-->
+            
                <!--ambientes-->
                <div class="col-12 col-md-6 mt-3">
                 <label for="rooms" class="form-label col-12">Ambientes:</label>             
@@ -144,14 +144,11 @@
                 <label for="description" class="form-label"
                   >Descripcion:</label
                 >
-                <input 
-                  value="<%=productoEditar.description%>"
-                  type="text"
+                <textarea 
                   class="form-control"
                   id="description"
                   name="description"
-                  placeholder=""
-                />
+                ><%=productoEditar.description%></textarea>
                 <span class="error"></span>
               </div>
 
@@ -161,7 +158,6 @@
                   >Detalles:<span class="font-red"> (Indicar los detalles separados por comas)</span></label
                 >                
                 <textarea
-                  type="text"
                   class="form-control"
                   name="details"
                   id="details"
@@ -192,7 +188,7 @@
                 />
               </div>
                <!-- envio gratis -->
-               <div class="col-12 col-md-6">
+               <div class="col-12 col-md-6 mt-3">
 
                 <label for="freeDelivery" class="form-label col-12"
                   >Envio gratis:</label
