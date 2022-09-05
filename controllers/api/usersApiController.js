@@ -10,8 +10,11 @@ const {user} = require('../../database/models');
 
 const usersApiController = {
     list: (req, res) => {
-        res.send('holu')
+        res.send('ruta de lista users')
     },
+    detail: (req, res) => {
+        res.send('ruta del detalle usuario')
+    }
 }
 
 module.exports = usersApiController;
