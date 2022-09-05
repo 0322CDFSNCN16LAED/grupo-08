@@ -1,6 +1,6 @@
 import React from 'react';
 import {useRef} from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import Drawer from '@mui/material/Drawer';
 import Toolbar from '@mui/material/Toolbar';
@@ -19,8 +19,6 @@ export default function NavBar (){
 
   const event = useRef();
     console.log(event)
-
-
 
     return(
         <Drawer
@@ -43,13 +41,12 @@ export default function NavBar (){
             <ListItem 
               key={item.id}
               disablePadding>
-                <Link to={item.link} exact="true" ref={event} > 
+                <Link to={item.link} exact='true' ref={event} > 
                 <ListItemButton> 
-                  <ListItemIcon>
-                    {item.icon}
-                  </ListItemIcon>
+                  <ListItemIcon> {item.icon} </ListItemIcon>
                   <ListItemText primary={item.label} />
-                </ListItemButton></Link>
+                </ListItemButton>
+                </Link>
             </ListItem>
             
           ))}

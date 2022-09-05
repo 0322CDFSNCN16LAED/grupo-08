@@ -1,3 +1,4 @@
+import { Card, Typography } from "@mui/material";
 import React from "react";
 import {useState, useEffect} from 'react';
 
@@ -19,20 +20,29 @@ export default function Weather (){
     }, []);
     
     useEffect(()=> {
-        console.log('%cSe actualizó el componenente', 'color: yellow');
+        console.log('%cSe actualizó el componente', 'color: yellow');
     }, [weather])
                       
     return(
-        <div>
-            <h4 style={{color: 'green'}}> Soy el componente Weather</h4>
-            <h2> Estado del clima </h2>
-           { weather ?  
+        <Card  variant="outlined" sx={{ backgroundColor: 'white', textAlign: 'center'}}>
+            <Typography sx={{ fontSize: 14 }} color="text.secondary" >
+            Estado del clima
+            </Typography>
+            
+        { weather ?  
             <div>
-            <p> {weather.weather[0].description}</p>  <img src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description}/>
-            <p> Temperatura:  {weather.main.temp} Sensación térmica: {weather.main.feels_like}</p>
-            <p> Máx:  {weather.main.temp_max}  Min: {weather.main.temp_min} </p></div>
-            : <p> Cargando... </p> }
-        </div>
+                <Typography variant="h5" component="div">
+                {weather.weather[0].description}          
+                </Typography>
+                <img src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description}/>
+                <Typography color="text.secondary">
+                Temperatura:  {weather.main.temp} <br />
+                Sensación térmica: {weather.main.feels_like} <br />
+                Máx:  {weather.main.temp_max}  Min: {weather.main.temp_min}
+                </Typography>
+            </div>
+        : <p> Cargando... </p> }
+        </Card>
     )
 }
 

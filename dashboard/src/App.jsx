@@ -1,7 +1,7 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'; //PROBLEMA : No me deja usar Switch
+import { Route, Switch } from 'react-router-dom'; // PROBLEMA : EL SWITCH NO FUNCIONAq
 
-import AppBar from './components/AppBar';
+import TopBar from './components/TopBar';
 import NavBar from './components/NavBar';
 import Home from './components/Home';
 import ProductsList from './components/ProductsList';
@@ -12,24 +12,16 @@ import CategoriesPanel from './components/CategoriesPanel';
 function App() {
   return (
       <div className="App" 
-      style={{marginLeft: '19rem'}}>
+      style={{marginLeft: '19rem', marginTop: '12rem' }}>
        <h2 style={{color: 'green'}}> Se monto APP  </h2>
-        <header>
-          <AppBar/>
-        </header>
+        <TopBar/>
         <NavBar/>
-        
-        <Switch>
+
           <Route path='/' component={Home}/>
           <Route path='/users'  component={UsersList}/>
           <Route path='/products' component={ProductsList}/>
           <Route path='/categories' component={CategoriesPanel}/> 
-
-                 
-        </Switch>              
-        
       </div>
-
   );
 }
 
