@@ -10,7 +10,7 @@ const editUserValidations = [
     .withMessage("El nombre debe tener un minimo de 2 caracteres"),
   body("lastname")
     .notEmpty()
-    .withMessage("Debe ingresar un apellido de usuario")
+    .withMessage("Debe ingresar un apellido de usuarioooo")
     .isLength({ min: 2, max: 100 })
     .withMessage("El apellido debe tener un minimo de 2 caracteres"),
   body("phoneNumber")
@@ -43,6 +43,7 @@ const editUserValidations = [
       return true;
     }
   }),
+  body("userRoleId").notEmpty().withMessage("Debe indicar el Rol del usuario"),
 ];
 
 module.exports = editUserValidations;

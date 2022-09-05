@@ -17,27 +17,37 @@
         <div class="row">
           <div class="col-12">
             <h2 class="products-title align-center">
-              Estas editando: <i> <%=userToEdit.name%> </i>
+              Estas editando:
+              <i>
+                <%=locals.oldData ? oldData.name+'jajaja' :
+                userToEdit.name+'jejeje'%>
+              </i>
             </h2>
           </div>
           <form
-            action="/users/<%=userToEdit.id%>?_method=PUT"
+            action="/users/<%=locals.oldData ? oldData.id : userToEdit.id%>?_method=PUT"
             method="POST"
             class="form-field"
             enctype="multipart/form-data"
           >
+            <input
+              type="text"
+              value="<%=locals.oldData ? oldData.profilePic : userToEdit.profilePic%>"
+            />
             <div class="row mt-3">
               <div class="col-2">
                 <img
                   name="profile"
                   id="profile"
                   class="img-thumbnail"
-                  src="/images/usersProfiles/<%=locals.userToEdit.profilePic%>"
+                  src="/images/usersProfiles/<%=locals.oldData ? oldData.profilePic : userToEdit.profilePic%>"
                 />
               </div>
               <!--name-->
               <div class="col-4">
-                <label for="name" class="form-label col-12">Nombre</label>
+                <label for="name" class="form-label col-12"
+                  >Nombre<%=locals.oldData%></label
+                >
                 <input
                   value="<%=locals.oldData ? oldData.name : userToEdit.name%>"
                   type="text"
@@ -68,7 +78,13 @@
               <!--email-->
               <div class="col-6">
                 <label for="email" class="form-label">E-mail</label>
-                <span class="form-control col-6"> <%=userToEdit.email%></span>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  class="form-control col-6"
+                  value="<%=locals.oldData ? oldData.email : userToEdit.email%>"
+                />
               </div>
               <!--phonenumber-->
               <div class="col-12 col-md-6">
@@ -192,23 +208,19 @@
                   name="profilePic"
                 />
               </div>
-              <% if(locals.isLogged) {%> <% if (locals.userLogged.userRole.name
-              == 'admin') { %>
-
+              <% if(locals.isLogged && locals.userLogged.userRole.name==
+              'admin') {%>
               <div class="col-12 col-md-6">
                 <label for="userRoleId" class="form-label">
-                  Rol de usuario
+                  Rol del Usuario
                 </label>
                 <select class="form-select" name="userRoleId" id="userRoleId">
-                  <option value="<%=userToEdit.userRole.name%>">
-                    Seleccione
-                  </option>
-                  <% userRoles.forEach(userRole => {%>
+                  <%userRoles.forEach(userRole => {%>
                   <option value="<%=userRole.id%>"><%=userRole.name%></option>
                   <% })%>
                 </select>
               </div>
-              <% } %> <% } %>
+              <% } %>
 
               <div class="col-12 mt-3 align-center mt-5">
                 <button type="submit" class="btn bg-grey btn-lg font-white">
@@ -233,8 +245,5 @@
       </section>
     </main>
   </body>
-  <footer>
-    <%- include('../partials/footer') %>
-    <script src="/js/editUserValidation.js"></script>
-  </footer>
+  <footer><%- include('../partials/footer') %></footer>
 </html>

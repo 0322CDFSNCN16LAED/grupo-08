@@ -174,19 +174,27 @@ module.exports = {
 
   //se procesa la edición de un usuario
   update: async function (req, res) {
+    let userRoles = await database.UserRole.findAll();
+    console.log("esat entrando por acaaaaaa");
     const validationErrors = validationResult(req);
-
+    console.log("las validaciones " + validationErrors);
     //capturo el registro a modificar
     let user = await database.User.findByPk(req.params.id, {
       include: ["userRole", "address"],
     });
     // verifico
     if (!validationErrors.isEmpty()) {
-      console.log(req.body);
+      console.log("************************* las validaciones del back");
+      const voldData = {
+        ...req.body,
+        id: req.params.id,
+        profilePic: "defaultImage.jpg",
+      };
+      console.log(voldData);
       res.render("users/edit-user", {
         //renderizo el formulario
         errors: validationErrors.mapped(), // con los errores mappeados y
-        oldData: req.body, // los datos que sí pasaron la validacion
+        oldData: voldData, // los datos que sí pasaron la validacion
         userRoles,
       });
     } else {
@@ -197,7 +205,7 @@ module.exports = {
             // Actualizo al usuario con el metodo UPDATE de Sequelize
             name: req.body.name,
             lastname: req.body.lastname,
-            email: req.body.email,
+            //email: req.body.email,
             phoneNumber: req.body.phoneNumber,
             password: bcryptjs.hashSync(req.body.password, 10),
             profilePic: req.file ? req.file.filename : "defaultImage.jpg",
@@ -223,6 +231,7 @@ module.exports = {
         user = await database.User.findByPk(req.params.id, {
           include: ["userRole", "address"],
         });
+        console.log("lo que acabo de actualizar");
         res.render("users/user-detail", { user });
       } catch (error) {
         res.send(error);
