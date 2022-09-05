@@ -27,20 +27,13 @@ const usersApiController = {
   // ■ Una URL para la imagen de perfil (para mostrar la imagen).
   // ■ Sin información sensible (ej: password y categoría).
 
-  //   detail: async (req, res) => {
-  //     const userId = req.query.id;
-
-  //     const wantedUser = await db.User.findByPk(userId, {
-  //       attributes: {
-  //         id: id,
-  //         name: name,
-  //       },
-  //       where: { userId: wantedUser.id },
-  //     });
-  //   },
+  //  
 
   detail: async function (req, res) {
-    
+    let { name, id, } = await db.User.findByPk(req.params.id, {
+      
+    }, {where: {id: req.params.id}});
+    res.send({ name, id });
   }, 
 };
 
