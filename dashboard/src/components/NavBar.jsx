@@ -2,7 +2,7 @@ import React from 'react';
 import {useRef} from 'react';
 import { Link } from 'react-router-dom';
 
-// PROBLEMA: NO ME TOMA EL COLOR Y FONTSIZE DE LA LINEA 50 EL ITEM.LABEL
+// PROBLEMA: NO ME TOMA EL COLOR Y FONTSIZE DE LA LINEA 50 EL ITEM.
 
 
 import Drawer from '@mui/material/Drawer';

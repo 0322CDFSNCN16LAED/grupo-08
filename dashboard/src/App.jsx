@@ -6,23 +6,22 @@ import NavBar from './components/NavBar';
 import Home from './components/Home';
 import ProductsList from './components/ProductsList';
 import UsersList from './components/UsersList';
-import CategoriesPanel from './components/CategoriesPanel';
-
+import CategoriesList from './components/CategoriesList';
+//        <TopBar/> 
   
 function App() {
   return (
       <div className="App" 
       style={{marginLeft: '15rem', marginTop: '12rem' }}>
-       <h2 style={{color: 'green'}}> Se monto APP  </h2>
-        <TopBar/>
+       
         <NavBar/>
 
-          <Route path='/' component={Home}/>
-          <Route path='/users'  component={UsersList}/>
-          <Route path='/products' component={ProductsList}/>
-          <Route path='/categories' component={CategoriesPanel}/> 
+        <Route path='/categories' component={CategoriesList}/> 
+        <Route path='/' component={Home}/>
+        <Route path='/users'  component={UsersList}/>
+        <Route path='/products' component={ProductsList}/>        
+        
       </div>
   );
 }
-
 export default App;
