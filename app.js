@@ -5,6 +5,7 @@ const session = require("express-session");
 const cookies = require("cookie-parser");
 const mainRouters = require("./routers/main-router");
 const userLoggedMiddleware = require("./middlewares/userLoggedMiddleware");
+const apiProductRoutes = require("./routers/api/apiRoutes");
 
 const app = express();
 
