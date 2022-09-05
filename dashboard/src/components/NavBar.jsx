@@ -2,6 +2,9 @@ import React from 'react';
 import {useRef} from 'react';
 import { Link } from 'react-router-dom';
 
+// PROBLEMA: NO ME TOMA EL COLOR Y FONTSIZE DE LA LINEA 50 EL ITEM.LABEL
+
+
 import Drawer from '@mui/material/Drawer';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
@@ -14,7 +17,7 @@ import ListItemText from '@mui/material/ListItemText';
 
 import { navBarItems } from '../consts/navBarItems';
 
-const drawerWidth = 240;
+const drawerWidth = 200;
 export default function NavBar (){
 
   const event = useRef();
@@ -43,8 +46,8 @@ export default function NavBar (){
               disablePadding>
                 <Link to={item.link} exact='true' ref={event} > 
                 <ListItemButton> 
-                  <ListItemIcon> {item.icon} </ListItemIcon>
-                  <ListItemText primary={item.label} />
+                  <ListItemIcon sx= {{color:'#fafafa'}}> {item.icon} </ListItemIcon>
+                  <ListItemText sx= {{color:'#fafafa', fontSize: 16 }} secondary={item.label} /> 
                 </ListItemButton>
                 </Link>
             </ListItem>

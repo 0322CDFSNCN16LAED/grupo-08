@@ -12,7 +12,9 @@ export default function Home (){
         {totalCardsInfo.map((data) => {
           return <TotalCard {...data} key={data.id} />;
           })}
-          <LastRegister/> <LastRegister/> 
+          <LastRegister/>
+          
+          <LastRegister/> 
       </div>
       
     )

@@ -1,31 +1,44 @@
 import React from 'react';
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+import Avatar from '@mui/material/Avatar';
 
-export default function TotalCard({ title, color, value, icon }) {
-    return (
-        <div className="col-md-4 mb-4">
-            <div className={`card border-left-${color} shadow h-100 py-2`}>
-                <div className="card-body">
-                <h4 style={{color: 'green'}} > Soy el componente Total Cards</h4>
+const bull = (
+  <Box
+    component="span"
+    sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
+  >
+    •
+  </Box>
+);
 
-                    <div className="row no-gutters align-items-center">
-                        <div className="col mr-2">
-                            <div
-                                className={`text-xs font-weight-bold text-${color} text-uppercase mb-1`}
-                            >
-                                {title}
-                            </div>
-                            <div className="h5 mb-0 font-weight-bold text-gray-800">
-                                {value}
-                            </div>
-                        </div>
-                        <div className="col-auto">
-                            <i
-                                className={`fas ${icon} fa-2x text-gray-300`}
-                            ></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
+export default function TotalCard({ title, value, icon, text }) {
+  return (
+ 
+    <Box sx={{ width: '20rem' }}>
+      <Card variant="outlined">
+      <CardContent>
+      <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+        {bull} DECO HOME {bull}  
+      </Typography>
+      <Box>
+        <Typography variant="h6" component="div" color='#d56b27'>
+        {title}
+        </Typography>
+        <Avatar sx={{ bgcolor: '#d56b27' }} aria-label="recipe">
+        {icon}
+        </Avatar>
+      </Box>
+
+      <Typography variant="body2" sx={{ fontSize: 16 }}>
+        {bull} Actualmente tenemos {value}
+        <br />
+        {text}
+      </Typography>
+    </CardContent>
+      </Card>
+    </Box>
+  );
 }

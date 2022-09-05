@@ -8,12 +8,14 @@ export const totalCardsInfo = [
       id: "1", // id para que?
       title: "Total de productos en venta",
       value: "5236",
-      icon: <CardGiftcardIcon/>
+      icon: <CardGiftcardIcon/>, 
+      text: 'productos en venta'
   },
   {
       id: "2",
       title: "Total de usuarios registrados",
       value: "739",
       icon: <GroupIcon/>,
+      text: 'usuarios registrados'
   }
 ];  

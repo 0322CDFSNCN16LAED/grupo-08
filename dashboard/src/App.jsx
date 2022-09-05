@@ -12,7 +12,7 @@ import CategoriesPanel from './components/CategoriesPanel';
 function App() {
   return (
       <div className="App" 
-      style={{marginLeft: '19rem', marginTop: '12rem' }}>
+      style={{marginLeft: '15rem', marginTop: '12rem' }}>
        <h2 style={{color: 'green'}}> Se monto APP  </h2>
         <TopBar/>
         <NavBar/>
