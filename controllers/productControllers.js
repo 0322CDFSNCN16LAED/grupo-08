@@ -12,7 +12,7 @@ module.exports = {
         order: [["name", "asc"]],
       });
     } catch (error) {
-      console.error("Error listar productos ---> " + error);
+      res.send("Error listar productos ---> " + error);
     }
     res.render("products/products", { productos: products });
   },
@@ -22,13 +22,12 @@ module.exports = {
       let producto = await db.Product.findByPk(req.params.id, {
         include: ["Category", "Style", "Rooms"],
       });
-      //res.send(producto);
       res.render("products/details", { producto });
     } catch (error) {
-      console.error("error en Detalle de producto ---->" + error);
+      res.send("error en Detalle de producto ---->" + error);
     }
   },
-  //crear un nuevo producto
+  //vista crear un nuevo producto
   create: async (req, res) => {
     try {
       let vInstallments = await db.Installment.findAll({
@@ -48,7 +47,7 @@ module.exports = {
         vBrands,
       });
     } catch (error) {
-      console.error("Error en Create Product---> " + error);
+      res.send("Error en Create Product---> " + error);
     }
   },
   //accion de procesar el producto. CREAR
@@ -65,7 +64,18 @@ module.exports = {
     let vColours = await db.Colour.findAll({ order: [["name", "asc"]] });
     let vBrands = await db.Brand.findAll({ order: [["name", "asc"]] });
     //res.send(req.body);
+    let ambientes = [];
+     if (req.body.rooms) {
+      if (typeof req.body.rooms == "string") {
+        ambientes.push(req.body.rooms);
+      } else {
+        ambientes = req.body.rooms;
+      }
+    }
+    
     if (resultValidation.errors.length > 0) {
+ 
+     
       // si el array es mayor a cero quiere decir que hay errores
       return res.render("products/products-create-form", {
         errors: resultValidation.mapped(), //convierte al array en un obj literal
@@ -78,43 +88,44 @@ module.exports = {
         vBrands,
       });
     } else {
-      try {
-        let resp = await db.Product.create({
-          ...req.body,
-          price: req.body.price.trim().replace(",", "."),
-          freeDelivery: req.body.freeDelivery ? true : false,
-          picture: req.file
-            ? "/images/products/" + req.file.filename
-            : "/images/products/default-image.png",
+    try {
+      let resp = await db.Product.create({
+        ...req.body,
+        price: req.body.price.trim().replace(",", "."),
+        freeDelivery: req.body.freeDelivery ? true : false,
+        picture: req.file
+          ? "/images/products/" + req.file.filename
+          : "/images/products/default-image.png",
+      });
+      // guardamos en la muchos a muchos
+      if (req.body.rooms) {
+        let respRooms = resp.addRooms(req.body.rooms, {
+          through: { selfGranted: false },
         });
-        let ambientes = [];
-        if (req.body.rooms) {
-          if (typeof req.body.rooms == "string") {
-            ambientes.push(req.body.rooms);
-          } else {
-            ambientes = req.body.rooms;
-          }
-        }
-        if (ambientes.length > 0) {
-          ambientes.forEach(async (element) => {
-            await db.RoomProduct.create({
-              roomId: element,
-              productId: resp.dataValues.id,
-            });
-          });
-        }
-        res.redirect("/products");
-      } catch (error) {
-        console.log("error en create " + error);
-        res.send(error);
       }
+      res.redirect("/products");
+    } catch (error) {
+      res.send(error);
     }
-  },
+  }
+},
   // vista para editar detalles de productos
   edit: async (req, res) => {
-    const productEdit = await db.Product.findByPk(req.params.id, {
+    /*const productEdit = await db.Product.findByPk(req.params.id, {
       include: ["Rooms"],
+    });*/
+    const productEdit = await db.Product.findOne({
+      where: { id: req.params.id },
+      include: ["Rooms"],
+      paranoid: true,
     });
+    /*const productEdit = await db.Product.findOne(
+      { where: {id: req.params.id, } },
+      {
+        include: ["Rooms"],
+      }
+    );*/
+    //res.send(productEdit);
     const vInstallments = await db.Installment.findAll({
       order: [["name", "asc"]],
     });
@@ -123,55 +134,27 @@ module.exports = {
     const vStyles = await db.Style.findAll({ order: [["name", "asc"]] });
     const vColours = await db.Colour.findAll({ order: [["name", "asc"]] });
     const vBrands = await db.Brand.findAll({ order: [["name", "asc"]] });
-    Promise.all([
-      productEdit,
-      vInstallments,
-      vCategorys,
-      vRooms,
-      vStyles,
-      vColours,
-      vBrands,
-    ])
-      .then(
-        ([
-          productoEdit,
-          allInstallments,
-          allCategorys,
-          allRooms,
-          allStyles,
-          allColours,
-          allBrands,
-        ]) => {
-          res.render("products/productos-edit-product", {
-            productoEdit: productoEdit,
-            vInstallments: allInstallments,
-            vCategorys: allCategorys,
-            vRooms: allRooms,
-            vStyles: allStyles,
-            vColours: allColours,
-            vBrands: allBrands,
-          });
-        }
-      )
-      .catch((error) => res.send(error));
+    //res.send(productEdit);
+    res.render("products/productos-edit-product", {
+      productoEditar: productEdit,
+      vInstallments: vInstallments,
+      vCategorys: vCategorys,
+      vRooms: vRooms,
+      vStyles: vStyles,
+      vColours: vColours,
+      vBrands: vBrands,
+    });
   },
   // accion de actualizar un producto.
   update: async (req, res) => {
     let productId = req.params.id;
+    const resultValidation = validationResult(req);
     const oldProduct = db.Product.findByPk(productId);
 
-    const resultValidation = validationResult(req);
-    // llamo a las variables
-    let vInstallments = req.body.installmentId;
-    let vCategorys = req.body.categoryId;
-    let vRooms = req.body.rooms;
-    let vStyles = req.body.styleId;
-    let vColours = req.body.colourId;
-    let vBrands = req.body.brandId;
 
     if (resultValidation.errors.length > 0) {
-      // si el array es mayor a cero quiere decir que hay errores
-      return res.render("productos-edit-product", {
+
+      return res.render("products/productos-edit-product", {
         errors: resultValidation.mapped(), //convierte al array en un obj literal
         oldData: req.body,
         vInstallments,
@@ -180,48 +163,47 @@ module.exports = {
         vRooms,
         vColours,
         vBrands,
-      });
+      })
     } else {
-      try {
-        let resp = await db.Product.update(
-          {
-            ...req.body,
-            price: req.body.price.trim().replace(",", "."),
-            freeDelivery: req.body.freeDelivery ? true : false,
-            picture: req.file
-              ? "/images/products/" + req.file.filename
-              : oldProduct.picture,
-          },
-          {
-            where: { id: productId },
-          }
-        );
-        let ambientes = [];
-        if (resp) {
-          if (req.body.rooms) {
-            if (typeof req.body.rooms == "string") {
-              ambientes.push(req.body.rooms);
-            } else {
-              ambientes = req.body.rooms;
-            }
+    try {
+      let resp = await db.Product.update(
+        {
+          ...req.body,
+          price: req.body.price.trim().replace(",", "."),
+          freeDelivery: req.body.freeDelivery ? true : false,
+          picture: req.file
+            ? "/images/products/" + req.file.filename
+            : oldProduct.picture,
+        },
+        {
+          where: { id: productId },
+        }
+      );
+      let ambientes = [];
+      if (resp) {
+        if (req.body.rooms) {
+          if (typeof req.body.rooms == "string") {
+            ambientes.push(req.body.rooms);
+          } else {
+            ambientes = req.body.rooms;
           }
         }
-        await db.RoomProduct.destroy({ where: { productId: productId } });
-        //await oldProduct.setRooms([]);
-        if (ambientes.length > 0) {
-          ambientes.forEach(async (element) => {
-            await db.RoomProduct.create({
-              roomId: element,
-              productId: productId,
-            });
-          });
-        }
-        res.redirect("/products");
-      } catch (error) {
-        res.send(error);
       }
+      
+      await db.RoomProduct.destroy({ where: { productId: productId } });
+      /*if (ambientes.length > 0) {
+        ambientes.forEach(async (element) => {
+          await db.RoomProduct.create({
+            roomId: element,
+            productId: productId,
+          });
+        });
+      }*/
+      res.redirect("/products");
+    } catch (error) {
+      res.send("aca hay un error  " + error);
     }
-  },
+  }},
   // accion de eliminar un producto
   destroy: async (req, res) => {
     const productoId = req.params.id;
@@ -231,7 +213,8 @@ module.exports = {
         await product.setRooms([]);
         //await product.setOrder([]); falta el logico de orders
         await product.destroy();
-        res.redirect("/products");
+
+        res.redirect("/products/");
       }
     } catch (error) {
       res.send("el errrrrrrrrrrrror " + error);
@@ -239,6 +222,7 @@ module.exports = {
   },
   // buscar un producto
   search: async (req, res) => {
+    //res.send("esta llegando aqui");
     const productSearch = req.query.search.trim();
     try {
       const productos = await db.Product.findAll({
@@ -255,7 +239,7 @@ module.exports = {
         res.render("products/products", { productos: allProducts });
       }
     } catch (error) {
-      console.error("search error ---> " + error);
+      res.send("search error ---> " + error);
     }
   },
 };

@@ -161,12 +161,8 @@
                       <input class="form-check-input" type="checkbox" id="<%=room.id%>" name="rooms" value="<%=room.id%>"
                          <%if(locals.oldData && oldData.rooms.length > 0){                
                            oldData.rooms.forEach(old =>{
-                             if(old==room.id){%>checked<%
-                            }
-                           }
-                          )}%>>
-                      <label class="form-check-label" for="<%=room.id%>">
-                        <%=room.name%></label>
+                             if(old==room.id){%>checked<%}})}%>>
+                        <label class="form-check-label" for="<%=room.id%>"><%=room.name%></label>
                     </div>
                     <% })%>             
                 </div>   
