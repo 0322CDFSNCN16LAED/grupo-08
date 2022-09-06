@@ -15,12 +15,12 @@ function App() {
       style={{marginLeft: '15rem', marginTop: '12rem' }}>
        
         <NavBar/>
-
+        <Switch>
         <Route path='/categories' component={CategoriesList}/> 
         <Route path='/' component={Home}/>
         <Route path='/users'  component={UsersList}/>
         <Route path='/products' component={ProductsList}/>        
-        
+        </Switch>
       </div>
   );
 }

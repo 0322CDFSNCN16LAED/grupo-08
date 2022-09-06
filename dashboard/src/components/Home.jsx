@@ -12,7 +12,7 @@ export default function Home (){
           <h2 style={{color: 'green'}}> ACA SE MONTO EL COMPONENTE HOME </h2>
         {/* <!-- Minicard con totales de productos y usuarios --> */}
 
-          <div row> 
+          <div> 
           {totalCardsInfo.map((data) => {
             return <TotalCard {...data} key={data.id} />;
             })}         
