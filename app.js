@@ -5,7 +5,7 @@ const session = require("express-session");
 const cookies = require("cookie-parser");
 const mainRouters = require("./routers/main-router");
 const userLoggedMiddleware = require("./middlewares/userLoggedMiddleware");
-const apiProductRoutes = require("./routers/api/apiRoutes");
+const apiRoutes = require("./routers/api/apiRoutes");
 
 const app = express();
 
@@ -23,6 +23,7 @@ app.use(
 
 app.use(cookies());
 
+
 app.use(userLoggedMiddleware); // MW a nivel aplicacion con los datos del usuario que pidio ser recordado
 
 app.use(express.static(path.join(__dirname, "public"))); // Hace estatica carpeta public
@@ -32,6 +33,8 @@ app.use(express.json()); // permite convertir la info en formato json
 
 app.use(methodOverride("_method")); // Permite usar metodos HTTP PUT & DELETE
 app.use("/", mainRouters);
+
+app.use("/api", apiRoutes)
 
 const PORT = 3005;
 app.listen(PORT, () => {

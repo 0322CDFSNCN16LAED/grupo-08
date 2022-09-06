@@ -1,10 +1,11 @@
 const express = require("express");
-const producControllersApi = require("../../controllers/api/producControllersApi");
+const productControllersApi = require("../../controllers/api/productControllersApi");
 const router = express.Router();
 
 // /api/product
 
-router.get("/", producControllersApi.list);
-router.get("/id", producControllersApi.detail);
+router.get("/", productControllersApi.list);
+router.get("/id", productControllersApi.detail);
 
 module.exports = router;
+
