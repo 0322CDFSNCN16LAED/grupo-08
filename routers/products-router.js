@@ -23,6 +23,7 @@ const uploadFile = multer({ storage: multerDiskStorage });
 
 /* Listado de productos*/
 router.get("/", productControllers.index);
+router.use('/list', productListRouter);
 
 /* Crear un producto*/
 sellerMiddleware
