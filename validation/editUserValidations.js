@@ -1,6 +1,5 @@
 const { body } = require("express-validator");
 
-let psswrd = body("password");
 /*VALIDACIONES BASICAS CON EXPRESS VALIDATOR PARA EL EDIT USER*/
 const editUserValidations = [
   body("name")

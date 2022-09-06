@@ -78,8 +78,8 @@ router.get(
 /* Guardar edición de usuario */
 router.put(
   "/:id",
-  editValidations,
   uploadFile.single("profilePic"),
+  editValidations,
   usersControllers.update
 );
 

@@ -18,10 +18,7 @@
           <div class="col-12">
             <h2 class="products-title align-center">
               Estas editando:
-              <i>
-                <%=locals.oldData ? oldData.name+'jajaja' :
-                userToEdit.name+'jejeje'%>
-              </i>
+              <i> <%=locals.oldData ? oldData.name : userToEdit.name%> </i>
             </h2>
           </div>
           <form
@@ -29,11 +26,7 @@
             method="POST"
             class="form-field"
             enctype="multipart/form-data"
-          >
-            <input
-              type="text"
-              value="<%=locals.oldData ? oldData.profilePic : userToEdit.profilePic%>"
-            />
+          >           
             <div class="row mt-3">
               <div class="col-2">
                 <img
@@ -45,15 +38,13 @@
               </div>
               <!--name-->
               <div class="col-4">
-                <label for="name" class="form-label col-12"
-                  >Nombre<%=locals.oldData%></label
-                >
+                <label for="name" class="form-label col-12">Nombre</label>
                 <input
                   value="<%=locals.oldData ? oldData.name : userToEdit.name%>"
                   type="text"
                   name="name"
                   id="name"
-                  class="form-control col-12 <%= locals.errors && errors.name ? 'is-invalid' : null %>"
+                  class="form-control col-12 <%=(locals.errors && errors.name)? 'is-invalid' : null %>"
                 />
                 <% if (locals.errors && errors.name) { %>
                 <div class="text-danger"><%= errors.name.msg %></div>
@@ -106,7 +97,7 @@
               <div class="col-12">
                 <label for="address" class="form-label">Dirección</label>
                 <input
-                  value="<%=locals.oldData ? oldData.address.address : userToEdit.address.address%>"
+                  value="<%=locals.oldData ? oldData.address : userToEdit.address.address%>"
                   type="text"
                   name="address"
                   id="address"
@@ -121,7 +112,7 @@
               <div class="col-12">
                 <label for="city" class="form-label">Ciudad / Localidad</label>
                 <input
-                  value="<%=locals.oldData ? oldData.address.city : userToEdit.address.city%>"
+                  value="<%=locals.oldData ? oldData.city : userToEdit.address.city%>"
                   type="text"
                   name="city"
                   id="city"
@@ -136,7 +127,7 @@
               <div class="col-12">
                 <label for="state" class="form-label">Provincia</label>
                 <input
-                  value="<%=locals.oldData ? oldData.address.state : userToEdit.address.state%>"
+                  value="<%=locals.oldData ? oldData.state : userToEdit.address.state%>"
                   type="text"
                   name="state"
                   id="state"
@@ -150,7 +141,7 @@
               <div class="col-12">
                 <label for="country" class="form-label">País</label>
                 <input
-                  value="<%=locals.oldData ? oldData.address.state : userToEdit.address.country%>"
+                  value="<%=locals.oldData ? oldData.country : userToEdit.address.country%>"
                   type="text"
                   name="country"
                   id="country"
@@ -164,7 +155,7 @@
               <div class="col-12">
                 <label for="zipCode" class="form-label">Código Postal</label>
                 <input
-                  value="<%=locals.oldData ? oldData.address.state : userToEdit.address.zipCode%>"
+                  value="<%=locals.oldData ? oldData.zipCode : userToEdit.address.zipCode%>"
                   type="text"
                   name="zipCode"
                   id="zipCode"
@@ -216,7 +207,12 @@
                 </label>
                 <select class="form-select" name="userRoleId" id="userRoleId">
                   <%userRoles.forEach(userRole => {%>
-                  <option value="<%=userRole.id%>"><%=userRole.name%></option>
+                  <option value="<%=userRole.id%>"
+                    <% if((locals.oldData &&
+                    oldData.userRoleId ==userRole.id) || (!locals.oldData &&
+                    userToEdit.userRoleId == userRole.id)){%> selected <%}%>
+
+                    ><%=userRole.name%></option>
                   <% })%>
                 </select>
               </div>
@@ -246,4 +242,5 @@
     </main>
   </body>
   <footer><%- include('../partials/footer') %></footer>
+  <script src="/js/editUserValidations.js"></script>
 </html>

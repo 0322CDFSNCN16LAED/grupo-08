@@ -191,6 +191,8 @@ module.exports = {
         profilePic: "defaultImage.jpg",
       };
       console.log(voldData);
+      console.log("**********************************************");
+      console.log(validationErrors.mapped());
       res.render("users/edit-user", {
         //renderizo el formulario
         errors: validationErrors.mapped(), // con los errores mappeados y
