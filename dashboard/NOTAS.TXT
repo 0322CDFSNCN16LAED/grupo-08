@@ -1,22 +1,30 @@
-BOOTSTRAP / ESTILO DE TABLAS
-https://getbootstrap.com/docs/5.2/content/tables/#accented-tables
-Striped rows 
-Use .table-striped to add zebra-striping to any table row within the <tbody>.
-
-#	First	Last	Handle
-1	Mark	Otto	@mdo
-2	Jacob	Thornton	@fat
-3	Larry the Bird	@twitter
-
-<table class="table table-striped">
-  ...
-</table>
+piechartfallido
+import React from "react";
+import { Pie } from "react-chartjs-2";
+import { categoriesInfo  } from "../consts/categoriesInfo";
+import { categoriesPieChart } from '../consts/categoriesPieChart';
 
 
-
-ICON 
-un solo gift
-<FontAwesomeIcon icon="fas fa-gift" />
-
-un solo user
-<FontAwesomeIcon icon="fas fa-user" />
+export default function CategoriesPanel({
+    labels = [categoriesInfo.map((c) => (c.name))],
+    datasets = [{
+        data: [categoriesPieChart.map((c) => (c.data))],
+        backgroundColor : [categoriesPieChart.map((c) => (c.backgroundColor))]
+    }]
+}) {
+  return (
+    <div>
+    <h4 style={{color: 'green'}}> Soy el componente PANEL DE CATEGORIAS </h4>
+    <Pie
+      options={{
+        width: "400",
+        height: "400"
+      }}
+      data={{
+        labels: labels,
+        datasets: datasets
+      }}
+    /> 
+    </div>
+  );        
+}
