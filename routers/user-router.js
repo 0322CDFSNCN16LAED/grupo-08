@@ -6,7 +6,8 @@ const multer = require("multer");
 // Middlewares
 const basicRegisterValidations = require("../validation/userValidations");
 const loginValidations = require("../validation/loginValidation");
-//const editValidations = requiere("../validation/editUserValidations");
+const editValidations = require("../validation/editUserValidations.js");
+
 // si esta logueado lo envia a la vista de su detalle
 const guestMiddleware = require("../middlewares/guestMiddleware");
 
@@ -77,8 +78,8 @@ router.get(
 /* Guardar edición de usuario */
 router.put(
   "/:id",
-  //  editValidations,
   uploadFile.single("profilePic"),
+  editValidations,
   usersControllers.update
 );
 

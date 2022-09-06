@@ -66,7 +66,9 @@ module.exports = {
   //CRUD DE USUARIOS
   //Metodo que muestra el formulario de Registro de usuarios (GET)
   showRegister: async function (req, res) {
-    let userRoles = await database.UserRole.findAll();
+    let userRoles = await database.UserRole.findAll({
+      where: { name: "user" },
+    });
     let addresses = await database.Address.findAll();
     return res.render("users/register", { userRoles, addresses });
   },
@@ -172,19 +174,26 @@ module.exports = {
 
   //se procesa la edición de un usuario
   update: async function (req, res) {
+    let userRoles = await database.UserRole.findAll();
     const validationErrors = validationResult(req);
-
+    let oldUser = await database.User.findByPk(req.params.id, {
+      include: ["userRole", "address"],
+    });
     //capturo el registro a modificar
     let user = await database.User.findByPk(req.params.id, {
       include: ["userRole", "address"],
     });
     // verifico
     if (!validationErrors.isEmpty()) {
-      console.log(req.body);
+      const voldData = {
+        ...req.body,
+        id: req.params.id,
+        profilePic: "defaultImage.jpg",
+      };
       res.render("users/edit-user", {
         //renderizo el formulario
         errors: validationErrors.mapped(), // con los errores mappeados y
-        oldData: req.body, // los datos que sí pasaron la validacion
+        oldData: voldData, // los datos que sí pasaron la validacion
         userRoles,
       });
     } else {
@@ -195,17 +204,16 @@ module.exports = {
             // Actualizo al usuario con el metodo UPDATE de Sequelize
             name: req.body.name,
             lastname: req.body.lastname,
-            email: req.body.email,
+            //email: req.body.email,
             phoneNumber: req.body.phoneNumber,
-            password: bcryptjs.hashSync(req.body.password, 10),
-            profilePic: req.file ? req.file.filename : "defaultImage.jpg",
+            profilePic: req.file ? req.file.filename : oldUser.profilePic,
             userRoleId: req.body.userRoleId,
           },
           {
             where: { id: user.id },
           }
         );
-        database.Address.update(
+        await database.Address.update(
           {
             //luego guardo el id en  la nueva dirección
             address: req.body.address,
@@ -243,7 +251,7 @@ module.exports = {
         res.redirect("/");
       }
     } catch (error) {
-      console.error(error);
+      res.send(error);
     }
   },
 };

@@ -106,7 +106,6 @@ const validations = [
 ];
 
 window.onload = function () {
-  console.log("esta entrando aca");
   const formularioCreat = document.querySelector("form.form-field"); // me traigo la clase de la vista del formualario
 
   formularioCreat.name.focus();

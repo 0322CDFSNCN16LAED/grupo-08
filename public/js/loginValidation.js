@@ -22,11 +22,8 @@ const validations = [
 
 window.onload = function () {
   const formularioCreat = document.querySelector("form.form-field"); // me traigo la clase de la vista del formualario
-
-  formularioCreat.name.focus();
-  console.log("vino por aca");
+  formularioCreat.email.focus();
   formularioCreat.addEventListener("submit", (event) => {
-    console.log("entra acaaa");
     event.preventDefault();
     const errores = [];
     let i = 1;
