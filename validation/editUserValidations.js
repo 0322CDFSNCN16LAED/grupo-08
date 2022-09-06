@@ -30,18 +30,6 @@ const editUserValidations = [
     .notEmpty()
     .withMessage("Debe ingresar el país correspondiente"),
   body("zipCode").notEmpty().withMessage("Debe ingresar su código postal"),
-  body("password")
-    .matches(/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/)
-    .withMessage(
-      "La contraseña debe tener letras mayúsculas, minusculcas, un numero, un carácter especial y minimo 8caracteres."
-    ),
-  body("rpassword").custom((value, { req }) => {
-    if (value != "" && value !== req.body.password) {
-      throw new Error("Las contraseñas no coinciden");
-    } else {
-      return true;
-    }
-  }),
   body("userRoleId").notEmpty().withMessage("Debe indicar el Rol del usuario"),
 ];
 
