@@ -14,9 +14,11 @@ const usersApiController = {
     const { rows, count } = await db.User.findAndCountAll({
       attributes: ["id", "name", "email"],
     });
+    
     res.status(200).json({
       cantidadUsers: count,
       users: rows,
+
     });
   },
 
@@ -27,14 +29,20 @@ const usersApiController = {
   // ■ Una URL para la imagen de perfil (para mostrar la imagen).
   // ■ Sin información sensible (ej: password y categoría).
 
-  //  
+  //
 
   detail: async function (req, res) {
-    let { name, id, } = await db.User.findByPk(req.params.id, {
-      
-    }, {where: {id: req.params.id}});
-    res.send({ name, id });
-  }, 
+    let user = await db.User.findByPk(
+      req.params.id,
+      {
+        attributes: { exclude: ["password", "UserRoleId", "userRoleId"] },
+      },
+      {
+        where: { id: req.params.id },
+      }
+    );
+    res.send({ user: user });
+  },
 };
 
 module.exports = usersApiController;
