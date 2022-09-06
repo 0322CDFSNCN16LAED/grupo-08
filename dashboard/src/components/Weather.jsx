@@ -1,6 +1,6 @@
-import { Card, Typography } from "@mui/material";
 import React from "react";
 import {useState, useEffect} from 'react';
+import { Card, Typography, Grid } from "@mui/material";
 
 // const api = 'https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}'
 // const apiKey = 'b5ebf1bf183b477557a932990aadfa01';
@@ -30,7 +30,7 @@ export default function Weather (){
             </Typography>
             
         { weather ?  
-            <div>
+            <Grid container spacing ={2}>
                 <Typography variant="h5" component="div">
                 {weather.weather[0].description}          
                 </Typography>
@@ -40,7 +40,7 @@ export default function Weather (){
                 Sensación térmica: {weather.main.feels_like} <br />
                 Máx:  {weather.main.temp_max}  Min: {weather.main.temp_min}
                 </Typography>
-            </div>
+            </Grid>
         : <p> Cargando... </p> }
         </Card>
     )

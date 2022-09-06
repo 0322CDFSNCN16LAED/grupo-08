@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { productsInfo } from '../consts/productsInfo';
+
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -28,65 +30,38 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-const rows = [
-    {
-        name: 'Frozen yoghurt',
-        calories: 159,
-        fat: 6.0,
-        carbs: 24,
-        protein: 4.0
-    },{
-        name: 'Ice cream sandwich', 
-        calories: 237,
-        fat: 9.0,
-        carbs: 37,
-        protein: 4.3,
-    }, {
-        name: 'Eclair', 
-        calories: 262,
-        fat: 16.0,
-        carbs: 24,
-        protein: 6.0
-    },{
-        name: 'Cupcake', 
-        calories: 305, 
-        fat: 3.7, 
-        carbs:67,
-        protein: 4.3
-    },{
-        name: 'Gingerbread', 
-        calories: 356,
-        fat: 16.0,
-        carbs: 49,
-        protein: 3.9
-    }
-];
-
 export default function CustomizedTables() {
   return (
     <TableContainer component={Paper}>
+      <h4 style={{color: 'green'}} > Soy el componente ProductsList</h4>
+
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
-      <h2 style={{color: 'green'}} > Soy el componente ProductsList</h2>
 
         <TableHead>
           <TableRow>
-            <StyledTableCell>Dessert (100g serving)</StyledTableCell>
-            <StyledTableCell align="right">Calories</StyledTableCell>
-            <StyledTableCell align="right">Fat&nbsp;(g)</StyledTableCell>
-            <StyledTableCell align="right">Carbs&nbsp;(g)</StyledTableCell>
-            <StyledTableCell align="right">Protein&nbsp;(g)</StyledTableCell>
+            <StyledTableCell>Nombre</StyledTableCell>
+            <StyledTableCell align="right">Marca</StyledTableCell>
+            <StyledTableCell align="right">Categoría</StyledTableCell>
+            <StyledTableCell align="right">Ambiente</StyledTableCell>
+            <StyledTableCell align="right">Estilo</StyledTableCell>
+            <StyledTableCell align="right">Precio</StyledTableCell>
+            <StyledTableCell align="right"> % Oferta</StyledTableCell>
+
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.name}>
+          {productsInfo.map((product) => (
+            <StyledTableRow key={product.id}>
               <StyledTableCell component="th" scope="row">
-                {row.name}
+                {product.name}
               </StyledTableCell>
-              <StyledTableCell align="right">{row.calories}</StyledTableCell>
-              <StyledTableCell align="right">{row.fat}</StyledTableCell>
-              <StyledTableCell align="right">{row.carbs}</StyledTableCell>
-              <StyledTableCell align="right">{row.protein}</StyledTableCell>
+              <StyledTableCell align="right">{product.brandId}</StyledTableCell>
+              <StyledTableCell align="right">{product.categoryId}</StyledTableCell>
+              <StyledTableCell align="right">{product.roomId}</StyledTableCell>
+              <StyledTableCell align="right">{product.styleId}</StyledTableCell>
+              <StyledTableCell align="right">{product.price}</StyledTableCell>
+              <StyledTableCell align="right">{product.sale}</StyledTableCell>
+
             </StyledTableRow>
           ))}
         </TableBody>
