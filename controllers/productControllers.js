@@ -73,7 +73,7 @@ module.exports = {
       }
     }
     
-    if (resultValidation.errors.length > 0) {
+    if (resultValidation.errors) {
  
      
       // si el array es mayor a cero quiere decir que hay errores
