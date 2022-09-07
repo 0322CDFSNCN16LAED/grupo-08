@@ -38,9 +38,10 @@
                   name="name"                  
                   class="form-control"
                 />
+                <span class="error"></span>
               </div>
               <!--precio-->
-              <div class="col-4 mt-3">
+              <div class="col-sm-6 col-md-4 mt-3">
                 <label for="price" class="form-label"
                   >Precio</label
                 >
@@ -51,9 +52,10 @@
                   name="price"
                   placeholder="Precio al contado es de..."
                 />
+                <span class="error"></span>
               </div>
               <!--cuotas-->
-              <div class="col-4 mt-3">
+              <div class="col-sm-6 col-md-4 mt-3">
                 <label for="installmentId" class="form-label col-12"
                   >Cuotas: </label
                 >
@@ -62,11 +64,11 @@
                   <% vInstallments.forEach(vInstallment => {%>
                   <option value="<%=vInstallment.id%>" <% if(vInstallment.id==productoEditar.installmentId){%> selected <% } %> ><%=vInstallment.name%> </option>
                   <% })%>
-                  
-                </select>
+                 </select>
+                <span class="error"></span>
               </div>  
               <!--SALE-->
-             <div class="col-4 mt-3">
+             <div class="col-sm-6 col-md-4 mt-3">
               <label for="sale" class="form-label">Oferta:</label>
               <input
                 value="<%=productoEditar.sale%>"
@@ -75,19 +77,21 @@
                 name="sale"           
                 placeholder="0.25"
               />
+           
             </div>
               <!-- color -->
-              <div class="col-4 mt-3">
+              <div class="col-sm-6 col-md-3 mt-3">
                 <label for="color" class="form-label">Color:</label>
                 <select name="colourId" id="colourId" class="form-select">
                   <option value=""> Seleccione</option>                  
                   <% vColours.forEach(vColour => {%>
                   <option value="<%=vColour.id%>" <% if(vColour.id==productoEditar.colourId){%> selected <% } %> ><%=vColour.name%> </option>
                   <% })%> 
-                </select>              
-              </div>            
+                </select>      
+                <span class="error"></span>
+              </div>                       
               <!--categoria-->
-              <div class="col-4 mt-3">
+              <div class="col-sm-6 col-md-3 mt-3">
                 <label for="categoryId" class="form-label">Categoria:</label>                
                 <select name="categoryId" id="categoryId" class="form-select">
                   <option value="">Seleccione</option>
@@ -95,9 +99,10 @@
                     <option value="<%=vCategory.id%>" <% if(vCategory.id == productoEditar.categoryId){%> selected <% } %> ><%=vCategory.name%></option>
                   <% })%>
                 </select>
+                <span class="error"></span>
               </div>
               <!--estilos-->
-              <div class="col-4 mt-3">
+              <div class="col-sm-6 col-md-3 mt-3">
                 <label for="styleId" class="form-label">Estilo:</label>                
                 <select name="styleId" id="styleId" class="form-select">
                   <option value="">Seleccione</option>
@@ -105,9 +110,10 @@
                     <option value="<%=vStyle.id%>" <% if(vStyle.id == productoEditar.styleId){%> selected <% } %> ><%=vStyle.name%></option>
                   <% })%>
                 </select>
-              </div>
+                <span class="error"></span>
+              </div>              
               <!--marcas-->
-              <div class="col-4 mt-3">
+              <div class="col-sm-6 col-md-3 mt-3">
                 <label for="brandId" class="form-label">Marca:</label>                
                 <select name="brandId" id="brandId" class="form-select">
                   <option value="">Seleccione</option>
@@ -115,45 +121,46 @@
                     <option value="<%=vBrand.id%>" <% if(vBrand.id == productoEditar.brandId){%> selected <% } %> ><%=vBrand.name%></option>
                   <% })%>
                 </select>
+                <span class="error"></span>
               </div>
-              <!--ambientes-->
-              <div class="col-12 col-md-6 mt-3">
-                <label for="rooms" class="form-label col-12">Ambientes:</label>             
-                <% vRooms.forEach(room => {%>
-                  <div class="form-check form-check-inline">
-                    <!-- aca  deberia hacer un foreach de productoEdit-->
-                    <input class="form-check-input" type="checkbox" id="<%=room.id%>" name="rooms" value="<%=room.id%>"                      
-                    <% if(productoEditar.Rooms.find(ele => ele.id==room.id  ) ){%>checked<%}%>>
-                    <label class="form-check-label" for="<%=room.id%>"><%=room.name%></label>
-                  </div>
-                  <% })%>             
-              </div> 
+             <!--ambientes-->
+             <div class="col-sm-6 col-md-6 mt-3">
+              <label for="rooms" class="form-label col-12">Ambientes:</label>             
+              <% vRooms.forEach(room => {%>
+                <div class="form-check form-check-inline">
+                  <!-- aca  deberia hacer un foreach de productoEdit-->
+                  <input class="form-check-input" type="checkbox" id="<%=room.id%>" name="rooms" value="<%=room.id%>"                      
+                  <% if(productoEditar.Rooms.find(ele => ele.id==room.id  ) ){%>checked<%}%>>
+                  <label class="form-check-label" for="<%=room.id%>"><%=room.name%></label>
+                </div>
+                <% })%>       
+                <span id="errorRoom" name="errorRoom" class="" style="color:red"></span>     
+            </div>    
               
               <!--descripcion del producto-->
               <div class="col-12 col-md-6 mt-3">
                 <label for="description" class="form-label"
                   >Descripcion:</label
                 >
-                <input 
-                  value="<%=productoEditar.description%>"
-                  type="text"
+                <textarea 
                   class="form-control"
                   id="description"
                   name="description"
-                  placeholder=""
-                />
+                ><%=productoEditar.description%></textarea>
+                <span class="error"></span>
               </div>
+
               <div class="col-12 col-md-6 mt-3">
                 <!--detalles del producto-->
                 <label for="details" class="form-label"
                   >Detalles:<span class="font-red"> (Indicar los detalles separados por comas)</span></label
                 >                
                 <textarea
-                  type="text"
                   class="form-control"
                   name="details"
                   id="details"
                 ><%=productoEditar.details%></textarea>
+                <span class="error"></span>
               </div>
               <!--Información extra del producto-->
               <div class="col-12 col-md-6 mt-3">
@@ -179,7 +186,7 @@
                 />
               </div>
                <!-- envio gratis -->
-               <div class="col-12 col-md-6">
+               <div class="col-12 col-md-6 mt-3">
 
                 <label for="freeDelivery" class="form-label col-12"
                   >Envio gratis:</label
@@ -199,6 +206,7 @@
                   name="picture"
                   placeholder="Subir una nueva imagen"
                 />
+                <span class="error"></span>
               </div>
               <!--Boton SUBMIT -->
               <div class="align-center mt-3">
@@ -220,5 +228,6 @@
 
     <!--FOOTER -->
     <%- include('../partials/footer') %>
+    <script src="/js/editproducts-validation-front.js"></script>
   </body>
 </html>

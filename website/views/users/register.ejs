@@ -28,6 +28,7 @@
                 class="form-control col-12 <%= locals.errors && errors.name ? 'is-invalid' : null %>"
                 value="<%=locals.oldData ? oldData.name : null%>"
               />
+              <span class="error"></span>
               <!--si hay errores en la validacion, da el mensaje de error-->
               <% if (locals.errors && errors.name) { %>
                 <div class="text-danger">
@@ -47,6 +48,7 @@
                 class="form-control <%= locals.errors && errors.lastname ? 'is-invalid' : null %>"
                 value="<%=locals.oldData?oldData.lastname:null%>"
               />
+              <span class="error"></span>
               <!--si hay errores en la validacion, da el mensaje de error-->
               <% if (locals.errors && errors.lastname) { %>
                 <div class="text-danger">
@@ -67,6 +69,7 @@
                 placeholder="juanperez@mail.com"
                 value="<%=locals.oldData ? oldData.email : null%>"
               />
+              <span class="error"></span>
               <!--si hay errores en la validacion, da el mensaje de error-->
               <% if (locals.errors && errors.email) { %>
                 <div class="text-danger">
@@ -87,6 +90,7 @@
                 placeholder="+54 9 11 74128653"
                 value="<%= locals.oldData ? oldData.phoneNumber : null %>"
               />
+              <span class="error"></span>
               <!--si hay errores en la validacion, da el mensaje de error-->
               <% if (locals.errors && errors.phoneNumber) { %>
                 <div class="text-danger">
@@ -107,6 +111,7 @@
                 placeholder="Calle, altura (piso y departamento)"
                 value="<%=locals.oldData ? oldData.address : null%>"
               />
+              <span class="error"></span>
               <!--si hay errores en la validacion, da el mensaje de error-->
               <% if (locals.errors && errors.address) { %>
                 <div class="text-danger">
@@ -127,6 +132,7 @@
                   placeholder="Ciudad/ Localidad"
                   value="<%=locals.oldData ? oldData.city : null %>"
                 />
+                <span class="error"></span>
                 <!--si hay errores en la validacion, da el mensaje de error-->
               <% if (locals.errors && errors.city) { %>
                 <div class="text-danger">
@@ -147,6 +153,7 @@
                   placeholder="Provincia"
                   value="<%=locals.oldData ? oldData.state : null%>"
                 />
+                <span class="error"></span>
                 <!--si hay errores en la validacion, da el mensaje de error-->
               <% if (locals.errors && errors.state) { %>
                 <div class="text-danger">
@@ -167,6 +174,7 @@
                   placeholder="País"
                   value="<%=locals.oldData ? oldData.country : null%>"
                 />
+                <span class="error"></span>
                 <!--si hay errores en la validacion, da el mensaje de error-->
               <% if (locals.errors && errors.country) { %>
                 <div class="text-danger">
@@ -187,6 +195,7 @@
                   placeholder="Código Postal"
                   value="<%=locals.oldData ? oldData.zipCode : null%>"
                 />
+                <span class="error"></span>
                 <!--si hay errores en la validacion, da el mensaje de error-->
               <% if (locals.errors && errors.zipCode) { %>
                 <div class="text-danger">
@@ -196,6 +205,8 @@
             </div>
             <div class="col-12 col-md-6">
               <label for="pass" class="form-label">Contraseña</label>
+
+              <div class = "flex-cont">
               <input
                 type="password"
                 name="password"
@@ -203,6 +214,20 @@
                 class="form-control <%=locals.errors && errors.password?'is-invalid':null%> <%= locals.errors && errors.password ? 'help is-danger' : null %>"
                 placeholder="********"
               />
+             
+              <!--boton de mostrar contrasena-->  
+              <div class=" w-10">
+                <input
+                  type="button"
+                  name="button"
+                  onclick="mostrar()"
+                  class="form-control"
+                  value= "Mostrar"
+                  />
+              </div>
+              <span class="error"></span>
+              </div>
+              
               <!--si hay errores en la validacion, da el mensaje de error-->
               <% if (locals.errors && errors.password) { %>
                 <div class="text-danger">
@@ -214,6 +239,8 @@
               <label for="password" class="form-label"
                 >Confirma tu contraseña</label
               >
+
+             <div class = "flex-cont">
               <input
                 type="password"
                 name="rpassword"
@@ -221,6 +248,20 @@
                 class="form-control <%= locals.errors && errors.rpassword ? 'is-invalid' : null %>"
                 placeholder="********"
               />
+              <!--boton de mostrar contrasena-->  
+              <div class=" w-10">
+                <input
+                  type="button"
+                  name="button"
+                  onclick="ver()"
+                  class="form-control"
+                  value= "Mostrar"
+                  />
+              </div>
+            </br>
+              <span class="error"></span>
+            </div>
+
               <!--si hay errores en la validacion, da el mensaje de error-->
               <% if (locals.errors && errors.rpassword) { %>
                 <div class="text-danger">
@@ -230,12 +271,12 @@
             </div>
             <div class="col-12 col-md-6">
               <label for="userRoleId" class="form-label"> Rol de usuario </label>
-              <select class="form-select" name="userRoleId" id="userRoleId">
-                <option value="">Seleccione</option>
+              <select class="form-select" name="userRoleId" id="userRoleId" disabled>
                 <% userRoles.forEach(userRole => {%>
                   <option value="<%=userRole.id%>"><%=userRole.name%></option>
                 <% })%> 
               </select>
+              <span class="error"></span>
             </div>
             <!-- envio de imagen de perfil / PROFILE--> 
             <div class="col-12 col-md-6">
@@ -275,6 +316,11 @@
 
     <!--FOOTER -->
     <%- include('../partials/footer') %>
-    <script src="/js/js-front.js"></script>
+    <script src="/js/createUserValidations.js"></script>
+    <script src="/js/showpass.js"></script>
+    <script src="/js/seepass.js"></script>
+
+
+
   </body>
 </html>

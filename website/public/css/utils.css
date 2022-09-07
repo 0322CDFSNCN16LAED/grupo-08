@@ -356,3 +356,33 @@ a {
   border-style: none;
 }
 
+
+/*************************************************************************************/
+/* VALIDACIONES DEL FRONT-END                                                                         */
+/*************************************************************************************/
+
+.is-valid input,
+.is-valid select {
+  border-color: #198754;
+}
+
+.is-invalid input,
+.is-invalid select {
+  border-color: red;
+}
+
+.error {
+  display: none;
+}
+
+.is-invalid .error {
+  display: block;
+  color:red;
+}
+
+.alert-warning {
+  color: red;
+  background-color: #f8d7da;
+  text-align: center;
+  border-radius: 10px;
+}

@@ -17,124 +17,156 @@
         <div class="row">
           <div class="col-12">
             <h2 class="products-title align-center">
-              Estas editando: <i> <%=userToEdit.name%> </i>
+              Estas editando:
+              <i> <%=locals.oldData ? oldData.name : userToEdit.name%> </i>
             </h2>
           </div>
           <form
-            action="/users/<%=userToEdit.id%>?_method=PUT"
+            action="/users/<%=locals.oldData ? oldData.id : userToEdit.id%>?_method=PUT"
             method="POST"
             class="form-field"
             enctype="multipart/form-data"
-          >
+          >           
             <div class="row mt-3">
               <div class="col-2">
                 <img
                   name="profile"
                   id="profile"
                   class="img-thumbnail"
-                  src="/images/usersProfiles/<%=locals.userToEdit.profilePic%>"
+                  src="/images/usersProfiles/<%=locals.oldData ? oldData.profilePic : userToEdit.profilePic%>"
                 />
               </div>
-
+              <!--name-->
               <div class="col-4">
                 <label for="name" class="form-label col-12">Nombre</label>
                 <input
-                  value="<%=userToEdit.name%>"
+                  value="<%=locals.oldData ? oldData.name : userToEdit.name%>"
                   type="text"
                   name="name"
                   id="name"
-                  class="form-control col-12"
+                  class="form-control col-12 <%=(locals.errors && errors.name)? 'is-invalid' : null %>"
                 />
+                <% if (locals.errors && errors.name) { %>
+                <div class="text-danger"><%= errors.name.msg %></div>
+                <% } %>
+                <span class="error"></span>
               </div>
+              <!--lastname -->
               <div class="col-4">
                 <label for="lastname" class="form-label">Apellido</label>
                 <input
-                  value="<%=userToEdit.lastname%>"
+                  value="<%=locals.oldData ? oldData.lastname : userToEdit.lastname%>"
                   type="text"
                   name="lastname"
                   id="lastname"
                   class="form-control"
                 />
+                <% if (locals.errors && errors.lastname) { %>
+                <div class="text-danger"><%= errors.lastname.msg %></div>
+                <% } %>
+                <span class="error"></span>
               </div>
+              <!--email-->
               <div class="col-6">
                 <label for="email" class="form-label">E-mail</label>
                 <input
-                  value="<%=userToEdit.email%>"
                   type="email"
                   name="email"
                   id="email"
-                  class="form-control"
-                  placeholder="juanperez@mail.com"
+                  class="form-control col-6"
+                  value="<%=locals.oldData ? oldData.email : userToEdit.email%>"
                 />
               </div>
+              <!--phonenumber-->
               <div class="col-12 col-md-6">
                 <label for="tlf" class="form-label">Teléfono</label>
                 <input
-                  value="<%=userToEdit.phoneNumber%>"
+                  value="<%=locals.oldData ? oldData.phoneNumber : userToEdit.phoneNumber%>"
                   type="tel"
                   name="phoneNumber"
                   id="phoneNumber"
                   class="form-control"
                   placeholder="+54 9 11 74128653"
                 />
+                <span class="error"></span>
+                <% if (locals.errors && errors.phoneNumber) { %>
+                <div class="text-danger"><%= errors.phoneNumber.msg %></div>
+                <% } %>
               </div>
-
+              <!--address-->
               <div class="col-12">
                 <label for="address" class="form-label">Dirección</label>
                 <input
-                  value="<%=userToEdit.address.address%>"
+                  value="<%=locals.oldData ? oldData.address : userToEdit.address.address%>"
                   type="text"
                   name="address"
                   id="address"
                   class="form-control"
                   placeholder="Calle, altura (piso y departamento)"
-                />
+                /><span class="error"></span>
+                <% if (locals.errors && errors.address) { %>
+                <div class="text-danger"><%= errors.address.msg %></div>
+                <% } %>
               </div>
+              <!--city-->
               <div class="col-12">
                 <label for="city" class="form-label">Ciudad / Localidad</label>
                 <input
-                  value="<%=userToEdit.address.city%>"
+                  value="<%=locals.oldData ? oldData.city : userToEdit.address.city%>"
                   type="text"
                   name="city"
                   id="city"
                   class="form-control"
                   placeholder="Ciudad / Localidad"
-                />
+                /><span class="error"></span>
+                <% if (locals.errors && errors.city) { %>
+                <div class="text-danger"><%= errors.city.msg %></div>
+                <% } %>
               </div>
+              <!-- state -->
               <div class="col-12">
                 <label for="state" class="form-label">Provincia</label>
                 <input
-                  value="<%=userToEdit.address.state%>"
+                  value="<%=locals.oldData ? oldData.state : userToEdit.address.state%>"
                   type="text"
                   name="state"
                   id="state"
                   class="form-control"
                   placeholder="Provincia"
-                />
+                /><span class="error"></span>
+                <% if (locals.errors && errors.state) { %>
+                <div class="text-danger"><%= errors.state.msg %></div>
+                <% } %>
               </div>
               <div class="col-12">
                 <label for="country" class="form-label">País</label>
                 <input
-                  value="<%=userToEdit.address.country%>"
+                  value="<%=locals.oldData ? oldData.country : userToEdit.address.country%>"
                   type="text"
                   name="country"
                   id="country"
                   class="form-control"
                   placeholder="País"
-                />
+                /><span class="error"></span>
+                <% if (locals.errors && errors.country) { %>
+                <div class="text-danger"><%= errors.country.msg %></div>
+                <% } %>
               </div>
               <div class="col-12">
                 <label for="zipCode" class="form-label">Código Postal</label>
                 <input
-                  value="<%=userToEdit.address.zipCode%>"
+                  value="<%=locals.oldData ? oldData.zipCode : userToEdit.address.zipCode%>"
                   type="text"
                   name="zipCode"
                   id="zipCode"
                   class="form-control"
                   placeholder="Código Postal"
-                />
+                /><span class="error"></span>
+                <% if (locals.errors && errors.zipCode) { %>
+                <div class="text-danger"><%= errors.zipCode.msg %></div>
+                <% } %>
               </div>
-              <div class="col-12 col-md-6">
+              <!--<div class="col-12 col-md-6">
                 <label for="pass" class="form-label">Contraseña</label>
                 <input
                   type="password"
@@ -155,7 +187,7 @@
                   class="form-control"
                   placeholder="********"
                 />
-              </div>
+              </div>-->
               <div class="col-12 col-md-6">
                 <label for="profile" class="form-label"
                   >Cargar imagen de perfil</label
@@ -167,6 +199,25 @@
                   name="profilePic"
                 />
               </div>
+              <% if(locals.isLogged && locals.userLogged.userRole.name==
+              'admin') {%>
+              <div class="col-12 col-md-6">
+                <label for="userRoleId" class="form-label">
+                  Rol del Usuario
+                </label>
+                <select class="form-select" name="userRoleId" id="userRoleId">
+                  <%userRoles.forEach(userRole => {%>
+                  <option value="<%=userRole.id%>"
+                    <% if((locals.oldData &&
+                    oldData.userRoleId ==userRole.id) || (!locals.oldData &&
+                    userToEdit.userRoleId == userRole.id)){%> selected <%}%>
+
+                    ><%=userRole.name%></option>
+                  <% })%>
+                </select>
+              </div>
+              <% } %>
+
               <div class="col-12 mt-3 align-center mt-5">
                 <button type="submit" class="btn bg-grey btn-lg font-white">
                   CANCELAR
@@ -190,8 +241,6 @@
       </section>
     </main>
   </body>
-  <footer>
-    <!--FOOTER -->
-    <%- include('../partials/footer') %>
-  </footer>
+  <footer><%- include('../partials/footer') %></footer>
+  <script src="/js/editUserValidations.js"></script>
 </html>

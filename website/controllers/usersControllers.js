@@ -66,7 +66,9 @@ module.exports = {
   //CRUD DE USUARIOS
   //Metodo que muestra el formulario de Registro de usuarios (GET)
   showRegister: async function (req, res) {
-    let userRoles = await database.UserRole.findAll();
+    let userRoles = await database.UserRole.findAll({
+      where: { name: "user" },
+    });
     let addresses = await database.Address.findAll();
     return res.render("users/register", { userRoles, addresses });
   },
@@ -163,54 +165,74 @@ module.exports = {
 
   // formulario de edicion de un user
   edit: async function (req, res) {
+    let userRoles = await database.UserRole.findAll(); //traigo la tabla  de userRoles
     let userToEdit = await database.User.findByPk(req.params.id, {
       include: ["userRole", "address"],
     });
-    res.render("users/edit-user", { userToEdit });
+    res.render("users/edit-user", { userToEdit, userRoles });
   },
 
   //se procesa la edición de un usuario
   update: async function (req, res) {
+    let userRoles = await database.UserRole.findAll();
+    const validationErrors = validationResult(req);
+    let oldUser = await database.User.findByPk(req.params.id, {
+      include: ["userRole", "address"],
+    });
     //capturo el registro a modificar
     let user = await database.User.findByPk(req.params.id, {
       include: ["userRole", "address"],
     });
-
-    try {
-      let newUser = await database.User.update(
-        {
-          // Actualizo al usuario con el metodo UPDATE de Sequelize
-          name: req.body.name,
-          lastname: req.body.lastname,
-          email: req.body.email,
-          phoneNumber: req.body.phoneNumber,
-          password: bcryptjs.hashSync(req.body.password, 10),
-          profilePic: req.file ? req.file.filename : "defaultImage.jpg",
-          userRoleId: req.body.userRoleId,
-        },
-        {
-          where: { id: user.id },
-        }
-      );
-      database.Address.update(
-        {
-          //luego guardo el id en  la nueva dirección
-          address: req.body.address,
-          city: req.body.city,
-          state: req.body.state,
-          country: req.body.country,
-          zipCode: req.body.zipCode,
-        },
-        {
-          where: { userId: user.id },
-        }
-      );
-      user = await database.User.findByPk(req.params.id, {
-        include: ["userRole", "address"],
+    // verifico
+    if (!validationErrors.isEmpty()) {
+      const voldData = {
+        ...req.body,
+        id: req.params.id,
+        profilePic: "defaultImage.jpg",
+      };
+      res.render("users/edit-user", {
+        //renderizo el formulario
+        errors: validationErrors.mapped(), // con los errores mappeados y
+        oldData: voldData, // los datos que sí pasaron la validacion
+        userRoles,
       });
-      res.render("users/user-detail", { user });
-    } catch (error) {
-      res.send(error);
+    } else {
+      // si no hay errores
+      try {
+        await database.User.update(
+          {
+            // Actualizo al usuario con el metodo UPDATE de Sequelize
+            name: req.body.name,
+            lastname: req.body.lastname,
+            //email: req.body.email,
+            phoneNumber: req.body.phoneNumber,
+            profilePic: req.file ? req.file.filename : oldUser.profilePic,
+            userRoleId: req.body.userRoleId,
+          },
+          {
+            where: { id: user.id },
+          }
+        );
+        await database.Address.update(
+          {
+            //luego guardo el id en  la nueva dirección
+            address: req.body.address,
+            city: req.body.city,
+            state: req.body.state,
+            country: req.body.country,
+            zipCode: req.body.zipCode,
+          },
+          {
+            where: { userId: user.id },
+          }
+        );
+        user = await database.User.findByPk(req.params.id, {
+          include: ["userRole", "address"],
+        });
+        res.render("users/user-detail", { user });
+      } catch (error) {
+        res.send(error);
+      }
     }
   },
 
@@ -229,7 +251,7 @@ module.exports = {
         res.redirect("/");
       }
     } catch (error) {
-      console.error(error);
+      res.send(error);
     }
   },
 };

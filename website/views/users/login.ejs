@@ -26,6 +26,7 @@
                 placeholder="juanperez@mail.com"
                 value="<%= locals.oldData ? oldData.email : null %>"
               />
+              <span class="error"></span>
               <!--si hay errores en la validacion, da el mensaje de error-->
               <% if (locals.errors && errors.email) { %>
               <div class="text-danger"><%= errors.email.msg %></div>
@@ -33,24 +34,34 @@
             </div>
 
             <!--cotraseña -->
-            <div class="col-12 mt-3">
+            <div class="col-12 mt-4">
               <label for="pass" class="form-label">Contraseña</label>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                class="form-control <%= locals.errors && errors.password ? 'is-invalid' : null %>"
-              />
+              <div class="flex-cont">
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  class="form-control <%= locals.errors && errors.password ? 'is-invalid' : null %>"
+                />
+                <!--boton de mostrar contrasena-->
+                <div class="w-10">
+                  <input
+                    type="button"
+                    name="button"
+                    onclick="mostrar()"
+                    class="form-control"
+                    value="Mostrar"
+                  />
+                </div>
+                <br />
+                <span class="error"></span>
+              </div>
+
               <!--si hay errores en la validacion, da el mensaje de error-->
               <% if (locals.errors && errors.password) { %>
               <div class="text-danger"><%= errors.password.msg %></div>
               <% } %>
             </div>
-
-            <div class="erroresFront">
-              <ul></ul>
-            </div>
-
             <!--recordar usuario y cotraseña-->
             <div class="text-align-c col-12 mt-5">
               <input
@@ -65,7 +76,7 @@
             </div>
 
             <div class="col-12 align-center">
-              <button type="submit" class="btn bg-pink btn-lg font-white reg">
+              <button class="btn bg-pink btn-lg font-white reg">
                 INICIA SESION
               </button>
             </div>
@@ -93,6 +104,8 @@
 
     <!--FOOTER -->
     <%- include('../partials/footer') %>
-    <script src="/js/js-front.js"></script>
+    <script src="/js/loginValidation.js"></script>
+    <script src="/js/showpass.js"></script>
+    <script src="/js/showpass.js"></script>
   </body>
 </html>
