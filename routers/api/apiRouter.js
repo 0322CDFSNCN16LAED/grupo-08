@@ -1,12 +1,10 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
-const usersApiRouter = require('./usersApiRouter');
-const apiUsersController = require('../../controllers/api/usersApiController')
+const usersApiRouter = require("./usersApiRouter");
 
 // Ruta a usuarios
-router.get('/users', apiUsersController.list);
-router.get('/users/:id', apiUsersController.detail);
+router.use("/users", usersApiRouter);
 
 //Ruta a products
 

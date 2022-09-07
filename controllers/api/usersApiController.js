@@ -1,4 +1,3 @@
-const { name } = require("ejs");
 const db = require("../../database/models");
 
 /* ○ Deberá devolver un objeto literal con la siguiente estructura:
@@ -11,15 +10,30 @@ const db = require("../../database/models");
 
 const usersApiController = {
   list: async (req, res) => {
+    limit = 5;
+    offset = 0;
     const { rows, count } = await db.User.findAndCountAll({
       attributes: ["id", "name", "email"],
-    });
-    
-    res.status(200).json({
-      cantidadUsers: count,
-      users: rows,
+    }).catch((error) => console.log(error));
 
+    res.status(200).json({
+      count: count,
+      rows: rows.map((obj) => ({
+        id: obj.id,
+        name: obj.name,
+        email: obj.name,
+        urlDetail: `http://localhost:3005/api/users/${obj.id}`,
+      })),
     });
+  },
+
+  lastUserRegistered: async (req, res) => {
+    let lastUser = await db.User.findOne({
+      attributes: ["name", "id"],
+      having: Math.min("createdAt"),
+    });
+    console.log(lastUser);
+    res.send({ user: lastUser });
   },
 
   //   api/users/:id
@@ -28,8 +42,6 @@ const usersApiController = {
   // ■ Una propiedad por cada campo en base.
   // ■ Una URL para la imagen de perfil (para mostrar la imagen).
   // ■ Sin información sensible (ej: password y categoría).
-
-  //
 
   detail: async function (req, res) {
     let user = await db.User.findByPk(
@@ -41,7 +53,9 @@ const usersApiController = {
         where: { id: req.params.id },
       }
     );
-    res.send({ user: user });
+
+    (user.profileDetail = `http://localhost:3005/images/usersProfiles/${user.profilePic}`),
+      res.status(200).json([{ user: user, urlPic: user.profileDetail }]);
   },
 };
 
