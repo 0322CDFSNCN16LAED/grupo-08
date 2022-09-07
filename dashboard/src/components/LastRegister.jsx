@@ -31,6 +31,7 @@ export default function LastRegister() {
 
   return (
     <Card sx={{ maxWidth: 345 }}>
+      <h3 style={{color: 'green'}}>Soy el componente Last Register</h3> 
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: '#d56b27' }} aria-label="recipe">

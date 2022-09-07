@@ -23,7 +23,7 @@ export default function CategoriesList() {
 
   return (
     <Box sx={{ width:'20 rem', backgroundColor: '#c44cb4' }}>
-
+<h3 style={{color: 'green'}}>Soy el componente CategoriesList</h3> 
       <Grid sx={{ width:'20 rem', backgroundColor: '#c44cb4' }}>
 
           <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
@@ -31,12 +31,12 @@ export default function CategoriesList() {
           </Typography>
           <Demo>
             <List>
-              <Grid container spacing ={2} sx={{ width:'5 rem' , backgroundColor: '#FF0000'}}>  
+              <Grid container spacing ={2} sx={{ width:'5 rem' , }}>  
               {categoriesInfo.map((cat) => (
                 <Grid item xs={12} md={4}> 
                 <ListItem
                 key={cat.id}
-                sx={{backgroundColor:'#000000'}}>
+                sx={{}}>
                   <ListItemAvatar>
                     <Avatar> 
                       {cat.icon}

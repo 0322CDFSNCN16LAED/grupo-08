@@ -18,6 +18,7 @@ export default function TotalCard({ title, value, icon, text }) {
   return (
  
     <Box sx={{ width: '20rem' }}>
+      <h4 style={{color: 'green'}}>Soy el componente TotalCard</h4> 
       <Card variant="outlined">
       <CardContent>
       <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>

@@ -25,15 +25,17 @@ export default function Weather (){
                       
     return(
         <Card  variant="outlined" sx={{ backgroundColor: 'white', textAlign: 'center'}}>
+            
             <Typography sx={{ fontSize: 14 }} color="text.secondary" >
             Estado del clima
             </Typography>
             
         { weather ?  
-            <Grid container spacing ={2}>
+            <Grid container>
                 <Typography variant="h5" component="div">
                 {weather.weather[0].description}          
                 </Typography>
+                
                 <img src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description}/>
                 <Typography color="text.secondary">
                 Temperatura:  {weather.main.temp} <br />

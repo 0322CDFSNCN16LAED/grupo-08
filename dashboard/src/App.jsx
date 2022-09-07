@@ -7,20 +7,20 @@ import Home from './components/Home';
 import ProductsList from './components/ProductsList';
 import UsersList from './components/UsersList';
 import CategoriesList from './components/CategoriesList';
-//        <TopBar/> 
+
   
 function App() {
   return (
       <div className="App" 
       style={{marginLeft: '15rem', marginTop: '12rem' }}>
-       
+        <TopBar/> 
         <NavBar/>
-        <Switch>
+
         <Route path='/categories' component={CategoriesList}/> 
         <Route path='/' component={Home}/>
         <Route path='/users'  component={UsersList}/>
         <Route path='/products' component={ProductsList}/>        
-        </Switch>
+        
       </div>
   );
 }

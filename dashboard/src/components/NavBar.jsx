@@ -39,6 +39,7 @@ export default function NavBar (){
       >
         <Toolbar />
         <Divider />
+        <h3 style={{color: 'green'}}>Soy el componente NAvBar</h3> 
         <List>
           {navBarItems.map((item) => (
             <ListItem 
