@@ -3,17 +3,20 @@ const { Product } = require("../../database/models");
 
 module.exports = {
     list: async (req,res) => {
-
+        const limit = 10;
+        const offset = req.query.page ?? 0;
         try {        
            const { rows, count } = await Product.findAndCountAll({ 
-           limit: 5,
+           limit: limit,
+           offset: offset * limit,
            attributes: ["id","name","description","picture"]
           })
               res.status(200).json({ //el resultado es un objeto que tienen las propiedades de meta y data
                   meta:{
                       status: 200,
                       url: req.originalUrl,
-                      total: count // todos los elementos que me da la tabla 
+                      total: count, // todos los elementos que me da la tabla 
+                      totalByCategory:  ,
                   },
                   data: rows, // seria el array de productos
               });
@@ -31,12 +34,12 @@ module.exports = {
         };
     },
    detail: async function (req,res) {
-        let {id, name, picture} = await db.Product.findByPk(req.params.id,{
+        let productToFind = await db.Product.findByPk(req.params.id,{
 
         },{
             where: {id: req.params.id} // le indico la incidencia que hay entre el que se trae por registro y el de params 
         });
-            res.send({id, name, picture});
+            res.send(productToFind);
     }
     /*detail: async function (req,res) {
         let productId = req.params.id
