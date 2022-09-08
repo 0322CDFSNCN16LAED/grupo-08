@@ -21,17 +21,17 @@ module.exports = {
             name: faker.commerce.productName(),
             description: faker.commerce.productDescription(),
             price: faker.commerce.price(),
-            sale: 0.35,
+            sale: (Math.random()),
             measurements: faker.commerce.productDescription(),
             freeDelivery: faker.datatype.boolean(),
             details: faker.commerce.productMaterial(),
             extraInfo: faker.commerce.productDescription(),
             picture: "/images/products/lamp.jpg",
-            categoryId: category[0].id,
-            colourId: colour[0].id,
-            brandId: brand[0].id,
-            installmentId: installment[0].id,
-            styleId: style[0].id,
+            categoryId: category[Math.floor(Math.random() * category.length)].id,
+            colourId: colour[Math.floor(Math.random() * colour.length)].id,
+            brandId: brand[Math.floor(Math.random() * brand.length)].id,
+            installmentId: installment[Math.floor(Math.random() * installment.length)].id,
+            styleId: style[Math.floor(Math.random() * style.length)].id,
           };
         })
     );

@@ -105,6 +105,7 @@
                       <p class="col-3">Teléfono</p>
                       <p class="col-9"><%=user.phoneNumber%>%></p>
                     </div>
+                    <% if (user.address ) { %>
                     <div class="row">
                       <p class="col-3">Dirección</p>
                       <p class="col-9"><%= user.address.address %></p>
@@ -129,6 +130,7 @@
                       <p class="col-3">Rol de usuario</p>
                       <p class="col-9"><%=user.userRole.name%>%></p>
                     </div>
+                    <%}%>  
                   </div>
                 </div>
               </div>

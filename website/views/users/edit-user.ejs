@@ -94,6 +94,7 @@
                 <% } %>
               </div>
               <!--address-->
+              <% if (userToEdit.address) { %>
               <div class="col-12">
                 <label for="address" class="form-label">Dirección</label>
                 <input
@@ -166,6 +167,7 @@
                 <div class="text-danger"><%= errors.zipCode.msg %></div>
                 <% } %>
               </div>
+              <% } %>
               <!--<div class="col-12 col-md-6">
                 <label for="pass" class="form-label">Contraseña</label>
                 <input

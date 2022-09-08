@@ -152,6 +152,7 @@ module.exports = {
       include: ["userRole", "address"],
     });
     res.render("users/index", { users, addresses });
+    
   },
 
   // detalle de user

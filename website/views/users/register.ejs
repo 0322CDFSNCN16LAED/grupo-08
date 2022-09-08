@@ -271,7 +271,7 @@
             </div>
             <div class="col-12 col-md-6">
               <label for="userRoleId" class="form-label"> Rol de usuario </label>
-              <select class="form-select" name="userRoleId" id="userRoleId" disabled>
+              <select class="form-select" name="userRoleId" id="userRoleId" >
                 <% userRoles.forEach(userRole => {%>
                   <option value="<%=userRole.id%>"><%=userRole.name%></option>
                 <% })%> 
