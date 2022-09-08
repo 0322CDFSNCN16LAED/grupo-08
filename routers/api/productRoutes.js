@@ -6,6 +6,7 @@ const router = express.Router();
 
 router.get("/", productControllersApi.list);
 router.get("/:id", productControllersApi.detail);
+router.get("/category", productControllersApi.category);
 
 module.exports = router;
 

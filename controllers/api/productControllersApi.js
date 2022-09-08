@@ -1,5 +1,7 @@
 const db = require("../../database/models");
 const { Product } = require("../../database/models");
+const { Category } = require("../../database/models");
+
 
 module.exports = {
     list: async (req,res) => {
@@ -16,17 +18,22 @@ module.exports = {
                       status: 200,
                       url: req.originalUrl,
                       total: count, // todos los elementos que me da la tabla 
-                      totalByCategory:  ,
+                      //totalByCategory:  
                   },
-                  data: rows, // seria el array de productos
-              });
-          } catch (error) {
+                  rows: rows.map((product) =>({
+                    id: product.id,
+                    name: product.name,
+                    description: product.name,
+                    urlcita:`http://localhost:3005/api/products/${product.id}`
+                 })),
+          })} 
+
+          catch (error) {
             console.error(error);
             res.status(500).json({ 
                 meta: {
                     status: 500,
                     url: req.originalUrl,
-                    //error: error,
                     errorName: error.name,
                     errorMsg: error.msg,
                 }
@@ -40,14 +47,31 @@ module.exports = {
             where: {id: req.params.id} // le indico la incidencia que hay entre el que se trae por registro y el de params 
         });
             res.send(productToFind);
+    },
+
+
+    //me esta devolviendo 1... 
+    category: async function (req,res){
+        const {rows, count} = await Category.findAndCountAll({
+            attributes: ["name",
+             // [sequelize.fn("COUNT", sequelize.col("isActive")), "count_isActive"],
+           ]
+
+            //group: "name",
+        }) 
+          
+          res.status(200).json({
+            meta:{
+                status: 200,
+                total: count, // todos los elementos que me da la tabla 
+                //totalByCategory:  
+            },
+            rows: rows.map((category) =>({
+                name: category.name,
+                 }))
+            })
+ 
     }
-    /*detail: async function (req,res) {
-        let productId = req.params.id
-        try{
-            const product = await Product.findByPk(productId)
-            if(product){
-                await product.setCategory
-            }
-        }*/
+
 
 }
