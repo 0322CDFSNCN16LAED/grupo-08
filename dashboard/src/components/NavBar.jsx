@@ -45,7 +45,7 @@ export default function NavBar (){
             <ListItem 
               key={item.id}
               disablePadding>
-                <Link to={item.link} exact='true' ref={event} > 
+                <Link to={item.link} ref={event} > 
                 <ListItemButton> 
                   <ListItemIcon sx= {{color:'#fafafa'}}> {item.icon} </ListItemIcon>
                   <ListItemText sx= {{color:'#fafafa', fontSize: 16 }} secondary={item.label} /> 

@@ -26,6 +26,6 @@ export const navBarItems = [
         id: 3,
         icon: <CategoryIcon/>,
         label: 'Categorías',
-        link: '/categories'
+        link: '/categories',
     }
 ]

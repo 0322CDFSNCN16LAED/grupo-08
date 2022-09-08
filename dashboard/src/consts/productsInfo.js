@@ -1,4 +1,4 @@
-export const productsInfo =[
+export const productsInfo = [
     {
         name: "Lámpara galponera",
         categoryId: "Iluminación",

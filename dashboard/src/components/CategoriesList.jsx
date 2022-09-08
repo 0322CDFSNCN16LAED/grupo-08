@@ -10,7 +10,7 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemText from '@mui/material/ListItemText';
 import Avatar from '@mui/material/Avatar';
 import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
+import Typography from '@mui/material/Typography'; 
 
 
 const Demo = styled('div')(({ theme }) => ({

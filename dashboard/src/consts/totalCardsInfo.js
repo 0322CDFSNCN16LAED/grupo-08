@@ -1,4 +1,4 @@
-import React from 'react';  // PROBLEMA : por que me pide importar react en cada componente pedorro?
+import React from 'react';  // PROBLEMA :¿ por que me pide importar react en cada componente pedorro?
 
 import GroupIcon from '@mui/icons-material/Group';
 import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
