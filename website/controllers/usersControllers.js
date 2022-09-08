@@ -76,7 +76,9 @@ module.exports = {
   // Metodo que procesar el Registro de usuario nuevo (POST)
   register: async function (req, res) {
     let users = await database.User.findAll(); //traigo la tabla de users
-    let userRoles = await database.UserRole.findAll(); //traigo la tabla  de userRoles
+    let userRoles = await database.UserRole.findAll({
+      where: { name: "user" },
+    }); //traigo la tabla  de userRoles //traigo la tabla  de userRoles
     let addresses = await database.Address.findAll(); //traigo la tabla de direcciones
 
     const validationErrors = validationResult(req); // guardo los errores de validacion

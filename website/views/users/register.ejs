@@ -16,6 +16,7 @@
       >
         <form action="/users/register" method="POST" enctype="multipart/form-data" class="form-field">
           <div class="row mt-3">
+            <input type="hidden" name="userRoleId" id="userRoleId" value="<%=locals.oldData ? oldData.userRoleId : userRoles[0].id%>">
             <!--input de nombre-->
             <div class="col-12 col-md-6">
               <label for="name" class="form-label col-12">Nombre</label>
@@ -268,18 +269,9 @@
                   <%= errors.rpassword.msg %>
                 </div>
                 <% } %> 
-            </div>
-            <div class="col-12 col-md-6">
-              <label for="userRoleId" class="form-label"> Rol de usuario </label>
-              <select class="form-select" name="userRoleId" id="userRoleId" disabled>
-                <% userRoles.forEach(userRole => {%>
-                  <option value="<%=userRole.id%>"><%=userRole.name%></option>
-                <% })%> 
-              </select>
-              <span class="error"></span>
-            </div>
+            </div>            
             <!-- envio de imagen de perfil / PROFILE--> 
-            <div class="col-12 col-md-6">
+            <div class="col-12">
               <label for="profile" class="form-label">Cargar imagen de perfil</label>
               <input class="form-control" type="file" id="profile" name="profilePic">
             </div>         
