@@ -7,23 +7,24 @@ const db = require("../models");
 module.exports = {
   async up(queryInterface, Sequelize) {
     const userRole = await db.UserRole.findAll();
-
+    const pass = await bcrypt.hash("Clave*123", 10);
     await queryInterface.bulkInsert(
       "Users",
-      [
-        {
+      Array(50)
+      .fill(0)
+      .map(() => {
+        return {
           id: uuid(),
-          name: "Usuario",
-          lastname: "De Prueba",
-          email: "usuario@gmail.com",
-          password: await bcrypt.hash("123456", 10),
+          name: faker.name.firstName(),
+          lastname: faker.name.lastName(),
+          email: faker.internet.email(),
+          password: pass,
           phoneNumber: 123456789,
           profilePic: "/images/usersProfiles/defaultImage.jpg",
-          userRoleId: userRole[0].id,
-        },
-      ],
-      {}
-    );
+          userRoleId: userRole[Math.floor(Math.random() * userRole.length)].id,
+        };
+      })
+      );
   },
 
   async down(queryInterface, Sequelize) {
