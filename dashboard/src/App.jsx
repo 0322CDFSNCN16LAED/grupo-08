@@ -10,6 +10,7 @@ import CategoriesList from './components/CategoriesList';
 
   
 function App() {
+  console.log(Math.random())
   return (
       <div className="App" 
       style={{marginLeft: '15rem', marginTop: '12rem' }}>

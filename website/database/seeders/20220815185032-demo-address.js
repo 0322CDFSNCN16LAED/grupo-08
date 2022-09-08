@@ -13,7 +13,7 @@ module.exports = {
         .map(() => {
           return {
             id: uuid(),
-            userId: users[0].id,
+            userId: users[Math.floor(Math.random() * users.length)].id,
             address: faker.address.streetAddress(),
             city: faker.address.city(),
             state: faker.address.state(),

@@ -6,8 +6,6 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
-#config database
-database/config/config.js
 #Mariana
 notas
 database/seeders/20220817001548-productos-db-json.js

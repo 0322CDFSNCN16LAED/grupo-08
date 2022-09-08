@@ -58,7 +58,7 @@
             "Producto de fácil instalación"
         ],
         "infoExtra": [
-            ""
+            "-"
         ],
         "id": 2,
         "imagen": "/images/products/mueble.PNG"
@@ -118,7 +118,7 @@
             "\r\nprueba de actualizacion norma"
         ],
         "infoExtra": [
-            ""
+            "-"
         ],
         "id": 7,
         "imagen": "/images/products/1656020145437.jpg"
@@ -146,7 +146,7 @@
             "Material: bamboo ecológico"
         ],
         "infoExtra": [
-            ""
+            "-"
         ],
         "id": 8,
         "imagen": "/images/products/1656022903581.jpg"
@@ -201,7 +201,7 @@
         "envioGratis": 0,
         "alt": "set porcelana",
         "descripcion": "Set de vajilla de porcelana 24 piezas - 6 comensales",
-        "medidas": "",
+        "medidas": "--",
         "color": "off white",
         "detalles": [
             "El set incluye: ",
@@ -242,7 +242,7 @@
             "Excelente calidad artística en plantas sintéticas. \r\nViene en maceta premium 18 + plato."
         ],
         "infoExtra": [
-            ""
+            "-"
         ],
         "id": 11,
         "imagen": "/images/products/1658175632428.jpg"
@@ -272,7 +272,7 @@
             "Viene en variedad de colores"
         ],
         "infoExtra": [
-            ""
+            "-"
         ],
         "id": 3,
         "imagen": "/images/products/1660090571332.jpg"
