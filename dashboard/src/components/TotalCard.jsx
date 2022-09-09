@@ -49,11 +49,14 @@ export default function TotalCard ({ title, value, icon, text }) {
         {icon}
         </Avatar>
       </Box>
-        {total ?
-        total.count
-        : <p> Cargando...</p> }
+
       <Typography variant="body2" sx={{ fontSize: 16 }}>
-        {bull} Actualmente tenemos  
+        {bull} Actualmente tenemos : 
+        {total ?
+          total.count
+        : <Typography variant="h6" component="div" color='#d56b27'>
+            Cargando....
+          </Typography>}        
         <br />
         {text}
       </Typography>

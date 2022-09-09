@@ -45,6 +45,7 @@ export default function CustomizedTables() {
   }, [list])
 
   return (
+    
     <TableContainer component={Paper}>
       <h4 style={{color: 'green'}} > Soy el componente UsersList</h4>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
@@ -60,8 +61,12 @@ export default function CustomizedTables() {
         </TableHead>
         <TableBody>
         {! list ?
-        <StyledTableCell align="right">Cargando...</StyledTableCell>       
-            : list.rows.map((user) => (
+        
+        <StyledTableRow align="right">
+            <StyledTableCell> Cargando...</StyledTableCell>
+            </StyledTableRow>       
+            
+        : list.rows.map((user) => (
             <StyledTableRow key={user.id}>
               <StyledTableCell component="th" scope="row">
                 {user.name}
