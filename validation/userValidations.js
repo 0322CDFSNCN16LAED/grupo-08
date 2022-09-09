@@ -1,3 +1,4 @@
+
 const { body } = require("express-validator");
 
 let psswrd = body("password");
@@ -34,12 +35,12 @@ const basicRegisterValidations = [
     .notEmpty()
     .withMessage("Debe ingresar el país correspondiente"),
   body("zipCode").notEmpty().withMessage("Debe ingresar su código postal"),
-  /*body("password")
+  body("password")
     .matches(/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/)
     .withMessage(
       "La contraseña debe tener letras mayúsculas, minusculcas, un numero, un carácter especial y minimo 8caracteres."
-    ),*/
-  body("rpassword").custom((value, { req }) => {
+    ),
+ body("rpassword").custom((value, { req }) => {
     if (value !== req.body.password) {
       throw new Error("Las contraseñas no coinciden");
     } else {

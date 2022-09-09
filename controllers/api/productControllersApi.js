@@ -5,13 +5,13 @@ const { Category } = require("../../database/models");
 
 module.exports = {
     list: async (req,res) => {
-        const limit = 10;
+        const limit = 50;
         const offset = req.query.page ?? 0;
         try {        
            const { rows, count } = await Product.findAndCountAll({ 
            limit: limit,
            offset: offset * limit,
-           attributes: ["id","name","description","picture"]
+           attributes: ["id","name","description","picture", "categoryId"]
           })
               res.status(200).json({ //el resultado es un objeto que tienen las propiedades de meta y data
                   meta:{
@@ -21,6 +21,7 @@ module.exports = {
                       //totalByCategory:  
                   },
                   rows: rows.map((product) =>({
+                    category: product.categoryId,
                     id: product.id,
                     name: product.name,
                     description: product.name,
@@ -51,9 +52,49 @@ module.exports = {
 
 
     //me esta devolviendo 1... 
+    category: async (req,res) => {
+        const limit = 10;
+        const offset = req.query.page ?? 0;
+        try {        
+           const { rows, count } = await Product.findAndCountAll({ 
+           limit: limit,
+           offset: offset * limit,
+           attributes: ["categoryId"]
+          })
+              res.status(200).json({ //el resultado es un objeto que tienen las propiedades de meta y data
+                  meta:{
+                      status: 200,
+                      url: req.originalUrl,
+                      total: count, // todos los elementos que me da la tabla 
+                      //totalByCategory:  
+                  },
+                  rows: rows.map((product) =>({
+                    category: product.categoryId,
+                })),
+          })} 
+
+          catch (error) {
+            console.error(error);
+            res.status(500).json({ 
+                meta: {
+                    status: 500,
+                    url: req.originalUrl,
+                    errorName: error.name,
+                    errorMsg: error.msg,
+                }
+            })
+        };
+    },
+
+
+
+
+
+/*
+
     category: async function (req,res){
-        const {rows, count} = await Category.findAndCountAll({
-            attributes: ["name",
+        const {rows, count} = await Producto.findAndCountAll({
+            attributes: ["categoryId",
              // [sequelize.fn("COUNT", sequelize.col("isActive")), "count_isActive"],
            ]
 
@@ -71,7 +112,7 @@ module.exports = {
                  }))
             })
  
-    }
+    }*/
 
 
 }
