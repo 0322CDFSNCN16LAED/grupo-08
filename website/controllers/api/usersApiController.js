@@ -2,7 +2,7 @@ const db = require("../../database/models");
 
 const usersApiController = {
   list: async (req, res) => {
-    const limit = 5;
+    const limit = 10;
     const offset = req.query.page ?? 0;
     try {
       const { rows, count } = await db.User.findAndCountAll({
@@ -53,7 +53,7 @@ const usersApiController = {
         }
       );
 
-      (user.profileDetail = `http://localhost:3005/images/usersProfiles/${user.profilePic}`),
+      (user.profileDetail = `http://localhost:3005${user.profilePic}`),
         res.status(200).json([{ user: user, urlPic: user.profileDetail }]);
     } catch (error) {
       console.error(error);
