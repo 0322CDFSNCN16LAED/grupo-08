@@ -53,7 +53,7 @@ const usersApiController = {
         }
       );
 
-      (user.profileDetail = `http://localhost:3005${user.profilePic}`),
+      (user.profileDetail = `http://localhost:3005/images/usersProfiles/${user.profilePic}`),
         res.status(200).json([{ user: user, urlPic: user.profileDetail }]);
     } catch (error) {
       console.error(error);
