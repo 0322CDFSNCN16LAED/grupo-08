@@ -8,7 +8,7 @@ const validations = [
         errorMsg: "Debe ingresar un Nombre",
       },
       {
-        validator: (input) => input.value.length > 4,
+        validator: (input) => input.value.length > 2,
         errorMsg: "Debe ingresar un nombre de minimo 2 caracteres",
       },
     ],
@@ -20,6 +20,10 @@ const validations = [
         validator: (input) => input.value.trim() != "",
         errorMsg: "Debe ingresar un Apellido",
       },
+      {
+        validator: (input) => input.value >= 2,
+        errorMsg: "Debe ingresar más de 2 caracteres",
+      },
     ],
   },
   {
@@ -28,6 +32,13 @@ const validations = [
       {
         validator: (input) => input.value.trim() != "",
         errorMsg: "Debe ingresar un Correo",
+      },
+      {
+        validator: (input) =>
+          /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(
+            input.value
+          ) != "",
+        errorMsg: "Debe ingresar un correo electrónico válido",
       },
     ],
   },
