@@ -17,7 +17,7 @@ module.exports = {
       "Products",      
       dbJson.map((producto) => {
           return {
-            id: uuid(),//js name.product ? name.product : "nombre" 
+            id: uuid(),
             name: producto.nombre ? producto.nombre : 'sin datos',
             description: producto.descripcion ? producto.descripcion : 'sin datos',
             price: producto.precioContado ? producto.precioContado: "sin datos",
