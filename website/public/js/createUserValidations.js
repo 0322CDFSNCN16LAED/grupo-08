@@ -20,10 +20,6 @@ const validations = [
         validator: (input) => input.value.trim() != "",
         errorMsg: "Debe ingresar un Apellido",
       },
-      {
-        validator: (input) => input.value >= 2,
-        errorMsg: "Debe ingresar más de 2 caracteres",
-      },
     ],
   },
   {
