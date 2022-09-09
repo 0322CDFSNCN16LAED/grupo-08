@@ -8,7 +8,7 @@ const usersApiController = {
       const { rows, count } = await db.User.findAndCountAll({
         limit: 5,
         offset: offset * limit,
-        attributes: ["id", "name", "email"],
+        attributes: ["id", "name","lastname", "email", "createdAt"],
       });
 
       res.status(200).json({
@@ -16,7 +16,9 @@ const usersApiController = {
         rows: rows.map((obj) => ({
           id: obj.id,
           name: obj.name,
-          email: obj.name,
+          lastname: obj.lastname,
+          email: obj.email,
+          createdAt: obj.createdAt,
           urlDetail: `http://localhost:3005/api/users/${obj.id}`,
         })),
       });

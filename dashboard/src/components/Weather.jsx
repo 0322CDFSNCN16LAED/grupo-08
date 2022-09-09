@@ -9,7 +9,7 @@ export default function Weather (){
     const [weather, setWeather] = useState(null);
    
     useEffect( () => {
-        console.log('%cSe montó el componenente', 'color: green');
+        console.log('%cSe montó el componente Weather', 'color: green');
         fetch('https://api.openweathermap.org/data/2.5/weather?lat=-34.599722&lon=-58.381944&appid=b5ebf1bf183b477557a932990aadfa01&units=metric&lang=es')
             .then(response => response.json())
             .then(data => {
@@ -20,7 +20,7 @@ export default function Weather (){
     }, []);
     
     useEffect(()=> {
-        console.log('%cSe actualizó el componente', 'color: yellow');
+        console.log('%cSe actualizó el componente Weather', 'color: yellow');
     }, [weather])
                       
     return(

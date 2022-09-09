@@ -1,9 +1,8 @@
 import React from 'react';
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import Avatar from '@mui/material/Avatar';
+import { useState, useEffect } from 'react';
+import {Box, Card, CardContent, Typography, Avatar} from '@mui/material';
+
+const EXPRESS_HOST = "http://localhost:3005";
 
 const bull = (
   <Box
@@ -13,7 +12,25 @@ const bull = (
   </Box>
 );
 
-export default function TotalCard({ title, value, icon, text }) {
+export default function TotalCard ({ title, value, icon, text }) {
+
+  const [total, setTotal] = useState(null);
+  
+  useEffect(() => {
+    console.log ('%cSe montó comp TotalCard', 'color: green')
+    fetch(`${EXPRESS_HOST}/api/users`)
+      .then(response => response.json())
+      .then(data => {
+        setTotal (data);
+        console.log(data.count)
+      })
+      .catch(error => console.error (error));    
+  }, []);
+
+  useEffect(()=> {
+    console.log('%cSe actualizó el comp TotalCard', 'color: yellow', {total});
+}, [total])
+
   return (
  
     <Box sx={{ width: '20rem' }}>
