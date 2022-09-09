@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--HEAD -->
+    <%- include('../partials/head') %>
+  </head>
+  <body class="bg-ligth-grey">
+    <!--HEADER -->
+    <%- include('../partials/header') %>
+
+    <!--MAIN -->
+    <main>
+      <!--section para formulario-->
+      <section class="container products-wrapper form-login mt-5">
+        <form action="/users/" method="post" class="form-field mt-3 pb-2">
+          <div class="row">
+            <div class="col-12">
+              <label for="email" class="form-label">E-mail</label>
+            </div>
+            <div class="col-12">
+              <input
+                type="email"
+                name="email"
+                id="email"
+                class="form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>"
+                placeholder="juanperez@mail.com"
+                value="<%= locals.oldData ? oldData.email : null %>"
+              />
+              <span class="error"></span>
+              <!--si hay errores en la validacion, da el mensaje de error-->
+              <% if (locals.errors && errors.email) { %>
+              <div class="text-danger"><%= errors.email.msg %></div>
+              <% } %>
+            </div>
+
+            <!--cotraseña -->
+            <div class="col-12 mt-4">
+              <label for="pass" class="form-label">Contraseña</label>
+              <div class="flex-cont">
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  class="form-control <%= locals.errors && errors.password ? 'is-invalid' : null %>"
+                />
+                <!--boton de mostrar contrasena-->
+                <div class="w-10">
+                  <input
+                    type="button"
+                    name="button"
+                    onclick="mostrar()"
+                    class="form-control"
+                    value="Mostrar"
+                  />
+                </div>
+                <br />
+                <span class="error"></span>
+              </div>
+
+              <!--si hay errores en la validacion, da el mensaje de error-->
+              <% if (locals.errors && errors.password) { %>
+              <div class="text-danger"><%= errors.password.msg %></div>
+              <% } %>
+            </div>
+            <!--recordar usuario y cotraseña-->
+            <div class="text-align-c col-12 mt-5">
+              <input
+                type="checkbox"
+                name="recordar"
+                id="recordar"
+                class="form-check-input"
+              />
+              <label for="recordar" class="form-label"
+                >Recordar usuario y contraseña</label
+              >
+            </div>
+
+            <div class="col-12 align-center">
+              <button class="btn bg-pink btn-lg font-white reg">
+                INICIA SESION
+              </button>
+            </div>
+
+            <div class="col-12 text-align-c">
+              <span>
+                <a href="#" class="underline">¿Olvidaste tu contraseña? </a>
+              </span>
+            </div>
+          </div>
+        </form>
+        <!--section ya tenes cuenta-->
+        <div class="row mt-3">
+          <div class="col-12 text-align-c">
+            <label for="" class="form-label font-xlarge"
+              >¿No tenés Cuenta?</label
+            >
+            <a href="/users/register" class="font-xlarge font-bold">
+              Registrate</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!--FOOTER -->
+    <%- include('../partials/footer') %>
+    <script src="/js/loginValidation.js"></script>
+    <script src="/js/showpass.js"></script>
+    <script src="/js/showpass.js"></script>
+  </body>
+</html>

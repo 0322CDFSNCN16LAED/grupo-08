@@ -1,0 +1,280 @@
+[
+    {
+        "nombre": "Lámpara galponera",
+        "categoria": "1",
+        "ambiente": [
+            "1",
+            "2",
+            "4",
+            "8"
+        ],
+        "estilo": "1",
+        "precioContado": "5300",
+        "cantidadDeCuotas": "2",
+        "precioCuota": "1733.33",
+        "envioGratis": 0,
+        "alt": "lampara negra",
+        "descripcion": "El diseño industrial en iluminación está muy de moda. Con nuestra linea de lamparas galponeras podrás iluminar y destacar tanto ambientes de tu hogar como tu comercio.",
+        "medidas": "32cm alto x 30cm + Cable: 120 cm largo",
+        "color": "negro",
+        "detalles": [
+            "Calidad garantizada acero reforzado",
+            "Apilable - Resistencia hasta 130kg",
+            "Viene en variedad de colores"
+        ],
+        "infoExtra": [
+            "Lugares de montaje: Techo",
+            "Materiales: Aluminio",
+            "Alimentación 220V",
+            "Ambientes interior",
+            "Capacidad de focos 1",
+            "Tipos de fuentes de luz LED"
+        ],
+        "id": 1,
+        "imagen": "/images/products/lamp.jpg"
+    },
+    {
+        "nombre": "Estante nórdico",
+        "categoria": "1",
+        "ambiente": [
+            "1",
+            "2",
+            "4",
+            "8",
+            "9"
+        ],
+        "estilo": "1",
+        "precioContado": "20000",
+        "cantidadDeCuotas": "1",
+        "precioCuota": "1666.67",
+        "envioGratis": 0,
+        "alt": "estantería nórdica",
+        "descripcion": "Biblioteca estilo nórdico. Fabricada con ménsulas de roble y estantes de madera laqueada en pintura poliuretánica color blanco matte.",
+        "medidas": "107 cm x 35 cm x 200 cm",
+        "color": "blanco y roble",
+        "detalles": [
+            "Calidad garantizada",
+            " Accesibilidad",
+            "Producto de fácil instalación"
+        ],
+        "infoExtra": [
+            "-"
+        ],
+        "id": 2,
+        "imagen": "/images/products/mueble.PNG"
+    },
+    {
+        "nombre": "Lampara Minimal Black",
+        "categoria": "4",
+        "ambiente": [
+            "3",
+            "4",
+            "5",
+            "6"
+        ],
+        "estilo": "1",
+        "precioContado": "15000",
+        "cantidadDeCuotas": "1",
+        "precioCuota": "15000",
+        "envioGratis": 0,
+        "alt": "Lampara de techo negra",
+        "descripcion": "lampara de techo 220v.",
+        "medidas": "34x56",
+        "color": "negro",
+        "detalles": [
+            "Calidad garantizada",
+            "\r\n Accesibilidad",
+            "\r\nProducto de fácil instalación"
+        ],
+        "infoExtra": [
+            "viene con cable de 1 metro "
+        ],
+        "id": 4,
+        "imagen": "/images/products/1655997862351.jpg"
+    },
+    {
+        "nombre": "Jarra de porcelana nórdica2",
+        "categoria": "1",
+        "ambiente": [
+            "4",
+            "5",
+            "7",
+            "8"
+        ],
+        "estilo": "2",
+        "precioContado": "6500",
+        "cantidadDeCuotas": "3",
+        "precioCuota": "2166.66",
+        "envioGratis": 0,
+        "alt": "Jarra de porcelana blanca con manija de  madera ",
+        "descripcion": "Termo de vidrio diseño de doble capa.Manija de madera",
+        "medidas": "24cm de alto x 13cm de diámetro",
+        "color": "blanco",
+        "detalles": [
+            "Conservación del calor y del frío",
+            "\r\nCapacidad 1 litro",
+            "\r\nMantiene el calor por 12 hs",
+            "\r\nMantiene el frío por 24 hs",
+            "\r\nprueba de actualizacion norma"
+        ],
+        "infoExtra": [
+            "-"
+        ],
+        "id": 7,
+        "imagen": "/images/products/1656020145437.jpg"
+    },
+    {
+        "nombre": "Set ensaladera bamboo ",
+        "categoria": 3,
+        "ambiente": [
+            8,
+            2,
+            4,
+            6,
+            9
+        ],
+        "estilo": 3,
+        "precioContado": "2750",
+        "cantidadDeCuotas": 2,
+        "precioCuota": "2750",
+        "envioGratis": 1,
+        "alt": "Cucharon y tenedor ensaladera",
+        "descripcion": "Set Utensilios Para Ensalada Bamboo 2 Piezas cuchara y pinza",
+        "medidas": "Largo 29cm",
+        "color": "Bamboo",
+        "detalles": [
+            "Material: bamboo ecológico"
+        ],
+        "infoExtra": [
+            "-"
+        ],
+        "id": 8,
+        "imagen": "/images/products/1656022903581.jpg"
+    },
+    {
+        "nombre": "Alfombra geométrica",
+        "categoria": "2",
+        "ambiente": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "8"
+        ],
+        "estilo": "2",
+        "precioContado": "120865",
+        "cantidadDeCuotas": "4",
+        "precioCuota": "10072.08",
+        "envioGratis": 1,
+        "alt": "Alfombra geometrica",
+        "descripcion": "ALFOMBRA CONCRETA - COLECCION ANDES\r\n\r\nColores: Celeste Brillante, Azul Marino, Gris Cemento, Verde Palta y Crudo Natural.",
+        "medidas": "1,50 x 2,10 mts.",
+        "color": "Celeste Brillante, Azul Marino, Gris Cemento, Verde Palta y Crudo Natural.",
+        "detalles": [
+            "* Tejida a mano en telar en pura lana de oveja 100% natural hilada con rueca. ",
+            " * Material ignífugo. Aislante acústico y térmico. Sustentable",
+            " eco amigable. ",
+            " * Fácil de limpiar. ",
+            " * Colores con pigmentos vegetales ó tintes minerales sin plomo",
+            " y filtros UV. ",
+            " * Técnica de telar de tejido plano. ",
+            " * Densidad de 1",
+            "4 kilos de lana por m2."
+        ],
+        "infoExtra": [
+            "Comprando esta alfombra participás de un proyecto que trabaja desde hace 15 años con más de 140 tejedoras y artesanos del norte de Argentina respetando los conocimientos ancestrales de cada comunidad y en un marco de Comercio Justo.\r\n"
+        ],
+        "id": 9,
+        "imagen": "/images/products/1658174429740.jpg"
+    },
+    {
+        "nombre": "Set porcelana japon",
+        "categoria": "3",
+        "ambiente": [
+            "1",
+            "4"
+        ],
+        "estilo": "5",
+        "precioContado": "75000",
+        "cantidadDeCuotas": "2",
+        "precioCuota": "25000",
+        "envioGratis": 0,
+        "alt": "set porcelana",
+        "descripcion": "Set de vajilla de porcelana 24 piezas - 6 comensales",
+        "medidas": "--",
+        "color": "off white",
+        "detalles": [
+            "El set incluye: ",
+            " • 6 platos playos: 25 cm. de diámetro ",
+            " • 6 platos de postre: 20 cm. de diámetro ",
+            " • 6 bowls: 15 cm. de diámetro | 8 cm. de alto ",
+            " • 6 jarros: 9 cm. de diámetro | 8 cm. de alto "
+        ],
+        "infoExtra": [
+            "Apto microondas y lavavajillas"
+        ],
+        "id": 10,
+        "imagen": "/images/products/1658175037530.jpg"
+    },
+    {
+        "nombre": "Ficus elástica (gomero) artificial",
+        "categoria": "6",
+        "ambiente": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "7",
+            "8",
+            "10"
+        ],
+        "estilo": "4",
+        "precioContado": "4280",
+        "cantidadDeCuotas": "1",
+        "precioCuota": "4280",
+        "envioGratis": 1,
+        "alt": "",
+        "descripcion": "Ficus elastica rubra, gomero artificial. ",
+        "medidas": "Maceta 18''",
+        "color": "Ficus rubra, Maceta blanca",
+        "detalles": [
+            "Excelente calidad artística en plantas sintéticas. \r\nViene en maceta premium 18 + plato."
+        ],
+        "infoExtra": [
+            "-"
+        ],
+        "id": 11,
+        "imagen": "/images/products/1658175632428.jpg"
+    },
+    {
+        "nombre": "Silla Tolix",
+        "categoria": "3",
+        "ambiente": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "8"
+        ],
+        "estilo": "2",
+        "precioContado": "120865",
+        "cantidadDeCuotas": "1",
+        "precioCuota": "4280",
+        "envioGratis": 0,
+        "alt": "",
+        "descripcion": "La Silla Tolix, ya es un clásico centenario. Este clásico del diseño ha sido utilizado en cafeterías y cocinas retro de todo el mundo, pero es combinable con multitud de estilos y tendencias decorativas.   En la década de los 70 se utilizaban a menudo en fábricas, oficinas u hospitales. Hoy se ha impuesto como un diseño de moda ideal para múltiples ambientes.",
+        "medidas": "Medidas: 86cm altura respaldo x 44cm ancho x 45cm profundidad asiento ",
+        "color": "amarillo",
+        "detalles": [
+            "Calidad garantizada acero reforzado",
+            "Apilable - Resistencia hasta 130kg",
+            "Viene en variedad de colores"
+        ],
+        "infoExtra": [
+            "-"
+        ],
+        "id": 3,
+        "imagen": "/images/products/1660090571332.jpg"
+    }
+]
