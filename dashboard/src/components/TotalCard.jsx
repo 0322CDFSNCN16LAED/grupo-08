@@ -22,23 +22,24 @@ export default function TotalCard ({ title, value, icon, text }) {
       .then(response => response.json())
       .then(data => {
         setTotal (data);
-        console.log(data.count)
       })
       .catch(error => console.error (error));    
   }, []);
 
   useEffect(()=> {
-    console.log('%cSe actualizó el comp TotalCard', 'color: yellow', {total});
+    console.log('%cSe actualizó el comp TotalCard', 'color: yellow');
 }, [total])
 
   return (
  
     <Box sx={{ width: '20rem' }}>
-      <h4 style={{color: 'green'}}>Soy el componente TotalCard</h4> 
+      <h4 style={{color: 'green'}}>Soy el componente TotalCard </h4> 
       <Card variant="outlined">
       <CardContent>
       <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-        {bull} DECO HOME {bull}  
+        {bull} DECO HOME {bull}
+
+        
       </Typography>
       <Box>
         <Typography variant="h6" component="div" color='#d56b27'>
@@ -48,9 +49,11 @@ export default function TotalCard ({ title, value, icon, text }) {
         {icon}
         </Avatar>
       </Box>
-
+        {total ?
+        total.count
+        : <p> Cargando...</p> }
       <Typography variant="body2" sx={{ fontSize: 16 }}>
-        {bull} Actualmente tenemos {value}
+        {bull} Actualmente tenemos  
         <br />
         {text}
       </Typography>

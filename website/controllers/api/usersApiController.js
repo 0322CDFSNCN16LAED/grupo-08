@@ -2,12 +2,12 @@ const db = require("../../database/models");
 
 const usersApiController = {
   list: async (req, res) => {
-    const limit = 5;
+    const limite = 20;
     const offset = req.query.page ?? 0;
     try {
       const { rows, count } = await db.User.findAndCountAll({
-        limit: 5,
-        offset: offset * limit,
+        limit: limite,
+        offset: offset * limite,
         attributes: ["id", "name","lastname", "email", "createdAt"],
       });
 
