@@ -5,6 +5,7 @@ const productsRouter = require("./products-router");
 const userRouter = require("./user-router");
 const apiRouter = require('./api/apiRouter')
 const mainControllers = require("../controllers/mainControllers");
+const productListRouter = require('./productListRouter');
 
 const router = express.Router();
 
@@ -16,6 +17,7 @@ router.get("/pago", mainControllers.pago);
 
 /* los routers para gestion de users y products */
 router.use("/products", productsRouter);
+router.use('/list', productListRouter);
 router.use("/users", userRouter);
 
 // API
