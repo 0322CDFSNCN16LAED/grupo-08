@@ -1,6 +1,5 @@
 const db = require("../../database/models");
 const { Product } = require("../../database/models");
-const { Category } = require("../../database/models");
 
 
 module.exports = {
@@ -18,7 +17,7 @@ module.exports = {
                       status: 200,
                       url: req.originalUrl,
                       total: count, // todos los elementos que me da la tabla 
-                      //totalByCategory:  
+                      
                   },
                   rows: rows.map((product) =>({
                     category: product.categoryId,
@@ -49,8 +48,6 @@ module.exports = {
         });
             res.send(productToFind);
     },
-
-
     //me esta devolviendo 1... 
     category: async (req,res) => {
         const limit = 10;
@@ -59,7 +56,7 @@ module.exports = {
            const { rows, count } = await Product.findAndCountAll({ 
            limit: limit,
            offset: offset * limit,
-           attributes: ["categoryId"]
+           attributes: ["name", "categoryId"]
           })
               res.status(200).json({ //el resultado es un objeto que tienen las propiedades de meta y data
                   meta:{
@@ -69,6 +66,7 @@ module.exports = {
                       //totalByCategory:  
                   },
                   rows: rows.map((product) =>({
+                    name: product.name,
                     category: product.categoryId,
                 })),
           })} 
