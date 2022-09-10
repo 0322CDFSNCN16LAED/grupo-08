@@ -41,13 +41,13 @@ module.exports = {
     const limit = 10;
     const offset = req.query.page ?? 0;
     try {
-      products = await db.Product.findAndCountAll({
+      let {rows, count} = await db.Product.findAndCountAll({
         limit: 5,
         offset: offset * limit,
         where: { "categoryId": req.params.id },
       });
 
-      res.send({ products });
+      res.render(  'products/list-products', { count, productos: rows });
     } catch (error) {
       res.send(error);
     }

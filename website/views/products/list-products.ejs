@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--HEAD -->
+    <%- include('../partials/head', {title: 'Todos los productos'}) %>
+  </head>
+  <%- include('../partials/header') %>
+  <body>
+    <main>
+      <% productos.forEach(product => {%>
+      <article class="col-12 col-sm-6 col-lg-3">
+        <a href="/products/<%=product.id%>">
+          <div class="card p-3 product-box">
+            <img src="<%=product.picture%>" alt="" class="product-box_image" />
+
+            <div class="card-body align-center">
+              <p class="display-6"><strong><%= product.name%></strong></p>
+              <p class="display-6">
+                $ <%= new Intl.NumberFormat('de-DE').format(product.price)%>
+              </p>
+              <span class="inline-block">
+                <a
+                  href="/products/"
+                  class="btn btn-outline-primary btn-lg product-btn"
+                  >AGREGAR AL CARRITO</a
+                >
+              </span>
+            </div>
+          </div>
+        </a>
+      </article>
+      <% }) %>
+    </main>
+    <%- include('../partials/footer') %>
+  </body>
+</html>
