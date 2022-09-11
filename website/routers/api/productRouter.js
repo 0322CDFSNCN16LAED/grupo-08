@@ -5,7 +5,10 @@ const router = express.Router();
 // /api/product
 
 router.get("/", productControllersApi.list);
-router.get("/:id", productControllersApi.detail);
-router.get("/category", productControllersApi.category);
+//router.get("/category", productControllersApi.category);
+
+router.get("/category/:categoryId", productControllersApi.detailcateg);
+router.get("/:id", productControllersApi.detailprod);
+
 
 module.exports = router;
