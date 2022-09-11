@@ -30,13 +30,11 @@ module.exports = {
         meta: {
           status: 200,
           url: req.originalUrl,
-          total: count, // todos los elementos que me da la tabla
         },
         data: {
           total: count,
           countByCategory: totalByCategory,
           products: rows.map((product) => ({
-            // category: product.categoryId,
             id: product.id,
             name: product.name,
             description: product.name,
@@ -48,13 +46,6 @@ module.exports = {
             Brand: product.Brand,
           })),
         },
-        /*rows: rows.map((product) => ({
-          // category: product.categoryId,
-          id: product.id,
-          name: product.name,
-          description: product.name,
-          url: `http://localhost:3005/api/products/${product.id}`,
-        })),*/
       });
     } catch (error) {
       console.error(error);
