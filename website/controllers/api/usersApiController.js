@@ -2,13 +2,13 @@ const db = require("../../database/models");
 
 const usersApiController = {
   list: async (req, res) => {
-    const limit = 5;
+    const limite = 20;
     const offset = req.query.page ?? 0;
     try {
       const { rows, count } = await db.User.findAndCountAll({
-        limit: 5,
-        offset: offset * limit,
-        attributes: ["id", "name", "email"],
+        limit: limite,
+        offset: offset * limite,
+        attributes: ["id", "name","lastname", "email", "createdAt"],
       });
 
       res.status(200).json({
@@ -16,7 +16,9 @@ const usersApiController = {
         rows: rows.map((obj) => ({
           id: obj.id,
           name: obj.name,
-          email: obj.name,
+          lastname: obj.lastname,
+          email: obj.email,
+          createdAt: obj.createdAt,
           urlDetail: `http://localhost:3005/api/users/${obj.id}`,
         })),
       });
@@ -53,7 +55,7 @@ const usersApiController = {
         }
       );
 
-      (user.profileDetail = `http://localhost:3005${user.profilePic}`),
+      (user.profileDetail = `http://localhost:3005/images/usersProfiles/${user.profilePic}`),
         res.status(200).json([{ user: user, urlPic: user.profileDetail }]);
     } catch (error) {
       console.error(error);
