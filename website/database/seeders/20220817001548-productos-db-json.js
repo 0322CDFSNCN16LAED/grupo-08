@@ -1,4 +1,4 @@
-
+/*
 const { v4 } = require("uuid");
 const uuid = v4;
 const { faker } = require("@faker-js/faker");
@@ -41,3 +41,4 @@ module.exports = {
     await queryInterface.bulkDelete("Products", null, {});
   },
 };
+*/
