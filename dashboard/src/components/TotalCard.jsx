@@ -12,23 +12,23 @@ const bull = (
   </Box>
 );
 
-export default function TotalCard ({ title, value, icon, text }) {
+export default function TotalCard ({ title, icon, text }) {
 
-  const [total, setTotal] = useState(null);
+  const [value, setValue] = useState(null);
   
   useEffect(() => {
     console.log ('%cSe montó comp TotalCard', 'color: green')
     fetch(`${EXPRESS_HOST}/api/users`)
       .then(response => response.json())
       .then(data => {
-        setTotal (data);
+        setValue (data);
       })
       .catch(error => console.error (error));    
   }, []);
 
   useEffect(()=> {
     console.log('%cSe actualizó el comp TotalCard', 'color: yellow');
-}, [total])
+}, [value])
 
   return (
  
@@ -52,8 +52,8 @@ export default function TotalCard ({ title, value, icon, text }) {
 
       <Typography variant="body2" sx={{ fontSize: 16 }}>
         {bull} Actualmente tenemos : 
-        {total ?
-          total.count
+        {value ?
+          value.count
         : <Typography variant="h6" component="div" color='#d56b27'>
             Cargando....
           </Typography>}        
