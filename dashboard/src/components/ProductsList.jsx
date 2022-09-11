@@ -1,14 +1,12 @@
 import React from 'react';
-import { productsInfo } from '../consts/productsInfo';
+import { useState, useEffect } from 'react';
+/// PROBLEMA : seccion descuento necesito un tag envolvente y el div queda feo
+/// PROBLEMA : algunos porcentajes dedescuento tienen mas de dos decimales. Queda feo
 
-import { styled } from '@mui/material/styles';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+import { styled, Table, TableBody, TableCell, tableCellClasses, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
+
+const EXPRESS_HOST = "http://localhost:3005";
+
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -31,6 +29,23 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 export default function CustomizedTables() {
+
+  const [list, setList] = useState(null);
+  
+    useEffect(() => {
+      console.log ('%cSe montó comp ProductsList', 'color: green')
+      fetch(`${EXPRESS_HOST}/api/products`)
+        .then(response => response.json())
+        .then(data => {
+          setList (data);        
+        })
+        .catch(error => console.error (error));    
+    }, []);
+  
+    useEffect(()=> {
+      console.log('%cSe actualizó el comp ProductsList', 'color: yellow');
+  }, [list])
+
   return (
     <TableContainer component={Paper}>
       <h4 style={{color: 'green'}} > Soy el componente ProductsList</h4>
@@ -39,29 +54,46 @@ export default function CustomizedTables() {
 
         <TableHead>
           <TableRow>
-            <StyledTableCell>Nombre</StyledTableCell>
-            <StyledTableCell align="right">Marca</StyledTableCell>
-            <StyledTableCell align="right">Categoría</StyledTableCell>
-            <StyledTableCell align="right">Ambiente</StyledTableCell>
-            <StyledTableCell align="right">Estilo</StyledTableCell>
-            <StyledTableCell align="right">Precio</StyledTableCell>
-            <StyledTableCell align="right"> % Oferta</StyledTableCell>
+            <StyledTableCell align="center">Nombre</StyledTableCell>
+            <StyledTableCell align="center">Descripción</StyledTableCell>
+            <StyledTableCell align="center">Categoría</StyledTableCell>
+            <StyledTableCell align="center">Ambiente</StyledTableCell>
+            <StyledTableCell align="center">Estilo</StyledTableCell>
+            <StyledTableCell align="center">Precio de lista</StyledTableCell>
+            <StyledTableCell align="center"> % Oferta</StyledTableCell>
+            <StyledTableCell align="center">Precio final</StyledTableCell>
+
 
           </TableRow>
         </TableHead>
         <TableBody>
-          {productsInfo.map((product) => (
+        {! list ?
+        
+        <StyledTableRow align="right">
+            <StyledTableCell> Cargando...</StyledTableCell>
+            </StyledTableRow>    
+          : list.rows.map((product) => (
             <StyledTableRow key={product.id}>
               <StyledTableCell component="th" scope="row">
                 {product.name}
               </StyledTableCell>
-              <StyledTableCell align="right">{product.brandId}</StyledTableCell>
-              <StyledTableCell align="right">{product.categoryId}</StyledTableCell>
-              <StyledTableCell align="right">{product.roomId}</StyledTableCell>
-              <StyledTableCell align="right">{product.styleId}</StyledTableCell>
-              <StyledTableCell align="right">{product.price}</StyledTableCell>
-              <StyledTableCell align="right">{product.sale}</StyledTableCell>
-
+              <StyledTableCell align="left">{product.description}</StyledTableCell>
+              <StyledTableCell align="center">{product.category}</StyledTableCell>
+              <StyledTableCell align="center">{product.roomId}</StyledTableCell>
+              <StyledTableCell align="center">{product.style}</StyledTableCell>
+              <StyledTableCell align="center"> $ {product.price}</StyledTableCell>
+              
+              { product.sale < 0.5 ?
+              <div> 
+              <StyledTableCell align="center" color= "red"> Sin descuento</StyledTableCell>
+              <StyledTableCell align="center"> $ {product.price}</StyledTableCell>
+              </div>
+              : (
+              <div>     
+              <StyledTableCell align="center" sx={{color:"red"}}>{product.sale * 100} %</StyledTableCell>
+              <StyledTableCell align="center" sx={{color:"red"}}> $ {new Intl.NumberFormat('de-DE').format(product.price * product.sale)}</StyledTableCell>
+              </div>
+              )} 
             </StyledTableRow>
           ))}
         </TableBody>

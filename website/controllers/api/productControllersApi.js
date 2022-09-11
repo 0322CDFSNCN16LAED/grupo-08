@@ -1,17 +1,14 @@
 const db = require("../../database/models");
-const { Product } = require("../../database/models");
-
-const productControllers = require("../productControllers");
 
 module.exports = {
     list: async (req,res) => {
         const limit = 50;
         const offset = req.query.page ?? 0;
         try {        
-           const { rows, count } = await Product.findAndCountAll({ 
+           const { rows, count } = await db.Product.findAndCountAll({ 
            limit: limit,
            offset: offset * limit,
-           attributes: ["id","name","description","picture", "categoryId"]
+           attributes: ["id","name","description", "price", "sale", "categoryId", "styleId" ]
           })
               res.status(200).json({ //el resultado es un objeto que tienen las propiedades de meta y data
                   meta:{
@@ -24,8 +21,12 @@ module.exports = {
                    // category: product.categoryId,
                     id: product.id,
                     name: product.name,
-                    description: product.name,
-                    urlcita:`http://localhost:3005/api/products/${product.id}`
+                    description: product.description,
+                    category: product.categoryId,
+                    style: product.styleId,
+                    price: product.price,
+                    sale: product.sale,
+                    urlcita:`http://localhost:3005/api/products/${product.id}`,
                  })),
           })} 
 
@@ -54,7 +55,7 @@ module.exports = {
         })
         .then(product => {
             return res.status(200).json({ //el resultado es un objeto que tienen las propiedades de meta y data
-            cantidad:product.length,
+            total:product.length,
             data: product,
             status: 200
            })
@@ -62,7 +63,7 @@ module.exports = {
     },
     /*category: async function (req,res){
         try {   
-           const {rows, count} = await Product.findAndCountAll({
+           const {rows, count} = await db.Product.findAndCountAll({
             attributes: ["categoryId"],
             group: "categoryId",
         
