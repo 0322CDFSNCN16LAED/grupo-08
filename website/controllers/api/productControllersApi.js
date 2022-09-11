@@ -1,5 +1,4 @@
 const db = require("../../database/models");
-<<<<<<< HEAD
 const { Product, sequelize } = require("../../database/models");
 
 const productControllers = require("../productControllers");
@@ -15,38 +14,6 @@ module.exports = {
         include: ["Category", "Colour", "Style", "Installment", "Brand"],
         order: [["name", "ASC"]],
       });
-=======
-
-module.exports = {
-    list: async (req,res) => {
-        const limit = 50;
-        const offset = req.query.page ?? 0;
-        try {        
-           const { rows, count } = await db.Product.findAndCountAll({ 
-           limit: limit,
-           offset: offset * limit,
-           attributes: ["id","name","description", "price", "sale", "categoryId", "styleId" ]
-          })
-              res.status(200).json({ //el resultado es un objeto que tienen las propiedades de meta y data
-                  meta:{
-                      status: 200,
-                      url: req.originalUrl,
-                      total: count, // todos los elementos que me da la tabla 
-                      
-                  },
-                  rows: rows.map((product) =>({
-                   // category: product.categoryId,
-                    id: product.id,
-                    name: product.name,
-                    description: product.description,
-                    category: product.categoryId,
-                    style: product.styleId,
-                    price: product.price,
-                    sale: product.sale,
-                    urlcita:`http://localhost:3005/api/products/${product.id}`,
-                 })),
-          })} 
->>>>>>> 254f4ecf3e8817214b06ac7c737e4035a7764a01
 
       // totales por categoria
       const totalByCategory = await Product.findAll({
@@ -58,17 +25,18 @@ module.exports = {
         include: ["Category"],
       });
 
-<<<<<<< HEAD
       res.status(200).json({
         //el resultado es un objeto que tienen las propiedades de meta y data
         meta: {
           status: 200,
           url: req.originalUrl,
+          total: count, // todos los elementos que me da la tabla
         },
         data: {
           total: count,
           countByCategory: totalByCategory,
           products: rows.map((product) => ({
+            // category: product.categoryId,
             id: product.id,
             name: product.name,
             description: product.name,
@@ -80,6 +48,13 @@ module.exports = {
             Brand: product.Brand,
           })),
         },
+        /*rows: rows.map((product) => ({
+          // category: product.categoryId,
+          id: product.id,
+          name: product.name,
+          description: product.name,
+          url: `http://localhost:3005/api/products/${product.id}`,
+        })),*/
       });
     } catch (error) {
       console.error(error);
@@ -147,27 +122,8 @@ module.exports = {
     });
   },
   /*category: async function (req,res){
-=======
-        },{
-            where: {id: req.params.id} // le indico la incidencia que hay entre el que se trae por registro y el de params 
-        });
-            res.send(productToFind);
-    },
-    detailcateg: async function (req,res) {
-        db.Product.findAll({where: {categoryId: req.params.categoryId} // le indico la incidencia que hay entre el que se trae por registro y el de params 
-        })
-        .then(product => {
-            return res.status(200).json({ //el resultado es un objeto que tienen las propiedades de meta y data
-            total:product.length,
-            data: product,
-            status: 200
-           })
-        })
-    },
-    /*category: async function (req,res){
->>>>>>> 254f4ecf3e8817214b06ac7c737e4035a7764a01
         try {   
-           const {rows, count} = await db.Product.findAndCountAll({
+           const {rows, count} = await Product.findAndCountAll({
             attributes: ["categoryId"],
             group: "categoryId",
         
