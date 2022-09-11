@@ -8,6 +8,8 @@ const userLoggedMiddleware = require("./middlewares/userLoggedMiddleware");
 const apiRouters = require("./routers/api/apiRouter");
 
 const app = express();
+const cors = require("cors");
+app.use(cors('localhost:3000'));
 
 app.set("view engine", "ejs"); // Motor de plantillas EJS
 app.set("views", path.join(__dirname, "/views"));

@@ -5,9 +5,9 @@ import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
 
 export const totalCardsInfo = [
   {
-      id: "1", // id para que?
+      id: "1", 
       title: "Total de productos en venta",
-      value: "5236",
+      value: "5236",// me gustaria hacer aca el pedido a la api
       icon: <CardGiftcardIcon/>, 
       text: 'productos en venta'
   },
