@@ -68,9 +68,29 @@
                   <div class="card-body align-center">
                     <p class="display-6"><strong><%= product.name%></strong></p>
                     <p class="display-6"><%= product.Category.name%></p>
+                  <!-- Si el descuento es menor al 5% se imprime el precio normalmente-->
+                  <% if (product.sale < 0.5) {%>
+
                     <p class="display-6">
-                      $ <%= new Intl.NumberFormat('de-DE').format(product.price)%>
+                      $<%= new Intl.NumberFormat('de-DE').format(product.price)%>
+                    </p>  
+                  <!-- Sino, el precio se imprime tachado, se imp el % de descuento y el nuevo precio-->
+                    <% } else { %> 
+  
+                    <span style="text-decoration:line-through">
+                      <p class="display-6">
+                        $<%= new Intl.NumberFormat('de-DE').format(product.price)%>
+                      </p>  
+                    </span>
+  
+                    <p class="display-6 font-red">
+                      <%= (product.sale*100)%> % OFF! 
+                      $<%= new Intl.NumberFormat('de-DE').format(product.price * product.sale)%>
                     </p>
+                    
+                    <% } %>
+
+
                     <span class="inline-block">
                       <a
                         href="/products/"

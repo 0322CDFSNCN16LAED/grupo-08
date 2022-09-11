@@ -15,11 +15,13 @@ function App() {
       style={{marginLeft: '15rem', marginTop: '12rem' }}>
         <TopBar/> 
         <NavBar/>
-
-        <Route path='/categories' component={CategoriesList}/> 
-        <Route path='/' component={Home}/>
-        <Route path='/users'  component={UsersList}/>
-        <Route path='/products' component={ProductsList}/>        
+        
+        <Switch> 
+        <Route path='/categories' exact= {true} component={CategoriesList}/> 
+        <Route path='/' exact= {true} component={Home}/>
+        <Route path='/users' exact= {true} component={UsersList}/>
+        <Route path='/products'exact= {true} component={ProductsList}/>             
+        </Switch> 
         
       </div>
   );

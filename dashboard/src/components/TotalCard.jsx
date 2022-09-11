@@ -8,8 +8,7 @@ import Avatar from '@mui/material/Avatar';
 const bull = (
   <Box
     component="span"
-    sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
-  >
+    sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}>
     •
   </Box>
 );

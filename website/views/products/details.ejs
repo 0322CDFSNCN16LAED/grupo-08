@@ -29,12 +29,28 @@
                   <div class="col-12 display-6 align-center">
                     <%= producto.name%>
                   </div>
+                  <!-- Si el descuento es menor al 5% se imprime el precio normalmente-->
+                  <% if (producto.sale < 0.5) {%>
+
                   <div class="col-12 display-6 align-center">
                     $<%= new Intl.NumberFormat('de-DE').format(producto.price)%>
-                  </div>
+                  </div>  
+
+                  <% } else { %> <!-- Sino, el precio se imprime tachado, se imp el % de descuento y el nuevo precio-->
+
+                  <span style="text-decoration:line-through">
+                    <div class="col-12 display-6 align-center">
+                      $<%= new Intl.NumberFormat('de-DE').format(producto.price)%>
+                    </div>  
+                  </span>
+
                   <div class="col-12 display-6 align-center font-red">
-                    <%= (producto.sale*100)%> % OFF!
+                    <%= (producto.sale*100)%> % OFF! 
+                    $<%= new Intl.NumberFormat('de-DE').format(producto.price * producto.sale)%>
                   </div>
+                  
+                  <% } %>
+                  
                   <div class="col-12"><%= producto.description%></div>
                   <div class="col-12 font-black"><hr class="hr-detail" /></div>
                   <!--agregarle las viñetas-->

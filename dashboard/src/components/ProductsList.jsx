@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { productsInfo } from '../consts/productsInfo';
 
 import { styled } from '@mui/material/styles';

@@ -1,5 +1,5 @@
 import React from "react";
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import { Card, Typography, Grid } from "@mui/material";
 
 // const api = 'https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}'

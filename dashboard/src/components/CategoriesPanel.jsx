@@ -23,5 +23,5 @@ export const data = {
 export default function CategoriesPanel() {
     return <Box sx={{ width: '25rem'}}> 
     <h3 style={{color: 'green'}}>Soy el componente CategoriesPanel</h3> 
-    <Pie data={data} /> </Box>;
+    <Pie data={data}/> </Box>;
 }

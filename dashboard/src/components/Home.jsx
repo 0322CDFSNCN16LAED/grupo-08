@@ -4,7 +4,6 @@ import TotalCard from './TotalCard';
 import {totalCardsInfo} from '../consts/totalCardsInfo';
 import LastRegister from './LastRegister';
 import CategoriesPanel from './CategoriesPanel';
-/// PROBLEMA: NO TOMA ROW PARA PODER PONER AMBAS TOTAL CARD EN LA MISMA LINEA
 
 export default function Home (){
     return (

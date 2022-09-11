@@ -5,6 +5,7 @@ const session = require("express-session");
 const cookies = require("cookie-parser");
 const mainRouters = require("./routers/main-router");
 const userLoggedMiddleware = require("./middlewares/userLoggedMiddleware");
+const apiRouters = require("./routers/api/apiRouter");
 
 const app = express();
 
@@ -31,6 +32,8 @@ app.use(express.json()); // permite convertir la info en formato json
 
 app.use(methodOverride("_method")); // Permite usar metodos HTTP PUT & DELETE
 app.use("/", mainRouters);
+
+app.use("/api", apiRouters)
 
 const PORT = 3005;
 app.listen(PORT, () => {
