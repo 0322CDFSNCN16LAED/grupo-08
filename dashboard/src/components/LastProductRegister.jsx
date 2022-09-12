@@ -133,7 +133,13 @@ export default function LastProductRegister() {
             <Typography paragraph>
             Estilo :   {last.data.style.name }
             </Typography>
-            
+            {!last.data.rooms ?
+            <Typography paragraph>
+            Ambientes  :  Sin datos
+            </Typography>
+            :  <Typography paragraph>
+            Ambientes    : {last.data.rooms.map((r)=> (r.name))} 
+            </Typography>}
         </CardContent>}
       </Collapse>
     </Card>

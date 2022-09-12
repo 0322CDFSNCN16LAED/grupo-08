@@ -9,7 +9,7 @@ module.exports = {
       // all products
       const { rows, count } = await Product.findAndCountAll({
         attributes: ["id", "name", "description", "price", "sale"],
-        include: ["Category", "Colour", "Style", "Installment", "Brand"],
+        include: ["Category", "Colour", "Style", "Installment", "Brand", "Rooms"],
         order: [["name", "ASC"]],
       });
 
@@ -58,6 +58,7 @@ module.exports = {
             price: product.price,
             sale: product.sale,
             brand: product.Brand,
+            rooms:product.Rooms,
           })),
         },
       });
@@ -124,13 +125,14 @@ module.exports = {
           status: 200,
           url: req.originalUrl,
         },
+
         data: {
           id: lastProduct[0].id,
           name: lastProduct[0].name,
           description: lastProduct[0].description,
           price: lastProduct[0].price,
           sale: lastProduct[0].sale,
-          picture: lastProduct[0].picture,
+          picture: `http://localhost:3005${lastProduct[0].picture}`,
           createdAt: lastProduct[0].createdAt,
           urlDetail: lastProduct[0].urlDetail,
           category: lastProduct[0].Category,
