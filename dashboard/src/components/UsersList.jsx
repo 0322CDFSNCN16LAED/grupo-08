@@ -69,7 +69,7 @@ export default function CustomizedTables() {
             <StyledTableCell> Cargando...</StyledTableCell>
             </StyledTableRow>       
             
-        : list.rows.map((user) => (
+        : list.datavalue.map((user) => (
             <StyledTableRow key={user.id}>
               <StyledTableCell component="th" scope="row">
                 {user.name}
