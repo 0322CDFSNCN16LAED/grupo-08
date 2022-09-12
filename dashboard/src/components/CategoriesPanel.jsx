@@ -1,27 +1,59 @@
 import React from 'react';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import { Pie } from 'react-chartjs-2';
-import Box from '@mui/material/Box';
+import {useRef} from 'react';
+import { Link } from 'react-router-dom';
 
-import { categoriesInfo } from '../consts/categoriesInfo'
+import {categoriesInfo} from '../consts/categoriesInfo';
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+import { styled } from '@mui/material/styles';
+import {Box, List, ListItem, ListItemAvatar, ListItemText, ListItemButton, Avatar, Grid, Typography} from '@mui/material';
 
-export const data = {
-    labels: categoriesInfo.map((c) => (c.name)),
-    datasets: [
-        {
-            label: '# of Votes',
-            data:  categoriesInfo.map((c) => (c.cantidad)),
-            backgroundColor: categoriesInfo.map((c) => (c.backgroundColor)),
-            borderColor: categoriesInfo.map((c) => (c.borderColor)),
-            borderWidth: 1,
-        },
-    ],
-};
+
+const Demo = styled('div')(({ theme }) => ({
+  backgroundColor: theme.palette.background.paper,
+  borderColor: '#000000'
+}));
 
 export default function CategoriesPanel() {
-    return <Box sx={{ width: '25rem'}}> 
-    <h3 style={{color: 'green'}}>Soy el componente CategoriesPanel</h3> 
-    <Pie data={data}/> </Box>;
+  const event = useRef();
+    console.log(event)
+
+  return (
+    <Box sx={{ width:'20 rem', backgroundColor: '#c44cb4' }}>
+<h3 style={{color: 'green'}}>Soy el componente CategoriesPanel</h3> 
+      <Grid sx={{ width:'20 rem', backgroundColor: '#c44cb4' }}>
+
+          <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
+            DECO HOME | Categorías de productos disponibles
+          </Typography>
+          <Demo>
+            <List>
+              <Grid container spacing ={2} sx={{ width:'5 rem' , }}>  
+              {categoriesInfo.map((cat) => (
+                <Grid item xs={12} md={4}> 
+                <ListItem
+                key={cat.id}
+                sx={{}}>
+                  <Link to={cat.link}>  
+                  <ListItemButton> 
+                  <ListItemAvatar>
+                    <Avatar> 
+                      {cat.icon}
+                    </Avatar>
+                  </ListItemAvatar>
+                <ListItemText sx= {{fontSize: 22 }} secondary={cat.name} /> 
+                </ListItemButton> 
+
+                </Link>
+                </ListItem>
+                </Grid>
+
+              ))}
+              </Grid>
+            </List>            
+          </Demo>
+
+
+      </Grid>
+    </Box>
+  );
 }

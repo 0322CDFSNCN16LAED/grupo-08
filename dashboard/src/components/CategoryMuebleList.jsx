@@ -1,8 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 
-/// PROBLEMA : algunos porcentajes dedescuento tienen mas de dos decimales. Queda feo
-
 import { styled, Table, TableBody, TableCell, tableCellClasses, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
 
 const EXPRESS_HOST = "http://localhost:3005";
@@ -28,12 +26,12 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-export default function ProductsList() {
+export default function CategoryMuebleList() {
 
   const [list, setList] = useState(null);
   
     useEffect(() => {
-      console.log ('%cSe montó comp ProductsList', 'color: green')
+      console.log ('%cSe montó comp CategoryMuebleList', 'color: green')
       fetch(`${EXPRESS_HOST}/api/products`)
         .then(response => response.json())
         .then(data => {
@@ -43,20 +41,20 @@ export default function ProductsList() {
     }, []);
   
     useEffect(()=> {
-      console.log('%cSe actualizó el comp ProductsList', 'color: yellow');
+      console.log('%cSe actualizó el comp CategoryMuebleList', 'color: yellow');
   }, [list])
 
   return (
     <TableContainer component={Paper}>
-      <h4 style={{color: 'green'}} > Soy el componente ProductsList</h4>
+      <h4 style={{color: 'green'}} > Soy el componente CategoryMuebleList</h4>
 
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
 
         <TableHead>
           <TableRow>
+            <StyledTableCell align="center">Categoría</StyledTableCell>
             <StyledTableCell align="center">Nombre</StyledTableCell>
             <StyledTableCell align="center">Descripción</StyledTableCell>
-            <StyledTableCell align="center">Categoría</StyledTableCell>
             <StyledTableCell align="center">Ambiente</StyledTableCell>
             <StyledTableCell align="center">Estilo</StyledTableCell>
             <StyledTableCell align="center">Precio de lista</StyledTableCell>
@@ -77,8 +75,8 @@ export default function ProductsList() {
               <StyledTableCell component="th" scope="row">
                 {product.name}
               </StyledTableCell>
-              <StyledTableCell align="left">{product.description}</StyledTableCell>
               <StyledTableCell align="center">{product.category.name}</StyledTableCell>
+              <StyledTableCell align="left">{product.description}</StyledTableCell>
               <StyledTableCell align="center">{product.room}</StyledTableCell>
               <StyledTableCell align="center">{product.style.name}</StyledTableCell>
               <StyledTableCell align="center"> $ {product.price}</StyledTableCell>

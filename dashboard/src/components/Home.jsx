@@ -4,7 +4,7 @@ import TotalCard from './TotalCard';
 import {totalCardsInfo} from '../consts/totalCardsInfo';
 import LastProductRegister from './LastProductRegister';
 import LastUserRegister from './LastUserRegister';
-import CategoriesPanel from './CategoriesPanel';
+import CategoriesPieChart from './CategoriesPieChart';
 
 export default function Home (){
     return (
@@ -20,7 +20,7 @@ export default function Home (){
        
           <LastProductRegister/>
           <LastUserRegister/>
-          <CategoriesPanel/>
+          <CategoriesPieChart/>
       </div>
       
     )

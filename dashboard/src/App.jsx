@@ -6,7 +6,9 @@ import NavBar from './components/NavBar';
 import Home from './components/Home';
 import ProductsList from './components/ProductsList';
 import UsersList from './components/UsersList';
-import CategoriesList from './components/CategoriesList';
+import CategoriesPanel from './components/CategoriesPanel';
+import CategoryMuebleList from './components/CategoryMuebleList';
+
 
   
 function App() {
@@ -17,10 +19,12 @@ function App() {
         <NavBar/>
         
         <Switch> 
-        <Route path='/categories' exact= {true} component={CategoriesList}/> 
         <Route path='/' exact= {true} component={Home}/>
         <Route path='/users' exact= {true} component={UsersList}/>
-        <Route path='/products'exact= {true} component={ProductsList}/>             
+        <Route path='/products'exact= {true} component={ProductsList}/>
+        <Route path='/categories' exact= {true} component={CategoriesPanel}/> 
+        <Route path='/categories/muebles' exact= {true} component={CategoryMuebleList}/> 
+
         </Switch> 
         
       </div>
