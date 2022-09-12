@@ -5,11 +5,8 @@ import { styled, Card, CardHeader, CardMedia, CardContent, CardActions } from '@
 import { Collapse, Avatar, IconButton, Typography } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-/// PROBLEMA: CÒMO ERA EL TEMA DE LAS IMAGENES Y LAS URL ESTATICAS?
-/// PROBLEMA: NO ME DEJA COMPARAR SALE CON 0.05, SÍ CON 0... 
-// PROBLEMA: CUANDO TENGA UN PRODUCTO CON ROOMS. COMO IMPRIMO EL ARRAY? MAP?
+/// PROBLEMA: CÒMO ERA EL TEMA DE LAS IMAGENES Y AS URL ESTATICAS?
 // PROBLEMA: FORMATO FECHA CREATEDAT ESTA FEO
-// PROBLEMA: CONVERTIR FREE DELIVERY DE 0/1 A SI O NO
 
 const EXPRESS_HOST = "http://localhost:3005";
 
@@ -24,7 +21,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function LastProductRegister() {
+export default function LastUserRegister() {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -34,8 +31,8 @@ export default function LastProductRegister() {
   const [last, setLast] = useState(null);
 
   useEffect(() => {
-    console.log ('%cSe montó comp LastProductRegister', 'color: green')
-    fetch(`${EXPRESS_HOST}/api/products/lastproductregistered`)
+    console.log ('%cSe montó comp LastUserRegister', 'color: green')
+    fetch(`${EXPRESS_HOST}/api/users/lastuserregistered`)
       .then(response => response.json())
       .then(data => {
         setLast (data);        
@@ -44,9 +41,9 @@ export default function LastProductRegister() {
   }, []);
 
   useEffect(()=> {
-    console.log('%cSe actualizó el comp LastProductRegister', 'color: yellow', {last});
+    console.log('%cSe actualizó el comp LastUserRegister', 'color: yellow', {last});
 }, [last])
-  
+
   return (
     <Card sx={{ maxWidth: 345 }}>
       {!last ? <p> Cargando...</p> :
@@ -56,20 +53,20 @@ export default function LastProductRegister() {
             P
           </Avatar>
         }
-        title="ULTIMO PRODUCTO REGISTRADO"
-        subheader={last.data.createdAt}
+        title="ULTIMO USUARIO REGISTRADO"
+        subheader={last.datavalue.createdAt}
       />}
       {!last ? <p> Cargando...</p> :
       <CardMedia
         component="img"
         height="194"
-        image={last.data.picture}
+        image={last.datavalue.profilePic}
         alt="Imagen del usuario o producto"
       />}
       <CardContent>
         <Typography variant="h5" >
           {!last ? <p> Cargando...</p> 
-          : last.data.name          }
+          : last.datavalue.email   }
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -85,55 +82,55 @@ export default function LastProductRegister() {
       <Collapse in={expanded} timeout="auto" unmountOnExit>
           {!last ? <p> Cargando...</p> :        
           <CardContent>
-          <Typography variant='h6'>Información detallada:</Typography>
+          <Typography variant="h6">Información detallada:</Typography>
           <Typography paragraph>
-            Descripción :{last.data.description }
+            Nombre :{last.datavalue.name }
             </Typography>
           <Typography paragraph>
-            Color :{last.data.colour.name } 
+            Apellido :{last.datavalue.lastname } 
           </Typography>
           <Typography paragraph>
-            Medidas :   {last.data.meassurements }
+            Rol de Usuario :  {last.datavalue.userRole.name }
             </Typography>
             <Typography paragraph>
-            Detalles :   {last.data.details }
+            Teléfono :  {last.datavalue.phoneNumber }
             </Typography>
+            {!last.datavalue.address ?
             <Typography paragraph>
-            Información Extra :   {last.data.extraInfo }
+            Dirección :  Sin datos
             </Typography>
-            <Typography paragraph>
-            Envio Gratis :   {last.data.freeDelivery }
-            </Typography>
-            <Typography paragraph>
-            Precio de Lista $  {last.data.price }
-            </Typography>
-            {!last.data.sale < 0.05  ?
-            <Typography paragraph>
-            Descuento  :  Sin desc
-            </Typography>
-            :  <Typography paragraph sx={{color: 'red'}}>
-            Descuento    : {last.data.sale *100} % 
+            :  <Typography paragraph>
+            Dirección :  {last.datavalue.address.address}
             </Typography>}
-            {!last.data.sale < 0.05 ?
+            {!last.datavalue.address ?
             <Typography paragraph>
-            Precio Final  :  Sin desc
+            Ciudad :  Sin datos
             </Typography>
-            :  <Typography paragraph sx={{color: 'red'}}>
-            Precio Final    : {last.data.price *(1- last.data.sale)} % 
+            :  <Typography paragraph>
+            Ciudad :  {last.datavalue.address.city}
             </Typography>}
-            <Typography paragraph sx={{color: 'green'}}>
-            Cuotas    : {last.data.installments.name}  
-            </Typography>
+            {!last.datavalue.address ?
             <Typography paragraph>
-            Categoría :   {last.data.category.name }
+            Provincia :  Sin datos
             </Typography>
-            <Typography paragraph>
-            Marca :   {last.data.brand.name }
-            </Typography>
-            <Typography paragraph>
-            Estilo :   {last.data.style.name }
-            </Typography>
+            :  <Typography paragraph>
+            Provincia :  {last.datavalue.address.state}
+            </Typography>}
             
+            {!last.datavalue.address ?
+            <Typography paragraph>
+            País :  Sin datos
+            </Typography>
+            :  <Typography paragraph>
+            País :  {last.datavalue.address.country}
+            </Typography>}
+            {!last.datavalue.address ?
+            <Typography paragraph>
+            Código Postal :  Sin datos
+            </Typography>
+            :  <Typography paragraph>
+            Código Postal :  {last.datavalue.address.zipcode}
+            </Typography>}
         </CardContent>}
       </Collapse>
     </Card>

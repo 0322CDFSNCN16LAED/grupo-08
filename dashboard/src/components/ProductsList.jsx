@@ -83,17 +83,17 @@ export default function ProductsList() {
               <StyledTableCell align="center">{product.style.name}</StyledTableCell>
               <StyledTableCell align="center"> $ {product.price}</StyledTableCell>
               
-              { product.sale < 0.5 ?
-              <div> 
+              { product.sale < 0.05 ?              
               <StyledTableCell align="center" color= "red"> Sin descuento</StyledTableCell>
-              <StyledTableCell align="center"> $ {product.price}</StyledTableCell>
-              </div>
-              : (
-              <div>     
+              : 
               <StyledTableCell align="center" sx={{color:"red"}}>{product.sale * 100} %</StyledTableCell>
-              <StyledTableCell align="center" sx={{color:"red"}}> $ {new Intl.NumberFormat('de-DE').format(product.price * product.sale)}</StyledTableCell>
-              </div>
-              )} 
+              }
+              { product.sale < 0.05 ?              
+              <StyledTableCell align="center"> $ {product.price}</StyledTableCell>
+              : 
+              <StyledTableCell align="center" sx={{color:"red"}}> $ {new Intl.NumberFormat('de-DE').format(product.price *(1- product.sale))}</StyledTableCell>
+              }      
+              
             </StyledTableRow>
           ))}
         </TableBody>

@@ -37,7 +37,8 @@ const usersApiController = {
     try {
       let lastUser = await db.User.findAll({
         limit: 1,
-        attributes: ["id", "name", "lastname", "email", "createdAt"],
+        attributes: ["id", "name", "lastname", "email", "createdAt", "profilePic", "phoneNumber"],
+        include: ["userRole", "address"],
         order: [["createdAt", "DESC"]],
       });
       lastUser[0].urlDetail = `http://localhost:3005/api/users/${lastUser[0].id}`;
@@ -52,6 +53,10 @@ const usersApiController = {
           lastname: lastUser[0].lastname,
           email: lastUser[0].email,
           createdAt: lastUser[0].createdAt,
+          phoneNumber: lastUser[0].phoneNumber,
+          userRole: lastUser[0].userRole,
+          address: lastUser[0].address,
+          profilePic: lastUser[0].profilePic,
           urlDetail: lastUser[0].urlDetail,
         },
       });
