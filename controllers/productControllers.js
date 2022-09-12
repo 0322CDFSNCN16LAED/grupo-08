@@ -115,6 +115,7 @@ module.exports = {
     /*const productEdit = await db.Product.findByPk(req.params.id, {
       include: ["Rooms"],
     });*/
+    const resultValidation = validationResult(req);
     const productEdit = await db.Product.findOne({
       where: { id: req.params.id },
       include: ["Rooms"],
@@ -127,17 +128,29 @@ module.exports = {
       }
     );*/
     //res.send(productEdit);
-    const vInstallments = await db.Installment.findAll({
-      order: [["name", "asc"]],
-    });
+    const vInstallments = await db.Installment.findAll({order: [["name", "asc"]],});
     const vCategorys = await db.Category.findAll({ order: [["name", "asc"]] });
     const vRooms = await db.Room.findAll({ order: [["name", "asc"]] });
     const vStyles = await db.Style.findAll({ order: [["name", "asc"]] });
     const vColours = await db.Colour.findAll({ order: [["name", "asc"]] });
     const vBrands = await db.Brand.findAll({ order: [["name", "asc"]] });
     //res.send(productEdit);
-    res.render("products/productos-edit-product", {
-      productoEditar: productEdit,
+    let ambientes = [];
+    if (req.body.rooms) {
+      if (typeof req.body.rooms == "string") {
+        ambientes.push(req.body.rooms);
+      } else {
+        ambientes = req.body.rooms;
+      }
+    }
+    req.body.rooms = ambientes;
+
+    if (resultValidation.errors) {
+      //res.send(req.body);
+    return res.render("products/productos-edit-product", {
+      errors: resultValidation.mapped(), //convierte al array en un obj literal
+      oldData: req.body,
+      productEdit: productEdit,
       vInstallments: vInstallments,
       vCategorys: vCategorys,
       vRooms: vRooms,
@@ -145,8 +158,24 @@ module.exports = {
       vColours: vColours,
       vBrands: vBrands,
     });
-  },
-  // accion de actualizar un producto.
+  } else {
+    try { 
+      await db.RoomProduct.destroy({ where: { productId: productId } });
+      /*if (ambientes.length > 0) {
+        ambientes.forEach(async (element) => {
+          await db.RoomProduct.create({
+            roomId: element,
+            productId: productId,
+          });
+        });
+      }*/
+      res.redirect("/products");
+    } catch (error) {
+      res.send("aca hay un error  " + error);
+    }
+  }
+},
+    // accion de actualizar un producto.
   update: async (req, res) => {
     let productId = req.params.id;
     const resultValidation = validationResult(req);
