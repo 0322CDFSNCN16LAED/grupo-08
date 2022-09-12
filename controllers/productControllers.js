@@ -55,9 +55,7 @@ module.exports = {
     //para hacer la validacion
     const resultValidation = validationResult(req);
     // llamo a las variables
-    let vInstallments = await db.Installment.findAll({
-      order: [["name", "asc"]],
-    });
+    let vInstallments = await db.Installment.findAll({order: [["name", "asc"]],});
     let vCategorys = await db.Category.findAll({ order: [["name", "asc"]] });
     let vRooms = await db.Room.findAll({ order: [["name", "asc"]] });
     let vStyles = await db.Style.findAll({ order: [["name", "asc"]] });
@@ -115,7 +113,6 @@ module.exports = {
     /*const productEdit = await db.Product.findByPk(req.params.id, {
       include: ["Rooms"],
     });*/
-    const resultValidation = validationResult(req);
     const productEdit = await db.Product.findOne({
       where: { id: req.params.id },
       include: ["Rooms"],
@@ -135,6 +132,53 @@ module.exports = {
     const vColours = await db.Colour.findAll({ order: [["name", "asc"]] });
     const vBrands = await db.Brand.findAll({ order: [["name", "asc"]] });
     //res.send(productEdit);
+    res.render("products/productos-edit-product", {
+      
+      productoEditar: productEdit,
+      vInstallments: vInstallments,
+      vCategorys: vCategorys,
+      vRooms: vRooms,
+      vStyles: vStyles,
+      vColours: vColours,
+      vBrands: vBrands,
+    });
+  },
+    // accion de actualizar un producto.
+  update: async (req, res) => {
+    let productId = req.params.id;
+
+    const resultValidation = validationResult(req);
+  
+    //const oldProduct = db.Product.findByPk(productoId);
+
+    const oldProduct = db.Product.findByPk(req.params.id);
+    const productEdit = await db.Product.findOne({
+      where: { id: req.params.id },
+      include: ["Rooms"],
+      paranoid: true,
+    });
+    /*const vInstallments = req.body.installmentId
+    const vCategorys = req.body.categoryId 
+    const vRooms = req.body.rooms
+    const vStyles = req.body.styleId  
+    const vColours = req.body.colourId   
+    const vBrands = req.body.brandId */
+
+    const vInstallments = await db.Installment.findAll({order: [["name", "asc"]],});
+    const vCategorys = await db.Category.findAll({ order: [["name", "asc"]] });
+    const vRooms = await db.Room.findAll({ order: [["name", "asc"]] });
+    const vStyles = await db.Style.findAll({ order: [["name", "asc"]] });
+    const vColours = await db.Colour.findAll({ order: [["name", "asc"]] });
+    const vBrands = await db.Brand.findAll({ order: [["name", "asc"]] });
+  
+    /*const vInstallments = db.Installment.findByPk(req.params.id);
+    const vCategorys = db.Category.findByPk(req.params.id);
+    const vRooms = db.Room.findByPk(req.params.id);
+    const vStyles = db.Style.findByPk(req.params.id);
+    const vColours = db.Colour.findByPk(req.params.id);
+    const vBrands = db.Brand.findByPk(req.params.id);
+    res.send(req.body);*/
+
     let ambientes = [];
     if (req.body.rooms) {
       if (typeof req.body.rooms == "string") {
@@ -147,44 +191,10 @@ module.exports = {
 
     if (resultValidation.errors) {
       //res.send(req.body);
-    return res.render("products/productos-edit-product", {
-      errors: resultValidation.mapped(), //convierte al array en un obj literal
-      oldData: req.body,
-      productEdit: productEdit,
-      vInstallments: vInstallments,
-      vCategorys: vCategorys,
-      vRooms: vRooms,
-      vStyles: vStyles,
-      vColours: vColours,
-      vBrands: vBrands,
-    });
-  } else {
-    try { 
-      await db.RoomProduct.destroy({ where: { productId: productId } });
-      /*if (ambientes.length > 0) {
-        ambientes.forEach(async (element) => {
-          await db.RoomProduct.create({
-            roomId: element,
-            productId: productId,
-          });
-        });
-      }*/
-      res.redirect("/products");
-    } catch (error) {
-      res.send("aca hay un error  " + error);
-    }
-  }
-},
-    // accion de actualizar un producto.
-  update: async (req, res) => {
-    let productId = req.params.id;
-    const resultValidation = validationResult(req);
-    const oldProduct = db.Product.findByPk(productId);
-
-    if (resultValidation.errors.length > 0) {
       return res.render("products/productos-edit-product", {
         errors: resultValidation.mapped(), //convierte al array en un obj literal
         oldData: req.body,
+        productoEditar: oldProduct,
         vInstallments,
         vCategorys,
         vStyles,
