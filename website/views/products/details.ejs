@@ -46,7 +46,7 @@
 
                   <div class="col-12 display-6 align-center font-red">
                     <%= (producto.sale*100)%> % OFF! 
-                    $<%= new Intl.NumberFormat('de-DE').format(producto.price * producto.sale)%>
+                    $<%= new Intl.NumberFormat('de-DE').format(producto.price *(1- producto.sale))%>
                   </div>
                   
                   <% } %>

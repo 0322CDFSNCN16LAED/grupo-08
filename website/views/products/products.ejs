@@ -85,7 +85,7 @@
   
                     <p class="display-6 font-red">
                       <%= (product.sale*100)%> % OFF! 
-                      $<%= new Intl.NumberFormat('de-DE').format(product.price * product.sale)%>
+                      $<%= new Intl.NumberFormat('de-DE').format(product.price * (1- product.sale))%>
                     </p>
                     
                     <% } %>
