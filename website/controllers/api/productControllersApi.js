@@ -1,8 +1,6 @@
 const db = require("../../database/models");
 const { Product, sequelize } = require("../../database/models");
 
-const productControllers = require("../productControllers");
-
 module.exports = {
   list: async (req, res) => {
     const limit = 10;
@@ -10,13 +8,7 @@ module.exports = {
     try {
       // all products
       const { rows, count } = await Product.findAndCountAll({
-<<<<<<< HEAD
         attributes: ["id", "name", "description", "picture", "price", "sale"],
-=======
-        limit: limit,
-        offset: offset * limit,
-        attributes: ["id", "name", "description", "picture"],
->>>>>>> d88d9957d4263b316e73f99ddfb60399f3a177a8
         include: ["Category", "Colour", "Style", "Installment", "Brand"],
         order: [["name", "ASC"]],
       });
