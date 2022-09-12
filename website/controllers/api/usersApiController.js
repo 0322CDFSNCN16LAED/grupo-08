@@ -9,6 +9,7 @@ const usersApiController = {
         limit: limite,
         offset: offset * limite,
         attributes: ["id", "name", "lastname", "email", "createdAt"],
+        include: ["userRole", "address"],
       });
 
       res.status(200).json({
@@ -19,6 +20,8 @@ const usersApiController = {
           lastname: obj.lastname,
           email: obj.email,
           createdAt: obj.createdAt,
+          userRole: obj.userRole,
+          address: obj.address,
           urlDetail: `http://localhost:3005/api/users/${obj.id}`,
         })),
       });

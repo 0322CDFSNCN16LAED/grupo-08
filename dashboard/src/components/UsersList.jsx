@@ -53,9 +53,12 @@ export default function CustomizedTables() {
         <TableHead>
           <TableRow>
             <StyledTableCell>Nombre</StyledTableCell>
-            <StyledTableCell align="right">Apellido</StyledTableCell>
-            <StyledTableCell align="right">Mail</StyledTableCell>
-            <StyledTableCell align="right">Fecha de registro</StyledTableCell>
+            <StyledTableCell align="center">Apellido</StyledTableCell>
+            <StyledTableCell align="center">Rol de usuario</StyledTableCell>
+            <StyledTableCell align="center">Mail</StyledTableCell>
+            <StyledTableCell align="center">Ciudad</StyledTableCell>
+            <StyledTableCell align="center">País</StyledTableCell>
+            <StyledTableCell align="center">Fecha de registro</StyledTableCell>
 
           </TableRow>
         </TableHead>
@@ -71,9 +74,14 @@ export default function CustomizedTables() {
               <StyledTableCell component="th" scope="row">
                 {user.name}
               </StyledTableCell>
-              <StyledTableCell align="right">{user.lastname}</StyledTableCell>
-              <StyledTableCell align="right">{user.email}</StyledTableCell>
-              <StyledTableCell align="right">{user.createdAt}</StyledTableCell>
+              <StyledTableCell align="left">{user.lastname}</StyledTableCell>
+              <StyledTableCell align="left">{user.userRole.name}</StyledTableCell>
+              <StyledTableCell align="center">{user.email}</StyledTableCell>
+              {!user.address ? 'Sin  datos':
+              <StyledTableCell align="center"> {user.address.country}  </StyledTableCell>}
+              {!user.address ? '' :
+              <StyledTableCell align="center">{user.address.city}</StyledTableCell>}
+              <StyledTableCell align="center">{user.createdAt}</StyledTableCell>
 
               
             </StyledTableRow>
