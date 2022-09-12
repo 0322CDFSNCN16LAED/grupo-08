@@ -13,7 +13,7 @@ const usersApiController = {
 
       res.status(200).json({
         count: count,
-        rows: rows.map((obj) => ({
+        datavalue: rows.map((obj) => ({
           id: obj.id,
           name: obj.name,
           lastname: obj.lastname,
@@ -23,7 +23,6 @@ const usersApiController = {
         })),
       });
     } catch (error) {
-      console.error(error);
       res.status(500).json({
         status: 500,
         url: `http://localhost:3005${req.originalUrl}`,
@@ -44,7 +43,7 @@ const usersApiController = {
           status: 200,
           url: req.originalUrl,
         },
-        data: {
+        datavalue: {
           id: lastUser[0].id,
           name: lastUser[0].name,
           lastname: lastUser[0].lastname,
@@ -83,7 +82,7 @@ const usersApiController = {
           status: 200,
           url: req.originalUrl,
         },
-        data: user,
+        datavalue: user,
       });
     } catch (error) {
       console.error(error);
