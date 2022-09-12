@@ -10,7 +10,7 @@ module.exports = {
     try {
       // all products
       const { rows, count } = await Product.findAndCountAll({
-        attributes: ["id", "name", "description", "picture"],
+        attributes: ["id", "name", "description", "picture", "price", "sale"],
         include: ["Category", "Colour", "Style", "Installment", "Brand"],
         order: [["name", "ASC"]],
       });
@@ -31,19 +31,20 @@ module.exports = {
           status: 200,
           url: req.originalUrl,
         },
-        data: {
-          total: count,
+        datavalue: {
+          count: count, 
           countByCategory: totalByCategory,
           products: rows.map((product) => ({
             id: product.id,
             name: product.name,
-            description: product.name,
+            description: product.description,
             url: `http://localhost:3005/api/products/${product.id}`,
-            Category: product.Category,
-            Colour: product.Colour,
-            Style: product.Style,
-            Installment: product.Installment,
-            Brand: product.Brand,
+            category: product.Category,
+            colour: product.Colour,
+            style: product.Style,
+            price: product.price,
+            sale: product.sale,
+            brand: product.Brand,
           })),
         },
       });

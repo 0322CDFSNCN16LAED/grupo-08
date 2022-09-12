@@ -28,7 +28,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-export default function CustomizedTables() {
+export default function ProductsList() {
 
   const [list, setList] = useState(null);
   
@@ -72,15 +72,15 @@ export default function CustomizedTables() {
         <StyledTableRow align="right">
             <StyledTableCell> Cargando...</StyledTableCell>
             </StyledTableRow>    
-          : list.rows.map((product) => (
+          : list.datavalue.products.map((product) => (
             <StyledTableRow key={product.id}>
               <StyledTableCell component="th" scope="row">
                 {product.name}
               </StyledTableCell>
               <StyledTableCell align="left">{product.description}</StyledTableCell>
-              <StyledTableCell align="center">{product.category}</StyledTableCell>
-              <StyledTableCell align="center">{product.roomId}</StyledTableCell>
-              <StyledTableCell align="center">{product.style}</StyledTableCell>
+              <StyledTableCell align="center">{product.category.name}</StyledTableCell>
+              <StyledTableCell align="center">{product.room}</StyledTableCell>
+              <StyledTableCell align="center">{product.style.name}</StyledTableCell>
               <StyledTableCell align="center"> $ {product.price}</StyledTableCell>
               
               { product.sale < 0.5 ?
