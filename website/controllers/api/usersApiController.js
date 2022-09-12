@@ -8,7 +8,7 @@ const usersApiController = {
       const { rows, count } = await db.User.findAndCountAll({
         limit: limite,
         offset: offset * limite,
-        attributes: ["id", "name","lastname", "email", "createdAt"],
+        attributes: ["id", "name", "lastname", "email", "createdAt"],
       });
 
       res.status(200).json({
@@ -31,32 +31,60 @@ const usersApiController = {
       });
     }
   },
-
-  /* 
   lastUserRegistered: async (req, res) => {
-    let lastUser = await db.User.findOne({
-      attributes: ["name", "id"],
-      having: Math.min("createdAt"),
-    });
-    console.log(lastUser);
-    res.send({ user: lastUser });
+    try {
+      let lastUser = await db.User.findAll({
+        limit: 1,
+        attributes: ["id", "name", "lastname", "email", "createdAt"],
+        order: [["createdAt", "DESC"]],
+      });
+      lastUser[0].urlDetail = `http://localhost:3005/api/users/${lastUser[0].id}`;
+      res.status(200).json({
+        meta: {
+          status: 200,
+          url: req.originalUrl,
+        },
+        data: {
+          id: lastUser[0].id,
+          name: lastUser[0].name,
+          lastname: lastUser[0].lastname,
+          email: lastUser[0].email,
+          createdAt: lastUser[0].createdAt,
+          urlDetail: lastUser[0].urlDetail,
+        },
+      });
+    } catch (error) {
+      res.status(500).json({
+        meta: {
+          status: 500,
+          url: req.originalUrl,
+          errorName: error.name,
+          errorMsg: error.msg,
+        },
+      });
+    }
   },
-  */
-
   detail: async function (req, res) {
     try {
-      let user = await db.User.findByPk(
-        req.params.id,
-        {
-          attributes: { exclude: ["password", "UserRoleId", "userRoleId"] },
+      let user = await db.User.findByPk(req.params.id, {
+        attributes: {
+          exclude: [
+            "password",
+            "UserRoleId",
+            "userRoleId",
+            "deletedAt",
+            "updatedAt",
+          ],
         },
-        {
-          where: { id: req.params.id },
-        }
-      );
-
-      (user.profileDetail = `http://localhost:3005/images/usersProfiles/${user.profilePic}`),
-        res.status(200).json([{ user: user, urlPic: user.profileDetail }]);
+      });
+      user.profilePic = `http://localhost:3005/images/usersProfiles/${user.profilePic}`;
+      res.status(200).json({
+        meta: {
+          status: 200,
+          url: req.originalUrl,
+        },
+        data: user,
+      });
     } catch (error) {
       console.error(error);
       res.status(500).json({
