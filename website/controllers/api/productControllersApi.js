@@ -8,7 +8,7 @@ module.exports = {
     try {
       // all products
       const { rows, count } = await Product.findAndCountAll({
-        attributes: ["id", "name", "description", "picture", "price", "sale"],
+        attributes: ["id", "name", "description", "price", "sale"],
         include: ["Category", "Colour", "Style", "Installment", "Brand"],
         order: [["name", "ASC"]],
       });
@@ -113,7 +113,8 @@ module.exports = {
     try {
       let lastProduct = await db.Product.findAll({
         limit: 1,
-        attributes: ["id", "name", "description", "price", "createdAt"],
+        attributes: ["id", "name", "description","price", "sale", "picture", "createdAt", "measurements", "details", "extraInfo", "freeDelivery"],
+        include: ["Category", "Colour", "Style", "Installment", "Rooms", "Brand"],
         order: [["createdAt", "DESC"]],
       });
       lastProduct[0].urlDetail = `http://localhost:3005/api/products/${lastProduct[0].id}`;
@@ -126,11 +127,22 @@ module.exports = {
         data: {
           id: lastProduct[0].id,
           name: lastProduct[0].name,
-          lastname: lastProduct[0].lastname,
           description: lastProduct[0].description,
           price: lastProduct[0].price,
+          sale: lastProduct[0].sale,
+          picture: lastProduct[0].picture,
           createdAt: lastProduct[0].createdAt,
           urlDetail: lastProduct[0].urlDetail,
+          category: lastProduct[0].Category,
+          colour: lastProduct[0].Colour,
+          style: lastProduct[0].Style,          
+          rooms: lastProduct[0].Rooms,          
+          brand: lastProduct[0].Brand,          
+          installments: lastProduct[0].Installment,
+          measurements: lastProduct[0].measurements,
+          details: lastProduct[0].details,
+          extraInfo: lastProduct[0].extraInfo,
+          freeDelivery: lastProduct[0].freeDelivery
         },
       });
     } catch (error) {

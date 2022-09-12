@@ -2,7 +2,7 @@ import React from 'react';
 
 import TotalCard from './TotalCard';
 import {totalCardsInfo} from '../consts/totalCardsInfo';
-import LastRegister from './LastRegister';
+import LastProductRegister from './LastProductRegister';
 import CategoriesPanel from './CategoriesPanel';
 
 export default function Home (){
@@ -17,8 +17,8 @@ export default function Home (){
             })}         
           </div>          
        
-          <LastRegister/>
-          <LastRegister/> 
+          <LastProductRegister/>
+ 
           <CategoriesPanel/>
       </div>
       
