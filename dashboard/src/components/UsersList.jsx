@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 
 import { styled, Paper } from '@mui/material';
-import { Table, TableBody, TableCell, tableCellClasses, TableContainer, TableHead,TableRow} from '@mui/material';
+import { Table, TableBody, TableCell, tableCellClasses, TableContainer, TableHead, TableRow, Typography} from '@mui/material';
 
 const EXPRESS_HOST = "http://localhost:3005";
 
@@ -47,7 +47,7 @@ export default function CustomizedTables() {
   return (
     
     <TableContainer component={Paper}>
-      <h4 style={{color: 'green'}} > Soy el componente UsersList</h4>
+    <Typography variant="h6" component="div" color='#d56b27'>  LISTADO DE USUARIOS REGISTRADOS</Typography>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
 
         <TableHead>

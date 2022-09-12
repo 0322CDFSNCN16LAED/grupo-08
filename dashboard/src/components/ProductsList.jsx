@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 
 /// PROBLEMA : algunos porcentajes dedescuento tienen mas de dos decimales. Queda feo
 
-import { styled, Table, TableBody, TableCell, tableCellClasses, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
+import { styled, Table, TableBody, TableCell, tableCellClasses, TableContainer, TableHead, TableRow, Paper, Typography } from '@mui/material';
 
 const EXPRESS_HOST = "http://localhost:3005";
 
@@ -48,8 +48,7 @@ export default function ProductsList() {
 
   return (
     <TableContainer component={Paper}>
-      <h4 style={{color: 'green'}} > Soy el componente ProductsList</h4>
-
+    <Typography variant="h6" component="div" color='#d56b27'>  LISTADO DE PRODUCTOS EN VENTA</Typography>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
 
         <TableHead>

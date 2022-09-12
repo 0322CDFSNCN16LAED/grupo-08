@@ -19,7 +19,6 @@ export default function CategoriesPanel() {
 
   return (
     <Box sx={{ width:'20 rem', backgroundColor: '#c44cb4' }}>
-<h3 style={{color: 'green'}}>Soy el componente CategoriesPanel</h3> 
       <Grid sx={{ width:'20 rem', backgroundColor: '#c44cb4' }}>
 
           <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
