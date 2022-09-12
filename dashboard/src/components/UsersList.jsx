@@ -57,6 +57,7 @@ export default function CustomizedTables() {
             <StyledTableCell align="center">Rol de usuario</StyledTableCell>
             <StyledTableCell align="center">Mail</StyledTableCell>
             <StyledTableCell align="center">Ciudad</StyledTableCell>
+            <StyledTableCell align="center">Provincia</StyledTableCell>
             <StyledTableCell align="center">País</StyledTableCell>
             <StyledTableCell align="center">Fecha de registro</StyledTableCell>
 
@@ -77,13 +78,26 @@ export default function CustomizedTables() {
               <StyledTableCell align="left">{user.lastname}</StyledTableCell>
               <StyledTableCell align="left">{user.userRole.name}</StyledTableCell>
               <StyledTableCell align="center">{user.email}</StyledTableCell>
-              {!user.address ? 'Sin  datos':
-              <StyledTableCell align="center"> {user.address.country}  </StyledTableCell>}
-              {!user.address ? '' :
-              <StyledTableCell align="center">{user.address.city}</StyledTableCell>}
-              <StyledTableCell align="center">{user.createdAt}</StyledTableCell>
-
-              
+              { !user.address ?             
+              <StyledTableCell align="center"> Sin datos </StyledTableCell>
+              : 
+              <StyledTableCell align="center">  {user.address.city}</StyledTableCell>
+              }   
+              { !user.address ?             
+              <StyledTableCell align="center"> Sin datos </StyledTableCell>
+              : 
+              <StyledTableCell align="center">  {user.address.state}</StyledTableCell>
+              } 
+              { !user.address ?             
+              <StyledTableCell align="center"> Sin datos </StyledTableCell>
+              : 
+              <StyledTableCell align="center">  {user.address.country}</StyledTableCell>
+              } 
+              { !user.createdAt ?             
+              <StyledTableCell align="center"> Sin datos </StyledTableCell>
+              : 
+              <StyledTableCell align="center">  {user.createdAt}</StyledTableCell>
+              }               
             </StyledTableRow>
           ))}
         </TableBody>
