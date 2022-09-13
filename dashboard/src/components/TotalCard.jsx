@@ -33,13 +33,10 @@ export default function TotalCard ({ title, icon, text }) {
   return (
  
     <Box sx={{ width: '20rem' }}>
-      <h4 style={{color: 'green'}}>Soy el componente TotalCard </h4> 
       <Card variant="outlined">
       <CardContent>
       <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
         {bull} DECO HOME {bull}
-
-        
       </Typography>
       <Box>
         <Typography variant="h6" component="div" color='#d56b27'>

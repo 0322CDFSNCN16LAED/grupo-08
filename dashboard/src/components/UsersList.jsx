@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 
 import { styled, Paper } from '@mui/material';
-import { Table, TableBody, TableCell, tableCellClasses, TableContainer, TableHead,TableRow} from '@mui/material';
+import { Table, TableBody, TableCell, tableCellClasses, TableContainer, TableHead, TableRow, Typography} from '@mui/material';
 
 const EXPRESS_HOST = "http://localhost:3005";
 
@@ -47,8 +47,8 @@ export default function CustomizedTables() {
   return (
     
     <TableContainer component={Paper}>
-      <h4 style={{color: 'green'}} > Soy el componente UsersList</h4>
-      <Table sx={{ minWidth: 700 }} aria-label="customized table">
+    <Typography sx={{ marginTop:'1rem', marginLeft:'1rem' }} variant="h6" component="div" color='#d56b27'>  LISTADO DE USUARIOS REGISTRADOS</Typography>
+      <Table sx={{ minWidth: 700, marginTop:'1rem', marginRight:'1rem', marginLeft:'1rem'}} aria-label="customized table">
 
         <TableHead>
           <TableRow>
@@ -57,6 +57,7 @@ export default function CustomizedTables() {
             <StyledTableCell align="center">Rol de usuario</StyledTableCell>
             <StyledTableCell align="center">Mail</StyledTableCell>
             <StyledTableCell align="center">Ciudad</StyledTableCell>
+            <StyledTableCell align="center">Provincia</StyledTableCell>
             <StyledTableCell align="center">País</StyledTableCell>
             <StyledTableCell align="center">Fecha de registro</StyledTableCell>
 
@@ -77,13 +78,26 @@ export default function CustomizedTables() {
               <StyledTableCell align="left">{user.lastname}</StyledTableCell>
               <StyledTableCell align="left">{user.userRole.name}</StyledTableCell>
               <StyledTableCell align="center">{user.email}</StyledTableCell>
-              {!user.address ? 'Sin  datos':
-              <StyledTableCell align="center"> {user.address.country}  </StyledTableCell>}
-              {!user.address ? '' :
-              <StyledTableCell align="center">{user.address.city}</StyledTableCell>}
-              <StyledTableCell align="center">{user.createdAt}</StyledTableCell>
-
-              
+              { !user.address ?             
+              <StyledTableCell align="center"> Sin datos </StyledTableCell>
+              : 
+              <StyledTableCell align="center">  {user.address.city}</StyledTableCell>
+              }   
+              { !user.address ?             
+              <StyledTableCell align="center"> Sin datos </StyledTableCell>
+              : 
+              <StyledTableCell align="center">  {user.address.state}</StyledTableCell>
+              } 
+              { !user.address ?             
+              <StyledTableCell align="center"> Sin datos </StyledTableCell>
+              : 
+              <StyledTableCell align="center">  {user.address.country}</StyledTableCell>
+              } 
+              { !user.createdAt ?             
+              <StyledTableCell align="center"> Sin datos </StyledTableCell>
+              : 
+              <StyledTableCell align="center">  {user.createdAt}</StyledTableCell>
+              }               
             </StyledTableRow>
           ))}
         </TableBody>
