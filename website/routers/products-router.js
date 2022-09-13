@@ -39,7 +39,7 @@ router.post(
 /* Buscar producto */
 router.get("/search", productControllers.search);
 
-router.get("/category", productControllers.categMueble);
+router.get("/category/:name", productControllers.categMueble);
 
 /* Ver detalle de un producto*/
 router.get("/:id", productControllers.detail);

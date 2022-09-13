@@ -187,22 +187,19 @@ module.exports = {
     }
   },
 
-
-
-
-
   categMueble: async function (req, res) {
 
-    let Categorys = await db.Category.findAll({ order: [["name", "asc"]] });
+    //let Categorys = await db.Category.findAll({ order: [["name", "asc"]] });
 
-    db.Product.findAll({
+    const mueble = await db.Product.findAll({
       include: ["Category"],
       order: [["name", "ASC"]],
-      //where: { categoryId: req.params.categoryId }, 
-        }). res.render("products/category", {
-          });
-        }
-
-}
+      where: {{Category.name: req.params.name}}, 
+        })
+       // console.log(mueble)
+     res.send(mueble)
+     // res.render("products/products", { productos: mueble });
+        
+}}
         
 
