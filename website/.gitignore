@@ -8,7 +8,6 @@ lerna-debug.log*
 
 #Mariana
 notas
-database/seeders/20220817001548-productos-db-json.js
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json

@@ -34,7 +34,7 @@ const basicRegisterValidations = [
     .notEmpty()
     .withMessage("Debe ingresar el país correspondiente"),
   body("zipCode").notEmpty().withMessage("Debe ingresar su código postal"),
-  body("password")
+  /*body("password")
     .matches(/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/)
     .withMessage(
       "La contraseña debe tener letras mayúsculas, minusculcas, un numero, un carácter especial y minimo 8caracteres."
@@ -45,7 +45,7 @@ const basicRegisterValidations = [
     } else {
       return true;
     }
-  }),
+  }),*/
 ];
 
 module.exports = basicRegisterValidations;
