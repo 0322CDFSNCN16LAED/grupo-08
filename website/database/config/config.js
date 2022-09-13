@@ -1,7 +1,7 @@
 module.exports = {
   development: {
     username: "root",
-    password: "simbolo1281",
+    password: "",
     port: "3306",
     database: "decohome",
     host: "127.0.0.1",
