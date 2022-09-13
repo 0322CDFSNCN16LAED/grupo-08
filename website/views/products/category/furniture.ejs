@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--HEAD -->
+    <%- include('../partials/head', {title: 'Todos los productos'}) %>
+  </head>
+  <body>
+    <!--HEADER -->
+    <%- include('../partials/header') %>
+
+    <!--MAIN -->
+    <main>
+      <!--Si el usuario loggeado tiene rol de vendedor, se muestra el boton de crear nuevo producto-->
+      <% if(locals.isLogged) {%>
+      <% if (locals.userLogged.userRole.name == 'seller') { %> 
+      <div class="col-12 text-align-r mt-3">
+        <a href="/products/create">
+          <button
+            type="button"
+            class="btn btn-secondary mr-1"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="Crear un producto"
+          >
+            Crear <i class="fas fa-plus"></i>
+          </button>
+        </a>
+      </div>
+      <% } %> 
+      <% } %>
+      <!--agregar un input para hacer busquedas por categoria-->
+      <div class="mlr-5 mt-3">
+        <label for="categoriaList" class="form-label"
+          >Categorias de productos</label
+        >
+        <input
+          class="form-control"
+          list="opciones"
+          id="categoriaList"
+          placeholder="Escribe para buscar..."
+        />
+        <datalist id="opciones">
+          <option value="Iluminación"></option>
+          <option value="Muebles"></option>
+          <option value="Minimalista"></option>
+          <option value="Vintage"></option>
+          <option value="Bohemio"></option>
+        </datalist>
+      </div>
+      <!-- se listan todos los productos-->
+      <div class="container products-wrapper overflow-hidden">
+        <!--row para titulo-->
+        <div class="row">
+          <div class="col-12">
+            <h2 class="products-title align-center">Todos los productos</h2>
+          </div>
+          <!--caja para cada producto -->
+          <% productos.forEach(product => {%>
+          <article class="col-12 col-sm-6 col-lg-3">
+            <a href="/products/<%=product.id%>">
+              <div class="card p-3 product-box">
+                <img
+                  src="<%=product.picture%>"
+                  alt=""
+                  class="product-box_image"
+                />
+
+                <div class="card-body align-center">
+                  <p class="display-6"><strong><%= product.name%></strong></p>
+                  <p class="display-6"><%= product.Category.name%></p>
+                <!-- Si el descuento es menor al 5% se imprime el precio normalmente-->
+                <% if (product.sale < 0.5) {%>
+
+                  <p class="display-6">
+                    $<%= new Intl.NumberFormat('de-DE').format(product.price)%>
+                  </p>  
+                <!-- Sino, el precio se imprime tachado, se imp el % de descuento y el nuevo precio-->
+                  <% } else { %> 
+
+                  <span style="text-decoration:line-through">
+                    <p class="display-6">
+                      $<%= new Intl.NumberFormat('de-DE').format(product.price)%>
+                    </p>  
+                  </span>
+
+                  <p class="display-6 font-red">
+                    <%= (product.sale*100)%> % OFF! 
+                    $<%= new Intl.NumberFormat('de-DE').format(product.price * product.sale)%>
+                  </p>
+                  
+                  <% } %>
+
+
+                  <span class="inline-block">
+                    <a
+                      href="/products/"
+                      class="btn btn-outline-primary btn-lg product-btn"
+                      >AGREGAR AL CARRITO</a
+                    >
+                  </span>
+                </div>
+              </div>
+            </a>
+          </article>
+          <% }) %>
+        </div>
+        <!-- fin del row -->
+      </div>
+    </main>
+
+    <!--FOOTER -->
+    <%- include('../partials/footer') %>
+  </body>
+</html>

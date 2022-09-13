@@ -186,4 +186,23 @@ module.exports = {
       res.send("search error ---> " + error);
     }
   },
-};
+
+
+
+
+
+  categMueble: async function (req, res) {
+
+    let Categorys = await db.Category.findAll({ order: [["name", "asc"]] });
+
+    db.Product.findAll({
+      include: ["Category"],
+      order: [["name", "ASC"]],
+      //where: { categoryId: req.params.categoryId }, 
+        }). res.render("products/category", {
+          });
+        }
+
+}
+        
+
