@@ -14,7 +14,7 @@ import CategoryMuebleList from './components/CategoryMuebleList';
 function App() {
   return (
       <div className="App" 
-      style={{marginLeft: '15rem', marginTop: '12rem' }}>
+      style={{marginLeft: '13rem', marginTop: '11rem', backgroundColor: '#ebebeb' }}>
         <TopBar/> 
         <NavBar/>
         

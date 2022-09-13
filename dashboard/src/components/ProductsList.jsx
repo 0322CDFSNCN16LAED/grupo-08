@@ -48,8 +48,8 @@ export default function ProductsList() {
 
   return (
     <TableContainer component={Paper}>
-    <Typography variant="h6" component="div" color='#d56b27'>  LISTADO DE PRODUCTOS EN VENTA</Typography>
-      <Table sx={{ minWidth: 700 }} aria-label="customized table">
+    <Typography sx={{ marginTop:'1rem', marginLeft:'1rem' }}  variant="h6" component="div" color='#d56b27'>  LISTADO DE PRODUCTOS EN VENTA</Typography>
+      <Table sx={{ minWidth: 700, marginTop:'1rem', marginLeft:'1rem' }} aria-label="customized table">
 
         <TableHead>
           <TableRow>
@@ -78,7 +78,11 @@ export default function ProductsList() {
               </StyledTableCell>
               <StyledTableCell align="left">{product.description}</StyledTableCell>
               <StyledTableCell align="center">{product.category.name}</StyledTableCell>
-              <StyledTableCell align="center">{product.room}</StyledTableCell>
+              { (product.rooms == '') ?              
+              <StyledTableCell align="center" > Sin datos </StyledTableCell>
+              : 
+              <StyledTableCell align="center">{product.rooms.map((r)=> (r.name))} </StyledTableCell>
+              }            
               <StyledTableCell align="center">{product.style.name}</StyledTableCell>
               <StyledTableCell align="center"> $ {product.price}</StyledTableCell>
               

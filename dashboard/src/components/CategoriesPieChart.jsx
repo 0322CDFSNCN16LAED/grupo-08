@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
-import {Box, Typography }from '@mui/material';
+import { Card, Grid, Typography }from '@mui/material';
 
 import { categoriesInfo } from '../consts/categoriesInfo'
 
@@ -41,8 +41,10 @@ export default function CategoriesPieChart() {
         },
     ],
 };
-    return <Box sx={{ width: '25rem'}}> 
+    return <Grid sx={4}> 
+    <Card variant="outlined">
     <Typography variant="h5" component="div" color='#d56b27'>CANTIDAD DE PRODUCTOS POR CATEGORÍA</Typography>
-    
-    <Pie data={data}/> </Box>;
+    <Card variant="outlined"> 
+    <Pie data={data}/> </Card>
+    </Card> </Grid> ; 
 }

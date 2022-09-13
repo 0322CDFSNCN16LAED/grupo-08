@@ -47,8 +47,8 @@ export default function CustomizedTables() {
   return (
     
     <TableContainer component={Paper}>
-    <Typography variant="h6" component="div" color='#d56b27'>  LISTADO DE USUARIOS REGISTRADOS</Typography>
-      <Table sx={{ minWidth: 700 }} aria-label="customized table">
+    <Typography sx={{ marginTop:'1rem', marginLeft:'1rem' }} variant="h6" component="div" color='#d56b27'>  LISTADO DE USUARIOS REGISTRADOS</Typography>
+      <Table sx={{ minWidth: 700, marginTop:'1rem', marginRight:'1rem', marginLeft:'1rem'}} aria-label="customized table">
 
         <TableHead>
           <TableRow>
