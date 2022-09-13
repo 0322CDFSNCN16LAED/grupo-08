@@ -78,7 +78,7 @@ export default function ProductsList() {
               </StyledTableCell>
               <StyledTableCell align="left">{product.description}</StyledTableCell>
               <StyledTableCell align="center">{product.category.name}</StyledTableCell>
-              { (product.rooms == '') ?              
+              { (product.rooms === '') ?              
               <StyledTableCell align="center" > Sin datos </StyledTableCell>
               : 
               <StyledTableCell align="center">{product.rooms.map((r)=> (r.name))} </StyledTableCell>

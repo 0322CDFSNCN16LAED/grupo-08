@@ -31,13 +31,12 @@ export default function NavBar (){
           '& .MuiDrawer-paper': {
             width: drawerWidth,
             boxSizing: 'border-box',
-            backgroundColor: '#c44cb4',
           },
         }}
         variant="permanent"
         anchor="left"
       >
-        <Toolbar />
+        <Toolbar sx={{height: '10rem', backgroundColor: '#c44cb4'}}/>
         <Divider />
         <List>
           {navBarItems.map((item) => (
@@ -46,12 +45,12 @@ export default function NavBar (){
               disablePadding>
                 <Link to={item.link} ref={event} > 
                 <ListItemButton> 
-                  <ListItemIcon sx= {{color:'#fafafa'}}> {item.icon} </ListItemIcon>
-                  <ListItemText sx= {{color:'#fafafa', fontSize: 16 }} secondary={item.label} /> 
+                  <ListItemIcon sx= {{color:'#c44cb4'}}> {item.icon} </ListItemIcon>
+                  <ListItemText sx={{color:'#c44cb4'}}> {item.label} </ListItemText>
                 </ListItemButton>
                 </Link>
             </ListItem>
-            
+
           ))}
         </List>
         
