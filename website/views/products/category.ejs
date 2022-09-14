@@ -55,37 +55,37 @@
             <h2 class="products-title align-center">Todos los productos</h2>
           </div>
           <!--caja para cada producto -->
-          <% productos.forEach(product => {%>
+          <% mueble.forEach(productos => {%>
           <article class="col-12 col-sm-6 col-lg-3">
-            <a href="/products/<%=product.id%>">
+            <a href="/products/<%=productos.id%>">
               <div class="card p-3 product-box">
                 <img
-                  src="<%=product.picture%>"
+                  src="<%=productos.picture%>"
                   alt=""
                   class="product-box_image"
                 />
 
                 <div class="card-body align-center">
-                  <p class="display-6"><strong><%= product.name%></strong></p>
-                  <p class="display-6"><%= product.name%></p>
+                  <p class="display-6"><strong><%= productos.name%></strong></p>
+                  <p class="display-6"><%= productos.name%></p>
                 <!-- Si el descuento es menor al 5% se imprime el precio normalmente-->
-                <% if (product.sale < 0.5) {%>
+                <% if (productos.sale < 0.5) {%>
 
                   <p class="display-6">
-                    $<%= new Intl.NumberFormat('de-DE').format(product.price)%>
+                    $<%= new Intl.NumberFormat('de-DE').format(productos.price)%>
                   </p>  
                 <!-- Sino, el precio se imprime tachado, se imp el % de descuento y el nuevo precio-->
                   <% } else { %> 
 
                   <span style="text-decoration:line-through">
                     <p class="display-6">
-                      $<%= new Intl.NumberFormat('de-DE').format(product.price)%>
+                      $<%= new Intl.NumberFormat('de-DE').format(productos.price)%>
                     </p>  
                   </span>
 
                   <p class="display-6 font-red">
-                    <%= (product.sale*100)%> % OFF! 
-                    $<%= new Intl.NumberFormat('de-DE').format(product.price * product.sale)%>
+                    <%= (productos.sale*100)%> % OFF! 
+                    $<%= new Intl.NumberFormat('de-DE').format(productos.price * mueble.sale)%>
                   </p>
                   
                   <% } %>

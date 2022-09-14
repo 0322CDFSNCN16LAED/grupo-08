@@ -191,14 +191,14 @@ module.exports = {
 
     //let Categorys = await db.Category.findAll({ order: [["name", "asc"]] });
 
-    const mueble = await db.Product.findAll({
-      include: ["Category"],
+    const mueble = await db.Category.findAll({
+      include: ["Products"],
       order: [["name", "ASC"]],
-      where: {{Category.name: req.params.name}}, 
+      where: {name: req.params.name}, 
         })
        // console.log(mueble)
-     res.send(mueble)
-     // res.render("products/products", { productos: mueble });
+    res.send(mueble)
+     res.render("products/category", { productos: mueble.products});
         
 }}
         
