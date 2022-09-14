@@ -158,19 +158,25 @@
               <div>             
                 <% vRooms.forEach(room =>{%>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" id="<%=room.id%>" name="rooms" value="<%=room.id%>"
-                         <%if(locals.oldData && locals.oldData.rooms ){                
+                      <input 
+                      class="form-check-input" 
+                      type="checkbox" 
+                      id="<%=room.id%>" 
+                      name="rooms" 
+                      value="<%=room.id%>"
+                         <%if(locals.oldData && locals.oldData.rooms){                
                            oldData.rooms.forEach(old =>{
-                             if(old==room.id){%>checked<%}})}%>>
+                             if(old==room.id){%>checked<%}})}%>
+                             />
                         <label class="form-check-label" for="<%=room.id%>"><%=room.name%></label>
                     </div>
-                    <% })%>             
+                    <%})%>
                 </div>   
                   <%if(locals.errors && errors.rooms) {%>
                     <div class="text-danger"><%=errors.rooms.msg%></div>
                   <%}%>  
               </div>            
-            <!--descripcion del producto OBLIGATORIO-->
+     
             <div class="col-12 col-md-6 mt-3">
                 <label 
                   for="description" 
@@ -185,7 +191,7 @@
                     <div class="text-danger"><%=errors.description.msg%></div>
                   <%}%>   
             </div>
-            <!--detalles del producto-->
+
             <div class="col-12 col-md-6 mt-3">
               <label for="details" class="form-label col-12">Detalles <span class="f-style-oblique"> (Indicar los detalles separados por comas)</span></label>
               <textarea class="form-control" 
@@ -193,7 +199,7 @@
                 name="details" 
                 rows="3"><%=locals.oldData ? oldData.details : null %></textarea>
             </div>
-            <!--Información extra del producto-->
+
             <div class="col-12 col-md-6 mt-3">
               <label for="extraInfo" class="form-label">Información extra del producto<span class="f-style-oblique"> (Indicar la información extra separados por comas)</span></label>
               <textarea class="form-control" 
@@ -202,7 +208,7 @@
                 rows="3"
                 value=""><%= locals.oldData ? oldData.extraInfo : null %></textarea>            
             </div>          
-            <!--medidas-->
+
             <div class="col-12 col-md-6 mt-3">
               <label for="measurements" class="form-label">Medidas:</label>
               <input
@@ -211,10 +217,10 @@
                 id="measurements"
                 class="form-control"
                 placeholder=""
-                value="<%=locals.oldData ? oldData.measurements: " " %>"
+                value="<%=locals.oldData ? oldData.measurements: null %>"
               />
             </div>
-            <!-- envio gratis -->
+   
             <div class="col-12 col-md-6 mt-3">
               <label for="freeDelivery" class="form-label">Envio gratis:</label>
               <div class="form-check form-switch">
@@ -227,11 +233,16 @@
                   <label for="freeDelivery" class="form-label">SI</label>
               </div>
              </div>
-            <!--la imagen del producto-->
+      
             <div class="col-12 mt-3">
-              <!-- Imagen -->
+             
               <label for="formFile" class="form-label">Imagen del Producto</label>
-              <input class="form-control <%=locals.errors && errors.categoryId ? "is-invalid": null%>" type="file" id="picture" name="picture" value="<%=locals.errors && errors.picture ? "is-invalid":null%>">
+              <input 
+                class="form-control <%=locals.errors && errors.picture ? "is-invalid": null%>"
+                type="file" 
+                id="picture" 
+                name="picture" 
+                value="<%=locals.oldData ? oldData.picture :null%>">
               <%if(locals.errors && errors.picture){%>
                 <div class="text-danger"><%=errors.picture.msg%></div>
               <%}%>  

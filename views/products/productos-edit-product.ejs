@@ -179,13 +179,17 @@
                   >Descripcion:</label
                 >
                 <input 
-                  value="<%=productoEditar.description%>"
+                  value="<%=locals.oldData ? oldData.description : productoEditar.description%>"
                   type="text"
                   class="form-control <%=locals.errors && errors.description ? "is-invalid":null%>"
                   id="description"
                   name="description"
                   placeholder=""
                 />
+                <% if (locals.errors && errors.description) { %>
+                  <div class="text-danger"><%= errors.description.msg %></div>
+                  <% } %>
+                
               </div>
               <div class="col-12 col-md-6 mt-3">
                 <!--detalles del producto-->
@@ -238,7 +242,7 @@
                 <label for="image" class="form-label">Imagen:</label>
                 <input
                   type="file"
-                  class="form-control"
+                  class="form-control <%=locals.errors && errors.picture ? "is-invalid": null%>"
                   id="picture"
                   name="picture"
                   placeholder="Subir una nueva imagen"
