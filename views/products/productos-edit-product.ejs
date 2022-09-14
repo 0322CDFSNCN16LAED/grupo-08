@@ -92,7 +92,7 @@
                   <option value=""> Seleccione</option>                  
                   <% vColours.forEach(Colours => {%>
                   <option value="<%=Colours.id%>" 
-                    <% if(locals.oldData && oldData.colourId == Colours.id){%> selected <% } %> >
+                    <% if((locals.oldData && oldData.colourId == Colours.id) || (!locals.oldData && productoEditar.colourId == Colours.id)  ){%> selected <% } %> >
                     <%=Colours.name%> </option>
                   <% })%> 
                 </select> 
@@ -110,7 +110,7 @@
                   <option value="">Seleccione</option>
                   <% vCategorys.forEach(vCategorys => {%>
                   <option value="<%=vCategorys.id%>" 
-                    <% if(locals.oldData && oldData.categoryId == vCategorys.id){%> selected <% } %> >
+                    <% if((locals.oldData && oldData.categoryId == vCategorys.id)||(!locals.oldData && productoEditar.categoryId ==  vCategorys.id)){%> selected <% } %> >
                     <%=vCategorys.name%> </option>
                   <% })%> 
                 </select> 
@@ -128,7 +128,7 @@
                   <option value="">Seleccione</option>
                   <% vStyles.forEach(vStyles => {%>
                     <option value="<%=vStyles.id%>" 
-                    <% if(locals.oldData && oldData.styleId == vStyles.id){%> selected <% } %> >
+                    <% if((locals.oldData && oldData.styleId == vStyles.id)||(!locals.oldData && productoEditar.styleId == vStyles.id)){%> selected <% } %> >
                     <%=vStyles.name%> </option>
                   <% })%> 
                 </select> 
@@ -147,7 +147,7 @@
                   <% vBrands.forEach(brand => {%>
                     <option value="<%=vBrands.id%>" 
                   value="<%=brand.id%>"
-                  <%=locals.oldData && (brand.id === oldData.brandId) ? "selected": null%>
+                  <% if ((locals.oldData && oldData.styleId == vBrands.id)||(!locals.oldData && productoEditar.brandId == vBrands.id)){%> selected <% } %> >))=locals.oldData && (brand.id === oldData.brandId) ? "selected": null%>
                   ><%=brand.name%></option>
                   <% })%> 
                 </select> 
@@ -160,10 +160,10 @@
                 <label for="rooms" class="form-label col-12">Ambientes:</label>             
                 <% vRooms.forEach(room => {%>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="<%=room.id%>" name="rooms" value="<%=room.id%>"  
-                    <%if(locals.oldData && locals.oldData.rooms ){                
+                    <input class="form-check-input" type="checkbox" id="<%=room.id%>" name="rooms" value="<%=room.id%>" 
+                    <%if(locals.oldData && locals.oldData.rooms){                
                       oldData.rooms.forEach(old =>{
-                        if(old==room.id){%>checked<%}})}%>>
+                        if(old==room.id){%> checked <%}})}%>>
                    <label class="form-check-label" for="<%=room.id%>"><%=room.name%></label>
                </div>
                <% })%>             
