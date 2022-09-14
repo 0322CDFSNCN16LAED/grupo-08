@@ -15,7 +15,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 /// PROBLEMA: CÒMO ERA EL TEMA DE LAS IMAGENES Y AS URL ESTATICAS?
 // PROBLEMA: FORMATO FECHA CREATEDAT ESTA FEO
 
-const EXPRESS_HOST = "http://localhost:3005";
+import { EXPRESS_HOST } from '../expressHost';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;

@@ -16,7 +16,7 @@ import {
   Typography,
 } from "@mui/material";
 
-const EXPRESS_HOST = "http://localhost:3005";
+import { EXPRESS_HOST } from '../expressHost';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
