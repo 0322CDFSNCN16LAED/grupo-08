@@ -10,8 +10,10 @@ module.exports = {
         order: [["name", "asc"]],
       });
     } catch (error) {
+      
       res.send("Error listar productos ---> " + error);
     }
+    res.send(products)
     res.render("products/products", { productos: products });
   },
   //ver el detalle de cada producto
@@ -188,17 +190,15 @@ module.exports = {
   },
 
   categMueble: async function (req, res) {
-
-    //let Categorys = await db.Category.findAll({ order: [["name", "asc"]] });
-
-    const mueble = await db.Category.findAll({
+   const muebles = await db.Category.findAll({
       include: ["Products"],
       order: [["name", "ASC"]],
-      where: {name: req.params.name}, 
+      where: {name: req.params.id}, 
         })
        // console.log(mueble)
-    res.send(mueble)
-     res.render("products/category", { productos: mueble.products});
+     
+      // res.send(muebles)
+    res.render("products/category", {muebles});
         
 }}
         
