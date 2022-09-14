@@ -7,7 +7,7 @@ import { Card, Grid, Typography }from '@mui/material';
 
 import { categoriesInfo } from '../consts/categoriesInfo'
 
-const EXPRESS_HOST = "http://localhost:3005";
+import { EXPRESS_HOST } from '../expressHost';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 

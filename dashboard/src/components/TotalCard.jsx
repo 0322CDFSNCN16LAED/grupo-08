@@ -1,8 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import {Box, Card, CardContent, Typography, Avatar} from '@mui/material';
-
-const EXPRESS_HOST = "http://localhost:3005";
+import { EXPRESS_HOST } from '../expressHost';
 
 const bull = (
   <Box
@@ -12,23 +11,7 @@ const bull = (
   </Box>
 );
 
-export default function TotalCard ({ title, icon, text }) {
-
-  const [value, setValue] = useState(null);
-  
-  useEffect(() => {
-    console.log ('%cSe montó comp TotalCard', 'color: green')
-    fetch(`${EXPRESS_HOST}/api/users`)
-      .then(response => response.json())
-      .then(data => {
-        setValue (data);
-      })
-      .catch(error => console.error (error));    
-  }, []);
-
-  useEffect(()=> {
-    console.log('%cSe actualizó el comp TotalCard', 'color: yellow');
-}, [value])
+export default function TotalCard ({ title, icon, text, value }) {
 
   return (
  
@@ -50,7 +33,7 @@ export default function TotalCard ({ title, icon, text }) {
       <Typography variant="body2" sx={{ fontSize: 16 }}>
         {bull} Actualmente tenemos : 
         {value ?
-          value.count
+          value
         : <Typography variant="h6" component="div" color='#d56b27'>
             Cargando....
           </Typography>}        

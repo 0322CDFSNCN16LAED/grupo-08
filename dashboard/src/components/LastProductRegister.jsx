@@ -11,7 +11,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 // PROBLEMA: FORMATO FECHA CREATEDAT ESTA FEO
 // PROBLEMA: CONVERTIR FREE DELIVERY DE 0/1 A SI O NO
 
-const EXPRESS_HOST = "http://localhost:3005";
+import { EXPRESS_HOST } from '../expressHost';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
