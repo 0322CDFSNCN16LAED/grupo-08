@@ -107,19 +107,19 @@ export default function LastProductRegister() {
             <Typography paragraph>
             Precio de Lista $  {last.data.price }
             </Typography>
-            {!last.data.sale < 0.05  ?
+            {!last.data.sale < 0  ?
             <Typography paragraph>
             Descuento  :  Sin desc
             </Typography>
             :  <Typography paragraph sx={{color: 'red'}}>
             Descuento    : {last.data.sale *100} % 
             </Typography>}
-            {!last.data.sale < 0.05 ?
+            {!last.data.sale < 0 ?
             <Typography paragraph>
             Precio Final  :  Sin desc
             </Typography>
             :  <Typography paragraph sx={{color: 'red'}}>
-            Precio Final    : {last.data.price *(1- last.data.sale)} % 
+            Precio Final    : ${last.data.price *(1- last.data.sale)}  
             </Typography>}
             <Typography paragraph sx={{color: 'green'}}>
             Cuotas    : {last.data.installments.name}  
