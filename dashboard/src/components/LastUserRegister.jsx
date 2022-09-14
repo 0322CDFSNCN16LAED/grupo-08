@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import Moment from "moment";
 
 import {
   styled,
@@ -15,7 +16,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 /// PROBLEMA: CÒMO ERA EL TEMA DE LAS IMAGENES Y AS URL ESTATICAS?
 // PROBLEMA: FORMATO FECHA CREATEDAT ESTA FEO
 
-import { EXPRESS_HOST } from '../expressHost';
+import { EXPRESS_HOST } from "../expressHost";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -65,7 +66,9 @@ export default function LastUserRegister() {
             </Avatar>
           }
           title="ULTIMO USUARIO REGISTRADO"
-          subheader={last.datavalue.createdAt}
+          subheader={Moment(last.datavalue.createdAt).format(
+            "DD-MM-YYYY HH:mm:ss"
+          )}
         />
       )}
       {!last ? (
@@ -142,7 +145,7 @@ export default function LastUserRegister() {
               <Typography paragraph>Código Postal : Sin datos</Typography>
             ) : (
               <Typography paragraph>
-                Código Postal : {last.datavalue.address.zipcode}
+                Código Postal : {last.datavalue.address.zipCode}
               </Typography>
             )}
           </CardContent>
