@@ -193,11 +193,11 @@ module.exports = {
    const muebles = await db.Category.findAll({
       include: ["Products"],
       order: [["name", "ASC"]],
-      where: {name: req.params.id}, 
+      where: {name: req.params.name}, 
         })
        // console.log(mueble)
      
-      // res.send(muebles)
+    //res.send(muebles)
     res.render("products/category", {muebles});
         
 }}
