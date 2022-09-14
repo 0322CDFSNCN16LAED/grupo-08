@@ -9,7 +9,14 @@ module.exports = {
       // all products
       const { rows, count } = await Product.findAndCountAll({
         attributes: ["id", "name", "description", "price", "sale"],
-        include: ["Category", "Colour", "Style", "Installment", "Brand", "Rooms"],
+        include: [
+          "Category",
+          "Colour",
+          "Style",
+          "Installment",
+          "Brand",
+          "Rooms",
+        ],
         order: [["name", "ASC"]],
       });
 
@@ -58,7 +65,7 @@ module.exports = {
             price: product.price,
             sale: product.sale,
             brand: product.Brand,
-            rooms:product.Rooms,
+            rooms: product.Rooms,
           })),
         },
       });
@@ -177,7 +184,8 @@ module.exports = {
       });
     }
   },
-  productsByCategory: async (req, res) => {
+  // no esta funcionando - lo comento
+  /*productsByCategory: async (req, res) => {
     try {
       const totalByCategory = await Product.findAll({
         group: ["Category.name"],
@@ -188,26 +196,26 @@ module.exports = {
         include: ["Category"],
       });
       let data = [];
-
+      let elementos = {};
       // let products;
       // products = await Product.findAll();
       //res.send("el elementooooooo-> " + products);
+      console.log("HERE->>" + totalByCategory);
       totalByCategory.forEach(async (element) => {
         //res.send("el elementooooooo-> " + element.Category.id);
         //console.log("pruebw");
         let products = await Product.findAll({
           where: { categoryId: element.Category.id }, //f8ec3cc1-2967-4c89-bf99-aab2932cdd1f
         });
-        //console.log(products);
-        let elementos = {
+        console.log(products);
+        elementos = {
           category: element.Category,
           products: products,
         };
-        //console.log(elementos);
-        data.push(elementos);
-        console.log("imprimiendo data -> " + data);
+        await data.push(elementos);
+        //console.log("imprimiendo data -> " + data);
       });
-      console.log("lo que tiene data" + data);
+      //console.log("lo que tiene data" + data);
       res.send(data);
     } catch (error) {
       res.status(500).json({
@@ -216,7 +224,7 @@ module.exports = {
         error: error,
       });
     }
-  },
+  },*/
   /*category: async function (req,res){
         try {   
            const {rows, count} = await Product.findAndCountAll({
