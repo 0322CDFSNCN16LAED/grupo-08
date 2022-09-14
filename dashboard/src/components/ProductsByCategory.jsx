@@ -26,7 +26,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-export default function CategoryMuebleList() {
+export default function ProductsByCategory() {
 
   const [list, setList] = useState(null);
   

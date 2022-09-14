@@ -1,7 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
 import {Box, Card, CardContent, Typography, Avatar} from '@mui/material';
-import { EXPRESS_HOST } from '../expressHost';
 
 const bull = (
   <Box
@@ -32,11 +30,11 @@ export default function TotalCard ({ title, icon, text, value }) {
 
       <Typography variant="body2" sx={{ fontSize: 16 }}>
         {bull} Actualmente tenemos : 
-        {value ?
-          value
-        : <Typography variant="h6" component="div" color='#d56b27'>
+        {!value ?
+          <Typography variant="h6" component="div" color='#d56b27'>
             Cargando....
-          </Typography>}        
+          </Typography>  
+        :  value}
         <br />
         {text}
       </Typography>

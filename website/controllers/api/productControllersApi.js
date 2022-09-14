@@ -20,30 +20,14 @@ module.exports = {
         order: [["name", "ASC"]],
       });
 
-      // totales por categoria --> solo devuelve los totales si tiene productos asociados
       const totalByCategory = await Product.findAll({
-        group: ["Category.id"],
+        group: ["Category.name"],
         attributes: [
-          "Category.id",
-          [sequelize.fn("COUNT", "Category.id"), "TotalCategory"],
+          "Category.name",
+          [sequelize.fn("COUNT", "Category.name"), "TotalCategory"],
         ],
         include: ["Category"],
       });
-      // cuenta por categoria, pero si categoria no tiene productos esta contando como 1 la categoria y devueve para las q no tienen productos 1
-      /*const totalCategory = await db.Category.findAll({
-        group: ["id"],
-        attributes: [
-          "id",
-          "name",
-          [sequelize.fn("COUNT", "Product.id"), "TotalpructoCategoria"],
-        ],
-        include: ["Products"],
-      });
-      res.send(totalCategory);*/
-      // este devuelve el total peeero deveulve un array con 2 elemento que tiene lo mismo
-      /*const ProductsByCategory = await sequelize.query(
-        "SELECT c.name , count(p.id) total  from Categories c left outer join Products p on(c.id=p.categoryId) GROUP by c.name "
-      );*/
 
       res.status(200).json({
         //el resultado es un objeto que tienen las propiedades de meta y data
@@ -224,7 +208,7 @@ module.exports = {
         error: error,
       });
     }
-  },*/
+    },*/
   /*category: async function (req,res){
         try {   
            const {rows, count} = await Product.findAndCountAll({

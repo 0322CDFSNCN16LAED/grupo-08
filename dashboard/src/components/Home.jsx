@@ -2,7 +2,6 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 
 import TotalCard from './TotalCard';
-//import {totalCardsInfo} from '../consts/totalCardsInfo';
 import LastProductRegister from './LastProductRegister';
 import LastUserRegister from './LastUserRegister';
 import CategoriesPieChart from './CategoriesPieChart';
@@ -87,7 +86,7 @@ export default function Home (){
       alignItems="flex-end"
       spacing={2}
     >
-
+      
       <Grid item xs={4} >
         {totalCardsInfo.map((data) => {
           return <TotalCard {...data} key={data.id} />;
