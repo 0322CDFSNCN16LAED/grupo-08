@@ -16,7 +16,7 @@ import {
   Typography,
 } from "@mui/material";
 
-import { EXPRESS_HOST } from '../expressHost';
+import { EXPRESS_HOST } from "../expressHost";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -103,7 +103,7 @@ export default function ProductsList() {
                   <StyledTableCell align="center"> Sin datos </StyledTableCell>
                 ) : (
                   <StyledTableCell align="center">
-                    {product.rooms.map((r) => r.name)}{" "}
+                    {product.rooms.map((r) => r.name + " ")}
                   </StyledTableCell>
                 )}
                 <StyledTableCell align="center">
