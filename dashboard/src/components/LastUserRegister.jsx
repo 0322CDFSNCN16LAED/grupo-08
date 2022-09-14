@@ -102,9 +102,9 @@ export default function LastUserRegister() {
         ) : (
           <CardContent>
             <Typography variant="h6">Información detallada:</Typography>
-            <Typography paragraph>Nombre :{last.datavalue.name}</Typography>
+            <Typography paragraph>Nombre : {last.datavalue.name}</Typography>
             <Typography paragraph>
-              Apellido :{last.datavalue.lastname}
+              Apellido : {last.datavalue.lastname}
             </Typography>
             <Typography paragraph>
               Rol de Usuario : {last.datavalue.userRole.name}

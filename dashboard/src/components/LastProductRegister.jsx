@@ -13,11 +13,11 @@ import {
 import { Collapse, Avatar, IconButton, Typography } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-/// PROBLEMA: CÒMO ERA EL TEMA DE LAS IMAGENES Y LAS URL ESTATICAS?
-/// PROBLEMA: NO ME DEJA COMPARAR SALE CON 0.05, SÍ CON 0...
-// PROBLEMA: CUANDO TENGA UN PRODUCTO CON ROOMS. COMO IMPRIMO EL ARRAY? MAP?
-// PROBLEMA: FORMATO FECHA CREATEDAT ESTA FEO
-// PROBLEMA: CONVERTIR FREE DELIVERY DE 0/1 A SI O NO
+/// PROBLEMA: CÒMO ERA EL TEMA DE LAS IMAGENES Y LAS URL ESTATICAS? ya esta
+/// PROBLEMA: NO ME DEJA COMPARAR SALE CON 0.05, SÍ CON 0...   ya esta
+// PROBLEMA: CUANDO TENGA UN PRODUCTO CON ROOMS. COMO IMPRIMO EL ARRAY? MAP? ya esta
+// PROBLEMA: FORMATO FECHA CREATEDAT ESTA FEO  ya esta
+// PROBLEMA: CONVERTIR FREE DELIVERY DE 0/1 A SI O NO  ya esta
 
 import { EXPRESS_HOST } from "../expressHost";
 
@@ -108,7 +108,7 @@ export default function LastProductRegister() {
             </Typography>
             <Typography paragraph>Color : {last.data.colour.name}</Typography>
             <Typography paragraph>
-              Medidas : {last.data.meassurements}
+              Medidas : {last.data.measurements}
             </Typography>
             <Typography paragraph>Detalles : {last.data.details}</Typography>
             <Typography paragraph>
@@ -120,18 +120,21 @@ export default function LastProductRegister() {
             <Typography paragraph>
               Precio de Lista $ {last.data.price}
             </Typography>
-            {!last.data.sale < 0.05 ? (
-              <Typography paragraph>Descuento : Sin desc</Typography>
+            {Number(last.data.sale) < 0.05 ? (
+              <Typography paragraph>
+                Descuento : Sin desc{Number(last.data.sale)}
+              </Typography>
             ) : (
               <Typography paragraph sx={{ color: "red" }}>
                 Descuento : {last.data.sale * 100} %
               </Typography>
             )}
-            {!last.data.sale < 0.05 ? (
+            {last.data.sale < 0.05 ? (
               <Typography paragraph>Precio Final : Sin desc</Typography>
             ) : (
               <Typography paragraph sx={{ color: "red" }}>
-                Precio Final : {last.data.price * (1 - last.data.sale)} %
+                Precio Final :{" "}
+                {(last.data.price * (1 - last.data.sale)).toFixed(2)} %
               </Typography>
             )}
             <Typography paragraph sx={{ color: "green" }}>
@@ -146,7 +149,7 @@ export default function LastProductRegister() {
               <Typography paragraph>Ambientes : Sin datos</Typography>
             ) : (
               <Typography paragraph>
-                Ambientes : {last.data.rooms.map((r) => r.name)}
+                Ambientes : {last.data.rooms.map((r) => r.name + " ")}
               </Typography>
             )}
           </CardContent>
