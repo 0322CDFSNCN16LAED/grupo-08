@@ -15,10 +15,10 @@ module.exports = {
 
       // totales por categoria --> solo devuelve los totales si tiene productos asociados
       const totalByCategory = await Product.findAll({
-        group: ["Category.name"],
+        group: ["Category.id"],
         attributes: [
-          "Category.name",
-          [sequelize.fn("COUNT", "Category.name"), "TotalCategory"],
+          "Category.id",
+          [sequelize.fn("COUNT", "Category.id"), "TotalCategory"],
         ],
         include: ["Category"],
       });
@@ -45,7 +45,7 @@ module.exports = {
           url: req.originalUrl,
         },
         datavalue: {
-          count: count, 
+          count: count,
           countByCategory: totalByCategory,
           products: rows.map((product) => ({
             id: product.id,
@@ -114,8 +114,27 @@ module.exports = {
     try {
       let lastProduct = await db.Product.findAll({
         limit: 1,
-        attributes: ["id", "name", "description","price", "sale", "picture", "createdAt", "measurements", "details", "extraInfo", "freeDelivery"],
-        include: ["Category", "Colour", "Style", "Installment", "Rooms", "Brand"],
+        attributes: [
+          "id",
+          "name",
+          "description",
+          "price",
+          "sale",
+          "picture",
+          "createdAt",
+          "measurements",
+          "details",
+          "extraInfo",
+          "freeDelivery",
+        ],
+        include: [
+          "Category",
+          "Colour",
+          "Style",
+          "Installment",
+          "Rooms",
+          "Brand",
+        ],
         order: [["createdAt", "DESC"]],
       });
       lastProduct[0].urlDetail = `http://localhost:3005/api/products/${lastProduct[0].id}`;
@@ -137,14 +156,14 @@ module.exports = {
           urlDetail: lastProduct[0].urlDetail,
           category: lastProduct[0].Category,
           colour: lastProduct[0].Colour,
-          style: lastProduct[0].Style,          
-          rooms: lastProduct[0].Rooms,          
-          brand: lastProduct[0].Brand,          
+          style: lastProduct[0].Style,
+          rooms: lastProduct[0].Rooms,
+          brand: lastProduct[0].Brand,
           installments: lastProduct[0].Installment,
           measurements: lastProduct[0].measurements,
           details: lastProduct[0].details,
           extraInfo: lastProduct[0].extraInfo,
-          freeDelivery: lastProduct[0].freeDelivery
+          freeDelivery: lastProduct[0].freeDelivery,
         },
       });
     } catch (error) {
@@ -155,6 +174,46 @@ module.exports = {
           errorName: error.name,
           errorMsg: error.msg,
         },
+      });
+    }
+  },
+  productsByCategory: async (req, res) => {
+    try {
+      const totalByCategory = await Product.findAll({
+        group: ["Category.name"],
+        attributes: [
+          "Category.name",
+          [sequelize.fn("COUNT", "Category.name"), "TotalCategory"],
+        ],
+        include: ["Category"],
+      });
+      let data = [];
+
+      // let products;
+      // products = await Product.findAll();
+      //res.send("el elementooooooo-> " + products);
+      totalByCategory.forEach(async (element) => {
+        //res.send("el elementooooooo-> " + element.Category.id);
+        //console.log("pruebw");
+        let products = await Product.findAll({
+          where: { categoryId: element.Category.id }, //f8ec3cc1-2967-4c89-bf99-aab2932cdd1f
+        });
+        //console.log(products);
+        let elementos = {
+          category: element.Category,
+          products: products,
+        };
+        //console.log(elementos);
+        data.push(elementos);
+        console.log("imprimiendo data -> " + data);
+      });
+      console.log("lo que tiene data" + data);
+      res.send(data);
+    } catch (error) {
+      res.status(500).json({
+        status: 500,
+        url: `http://localhost:3005${req.originalUrl}`,
+        error: error,
       });
     }
   },

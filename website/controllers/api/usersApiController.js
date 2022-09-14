@@ -37,7 +37,15 @@ const usersApiController = {
     try {
       let lastUser = await db.User.findAll({
         limit: 1,
-        attributes: ["id", "name", "lastname", "email", "createdAt", "profilePic", "phoneNumber"],
+        attributes: [
+          "id",
+          "name",
+          "lastname",
+          "email",
+          "createdAt",
+          "profilePic",
+          "phoneNumber",
+        ],
         include: ["userRole", "address"],
         order: [["createdAt", "DESC"]],
       });
@@ -56,7 +64,7 @@ const usersApiController = {
           phoneNumber: lastUser[0].phoneNumber,
           userRole: lastUser[0].userRole,
           address: lastUser[0].address,
-          profilePic: `http://localhost:3005${lastUser[0].profilePic}`,
+          profilePic: `http://localhost:3005/images/usersProfiles/${lastUser[0].profilePic}`,
           urlDetail: lastUser[0].urlDetail,
         },
       });
@@ -84,7 +92,7 @@ const usersApiController = {
           ],
         },
       });
-      user.profilePic = `http://localhost:3005${user.profilePic}`;
+      user.profilePic = `http://localhost:3005/images/usersProfiles/${user.profilePic}`;
       res.status(200).json({
         meta: {
           status: 200,
