@@ -1,11 +1,13 @@
 import React from 'react';
+import { Route, Switch, Link } from 'react-router-dom'; 
+
 import {useRef} from 'react';
-import { Link } from 'react-router-dom';
 
 import {categoriesInfo} from '../consts/categoriesInfo';
 
 import { styled } from '@mui/material/styles';
 import { List, ListItem, ListItemAvatar, ListItemText, ListItemButton, Avatar, Grid, Typography} from '@mui/material';
+import ProductsByCategory from './ProductsByCategory';
 
 
 const Demo = styled('div')(({ theme }) => ({
@@ -51,7 +53,9 @@ export default function CategoriesPanel() {
             </List>            
           </Demo>
 
-
+<Switch> 
+        <Route path='/categories/muebles' exact= {true} component={ProductsByCategory}/> 
+</Switch>
       </Grid>
 
   );
