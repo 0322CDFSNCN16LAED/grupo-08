@@ -110,6 +110,15 @@ const validations = [
       },
     ],
   },
+  /* {
+    inputName: "profilePic",
+    validations: [
+      {
+        validator: (input) => /.(gif|jpeg|jpg|png)$/i.test(input.value) != "",
+        errorMsg: "Debe ingresar un archivo válido (JPG, JPEG, PNG, GIF).",
+      },
+    ],
+  },*/
 ];
 
 window.onload = function () {
@@ -148,6 +157,7 @@ window.onload = function () {
 
     //Si no fallaron las validaciones
     if (errores.length == 0) {
+      console.log("esta llegando aca");
       formularioCreat.submit();
     } else {
       console.log(errores);

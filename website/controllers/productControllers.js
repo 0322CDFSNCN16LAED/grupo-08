@@ -1,6 +1,8 @@
 const db = require("../database/models");
 const { Op } = require("sequelize");
 
+const { validationResult } = require("express-validator");
+
 module.exports = {
   // ver todos los productos
   index: async (req, res) => {
@@ -50,24 +52,65 @@ module.exports = {
   },
   //accion de procesar el producto. CREAR
   store: async function (req, res) {
-    try {
-      let resp = await db.Product.create({
-        ...req.body,
-        price: req.body.price.trim().replace(",", "."),
-        freeDelivery: req.body.freeDelivery ? true : false,
-        picture: req.file
-          ? "/images/products/" + req.file.filename
-          : "/images/products/default-image.png",
-      });
-      // guardamos en la muchos a muchos
-      if (req.body.rooms) {
-        let respRooms = resp.addRooms(req.body.rooms, {
-          through: { selfGranted: false },
-        });
+    //para hacer la validacion
+    //console.log("esta llegadno la imagen????" + req.picture);
+    //console.log("el archivooooooooooooooo->" + req.file.filename);
+    const resultValidation = validationResult(req);
+    // llamo a las variables
+    let vInstallments = await db.Installment.findAll({
+      order: [["name", "asc"]],
+    });
+    let vCategorys = await db.Category.findAll({ order: [["name", "asc"]] });
+    let vRooms = await db.Room.findAll({ order: [["name", "asc"]] });
+    let vStyles = await db.Style.findAll({ order: [["name", "asc"]] });
+    let vColours = await db.Colour.findAll({ order: [["name", "asc"]] });
+    let vBrands = await db.Brand.findAll({ order: [["name", "asc"]] });
+
+    let ambientes = [];
+    if (req.body.rooms) {
+      if (typeof req.body.rooms == "string") {
+        ambientes.push(req.body.rooms);
+      } else {
+        ambientes = req.body.rooms;
       }
-      res.redirect("/products");
-    } catch (error) {
-      res.send(error);
+    }
+    req.body.rooms = ambientes;
+    //console.log("********************************************");
+    //console.log(resultValidation.errors);
+    if (resultValidation.errors.length > 0) {
+      //res.send(req.body);
+      // si el array es mayor a cero quiere decir que hay errores
+      return res.render("products/products-create-form", {
+        errors: resultValidation.mapped(), //convierte al array en un obj literal
+        oldData: req.body,
+        vInstallments,
+        vCategorys,
+        vStyles,
+        vRooms,
+        vColours,
+        vBrands,
+      });
+    } else {
+      //console.log("entro a registrar el producto" + req.body);
+      try {
+        let resp = await db.Product.create({
+          ...req.body,
+          price: req.body.price.trim().replace(",", "."),
+          freeDelivery: req.body.freeDelivery ? true : false,
+          picture: req.file
+            ? "/images/products/" + req.file.filename
+            : "/images/products/default-image.png",
+        });
+        // guardamos en la muchos a muchos
+        if (req.body.rooms) {
+          let respRooms = resp.addRooms(req.body.rooms, {
+            through: { selfGranted: false },
+          });
+        }
+        res.redirect("/products");
+      } catch (error) {
+        res.send(error);
+      }
     }
   },
   // vista para editar detalles de productos
@@ -110,6 +153,7 @@ module.exports = {
   update: async (req, res) => {
     let productId = req.params.id;
     const oldProduct = db.Product.findByPk(productId);
+    console.log(req.body);
     try {
       let resp = await db.Product.update(
         {
