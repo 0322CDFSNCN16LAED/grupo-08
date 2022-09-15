@@ -124,7 +124,9 @@ module.exports = {
             email: req.body.email,
             phoneNumber: req.body.phoneNumber,
             password: bcryptjs.hashSync(req.body.password, 10),
-            profilePic: req.file ? req.file.filename : "defaultImage.jpg",
+            profilePic: req.file
+              ? "/images/usersProfiles/" + req.file.filename
+              : "/images/usersProfiles/defaultImage.jpg",
             userRoleId: req.body.userRoleId,
             address: {
               address: req.body.address,
@@ -154,7 +156,6 @@ module.exports = {
       include: ["userRole", "address"],
     });
     res.render("users/index", { users, addresses });
-    
   },
 
   // detalle de user
@@ -191,7 +192,7 @@ module.exports = {
       const voldData = {
         ...req.body,
         id: req.params.id,
-        profilePic: "defaultImage.jpg",
+        profilePic: "/images/usersProfiles/defaultImage.jpg",
       };
       res.render("users/edit-user", {
         //renderizo el formulario
@@ -209,7 +210,9 @@ module.exports = {
             lastname: req.body.lastname,
             //email: req.body.email,
             phoneNumber: req.body.phoneNumber,
-            profilePic: req.file ? req.file.filename : oldUser.profilePic,
+            profilePic: req.file
+              ? "/images/usersProfiles/" + req.file.filename
+              : oldUser.profilePic,
             userRoleId: req.body.userRoleId,
           },
           {

@@ -84,7 +84,7 @@
               <div class="row g-0">
                 <div class="col-md-4 align-center">
                   <img
-                    src="/images/usersProfiles/<%=user.profilePic%>"
+                    src="<%=user.profilePic%>"
                     class="img-fluid rounded-start w-80"
                     alt="Imágen de perfil"
                   />
@@ -130,7 +130,7 @@
                       <p class="col-3">Rol de usuario</p>
                       <p class="col-9"><%=user.userRole.name%>%></p>
                     </div>
-                    <%}%>  
+                    <%}%>
                   </div>
                 </div>
               </div>
@@ -193,7 +193,7 @@
               </a>
             </button>
           </div>
-          <% if (locals.userLogged.userRole.name == 'admin') { %> 
+          <% if (locals.userLogged.userRole.name == 'admin') { %>
           <div class="col-6 mt-3 flex-center pb-2">
             <form action="/users/<%=user.id%>?_method=DELETE" method="POST">
               <button

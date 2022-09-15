@@ -10,6 +10,7 @@ router.get(
   "/lastProductRegistered",
   productControllersApi.lastProductRegistered
 );
+//router.get("/productsByCategory", productControllersApi.productsByCategory);
 router.get("/category/:categoryId", productControllersApi.detailcateg);
 router.get("/:id", productControllersApi.detailprod);
 
