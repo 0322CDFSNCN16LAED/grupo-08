@@ -76,12 +76,13 @@
              <div class="col-sm-6 col-md-4 mt-3">
               <label for="sale" class="form-label">Oferta:</label>
               <input
-                value=""
+                value="<%= locals.oldData ? oldData.sale : null %>"
                 class="form-control"
                 id="sale"
                 name="sale"           
                 placeholder="0.25"
               />
+              <span class="error"></span>
             </div>
              <!--color-->
              <div class="col-sm-6 col-md-3 mt-3">
@@ -165,7 +166,7 @@
             <!--ambientes-->
             <div class="col-12 col-md-6 mt-3">
               <label for="rooms" class="form-label col-12">Ambientes:</label>
-              <div>             
+              <div>
                 <% vRooms.forEach(room =>{%>
                     <div class="form-check form-check-inline">
                       <input class="form-check-input" type="checkbox" id="<%=room.id%>" name="rooms" value="<%=room.id%>"
@@ -177,15 +178,15 @@
                       <%}) %>
                       <%}%>
                       >
-                      <label class="form-check-label" for="<%=room.id%>"><%=room.name%></label>
+                        <label class="form-check-label" for="<%=room.id%>"><%=room.name%></label>
                     </div>
-                    <% })%>             
-                </div>   
+                    <% })%>
+                </div>
                   <%if(locals.errors && errors.rooms) {%>
                     <div class="text-danger"><%=errors.rooms.msg%></div>
-                  <%}%>  
-                <span id="errorRoom" name="errorRoom" class="" style="color:red"></span>          
-            </div>               
+                  <%}%>
+                <span id="errorRoom" name="errorRoom" class="" style="color:red"></span>
+            </div>         
             <!--descripcion del producto-->
             <div class="col-12 col-md-6 mt-3">
               <label for="description" class="form-label col-12">Descripción</label>
@@ -194,28 +195,25 @@
               name="description" 
               rows="3" 
               class="form-control <%=locals.errors&&errors.description ? "is-invalid":null%>" 
-                 ><%=locals.oldData ? oldData.name:null%></textarea>            
+                 ><%=locals.oldData ? oldData.description:null%></textarea>            
                   <%if(locals.errors && errors.description){%>
                     <div class="text-danger"><%=errors.description.msg%></div>
-                  <%}%>   
+                  <%}%>  
+                  <span class="error"></span> 
             </div>
             <!--detalles del producto-->
             <div class="col-12 col-md-6 mt-3">
-              <label for="details" class="form-label col-12">Detalles <span class="font-red"> (Indicar los detalles separados por comas)</span></label>
-              <textarea 
-              class="form-control" 
-              id="details" 
-                name="details" 
-                rows="3"><%=locals.oldData ? oldData.details : null %></textarea>     
+              <label for="details" class="form-label col-12">Detalles <span class="font-bold"> (Indicar los detalles separados por comas)</span></label>
+              <textarea class="form-control" id="details" name="details" rows="3"><%=locals.oldData ? oldData.details : null %></textarea> 
             </div>
             <!--Información extra del producto-->
             <div class="col-12 col-md-6 mt-3">
-              <label for="extraInfo" class="form-label">Información extra del producto<span class="font-red"> (Indicar la información extra separados por comas)</span></label>
+              <label for="extraInfo" class="form-label">Información extra del producto<span class="font-bold"> (Indicar la información extra separados por comas)</span></label>
               <textarea class="form-control" 
                 id="extraInfo" 
                 name="extraInfo" 
                 rows="3"
-                value=""><%= locals.oldData ? oldData.extraInfo : null %></textarea>    
+                value=""><%= locals.oldData ? oldData.extraInfo : null %></textarea>                 
             </div>          
             <!--medidas-->
             <div class="col-12 col-md-6 mt-3">
@@ -227,19 +225,19 @@
                 class="form-control"
                 placeholder=""
                 value="<%=locals.oldData ? oldData.measurements: null %>"
-              />
+              />             
             </div>
             <!-- envio gratis -->
             <div class="col-12 col-md-6 mt-3">
               <label for="freeDelivery" class="form-label">Envio gratis:</label>
               <div class="form-check form-switch">
                 <input class="form-check-input" type="checkbox" id="freeDelivery" name="freeDelivery">
-              </div>
+              </div>              
             </div>
             <!--la imagen del producto-->
             <div class="col-12 mt-3">
               <!-- Imagen -->
-              <label for="formFile" class="form-label">Imagen del Producto</label>
+              <label for="picture" class="form-label">Imagen del Producto</label>
               <input 
               class="form-control <%=locals.errors && errors.picture ? "is-invalid": null%>" 
               type="file" id="picture" 

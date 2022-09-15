@@ -3,15 +3,15 @@ const router = express.Router();
 const multer = require("multer");
 const path = require("path");
 
-//Middlewares de roles de usuario
-
-const sellerMiddleware = require("../middlewares/sellerMiddleware"); //VENDEDOR
 const productControllers = require("../controllers/productControllers");
+//Middlewares de roles de usuario
+const sellerMiddleware = require("../middlewares/sellerMiddleware"); //VENDEDOR
+const basicCreateValidationsProducts = require("../validation/productValidation");
 
 /*para guardar los archivos y el nombre que quiero que se guarde */
 const multerDiskStorage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, "../public/images/products"));
+    cb(null, "./public/images/products");
   },
   filename: function (req, file, cb) {
     const imageName = Date.now() + path.extname(file.originalname);
@@ -26,13 +26,12 @@ router.get("/", productControllers.index);
 
 /* Crear un producto*/
 
-//sellerMiddleware
-
 router.get("/create", sellerMiddleware, productControllers.create);
 router.post(
   "/",
+  //sellerMiddleware,
   uploadFile.single("picture"),
-  sellerMiddleware,
+  basicCreateValidationsProducts,
   productControllers.store
 );
 
@@ -47,8 +46,9 @@ router.get("/:id", productControllers.detail);
 router.get("/edit/:id", sellerMiddleware, productControllers.edit);
 router.put(
   "/:id",
+  //sellerMiddleware,
   uploadFile.single("picture"),
-  sellerMiddleware,
+  basicCreateValidationsProducts,
   productControllers.update
 );
 

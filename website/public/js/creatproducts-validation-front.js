@@ -38,6 +38,15 @@ const validations = [
     ],
   },
   {
+    inputName: "sale",
+    validations: [
+      {
+        validator: (input) => input.value.trim() != "",
+        errorMsg: "Debe ingresar un valor",
+      },
+    ],
+  },
+  {
     inputName: "colourId",
     validations: [
       {
@@ -102,14 +111,14 @@ const validations = [
       {
         errorMsg: "Debe seleccionar al menos una opcion Rooms",
         validator: (input) => {
+          //console.log("esta entrando aca?");
           let isValid = false;
           input.forEach((element) => {
             if (element.checked) {
-              console.log("si valido 1");
               isValid = true;
             }
           });
-          console.log("valor de retorno-->" + isValid);
+          //console.log("es valido rooms?" + isValid);
           return isValid;
         },
       },
@@ -119,7 +128,7 @@ const validations = [
 
 window.onload = function () {
   const formularioCreat = document.querySelector("form.form-field"); // me traigo la clase de la vista del formualario
-
+  //console.log("rooms" + formularioCreat.rooms);
   formularioCreat.name.focus();
 
   formularioCreat.addEventListener("submit", (event) => {
@@ -129,35 +138,43 @@ window.onload = function () {
     //Hago el proceso de validacion
     validations.forEach((inputToValidate) => {
       const input = formularioCreat[inputToValidate.inputName];
+      //console.log("estp es el input" + input.name);
       //hago un for of para que me recorra todos los elementos de la variable validacion of todos los elementos a iterar y luego cuando temrine de recorrer y no encuentre errores para a la segunda parte
       for (const validation of inputToValidate.validations) {
         const isValid = validation.validator(input);
+        //console.log("imŕime 1" + input);
         if (!isValid) {
           i++;
           errores.push(validation.errorMsg);
           event.preventDefault();
           //como los campos son validos quiero que me deje de seleccionar la clase donde aparece invalid y agregue la valida
-          if (inputToValidate.inputName == "rooms") {
-            document.querySelector("#errorRoom").innerHTML =
-              validation.errorMsg;
-          } else {
-            //para el resto de inputs
+          if (inputToValidate.inputName != "rooms") {
             input.parentElement.classList.add("is-invalid");
             input.parentElement.classList.remove("is-valid");
             input.parentElement.querySelector(".error").innerHTML =
+              validation.errorMsg;
+          } else {
+            console.log("el input a evaluar" + input.name);
+            //para el resto de inputs
+            document.querySelector("#errorRoom").innerHTML =
               validation.errorMsg;
           }
           return;
         }
       }
-      //cuando termina el for of quiere decir que no hay mas errores
-      input.parentElement.classList.add("is-valid");
-      input.parentElement.classList.remove("is-invalid");
-      input.parentElement.querySelector(".error").innerHTML = "";
-      document.querySelector("#errorRoom").innerHTML = "";
+
+      if (input.name !== undefined) {
+        input.parentElement.querySelector(".error").innerHTML = "";
+        input.parentElement.classList.add("is-valid");
+        input.parentElement.classList.remove("is-invalid");
+      } else {
+        console.log("asasasas" + document.querySelector("#errorRoom"));
+        document.querySelector("#errorRoom").innerHTML = "";
+      }
     });
 
     //Si no fallaron las validaciones
+    console.log("errores" + errores.length);
     if (errores.length == 0) {
       formularioCreat.submit();
     } else {
