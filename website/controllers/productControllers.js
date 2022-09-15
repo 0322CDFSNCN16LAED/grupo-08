@@ -230,4 +230,17 @@ module.exports = {
       res.send("search error ---> " + error);
     }
   },
+
+  category: async function (req, res) {
+    const category = await db.Category.findAll({
+       include: ["Products"],
+       order: [["name", "ASC"]],
+       where: {name: req.params.name}, 
+         })
+        // console.log(mueble)
+      
+     //res.send(muebles)
+     res.render("products/category", {category});
+         
+ }
 };

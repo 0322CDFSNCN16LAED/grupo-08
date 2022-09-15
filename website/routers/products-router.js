@@ -38,6 +38,9 @@ router.post(
 /* Buscar producto */
 router.get("/search", productControllers.search);
 
+
+router.get("/category/:name", productControllers.category);
+
 /* Ver detalle de un producto*/
 router.get("/:id", productControllers.detail);
 
