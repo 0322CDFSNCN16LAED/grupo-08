@@ -2,7 +2,6 @@ var checkbox = document.getElementById("rooms");
 
 //defino la variable validacion con todos los campos que son obligatorios
 const validations = [
-<<<<<<< HEAD
     {
       inputName: "name",
       validations: [
@@ -118,20 +117,6 @@ const validations = [
               errorMsg: "Debe ingresar un archivo válido (JPG, JPEG, PNG, GIF).",
           },
       ],
-=======
-  {
-    inputName: "name",
-    validations: [
-      {
-        validator: (input) => input.value.trim() != "",
-        errorMsg: "Debe ingresar un nombre del producto de minimo 5 caracteres",
-      },
-      {
-        validator: (input) => input.value.length > 4,
-        errorMsg: "Debe ingresar un nombre de minimo 5 caracteres",
-      },
-    ],
->>>>>>> 3da87567ddfae9e4f20b72af67b248d500ea94a6
   },
   {
     inputName: "price",
