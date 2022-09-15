@@ -7,7 +7,7 @@ export const categoriesInfo = [
       icon: <i className="fas fa-chair"> </i>,
       backgroundColor: 'rgba(255, 99, 132, 0.2)',
       borderColor: 'rgba(255, 99, 132, 1)',
-      link: '/categories/muebles'
+      link: '/categories/detail'
     },
     {
       id: 2,

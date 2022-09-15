@@ -13,12 +13,6 @@ import {
 import { Collapse, Avatar, IconButton, Typography } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-/// PROBLEMA: CÒMO ERA EL TEMA DE LAS IMAGENES Y LAS URL ESTATICAS? ya esta
-/// PROBLEMA: NO ME DEJA COMPARAR SALE CON 0.05, SÍ CON 0...   ya esta
-// PROBLEMA: CUANDO TENGA UN PRODUCTO CON ROOMS. COMO IMPRIMO EL ARRAY? MAP? ya esta
-// PROBLEMA: FORMATO FECHA CREATEDAT ESTA FEO  ya esta
-// PROBLEMA: CONVERTIR FREE DELIVERY DE 0/1 A SI O NO  ya esta
-
 import { EXPRESS_HOST } from "../expressHost";
 
 const ExpandMore = styled((props) => {
@@ -115,7 +109,7 @@ export default function LastProductRegister() {
               Información Extra : {last.data.extraInfo}
             </Typography>
             <Typography paragraph>
-              Envio Gratis : {last.data.freeDelivery == 1 ? "Si" : "No"}
+              Envio Gratis : {last.data.freeDelivery === 1 ? "Si" : "No"}
             </Typography>
             <Typography paragraph>
               Precio de Lista $ {last.data.price}

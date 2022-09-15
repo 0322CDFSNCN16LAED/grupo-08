@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import { useState, useEffect } from 'react';
 
 import { styled, Table, TableBody, TableCell, tableCellClasses, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
@@ -28,26 +28,11 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 export default function ProductsByCategory() {
 
-  const [list, setList] = useState(null);
   
-    useEffect(() => {
-      console.log ('%cSe montó comp CategoryMuebleList', 'color: green')
-      fetch(`${EXPRESS_HOST}/api/products`)
-        .then(response => response.json())
-        .then(data => {
-          setList (data);        
-        })
-        .catch(error => console.error (error));    
-    }, []);
-  
-    useEffect(()=> {
-      console.log('%cSe actualizó el comp CategoryMuebleList', 'color: yellow');
-  }, [list])
-
   return (
-    <TableContainer component={Paper}>
-      <h4 style={{color: 'green'}} > Soy el componente CategoryMuebleList</h4>
+    
 
+    <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
 
         <TableHead>
@@ -55,12 +40,11 @@ export default function ProductsByCategory() {
             <StyledTableCell align="center">Categoría</StyledTableCell>
             <StyledTableCell align="center">Nombre</StyledTableCell>
             <StyledTableCell align="center">Descripción</StyledTableCell>
-            <StyledTableCell align="center">Ambiente</StyledTableCell>
+            <StyledTableCell align="center">Marca</StyledTableCell>
             <StyledTableCell align="center">Estilo</StyledTableCell>
             <StyledTableCell align="center">Precio de lista</StyledTableCell>
             <StyledTableCell align="center"> % Oferta</StyledTableCell>
             <StyledTableCell align="center">Precio final</StyledTableCell>
-
 
           </TableRow>
         </TableHead>
@@ -73,12 +57,12 @@ export default function ProductsByCategory() {
           : list.datavalue.products.map((product) => (
             <StyledTableRow key={product.id}>
               <StyledTableCell component="th" scope="row">
-                {product.name}
+                {product.categoryId}
               </StyledTableCell>
-              <StyledTableCell align="center">{product.category.name}</StyledTableCell>
+              <StyledTableCell align="center">{product.name}</StyledTableCell>
               <StyledTableCell align="left">{product.description}</StyledTableCell>
-              <StyledTableCell align="center">{product.room}</StyledTableCell>
-              <StyledTableCell align="center">{product.style.name}</StyledTableCell>
+              <StyledTableCell align="center">{product.brandId}</StyledTableCell>
+              <StyledTableCell align="center">{product.styleId}</StyledTableCell>
               <StyledTableCell align="center"> $ {product.price}</StyledTableCell>
               
               { product.sale < 0.05 ?              
@@ -99,3 +83,4 @@ export default function ProductsByCategory() {
     </TableContainer>
   );
 }
+*/

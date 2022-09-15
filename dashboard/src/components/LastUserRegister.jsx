@@ -13,9 +13,6 @@ import {
 import { Collapse, Avatar, IconButton, Typography } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-/// PROBLEMA: CÒMO ERA EL TEMA DE LAS IMAGENES Y AS URL ESTATICAS?
-// PROBLEMA: FORMATO FECHA CREATEDAT ESTA FEO
-
 import { EXPRESS_HOST } from "../expressHost";
 
 const ExpandMore = styled((props) => {
@@ -49,9 +46,7 @@ export default function LastUserRegister() {
   }, []);
 
   useEffect(() => {
-    console.log("%cSe actualizó el comp LastUserRegister", "color: yellow", {
-      last,
-    });
+    console.log("%cSe actualizó el comp LastUserRegister", "color: yellow");
   }, [last]);
 
   return (

@@ -1,8 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-/// PROBLEMA : algunos porcentajes dedescuento tienen mas de dos decimales. Queda feo
-
 import {
   styled,
   Table,
