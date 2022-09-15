@@ -32,53 +32,42 @@
                   >Nombre del producto:</label
                 >
                 <input
-                value="<%=locals.oldData ? oldData.name : productoEditar.name%>"
-                type="text"
-                id="name"
-                name="name"                  
-                class="form-control <%=locals.errors && errors.name ? "is-invalid":null%>"
+                  value="<%=productoEditar.name%>"
+                  type="text"
+                  id="name"
+                  name="name"                  
+                  class="form-control"
                 />
                 <span class="error"></span>
-                <% if (locals.errors && errors.name) { %>
-                  <div class="text-danger"><%= errors.name.msg %></div>
-                  <% } %>
               </div>
-
               <!--precio-->
               <div class="col-sm-6 col-md-4 mt-3">
                 <label for="price" class="form-label"
                   >Precio</label
                 >
                 <input
-                  value="<%=locals.oldData ? oldData.price : productoEditar.price%>"
-                  class="form-control <%=locals.errors && errors.price ? "is-invalid":null%>"
+                  value="<%=productoEditar.price%>"
+                  class="form-control"
                   id="price"
                   name="price"
                   placeholder="Precio al contado es de..."
                 />
                 <span class="error"></span>
-                <% if (locals.errors && errors.name) { %>
-                  <div class="text-danger"><%= errors.name.msg %></div>
-                  <% } %>
               </div>
-
               <!--cuotas-->
               <div class="col-sm-6 col-md-4 mt-3">
-                <label for="installmentId" class="form-label">Cuotas:</label>
-                 <select name="installmentId" id="installmentId" class="form-select <%=locals.errors && errors.installmentId ? "is-invalid":null%>"> 
+                <label for="installmentId" class="form-label col-12"
+                  >Cuotas: </label
+                >
+                <select name="installmentId" id="installmentId" class="form-select">
                   <option value=""> Seleccione</option>                  
-                  <% vInstallments.forEach(Installment => {%>
-                    <option value="<%=Installment.id%>" 
-                  <% if ((locals.oldData && oldData.installmentId == Installment.id)||(!locals.oldData && productoEditar.installmentId == Installment.id)){%> selected <% } %> >
-                  <%=Installment.name%></option>
-                  <% })%> 
+                  <% vInstallments.forEach(vInstallment => {%>
+                  <option value="<%=vInstallment.id%>" <% if(vInstallment.id==productoEditar.installmentId){%> selected <% } %> ><%=vInstallment.name%> </option>
+                  <% })%>
                  </select>
                 <span class="error"></span>
-                <% if (locals.errors && errors.installmentId) { %>
-                  <div class="text-danger"><%= errors.installmentId.msg %></div>
-                  <% } %>  
               </div>  
-              <!--SALE-->
+               <!--SALE-->
              <div class="col-sm-6 col-md-4 mt-3">
               <label for="sale" class="form-label">Oferta:</label>
               <input
@@ -88,179 +77,137 @@
                 name="sale"           
                 placeholder="0.25"
               />
-             </div>
-
-              <!-- color -->
-              <div class="col-sm-6 col-md-3 mt-3">
+              <span class="error"></span>
+            </div>
+               <!-- color -->
+               <div class="col-sm-6 col-md-3 mt-3">
                 <label for="color" class="form-label">Color:</label>
-                <select name="colourId" id="colourId" class="form-select <%=locals.errors && errors.colourId ? "is-invalid":null%>"> 
+                <select name="colourId" id="colourId" class="form-select">
                   <option value=""> Seleccione</option>                  
-                  <% vColours.forEach(Colours => {%>
-                    <option value="<%=Colours.id%>" 
-                      <% if((locals.oldData && oldData.colourId == Colours.id) || (!locals.oldData && productoEditar.colourId == Colours.id)  ){%> selected <% } %> >
-                      <%=Colours.name%> </option>
-                    <% })%> 
+                  <% vColours.forEach(vColour => {%>
+                  <option value="<%=vColour.id%>" <% if(vColour.id==productoEditar.colourId){%> selected <% } %> ><%=vColour.name%> </option>
+                  <% })%> 
                 </select>      
                 <span class="error"></span>
-                <% if (locals.errors && errors.colourId) { %>
-                  <div class="text-danger"><%= errors.colourId.msg %></div>
-                  <% } %>
-              </div>             
-
+              </div>                       
               <!--categoria-->
               <div class="col-sm-6 col-md-3 mt-3">
                 <label for="categoryId" class="form-label">Categoria:</label>                
-                <select name="categoryId" id="categoryId" class="form-select <%=locals.errors && errors.categoryId ? "is-invalid":null%>">                  
+                <select name="categoryId" id="categoryId" class="form-select">
                   <option value="">Seleccione</option>
-                  <% vCategorys.forEach(vCategorys => {%>
-                    <option value="<%=vCategorys.id%>" 
-                      <% if((locals.oldData && oldData.categoryId == vCategorys.id)||(!locals.oldData && productoEditar.categoryId ==  vCategorys.id)){%> selected <% } %> >
-                      <%=vCategorys.name%> </option>
-                    <% })%> 
+                  <% vCategorys.forEach(vCategory => {%>
+                    <option value="<%=vCategory.id%>" <% if(vCategory.id == productoEditar.categoryId){%> selected <% } %> ><%=vCategory.name%></option>
+                  <% })%>
                 </select>
                 <span class="error"></span>
-                <% if (locals.errors && errors.categoryId) { %>
-                  <div class="text-danger"><%= errors.categoryId.msg %></div>
-                  <% } %>  
               </div>
-
-              <!--estilos-->
-              <div class="col-sm-6 col-md-3 mt-3">
-                <label for="styleId" class="form-label">Estilo:</label>                
-                <select name="styleId" id="styleId"  class="form-select <%=locals.errors && errors.styleId ? "is-invalid":null%>">
-                  <option value="">Seleccione</option>
-                  <% vStyles.forEach(vStyles => {%>
-                    <option value="<%=vStyles.id%>" 
-                    <% if((locals.oldData && oldData.styleId == vStyles.id)||(!locals.oldData && productoEditar.styleId == vStyles.id)){%> selected <% } %> >
-                    <%=vStyles.name%> </option>
-                  <% })%> 
-                </select>
-                <span class="error"></span>
-                <% if (locals.errors && errors.styleId) { %>
-                  <div class="text-danger"><%= errors.styleId.msg %></div>
-                  <% } %>  
-              </div>              
-
-              <!--marcas-->
-              <div class="col-sm-6 col-md-3 mt-3">
-                <label for="brandId" class="form-label">Marca:</label>                
-                <select name="brandId" id="brandId" class="form-select">
-                  <option value="">Seleccione</option>
-                  class="form-select <%=locals.errors && errors.brandId ? "is-invalid":null%>">
-                  <option value="">Seleccione</option>
-                  <% vBrands.forEach(vBrands => {%>
-                    <option value="<%=vBrands.id%>" 
-                  <% if ((locals.oldData && oldData.brandId == vBrands.id)||(!locals.oldData && productoEditar.brandId == vBrands.id)){%> selected <% } %> >
-                  <%=vBrands.name%></option>
-                  <% })%> 
-                </select>
-                <span class="error"></span>
-                <% if (locals.errors && errors.brandId) { %>
-                  <div class="text-danger"><%= errors.brandId.msg %></div>
-                  <% } %>  
-              </div>
-            
-               <!--ambientes-->
-               <div class="col-12 col-md-6 mt-3">
-                <label for="rooms" class="form-label col-12">Ambientes:</label>             
-                <% vRooms.forEach(room => {%>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="<%=room.id%>" name="rooms" value="<%=room.id%>"  
-                    <% if ((locals.oldData && oldData.rooms)||(!locals.oldData && productoEditar.rooms)){%> 
-                      <%oldData.rooms.forEach(old => { %>
-                      <%if(old == room.id){ %>
-                         checked
-                      <%}%>
-                      <%})%>
-                      <%}%>>
-                    <label class="form-check-label" for="<%=room.id%>"><%=room.name%></label>
-                  </div>
-                  <% })%>    
-                </br>  
-                <span id="errorRoom" name="errorRoom" class="" style="color:red"></span> 
-                <%if(locals.errors && errors.rooms) {%>
-                  <div class="text-danger"><%=errors.rooms.msg%></div>
-                <%}%>          
-            </div>  
-
-              <!--descripcion del producto-->
-              <div class="col-12 col-md-6 mt-3">
-                <label for="description" class="form-label"
-                  >Descripcion:</label
-                >
-                <textarea 
-                  id="description"
-                  name="description"
-                  class="form-control <%=locals.errors && errors.description ? "is-invalid":null%>"
-                ><%=locals.oldData ? oldData.description:productoEditar.description%></textarea>
-                <span class="error"></span>
-                <% if (locals.errors && errors.description) { %>
-                  <div class="text-danger"><%= errors.description.msg %></div>
-                  <% } %>
-              </div>
-
-              <div class="col-12 col-md-6 mt-3">
-                <!--detalles del producto-->
-                <label for="details" class="form-label"
-                  >Detalles:<span class="font-red"> (Indicar los detalles separados por comas)</span></label
-                >                
-                <textarea
-                  class="form-control"
-                  name="details"
-                  id="details"
-                ><%=locals.oldData ? oldData.details:productoEditar.details%></textarea>
-                <span class="error"></span>
-              </div>
-              <!--Información extra del producto-->
-              <div class="col-12 col-md-6 mt-3">
-                <label for="extraInfo" class="form-label">
-                  Información extra del producto:<span class="font-red"> (Indicar la información extra separados por comas)</span></label>
-                <textarea                  
-                  type="text"
-                  class="form-control"
-                  name="extraInfo"
-                  id="extraInfo"
-                ><%=locals.oldData ? oldData.extraInfo:productoEditar.extraInfo%></textarea>
-              </div>
-              <!--medidas-->
-              <div class="col-12 col-md-6 mt-3">
-                <label for="measurements" class="form-label">Medidas:</label>
-                <input
-                  type="text"
-                  value="<%=locals.oldData ? oldData.measurements: productoEditar.measurements%>"
-                  class="form-control"
-                  id="measurements"
-                  name="measurements"
-                  placeholder=""
-                />
-              </div>
-               <!-- envio gratis -->
-               <div class="col-12 col-md-6 mt-3">
-
-                <label for="freeDelivery" class="form-label col-12"
-                  >Envio gratis:</label
-                >
-                <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" id="freeDelivery" name="freeDelivery" <% if(productoEditar.freeDelivery){%> checked<%} %>>
-                  
+            <!--estilos-->
+            <div class="col-sm-6 col-md-3 mt-3">
+              <label for="styleId" class="form-label">Estilo:</label>                
+              <select name="styleId" id="styleId" class="form-select">
+                <option value="">Seleccione</option>
+                <% vStyles.forEach(vStyle => {%>
+                  <option value="<%=vStyle.id%>" <% if(vStyle.id == productoEditar.styleId){%> selected <% } %> ><%=vStyle.name%></option>
+                <% })%>
+              </select>
+              <span class="error"></span>
+            </div>              
+            <!--marcas-->
+            <div class="col-sm-6 col-md-3 mt-3">
+              <label for="brandId" class="form-label">Marca:</label>                
+              <select name="brandId" id="brandId" class="form-select">
+                <option value="">Seleccione</option>
+                <% vBrands.forEach(vBrand => {%>
+                  <option value="<%=vBrand.id%>" <% if(vBrand.id == productoEditar.brandId){%> selected <% } %> ><%=vBrand.name%></option>
+                <% })%>
+              </select>
+              <span class="error"></span>
+            </div>
+            <!--ambientes-->
+            <div class="col-12 col-md-6 mt-3">
+              <label for="rooms" class="form-label col-12">Ambientes:</label>             
+              <% vRooms.forEach(room => {%>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="<%=room.id%>" name="rooms" value="<%=room.id%>"  
+                  <% if(productoEditar.Rooms.find(ele => ele.id==room.id)){%>checked<%}%>
+                  >
+                  <label class="form-check-label" for="<%=room.id%>"><%=room.name%></label>
+                
                 </div>
-              </div>
-              <!-- imagen -->
-              <div class="col-12 mt-3">
-                <label for="image" class="form-label">Imagen:</label>
-                <input
-                  type="file"
-                  class="form-control <%=locals.errors && errors.picture ? "is-invalid": null%>"
-                  id="picture"
-                  name="picture"
-                  placeholder="Subir una nueva imagen"
-                  value="<%=locals.oldData ? oldData.picture : productoEditar.picture%>">
-                  <span class="error"></span>
-                <%if(locals.errors && errors.picture){%>
-                  <div class="text-danger"><%=errors.picture.msg%></div>
-                <%}%>  
+                <% })%>    
+              </br>  
+              <span id="errorRoom" name="errorRoom" class="" style="color:red"></span>          
+          </div> 
+          <!--descripcion del producto-->
+          <div class="col-12 col-md-6 mt-3">
+            <label for="description" class="form-label"
+              >Descripcion:</label
+            >
+            <textarea 
+              class="form-control"
+              id="description"
+              name="description"
+            ><%=productoEditar.description%></textarea>
+            <span class="error"></span>
+          </div>
+          <div class="col-12 col-md-6 mt-3">
+            <!--detalles del producto-->
+            <label for="details" class="form-label"
+              >Detalles:<span class="font-bold"> (Indicar los detalles separados por comas)</span></label
+            >                
+            <textarea
+              class="form-control"
+              name="details"
+              id="details"
+            ><%=productoEditar.details%></textarea>
+            <span class="error"></span>
+          </div>
+          <!--Información extra del producto-->
+          <div class="col-12 col-md-6 mt-3">
+            <label for="extraInfo" class="form-label">
+              Información extra del producto:<span class="font-bold"> (Indicar la información extra separados por comas)</span></label>
+            <textarea                  
+              type="text"
+              class="form-control"
+              name="extraInfo"
+              id="extraInfo"
+            ><%=productoEditar.extraInfo%></textarea>
+          </div>
+          <!--medidas-->
+          <div class="col-12 col-md-6 mt-3">
+            <label for="measurements" class="form-label">Medidas:</label>
+            <input
+              type="text"
+              value="<%=productoEditar.measurements%>"
+              class="form-control"
+              id="measurements"
+              name="measurements"
+              placeholder=""
+            />
+          </div>
+          <!-- envio gratis -->
+          <div class="col-12 col-md-6 mt-3">
+
+            <label for="freeDelivery" class="form-label col-12"
+              >Envio gratis:</label
+            >
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="freeDelivery" name="freeDelivery" <% if(productoEditar.freeDelivery){%> checked<%} %>>
               
-              </div>
+            </div>
+          </div>
+          <!-- imagen -->
+          <div class="col-12 mt-3">
+            <label for="image" class="form-label">Imagen:</label>
+            <input
+              type="file"
+              class="form-control"
+              id="picture"
+              name="picture"
+              placeholder="Subir una nueva imagen"
+            />
+            <span class="error"></span>
+          </div>
               <!--Boton SUBMIT -->
               <div class="align-center mt-3">
                   <button

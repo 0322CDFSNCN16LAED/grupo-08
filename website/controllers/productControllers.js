@@ -53,14 +53,19 @@ module.exports = {
   //accion de procesar el producto. CREAR
   store: async function (req, res) {
     //para hacer la validacion
+    //console.log("esta llegadno la imagen????" + req.picture);
+    //console.log("el archivooooooooooooooo->" + req.file.filename);
     const resultValidation = validationResult(req);
     // llamo a las variables
-    let vInstallments = await db.Installment.findAll({order: [["name", "asc"]],});
+    let vInstallments = await db.Installment.findAll({
+      order: [["name", "asc"]],
+    });
     let vCategorys = await db.Category.findAll({ order: [["name", "asc"]] });
     let vRooms = await db.Room.findAll({ order: [["name", "asc"]] });
     let vStyles = await db.Style.findAll({ order: [["name", "asc"]] });
     let vColours = await db.Colour.findAll({ order: [["name", "asc"]] });
     let vBrands = await db.Brand.findAll({ order: [["name", "asc"]] });
+
     let ambientes = [];
     if (req.body.rooms) {
       if (typeof req.body.rooms == "string") {
@@ -70,9 +75,10 @@ module.exports = {
       }
     }
     req.body.rooms = ambientes;
-    if (resultValidation.errors) {
+    //console.log("********************************************");
+    //console.log(resultValidation.errors);
+    if (resultValidation.errors.length > 0) {
       //res.send(req.body);
-
       // si el array es mayor a cero quiere decir que hay errores
       return res.render("products/products-create-form", {
         errors: resultValidation.mapped(), //convierte al array en un obj literal
@@ -85,27 +91,28 @@ module.exports = {
         vBrands,
       });
     } else {
-    try {
-      let resp = await db.Product.create({
-        ...req.body,
-        price: req.body.price.trim().replace(",", "."),
-        freeDelivery: req.body.freeDelivery ? true : false,
-        picture: req.file
-          ? "/images/products/" + req.file.filename
-          : "/images/products/default-image.png",
-      });
-      // guardamos en la muchos a muchos
-      if (req.body.rooms) {
-        let respRooms = resp.addRooms(req.body.rooms, {
-          through: { selfGranted: false },
+      //console.log("entro a registrar el producto" + req.body);
+      try {
+        let resp = await db.Product.create({
+          ...req.body,
+          price: req.body.price.trim().replace(",", "."),
+          freeDelivery: req.body.freeDelivery ? true : false,
+          picture: req.file
+            ? "/images/products/" + req.file.filename
+            : "/images/products/default-image.png",
         });
+        // guardamos en la muchos a muchos
+        if (req.body.rooms) {
+          let respRooms = resp.addRooms(req.body.rooms, {
+            through: { selfGranted: false },
+          });
+        }
+        res.redirect("/products");
+      } catch (error) {
+        res.send(error);
       }
-      res.redirect("/products");
-    } catch (error) {
-      res.send(error);
     }
-  }
-},
+  },
   // vista para editar detalles de productos
   edit: async (req, res) => {
     /*const productEdit = await db.Product.findByPk(req.params.id, {
@@ -145,48 +152,8 @@ module.exports = {
   // accion de actualizar un producto.
   update: async (req, res) => {
     let productId = req.params.id;
-    const oldProduct = db.Product.findByPk(req.params.id);
-    const resultValidation = validationResult(req);
-
-    const productEdit = await db.Product.findOne({
-      where: { id: req.params.id },
-      include: ["Rooms"],
-      paranoid: true,
-    })
-
-    const vInstallments = await db.Installment.findAll({order: [["name", "asc"]],});
-    const vCategorys = await db.Category.findAll({ order: [["name", "asc"]] });
-    const vRooms = await db.Room.findAll({ order: [["name", "asc"]] });
-    const vStyles = await db.Style.findAll({ order: [["name", "asc"]] });
-    const vColours = await db.Colour.findAll({ order: [["name", "asc"]] });
-    const vBrands = await db.Brand.findAll({ order: [["name", "asc"]] });
-  
-     let ambientes = [];
-    if (req.body.rooms) {
-      if (typeof req.body.rooms == "string") {
-        ambientes.push(req.body.rooms);
-      } else {
-        ambientes = req.body.rooms;
-      }
-    }
-    req.body.rooms = ambientes;
-
-    if (resultValidation.errors) {
-      //res.send(req.body);
-      console.log("*****************"+oldProduct)
-      return res.render("products/productos-edit-product", {
-        errors: resultValidation.mapped(), //convierte al array en un obj literal
-        oldData: req.body,
-        productoEditar: oldProduct,
-        vInstallments,
-        vCategorys,
-        vStyles,
-        vRooms,
-        vColours,
-        vBrands,
-      })
-    } else {
     const oldProduct = db.Product.findByPk(productId);
+    console.log(req.body);
     try {
       let resp = await db.Product.update(
         {
@@ -224,7 +191,7 @@ module.exports = {
     } catch (error) {
       res.send("aca hay un error  " + error);
     }
-  }},
+  },
   // accion de eliminar un producto
   destroy: async (req, res) => {
     const productoId = req.params.id;
@@ -263,16 +230,4 @@ module.exports = {
       res.send("search error ---> " + error);
     }
   },
-  category: async function (req, res) {
-    const category = await db.Category.findAll({
-       include: ["Products"],
-       order: [["name", "ASC"]],
-       where: {name: req.params.name}, 
-         })
-        // console.log(mueble)
-      
-     //res.send(muebles)
-     res.render("products/category", {category});
-  }
-
 };

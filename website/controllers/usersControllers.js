@@ -180,6 +180,7 @@ module.exports = {
   update: async function (req, res) {
     let userRoles = await database.UserRole.findAll();
     const validationErrors = validationResult(req);
+    //res.send(validationErrors);
     let oldUser = await database.User.findByPk(req.params.id, {
       include: ["userRole", "address"],
     });
@@ -192,7 +193,7 @@ module.exports = {
       const voldData = {
         ...req.body,
         id: req.params.id,
-        profilePic: "/images/usersProfiles/defaultImage.jpg",
+        profilePic: oldUser.profilePic,
       };
       res.render("users/edit-user", {
         //renderizo el formulario

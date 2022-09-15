@@ -4,19 +4,28 @@ const path = require("path");
 /*VALIDACIONES BASICAS CON EXPRESS VALIDATOR PARA EL REGISTER*/
 const basicCreateValidationsProducts = [
   body("name")
-              .isLength({ min: 5 })
-              .withMessage("Debe ingresar un nombre del producto de minimo 5 caracteres"),
-  body("categoryId").notEmpty().withMessage("Debe seleccionar alguna categoria"),
+    .isLength({ min: 5 })
+    .withMessage("Debe ingresar un nombre del producto de minimo 5 caracteres"),
+  body("categoryId")
+    .notEmpty()
+    .withMessage("Debe seleccionar alguna categoria"),
   body("rooms").notEmpty().withMessage("Debe ingresar alguna opcion valida"),
   body("styleId").notEmpty().withMessage("Debe ingresar alguna opcion valida"),
-  body("price").isNumeric()
-               .withMessage("Debe ingresar el precio del producto de manera numerica"),
-  body("installmentId").notEmpty().withMessage("Debe ingresar alguna opcion valida"),
+  body("price")
+    .isNumeric()
+    .withMessage("Debe ingresar el precio del producto de manera numerica"),
+  body("installmentId")
+    .notEmpty()
+    .withMessage("Debe ingresar alguna opcion valida"),
   body("brandId").notEmpty().withMessage("Debe ingresar alguna opcion valida"),
-  body("description").isLength({ min: 20 })
-                     .withMessage("Debe dar una breve descripcion del producto de minimo 20 caracteres"),
+  body("description")
+    .isLength({ min: 20 })
+    .withMessage(
+      "Debe dar una breve descripcion del producto de minimo 20 caracteres"
+    ),
   body("colourId").notEmpty().withMessage("Debe ingresar alguna opcion valida"),
-  body("picture").custom((value, {req})=> {
+  //body("picture").notEmpty().withMessage("Debe seleccionar una imagen"),
+  /*body("picture").custom((value, {req})=> {
     let file = req.file;// obtengo el archivo
     let acceptedExtensions = ['.jpg', '.jpeg', '.png', '.gif'];
     if (!file){//si no tengo nada aca 
@@ -28,8 +37,7 @@ const basicCreateValidationsProducts = [
     }
     }
     return true
-  })
+  })*/
 ];
-
 
 module.exports = basicCreateValidationsProducts;
