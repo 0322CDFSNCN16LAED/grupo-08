@@ -3,6 +3,10 @@ const router = express.Router();
 const multer = require("multer");
 const path = require("path");
 
+
+//Validaciones 
+const basicCreateValidationsProducts = require("../validation/productValidation");
+
 //Middlewares de roles de usuario
 
 const sellerMiddleware = require("../middlewares/sellerMiddleware"); //VENDEDOR
@@ -33,6 +37,7 @@ router.post(
   "/",
   uploadFile.single("picture"),
   sellerMiddleware,
+  basicCreateValidationsProducts,
   productControllers.store
 );
 
@@ -51,6 +56,7 @@ router.put(
   "/:id",
   uploadFile.single("picture"),
   sellerMiddleware,
+  basicCreateValidationsProducts,
   productControllers.update
 );
 

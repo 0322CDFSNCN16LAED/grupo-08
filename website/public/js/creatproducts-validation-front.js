@@ -1,123 +1,57 @@
+var checkbox = document.getElementById("rooms");
+
 //defino la variable validacion con todos los campos que son obligatorios
-
-
-
 const validations = [
-    {
-      inputName: "name",
-      validations: [
-        {
-          validator: (input) => input.value.trim() != "",
-          errorMsg: "Debe ingresar un nombre del producto de minimo 5 caracteres",
-        },
-        {
-          validator: (input) => input.value.length >= 5,
-          errorMsg: "Debe ingresar un nombre de minimo 5 caracteres",
-        },
-  
-      ],
-    },
-    {
-      inputName: "categoryId",
-      validations: [
-        {
-          validator: (input) => input.value.trim() != "",
-          errorMsg: "Debe elegir una opcion",
-        },
-      ],
-    },
-   {
-      inputName: "rooms",
-      validations: [
-        {          
-          errorMsg: "Debe seleccionar al menos una opcion Rooms",
-          validator: (input) => {
-            let isValid = false;
-            input.forEach((element) => {
-              if (element.checked) {
-                console.log("si valido 1");
-                isValid = true;
-              }
-            });
-            console.log("valor de retorno-->" + isValid);
-            return isValid;
-        },
+  {
+    inputName: "name",
+    validations: [
+      {
+        validator: (input) => input.value.trim() != "",
+        errorMsg: "Debe ingresar un nombre del producto de minimo 5 caracteres",
       },
-     ],
+      {
+        validator: (input) => input.value.length > 4,
+        errorMsg: "Debe ingresar un nombre de minimo 5 caracteres",
+      },
+
+    ],
+  },
+  {
+    inputName: "categoryId",
+    validations: [
+      {
+        validator: (input) => input.value.trim() != "",
+        errorMsg: "Debe elegir una opcion",
+      },
+    ],
+  },
+  {
+    inputName: "rooms",
+    validations: [
+      {          
+        errorMsg: "Debe seleccionar al menos una opcion Rooms",
+        validator: (input) => {
+          let isValid = false;
+          input.forEach((element) => {
+            if (element.checked) {
+              console.log("si valido 1");
+              isValid = true;
+            }
+          });
+          console.log("valor de retorno-->" + isValid);
+          return isValid;
+      },
     },
-    {
-      inputName: "styleId",
-      validations: [
-        {
-          validator: (input) => input.value.trim() != "",
-          errorMsg: "Debe ingresar alguna opcion valida",
-        },
-      ],
-    },
-    {
-      inputName: "price",
-      validations: [
-        {
-          validator:(input) => input.value.trim() != "",
-          errorMsg: "Debe ingresar el precio del producto de manera numerica y usar de separador el punto",
-        },
-        {
-          validator: (input) => input.value > 0,
-          errorMsg: "Debe ser de manera numerica",
-        },
-      ],
-    },
-    {
-      inputName: "installmentId",
-      validations: [
-        {
-          validator: (input) => input.value.trim() != "",
-          errorMsg: "Debe ingresar alguna opcion valida",
-        },
-        
-      ],
-    },
-    {
-      inputName: "brandId",
-      validations: [
-        {
-          validator:(input) => input.value.trim() != "",
-          errorMsg: "Debe ingresar alguna opcion valida",
-        },
-     ],
-    },
-    {
-      inputName: "description",
-      validations: [
-        {
-          validator: (input) => input.value.trim() != "",
-          errorMsg: "Debe dar una breve descripcion del producto de minimo 20 caracteres",
-        },
-        {
-          validator: (input) => input.value.length >= 20,
-          errorMsg: "Debe descripcion minima de 20 caracteres",
-        },
-  
-      ],
-    },
-    {
-      inputName: "colourId",
-      validations: [
-        {
-          validator: (input) => input.value.trim() != "",
-          errorMsg: "Debe ingresar alguna opcion valida",
-        },
-        
-      ],
-    },
-    {
-      inputName: "picture",
-      validations: [
-          {   
-              validator: (input) => /.(gif|jpeg|jpg|png)$/i.test(input.value) != "",
-              errorMsg: "Debe ingresar un archivo válido (JPG, JPEG, PNG, GIF).",
-          },
-      ],
+   ],
+  },
+  {
+    inputName: "styleId",
+    validations: [
+      {
+        validator: (input) => input.value.trim() != "",
+        errorMsg: "Debe ingresar alguna opcion valida",
+      },
+    ],
   },
   {
     inputName: "price",
@@ -192,25 +126,33 @@ const validations = [
     ],
   },
   {
-    inputName: "rooms",
+    inputName: "picture",
     validations: [
       {
-        errorMsg: "Debe seleccionar al menos una opcion Rooms",
-        validator: (input) => {
-          let isValid = false;
-          input.forEach((element) => {
-            if (element.checked) {
-              console.log("si valido 1");
-              isValid = true;
-            }
-          });
-          console.log("valor de retorno-->" + isValid);
-          return isValid;
-        },
+        validator: (input) => /.(gif|jpeg|jpg|png)$/i.test(input.value) != "",
+        errorMsg: "Debe ingresar un archivo válido (JPG, JPEG, PNG, GIF).",
       },
     ],
   },
-];
+  {
+      inputName: "rooms",
+      validations: [
+        {
+          errorMsg: "Debe seleccionar al menos una opcion Rooms",
+          validator: (input) => {
+            let isValid = false;
+            input.forEach((element) => {
+              if (element.checked) {
+                isValid = true;
+              }
+            });
+            return isValid;
+          },
+        },
+      ],
+    },
+    
+]
 
 window.onload = function () {
   const formularioCreat = document.querySelector("form.form-field"); // me traigo la clase de la vista del formualario
@@ -237,13 +179,11 @@ window.onload = function () {
               validation.errorMsg;
           } else {
             //para el resto de inputs
-       
             input.parentElement.classList.add("is-invalid");
             input.parentElement.classList.remove("is-valid");
             input.parentElement.querySelector(".error").innerHTML =
               validation.errorMsg;
           }
-
           return;
         }
       }

@@ -18,12 +18,12 @@ const basicCreateValidationsProducts = [
   body("colourId").notEmpty().withMessage("Debe ingresar alguna opcion valida"),
   body("picture").custom((value, {req})=> {
     let file = req.file;// obtengo el archivo
-    let acceptedExtensions = [".jpg", "jepg", ".png", ".gif"];
+    let acceptedExtensions = ['.jpg', '.jpeg', '.png', '.gif'];
     if (!file){//si no tengo nada aca 
       throw new Error("Debe subir una imagen del producto")
     } else {
       let fileExtension = path.extname(file.originalname);
-    if(!acceptedExtensions.includes()){
+    if(!acceptedExtensions.includes(fileExtension)){
       throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`)
     }
     }
