@@ -169,12 +169,15 @@
                 <% vRooms.forEach(room =>{%>
                     <div class="form-check form-check-inline">
                       <input class="form-check-input" type="checkbox" id="<%=room.id%>" name="rooms" value="<%=room.id%>"
-                      <%if(locals.oldData && locals.oldData.rooms){
-                        oldData.rooms.forEach(old =>{%>
-                      <%})}%>
-
+                      <% if(locals.oldData && locals.oldData.rooms){ %>
+                      <%     oldData.rooms.forEach(old => { %>
+                      <%        if(old == room.id){ %>
+                                  checked
+                      <%         }%>
+                      <%     }) %>
+                      <%}%>
                       >
-                        <label class="form-check-label" for="<%=room.id%>"><%=room.name%></label>
+                      <label class="form-check-label" for="<%=room.id%>"><%=room.name%></label>
                     </div>
                     <% })%>             
                 </div>   
