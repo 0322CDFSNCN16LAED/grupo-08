@@ -13,47 +13,6 @@ const validations = [
         validator: (input) => input.value.length > 4,
         errorMsg: "Debe ingresar un nombre de minimo 5 caracteres",
       },
-<<<<<<< HEAD
-
-    ],
-  },
-  {
-    inputName: "categoryId",
-    validations: [
-      {
-        validator: (input) => input.value.trim() != "",
-        errorMsg: "Debe elegir una opcion",
-      },
-    ],
-  },
-  {
-    inputName: "rooms",
-    validations: [
-      {          
-        errorMsg: "Debe seleccionar al menos una opcion Rooms",
-        validator: (input) => {
-          let isValid = false;
-          input.forEach((element) => {
-            if (element.checked) {
-              console.log("si valido 1");
-              isValid = true;
-            }
-          });
-          console.log("valor de retorno-->" + isValid);
-          return isValid;
-      },
-    },
-   ],
-  },
-  {
-    inputName: "styleId",
-    validations: [
-      {
-        validator: (input) => input.value.trim() != "",
-        errorMsg: "Debe ingresar alguna opcion valida",
-      },
-=======
->>>>>>> 3da87567ddfae9e4f20b72af67b248d500ea94a6
     ],
   },
   {
@@ -146,9 +105,11 @@ const validations = [
           let isValid = false;
           input.forEach((element) => {
             if (element.checked) {
+              console.log("si valido 1");
               isValid = true;
             }
           });
+          console.log("valor de retorno-->" + isValid);
           return isValid;
         },
       },
