@@ -43,7 +43,7 @@ export default function CategoriesPieChart() {
 };
     return <Grid sx={4}> 
     <Card variant="outlined">
-    <Typography variant="h5" component="div" color='#d56b27'>CANTIDAD DE PRODUCTOS POR CATEGORÍA</Typography>
+    <Typography variant="h6" component="div" color='#d56b27'>CANTIDAD DE PRODUCTOS POR CATEGORÍA</Typography>
     <Card variant="outlined"> 
     <Pie data={data}/> </Card>
     </Card> </Grid> ; 
