@@ -47,7 +47,6 @@ export default function LastProductRegister() {
 
   useEffect(() => {
     console.log("%cSe actualizó el comp LastProductRegister", "color: yellow", {
-      last,
     });
   }, [last]);
 
