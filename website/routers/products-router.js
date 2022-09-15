@@ -29,7 +29,7 @@ router.get("/", productControllers.index);
 router.get("/create", sellerMiddleware, productControllers.create);
 router.post(
   "/",
-  //sellerMiddleware,
+  sellerMiddleware,
   uploadFile.single("picture"),
   basicCreateValidationsProducts,
   productControllers.store
@@ -46,7 +46,7 @@ router.get("/:id", productControllers.detail);
 router.get("/edit/:id", sellerMiddleware, productControllers.edit);
 router.put(
   "/:id",
-  //sellerMiddleware,
+  sellerMiddleware,
   uploadFile.single("picture"),
   basicCreateValidationsProducts,
   productControllers.update
@@ -57,3 +57,4 @@ router.put(
 router.delete("/:id", sellerMiddleware, productControllers.destroy);
 
 module.exports = router;
+
