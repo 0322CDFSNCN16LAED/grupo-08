@@ -1,62 +1,157 @@
 import React from 'react';
-import { Route, Switch, Link } from 'react-router-dom'; 
-
-import {useRef} from 'react';
-
-import {categoriesInfo} from '../consts/categoriesInfo';
+import { useState, useEffect } from 'react';
 
 import { styled } from '@mui/material/styles';
 import { List, ListItem, ListItemAvatar, ListItemText, ListItemButton, Avatar, Grid, Typography} from '@mui/material';
-import ProductsByCategory from './ProductsByCategory';
+import { Table, TableBody, TableCell, tableCellClasses, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
 
+import { EXPRESS_HOST } from '../expressHost';
 
 const Demo = styled('div')(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
   borderColor: '#000000'
 }));
 
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: '#d56b27',
+    color: theme.palette.common.white,
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 14,
+  },
+}));
+
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+  '&:nth-of-type(odd)': {
+    backgroundColor: theme.palette.action.hover,
+  },
+  // hide last border
+  '&:last-child td, &:last-child th': {
+    border: 0,
+  },
+}));
+
 export default function CategoriesPanel() {
-  const event = useRef();
-    console.log(event)
+
+  //Hago un estado para guardar de la api/products el listado de categorias, su id, nombre y total de productos asociados 
+  // se ejecuta cuando se monte el componente
+  const [categories, setCategories] = useState ([]);
+
+  async function fetchCategoriesList (){
+    const response = await fetch(`${EXPRESS_HOST}/api/products`);
+    const result = await response.json();
+    const catInfo = result.datavalue.countByCategory;
+    setCategories(catInfo);
+  }
+
+  //Hago un estado que guarde la categoria seleccionada por el usuario con el boton
+  const [ catSelected, setCatSelected] = useState(null);
+
+  //Hago un estado que guarde el listado de productos por categoria
+  const [list, setList] = useState(null);
+  
+  // pedido a la api del listado con el id seleccionado por el usuario
+  async function fetchCategoryDetail(){
+    const response = await fetch(`${EXPRESS_HOST}/api/products/category/${catSelected}`);
+    const result = await response.json();
+    const catDetail = result.data;
+    setList(catDetail);
+  }
+
+  //se monta el componente, se ejecuta el pedido de listado de categorias
+  useEffect(() => {
+    console.log ('%cSe montó componente CategoriesPanel', 'color: green');
+    fetchCategoriesList();
+  }, []);
+
+  // se actualiza el componente, cuando cambia la cat seleccionada por el usuario 
+  // y se ejecuta el pedido del listado de productos de esa categoria
+  useEffect(() => {
+    console.log ('%cSe actualizó componente CategoriesPanel', 'color: green');
+    fetchCategoryDetail();
+  }, [catSelected]);
 
   return (
    
       <Grid container sx={{ mt: 4, mb: 2, mr:2, ml:2}} >
-
           <Typography sx={{ mt: 4, mb: 2, mr:2, ml:2 }} variant="h5" component="div">
             DECO HOME | Categorías de productos disponibles
           </Typography>
           <Demo>
             <List>
               <Grid container spacing ={2} sx={{ width:'5 rem' , bgcolor:'#ebebeb' }}>  
-              {categoriesInfo.map((cat) => (
+              {categories.map((cat) => (
                 <Grid item xs={12} md={4}> 
                 <ListItem
-                key={cat.id}
+                key={cat.Category.id}
                 sx={{bgcolor:'white'}}>
-                  <Link to={cat.link}>  
-                  <ListItemButton> 
+                  <ListItemButton onClick={()=>setCatSelected(cat.Category.id)}> 
                   <ListItemAvatar>
                     <Avatar sx={{ color: 'white',  bgcolor: '#d56b27' }}> 
-                      {cat.icon}
+                      {cat.TotalCategory}
                     </Avatar>
                   </ListItemAvatar>
-                <ListItemText primary={cat.name} sx={{color: 'black'}}/> 
-                </ListItemButton> 
+                <ListItemText primary={cat.Category.name}/> 
 
-                </Link>
+                </ListItemButton> 
                 </ListItem>
                 </Grid>
-
               ))}
+              {!catSelected ? <Grid item><h4> Elija una categoría </h4>   </Grid> 
+              : ' '
+              }
               </Grid>
             </List>            
           </Demo>
+              {!list ? (<h6> Cargando lista...</h6>)
+              : (
+              <TableContainer component={Paper}>
+              <Table sx={{ minWidth: 700 }} aria-label="customized table">
+                <TableHead>
+                  <TableRow>
+                    <StyledTableCell align="center">Categoría</StyledTableCell>
+                    <StyledTableCell align="center">Nombre</StyledTableCell>
+                    <StyledTableCell align="center">Marca</StyledTableCell>
+                    <StyledTableCell align="center">Estilo</StyledTableCell>
+                    <StyledTableCell align="center">Precio de lista</StyledTableCell>
+                    <StyledTableCell align="center"> % Oferta</StyledTableCell>
+                    <StyledTableCell align="center">Precio final</StyledTableCell>
+                    <StyledTableCell align="center">Envío Gratis</StyledTableCell>
+        
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {list.map((product) => (
+                    <StyledTableRow key={product.id}>
+                      <StyledTableCell component="th" scope="row">
+                        {product.Category.name}
+                      </StyledTableCell>
+                      <StyledTableCell align="center">{product.name}</StyledTableCell>
+                      <StyledTableCell align="center">{product.Brand.name}</StyledTableCell>
+                      <StyledTableCell align="center">{product.Style.name}</StyledTableCell>
+                      <StyledTableCell align="center"> $ {product.price}</StyledTableCell>
+                      
+                      { product.sale < 0.05 ?              
+                      <StyledTableCell align="center" color= "red"> Sin descuento</StyledTableCell>
+                      : 
+                      <StyledTableCell align="center" sx={{color:"red"}}>{(product.sale * 100).toFixed(0)} %</StyledTableCell>
+                      }
+                      { product.sale < 0.05 ?              
+                      <StyledTableCell align="center"> $ {product.price}</StyledTableCell>
+                      : 
+                      <StyledTableCell align="center" sx={{color:"red"}}> $ {new Intl.NumberFormat('de-DE').format(product.price *(1- product.sale))}</StyledTableCell>
+                      }      
+                      
+                      <StyledTableCell align="left">{product.freeDelivery  === 1 ? "Si" : "No"}</StyledTableCell>
+                    </StyledTableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </TableContainer>)
+}
 
-<Switch> 
-        <Route path='/categories/muebles' exact= {true} component={ProductsByCategory}/> 
-</Switch>
       </Grid>
 
-  );
+  )
 }

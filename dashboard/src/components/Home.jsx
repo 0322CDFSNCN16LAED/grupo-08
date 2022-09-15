@@ -61,42 +61,41 @@ export default function Home (){
 
     <Grid container>
       <Grid
-        container
-        direction="column"
-        justifyContent="flex-start"
-        alignItems="flex-start"
-        spacing={2}
-        marginTop='1rem'
-        marginLeft='1rem'
-      >
-
+      container
+      direction="row"
+      justifyContent="space-around"
+      alignItems="center"
+      spacing={2}
+      marginTop={2}
+    >
       <Grid item xs={3}> 
         <LastProductRegister/>
-      </Grid>      
+       </Grid>      
       <Grid item xs={3} > 
         <LastUserRegister/>
-      </Grid>    
-      </Grid>
-
+      </Grid>   
+    </Grid>
 
       <Grid
       container
-      direction="column"
-      justifyContent="flex-start"
-      alignItems="flex-end"
+      direction="row"
+      justifyContent="space-around"
+      alignItems="center"
       spacing={2}
-    >
-      
-      <Grid item xs={4} >
-        {totalCardsInfo.map((data) => {
-          return <TotalCard {...data} key={data.id} />;
-          })}         
-      </Grid>
-      <Grid item xs={4} >
-        <CategoriesPieChart/>
-      </Grid>      
-      </Grid>
+      marginTop={1}
 
-      </Grid>
+      >
+        <Grid item xs={4}>
+          {totalCardsInfo.map((data) => {
+            return <TotalCard {...data} key={data.id} />;
+            })}         
+        </Grid>
+        <Grid item xs={5} >
+          <CategoriesPieChart/>
+        </Grid>        </Grid>
+ 
+
+        
+    </Grid>
   )
 }
