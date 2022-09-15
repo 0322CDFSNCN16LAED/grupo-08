@@ -90,9 +90,15 @@ module.exports = {
     }
   },
   detailcateg: async function (req, res) {
-    db.Product.findAll({
+    await db.Product.findAll({
       where: { categoryId: req.params.categoryId }, // le indico la incidencia que hay entre el que se trae por registro y el de params
-    }).then((product) => {
+      include: [
+        "Brand", 
+        "Category",
+        "Style"
+      ]
+    })
+    .then((product) => {
       return res.status(200).json({
         //el resultado es un objeto que tienen las propiedades de meta y data
         cantidad: product.length,
