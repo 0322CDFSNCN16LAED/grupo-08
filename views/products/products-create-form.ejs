@@ -137,7 +137,7 @@
             <div class="col-12 col-md-4 mt-3">
               <label for="brandId" class="form-label col-12">Marca:</label>
               <select 
-              class="form-select <%=locals.errors && errors.brandId ? "is-invalid": null%> <%=locals.errors && errors.brandId ? "is-invalid": null%>"
+              class="form-select <%=locals.errors && errors.brandId ? "is-invalid": null%>"
               name="brandId" 
               id="brandId">
                 <option value="">Seleccione</option>
@@ -164,10 +164,12 @@
                       id="<%=room.id%>" 
                       name="rooms" 
                       value="<%=room.id%>"
-                         <%if(locals.oldData && locals.oldData.rooms){                
-                           oldData.rooms.forEach(old =>{
-                             if(old==room.id){%>checked<%}})}%>
-                             />
+                         
+                      <%if(locals.oldData && locals.oldData.rooms ){                
+                        oldData.rooms.forEach(old =>{
+                          if(old==room.id){%>checked<%}})}%>
+
+
                         <label class="form-check-label" for="<%=room.id%>"><%=room.name%></label>
                     </div>
                     <%})%>
@@ -185,8 +187,7 @@
                   id="description" 
                   name="description"
                   rows="3"
-                  class="form-control <%=locals.errors&&errors.description ? "is-invalid":null%>" 
-                 ><%=locals.oldData ? oldData.name:null%></textarea>            
+                  class="form-control <%=locals.errors&&errors.description ? "is-invalid":null%>"><%=locals.oldData ? oldData.description:null%></textarea>            
                   <%if(locals.errors && errors.description){%>
                     <div class="text-danger"><%=errors.description.msg%></div>
                   <%}%>   

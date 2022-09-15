@@ -149,12 +149,6 @@ module.exports = {
       include: ["Rooms"],
       paranoid: true,
     })
-    /*const vInstallments = req.body.installmentId
-    const vCategorys = req.body.categoryId 
-    const vRooms = req.body.rooms
-    const vStyles = req.body.styleId  
-    const vColours = req.body.colourId   
-    const vBrands = req.body.brandId */
 
     const vInstallments = await db.Installment.findAll({order: [["name", "asc"]],});
     const vCategorys = await db.Category.findAll({ order: [["name", "asc"]] });
@@ -163,15 +157,7 @@ module.exports = {
     const vColours = await db.Colour.findAll({ order: [["name", "asc"]] });
     const vBrands = await db.Brand.findAll({ order: [["name", "asc"]] });
   
-    /*const vInstallments = db.Installment.findByPk(req.params.id);
-    const vCategorys = db.Category.findByPk(req.params.id);
-    const vRooms = db.Room.findByPk(req.params.id);
-    const vStyles = db.Style.findByPk(req.params.id);
-    const vColours = db.Colour.findByPk(req.params.id);
-    const vBrands = db.Brand.findByPk(req.params.id);
-    res.send(req.body);*/
-
-   let ambientes = [];
+     let ambientes = [];
     if (req.body.rooms) {
       if (typeof req.body.rooms == "string") {
         ambientes.push(req.body.rooms);

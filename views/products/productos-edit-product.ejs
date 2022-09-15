@@ -65,22 +65,19 @@
                   >Cuotas: </label
                 >
                 <select 
-                value="<%=locals.oldData ? oldData.installmentId : productoEditar.price%>"
                 name="installmentId" 
                 id="installmentId" 
                 class="form-select <%=locals.errors && errors.installmentId ? "is-invalid":null%>">
-                <option value=""> Seleccione </option>
-                <% vInstallments.forEach(installment => {%>
-                  <option 
-                   value="<%=installment.id%>" 
-                  <%=locals.oldData && (installment.id === oldData.installmentId) ? "selected": productoEditar.installmentId%>
-                    <%=installment.name%> ></option>
-
-                  <% })%>
-                 </select>
+                <option value="">Seleccione</option>
+                <% vInstallments.forEach(Installment => {%>
+                  <option value="<%=Installment.id%>" 
+                <% if ((locals.oldData && oldData.installmentId == Installment.id)||(!locals.oldData && productoEditar.installmentId == Installment.id)){%> selected <% } %> >
+                <%=Installment.name%></option>
+                <% })%> 
+              </select> 
               <% if (locals.errors && errors.installmentId) { %>
                 <div class="text-danger"><%= errors.installmentId.msg %></div>
-                <% } %>
+                <% } %>  
          </div>
               <!-- color OBLIGATORIO-->
               <div class="col-4 mt-3">
@@ -144,11 +141,10 @@
                 id="brandId" 
                 class="form-select <%=locals.errors && errors.brandId ? "is-invalid":null%>">
                   <option value="">Seleccione</option>
-                  <% vBrands.forEach(brand => {%>
+                  <% vBrands.forEach(vBrands => {%>
                     <option value="<%=vBrands.id%>" 
-                  value="<%=brand.id%>"
-                  <% if ((locals.oldData && oldData.styleId == vBrands.id)||(!locals.oldData && productoEditar.brandId == vBrands.id)){%> selected <% } %> >))=locals.oldData && (brand.id === oldData.brandId) ? "selected": null%>
-                  ><%=brand.name%></option>
+                  <% if ((locals.oldData && oldData.brandId == vBrands.id)||(!locals.oldData && productoEditar.brandId == vBrands.id)){%> selected <% } %> >
+                  <%=vBrands.name%></option>
                   <% })%> 
                 </select> 
                 <% if (locals.errors && errors.brandId) { %>
@@ -161,9 +157,15 @@
                 <% vRooms.forEach(room => {%>
                   <div class="form-check form-check-inline">
                     <input class="form-check-input" type="checkbox" id="<%=room.id%>" name="rooms" value="<%=room.id%>" 
-                    <%if(locals.oldData && locals.oldData.rooms){                
-                      oldData.rooms.forEach(old =>{
-                        if(old==room.id){%> checked <%}})}%>>
+                    
+                 <% if ((locals.oldData && oldData.rooms)||(!locals.oldData && productoEditar.rooms)){%> 
+                      <%oldData.rooms.forEach(old => { %>
+                      <%if(old == room.id){ %>
+                         checked
+                      <%}%>
+                      <%})%>
+                      <%}%>
+                        >
                    <label class="form-check-label" for="<%=room.id%>"><%=room.name%></label>
                </div>
                <% })%>             
@@ -241,12 +243,14 @@
               <div class="col-12 mt-3">
                 <label for="image" class="form-label">Imagen:</label>
                 <input
-                  type="file"
-                  class="form-control <%=locals.errors && errors.picture ? "is-invalid": null%>"
-                  id="picture"
-                  name="picture"
-                  placeholder="Subir una nueva imagen"
-                />
+                class="form-control <%=locals.errors && errors.picture ? "is-invalid": null%>"
+                type="file" 
+                id="picture" 
+                name="picture" 
+                value="<%=locals.oldData ? oldData.picture : productoEditar.picture%>">
+              <%if(locals.errors && errors.picture){%>
+                <div class="text-danger"><%=errors.picture.msg%></div>
+              <%}%>  
               </div>
               <!--Boton SUBMIT -->
               <div class="align-center mt-3">
