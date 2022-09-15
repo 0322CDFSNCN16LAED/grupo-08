@@ -25,11 +25,14 @@
                 type="text"
                 name="name"
                 id="name"
-                class="form-control"
-                
+                class="form-control <%=locals.errors && errors.name ? "is-invalid":null%>"
                 placeholder=""
+                value="<%= locals.oldData ? oldData.name : null %>"
               />
               <span class="error"></span>
+              <% if (locals.errors && errors.name) { %>
+                <div class="text-danger"><%= errors.name.msg %></div>
+                <% } %>
               </div>
             </div>
             <!--precio-->
@@ -39,21 +42,36 @@
                 type="text"
                 name="price"
                 id="price"
-                class="form-control"
+                class="form-control <%=locals.errors && errors.price ? "is-invalid": null%>"
                 placeholder=""
+                value="<%= locals.oldData ? oldData.price : null %>"
               />
               <span class="error"></span>
+              <% if (locals.errors && errors.price) { %>
+                <div class="text-danger"><%= errors.price.msg %></div>
+                <% } %>
             </div>
              <!--cuotas-->
              <div class="col-sm-6 col-md-4 mt-3">
               <label for="installmentId" class="form-label">Cuotas:</label>
-              <select name="installmentId" id="installmentId" class="form-select">
+              <select 
+              name="installmentId" 
+              id="installmentId" 
+              class="form-select <%=locals.errors && errors.installmentId ? "is-invalid": null%>"
+                  >
                 <option value=""> Seleccione </option>
                 <% vInstallments.forEach(installment => {%>
-                <option value="<%=installment.id%>"><%=installment.name%> </option>
-                <% })%>
+                  <option 
+                    value="<%=installment.id%>"
+                           <%=locals.oldData && (installment.id === oldData.installmentId) ? "selected": null%>
+                    >
+                    <%=installment.name%></option>
+                  <% })%>
               </select>
               <span class="error"></span>
+              <% if (locals.errors && errors.installmentId) { %>
+                <div class="text-danger"><%= errors.installmentId.msg %></div>
+                <% } %>
             </div>
              <!--SALE-->
              <div class="col-sm-6 col-md-4 mt-3">
@@ -69,75 +87,142 @@
              <!--color-->
              <div class="col-sm-6 col-md-3 mt-3">
               <label for="colorId" class="form-label">Color:</label>
-              <select name="colourId" id="colourId" class="form-select">
+              <select 
+              name="colourId" 
+              id="colourId" 
+              class="form-select <%=locals.errors && errors.colourId ? "is-invalid": null%>"
+              >
                 <option value=""> Seleccione </option>
                 <% vColours.forEach(colour => {%>
-                <option value="<%=colour.id%>"><%=colour.name%> </option>
-                <% })%>
+                  <option 
+                    value="<%=colour.id%>"
+                    <%=locals.oldData && (colour.id === oldData.colourId) ? "selected": null%>
+                    >
+                    <%=colour.name%> </option>
+                  <% })%>
               </select>
               <span class="error"></span>
+              <% if (locals.errors && errors.colorId) { %>
+                <div class="text-danger"><%= errors.colorId.msg %></div>
+                <% } %>
             </div>
             <!--categoria-->
             <div class="col-sm-6 col-md-3 mt-3">
               <label for="categoryId" class="form-label">Categoría:</label>
-              <select name="categoryId" id="categoryId" class="form-select">
+              <select 
+              name="categoryId" 
+              id="categoryId" 
+              class="form-select <%=locals.errors && errors.categoryId ? "is-invalid": null%>"
+              >
                 <option value="">Seleccione</option>
                 <% vCategorys.forEach(category => {%>
-                <option value="<%=category.id%>"><%=category.name%></option>
-                <% })%>
+                  <option 
+                  value="<%=category.id%>"
+                  <%=locals.oldData && (category.id === oldData.categoryId) ? "selected": null%>
+                  >
+                  <%=category.name%></option>
+                  <% })%>
               </select>
               <span class="error"></span>
+              <% if (locals.errors && errors.categoryId) { %>
+                <div class="text-danger"><%= errors.categoryId.msg %></div>
+                <% } %>
             </div>
             <!--estilos-->
             <div class="col-sm-6 col-md-3 mt-3">
               <label for="styleId" class="form-label col-12">Estilo:</label>
-              <select class="form-select" name="styleId" id="styleId">
-                <option value="">Seleccione</option>
-                <% vStyles.forEach(style => {%>
-                  <option value="<%=style.id%>"><%=style.name%></option>
-                <% })%> 
+              <select 
+                class="form-select <%=locals.errors && errors.styleId ? "is-invalid": null%>"
+                name="styleId" 
+                id="styleId">
+                 <option value="">Seleccione</option>
+                 <% vStyles.forEach(style => {%>
+                   <option 
+                   value="<%=style.id%>"
+                         <%=locals.oldData && (style.id === oldData.styleId) ? "selected": null%>
+                   >
+                   <%=style.name%></option>
+                 <% })%>
               </select>
               <span class="error"></span>
+              <% if (locals.errors && errors.styleId) { %>
+                <div class="text-danger"><%= errors.styleId.msg %></div>
+                <% } %>
             </div>
              <!--marca-->
              <div class="col-sm-6 col-md-3 mt-3">
               <label for="brandId" class="form-label col-12">Marca:</label>
-              <select class="form-select" name="brandId" id="brandId">
+              <select 
+              class="form-select <%=locals.errors && errors.brandId ? "is-invalid": null%> <%=locals.errors && errors.brandId ? "is-invalid": null%>"
+              name="brandId" 
+              id="brandId">
                 <option value="">Seleccione</option>
                 <% vBrands.forEach(brand => {%>
-                  <option value="<%=brand.id%>"><%=brand.name%></option>
+                  <option 
+                  value="<%=brand.id%>"
+                  <%=locals.oldData && (brand.id === oldData.brandId) ? "selected": null%>
+                  ><%=brand.name%></option>
                 <% })%> 
               </select>
               <span class="error"></span>
+              <% if (locals.errors && errors.brandId) { %>
+                <div class="text-danger"><%= errors.brandId.msg %></div>
+                <% } %>
             </div>
             <!--ambientes-->
             <div class="col-12 col-md-6 mt-3">
               <label for="rooms" class="form-label col-12">Ambientes:</label>
-              <% vRooms.forEach(room => {%>
+              <% vRooms.forEach(room =>{%>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="<%=room.id%>" name="rooms" value="<%=room.id%>">
-                  <label class="form-check-label" for="<%=room.id%>"><%=room.name%></label>
-                   
+                  <input class="form-check-input" type="checkbox" id="<%=room.id%>" name="rooms" value="<%=room.id%>"
+                  <% if(locals.oldData && locals.oldData.rooms){ %>
+                    <%     oldData.rooms.forEach(old => { %>
+                    <%        if(old == room.id){ %>
+                                checked
+                    <%         }%>
+                    <%     }) %>
+                    <%}%>>
+                    <label class="form-check-label" for="<%=room.id%>"><%=room.name%></label>
                 </div>
-                <% })%> 
+                <% })%>        
               </br>  
                 <span id="errorRoom" name="errorRoom" class="" style="color:red"></span>          
-            </div>               
+                <%if(locals.errors && errors.rooms) {%>
+                  <div class="text-danger"><%=errors.rooms.msg%></div>
+                <%}%>  
+              </div>               
             <!--descripcion del producto-->
             <div class="col-12 col-md-6 mt-3">
               <label for="description" class="form-label col-12">Descripción</label>
-              <textarea class="form-control" id="description" name="description" rows="3"></textarea>            
+              <textarea 
+              id="description" 
+              name="description" 
+              rows="3"
+              class="form-control <%=locals.errors&&errors.description ? "is-invalid":null%>" 
+                 ><%=locals.oldData ? oldData.name:null%></textarea>            
               <span class="error"></span>
+              <%if(locals.errors && errors.description){%>
+                <div class="text-danger"><%=errors.description.msg%></div>
+              <%}%>   
             </div>
             <!--detalles del producto-->
             <div class="col-12 col-md-6 mt-3">
               <label for="details" class="form-label col-12">Detalles <span class="font-red"> (Indicar los detalles separados por comas)</span></label>
-              <textarea class="form-control" id="details" name="details" rows="3"></textarea>            
+              <textarea 
+              class="form-control" 
+              id="details" 
+              name="details" 
+              rows="3"><%=locals.oldData ? oldData.details : null %></textarea>            
             </div>
             <!--Información extra del producto-->
             <div class="col-12 col-md-6 mt-3">
               <label for="extraInfo" class="form-label">Información extra del producto<span class="font-red"> (Indicar la información extra separados por comas)</span></label>
-              <textarea class="form-control" id="extraInfo" name="extraInfo" rows="3"></textarea>            
+              <textarea 
+              class="form-control" 
+              id="extraInfo" 
+              name="extraInfo" 
+              rows="3"
+              value=""><%= locals.oldData ? oldData.extraInfo : null %></textarea>            
             </div>          
             <!--medidas-->
             <div class="col-12 col-md-6 mt-3">
@@ -148,6 +233,7 @@
                 id="measurements"
                 class="form-control"
                 placeholder=""
+                value="<%= locals.oldData ? oldData.measurements : null %>"
               />
             </div>
             <!-- envio gratis -->
@@ -162,8 +248,16 @@
             <div class="col-12 mt-3">
               <!-- Imagen -->
               <label for="formFile" class="form-label">Imagen</label>
-              <input class="form-control" type="file" id="picture" name="picture">
+              <input 
+              class="form-control <%=locals.errors && errors.picture ? "is-invalid":null%>"
+              type="file" 
+              id="picture" 
+              name="picture"
+              value="<%= locals.oldData ? oldData.name : null %>">
               <span class="error"></span>
+              <%if(locals.errors && errors.picture){%>
+                <div class="text-danger"><%=errors.picture.msg%></div>
+              <%}%>  
             </div>
                     
             <div class="col-12 mt-3 text-align-c">

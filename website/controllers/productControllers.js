@@ -1,6 +1,8 @@
 const db = require("../database/models");
 const { Op } = require("sequelize");
 
+const { validationResult } = require("express-validator");
+
 module.exports = {
   // ver todos los productos
   index: async (req, res) => {
@@ -50,6 +52,39 @@ module.exports = {
   },
   //accion de procesar el producto. CREAR
   store: async function (req, res) {
+    //para hacer la validacion
+    const resultValidation = validationResult(req);
+    // llamo a las variables
+    let vInstallments = await db.Installment.findAll({order: [["name", "asc"]],});
+    let vCategorys = await db.Category.findAll({ order: [["name", "asc"]] });
+    let vRooms = await db.Room.findAll({ order: [["name", "asc"]] });
+    let vStyles = await db.Style.findAll({ order: [["name", "asc"]] });
+    let vColours = await db.Colour.findAll({ order: [["name", "asc"]] });
+    let vBrands = await db.Brand.findAll({ order: [["name", "asc"]] });
+    let ambientes = [];
+    if (req.body.rooms) {
+      if (typeof req.body.rooms == "string") {
+        ambientes.push(req.body.rooms);
+      } else {
+        ambientes = req.body.rooms;
+      }
+    }
+    req.body.rooms = ambientes;
+    if (resultValidation.errors) {
+      //res.send(req.body);
+
+      // si el array es mayor a cero quiere decir que hay errores
+      return res.render("products/products-create-form", {
+        errors: resultValidation.mapped(), //convierte al array en un obj literal
+        oldData: req.body,
+        vInstallments,
+        vCategorys,
+        vStyles,
+        vRooms,
+        vColours,
+        vBrands,
+      });
+    } else {
     try {
       let resp = await db.Product.create({
         ...req.body,
@@ -69,7 +104,8 @@ module.exports = {
     } catch (error) {
       res.send(error);
     }
-  },
+  }
+},
   // vista para editar detalles de productos
   edit: async (req, res) => {
     /*const productEdit = await db.Product.findByPk(req.params.id, {
@@ -186,4 +222,16 @@ module.exports = {
       res.send("search error ---> " + error);
     }
   },
+  category: async function (req, res) {
+    const category = await db.Category.findAll({
+       include: ["Products"],
+       order: [["name", "ASC"]],
+       where: {name: req.params.name}, 
+         })
+        // console.log(mueble)
+      
+     //res.send(muebles)
+     res.render("products/category", {category});
+  }
+
 };
